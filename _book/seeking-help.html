@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Seeking Help | 2020-01-15-brynmawr</title>
+  <meta name="description" content="This is a review of the material covered in Bryn Mawr College’s Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020." />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Seeking Help | 2020-01-15-brynmawr" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a review of the material covered in Bryn Mawr College’s Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Seeking Help | 2020-01-15-brynmawr" />
+  
+  <meta name="twitter:description" content="This is a review of the material covered in Bryn Mawr College’s Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020." />
+  
+
+<meta name="author" content="Kelsey Gonzalez, Amelia McNamara, The Carpentries" />
+
+
+<meta name="date" content="2020-01-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction-to-r.html"/>
+<link rel="next" href="starting-with-data.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-is-r-what-is-rstudio"><i class="fa fa-check"></i><b>1.1</b> What is R? What is RStudio?</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#why-learn-r"><i class="fa fa-check"></i><b>1.2</b> Why learn R?</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#r-does-not-involve-lots-of-pointing-and-clicking-and-thats-a-good-thing"><i class="fa fa-check"></i><b>1.2.1</b> R does not involve lots of pointing and clicking, and that’s a good thing</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#r-code-is-great-for-reproducibility"><i class="fa fa-check"></i><b>1.2.2</b> R code is great for reproducibility</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#r-is-interdisciplinary-and-extensible"><i class="fa fa-check"></i><b>1.2.3</b> R is interdisciplinary and extensible</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#r-works-on-data-of-all-shapes-and-sizes"><i class="fa fa-check"></i><b>1.2.4</b> R works on data of all shapes and sizes</a></li>
+<li class="chapter" data-level="1.2.5" data-path="introduction.html"><a href="introduction.html#r-produces-high-quality-graphics"><i class="fa fa-check"></i><b>1.2.5</b> R produces high-quality graphics</a></li>
+<li class="chapter" data-level="1.2.6" data-path="introduction.html"><a href="introduction.html#r-has-a-large-and-welcoming-community"><i class="fa fa-check"></i><b>1.2.6</b> R has a large and welcoming community</a></li>
+<li class="chapter" data-level="1.2.7" data-path="introduction.html"><a href="introduction.html#not-only-is-r-free-but-it-is-also-open-source-and-cross-platform"><i class="fa fa-check"></i><b>1.2.7</b> Not only is R free, but it is also open-source and cross-platform</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#knowing-your-way-around-rstudio"><i class="fa fa-check"></i><b>1.3</b> Knowing your way around RStudio</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#getting-set-up"><i class="fa fa-check"></i><b>1.4</b> Getting set up</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introduction.html"><a href="introduction.html#create-a-new-project"><i class="fa fa-check"></i><b>1.4.1</b> Create a new project</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduction.html"><a href="introduction.html#the-rstudio-interface"><i class="fa fa-check"></i><b>1.4.2</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="1.4.3" data-path="introduction.html"><a href="introduction.html#organizing-your-working-directory"><i class="fa fa-check"></i><b>1.4.3</b> Organizing your working directory</a></li>
+<li class="chapter" data-level="1.4.4" data-path="introduction.html"><a href="introduction.html#the-working-directory"><i class="fa fa-check"></i><b>1.4.4</b> The working directory</a></li>
+<li class="chapter" data-level="1.4.5" data-path="introduction.html"><a href="introduction.html#downloading-the-data-and-getting-set-up"><i class="fa fa-check"></i><b>1.4.5</b> Downloading the data and getting set up</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#interacting-with-r"><i class="fa fa-check"></i><b>1.5</b> Interacting with R</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#installing-additional-packages-using-the-packages-tab"><i class="fa fa-check"></i><b>1.6</b> Installing additional packages using the packages tab</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#installing-additional-packages-using-r-code"><i class="fa fa-check"></i><b>1.7</b> Installing additional packages using R code</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html"><i class="fa fa-check"></i><b>2</b> Project Management With RStudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#introduction-1"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#a-possible-solution"><i class="fa fa-check"></i><b>2.2</b> A possible solution</a></li>
+<li class="chapter" data-level="2.3" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#best-practices-for-project-organization"><i class="fa fa-check"></i><b>2.3</b> Best practices for project organization</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#treat-data-as-read-only"><i class="fa fa-check"></i><b>2.3.1</b> Treat data as read only</a></li>
+<li class="chapter" data-level="2.3.2" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#data-cleaning"><i class="fa fa-check"></i><b>2.3.2</b> Data Cleaning</a></li>
+<li class="chapter" data-level="2.3.3" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#treat-generated-output-as-disposable"><i class="fa fa-check"></i><b>2.3.3</b> Treat generated output as disposable</a></li>
+<li class="chapter" data-level="2.3.4" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#separate-function-definition-and-application"><i class="fa fa-check"></i><b>2.3.4</b> Separate function definition and application</a></li>
+<li class="chapter" data-level="2.3.5" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#save-the-data-in-the-data-directory"><i class="fa fa-check"></i><b>2.3.5</b> Save the data in the data directory</a></li>
+<li class="chapter" data-level="2.3.6" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#version-control"><i class="fa fa-check"></i><b>2.3.6</b> Version Control</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>3</b> Introduction to R</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#creating-objects-in-r"><i class="fa fa-check"></i><b>3.1</b> Creating objects in R</a></li>
+<li class="chapter" data-level="3.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#comments"><i class="fa fa-check"></i><b>3.2</b> Comments</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#functions-and-their-arguments"><i class="fa fa-check"></i><b>3.2.1</b> Functions and their arguments</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#vectors-and-data-types"><i class="fa fa-check"></i><b>3.3</b> Vectors and data types</a></li>
+<li class="chapter" data-level="3.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#subsetting-vectors"><i class="fa fa-check"></i><b>3.4</b> Subsetting vectors</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#conditional-subsetting"><i class="fa fa-check"></i><b>3.4.1</b> Conditional subsetting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#missing-data"><i class="fa fa-check"></i><b>3.5</b> Missing data</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="seeking-help.html"><a href="seeking-help.html"><i class="fa fa-check"></i><b>4</b> Seeking Help</a><ul>
+<li class="chapter" data-level="4.1" data-path="seeking-help.html"><a href="seeking-help.html#reading-help-files"><i class="fa fa-check"></i><b>4.1</b> Reading Help files</a></li>
+<li class="chapter" data-level="4.2" data-path="seeking-help.html"><a href="seeking-help.html#special-operators"><i class="fa fa-check"></i><b>4.2</b> Special Operators</a></li>
+<li class="chapter" data-level="4.3" data-path="seeking-help.html"><a href="seeking-help.html#getting-help-on-packages"><i class="fa fa-check"></i><b>4.3</b> Getting help on packages</a></li>
+<li class="chapter" data-level="4.4" data-path="seeking-help.html"><a href="seeking-help.html#when-you-kind-of-remember-the-function"><i class="fa fa-check"></i><b>4.4</b> When you kind of remember the function</a></li>
+<li class="chapter" data-level="4.5" data-path="seeking-help.html"><a href="seeking-help.html#when-you-have-no-idea-where-to-begin"><i class="fa fa-check"></i><b>4.5</b> When you have no idea where to begin</a></li>
+<li class="chapter" data-level="4.6" data-path="seeking-help.html"><a href="seeking-help.html#when-your-code-doesnt-work-seeking-help-from-your-peers"><i class="fa fa-check"></i><b>4.6</b> When your code doesn’t work: seeking help from your peers</a></li>
+<li class="chapter" data-level="4.7" data-path="seeking-help.html"><a href="seeking-help.html#other-ports-of-call"><i class="fa fa-check"></i><b>4.7</b> Other ports of call</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="starting-with-data.html"><a href="starting-with-data.html"><i class="fa fa-check"></i><b>5</b> Starting with Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="starting-with-data.html"><a href="starting-with-data.html#presentation-of-the-safi-data"><i class="fa fa-check"></i><b>5.1</b> Presentation of the SAFI Data</a></li>
+<li class="chapter" data-level="5.2" data-path="starting-with-data.html"><a href="starting-with-data.html#what-are-data-frames-and-tibbles"><i class="fa fa-check"></i><b>5.2</b> What are data frames and tibbles?</a></li>
+<li class="chapter" data-level="5.3" data-path="starting-with-data.html"><a href="starting-with-data.html#inspecting-data-frames"><i class="fa fa-check"></i><b>5.3</b> Inspecting data frames</a></li>
+<li class="chapter" data-level="5.4" data-path="starting-with-data.html"><a href="starting-with-data.html#indexing-and-subsetting-data-frames"><i class="fa fa-check"></i><b>5.4</b> Indexing and subsetting data frames</a></li>
+<li class="chapter" data-level="5.5" data-path="starting-with-data.html"><a href="starting-with-data.html#factors"><i class="fa fa-check"></i><b>5.5</b> Factors</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="starting-with-data.html"><a href="starting-with-data.html#converting-factors"><i class="fa fa-check"></i><b>5.5.1</b> Converting factors</a></li>
+<li class="chapter" data-level="5.5.2" data-path="starting-with-data.html"><a href="starting-with-data.html#renaming-factors"><i class="fa fa-check"></i><b>5.5.2</b> Renaming factors</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="starting-with-data.html"><a href="starting-with-data.html#formatting-dates"><i class="fa fa-check"></i><b>5.6</b> Formatting Dates</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-wrangling.html"><a href="data-wrangling.html#data-manipulation-using-dplyr-and-tidyr"><i class="fa fa-check"></i><b>6.1</b> Data Manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong></a></li>
+<li class="chapter" data-level="6.2" data-path="data-wrangling.html"><a href="data-wrangling.html#what-is-an-r-package"><i class="fa fa-check"></i><b>6.2</b> What is an R package?</a></li>
+<li class="chapter" data-level="6.3" data-path="data-wrangling.html"><a href="data-wrangling.html#learning-dplyr-and-tidyr"><i class="fa fa-check"></i><b>6.3</b> Learning <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong></a></li>
+<li class="chapter" data-level="6.4" data-path="data-wrangling.html"><a href="data-wrangling.html#selecting-columns-and-filtering-rows"><i class="fa fa-check"></i><b>6.4</b> Selecting columns and filtering rows</a></li>
+<li class="chapter" data-level="6.5" data-path="data-wrangling.html"><a href="data-wrangling.html#pipes"><i class="fa fa-check"></i><b>6.5</b> Pipes</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="data-wrangling.html"><a href="data-wrangling.html#mutate"><i class="fa fa-check"></i><b>6.5.1</b> Mutate</a></li>
+<li class="chapter" data-level="6.5.2" data-path="data-wrangling.html"><a href="data-wrangling.html#split-apply-combine-data-analysis-and-the-summarize-function"><i class="fa fa-check"></i><b>6.5.2</b> Split-apply-combine data analysis and the summarize() function</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="data-wrangling.html"><a href="data-wrangling.html#reshaping-with-gather-and-spread"><i class="fa fa-check"></i><b>6.6</b> Reshaping with gather and spread</a></li>
+<li class="chapter" data-level="6.7" data-path="data-wrangling.html"><a href="data-wrangling.html#gathering"><i class="fa fa-check"></i><b>6.7</b> Gathering</a></li>
+<li class="chapter" data-level="6.8" data-path="data-wrangling.html"><a href="data-wrangling.html#applying-spread-to-clean-our-data"><i class="fa fa-check"></i><b>6.8</b> Applying <code>spread()</code> to clean our data</a></li>
+<li class="chapter" data-level="6.9" data-path="data-wrangling.html"><a href="data-wrangling.html#exporting-data"><i class="fa fa-check"></i><b>6.9</b> Exporting data</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>7</b> Data Visualization</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-visualization.html"><a href="data-visualization.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>7.1</b> Plotting with <strong><code>ggplot2</code></strong></a></li>
+<li class="chapter" data-level="7.2" data-path="data-visualization.html"><a href="data-visualization.html#building-your-plots-iteratively"><i class="fa fa-check"></i><b>7.2</b> Building your plots iteratively</a></li>
+<li class="chapter" data-level="7.3" data-path="data-visualization.html"><a href="data-visualization.html#boxplot"><i class="fa fa-check"></i><b>7.3</b> Boxplot</a></li>
+<li class="chapter" data-level="7.4" data-path="data-visualization.html"><a href="data-visualization.html#barplots"><i class="fa fa-check"></i><b>7.4</b> Barplots</a></li>
+<li class="chapter" data-level="7.5" data-path="data-visualization.html"><a href="data-visualization.html#adding-labels-and-titles"><i class="fa fa-check"></i><b>7.5</b> Adding Labels and Titles</a></li>
+<li class="chapter" data-level="7.6" data-path="data-visualization.html"><a href="data-visualization.html#faceting"><i class="fa fa-check"></i><b>7.6</b> Faceting</a></li>
+<li class="chapter" data-level="7.7" data-path="data-visualization.html"><a href="data-visualization.html#ggplot2-themes"><i class="fa fa-check"></i><b>7.7</b> <strong><code>ggplot2</code></strong> themes</a></li>
+<li class="chapter" data-level="7.8" data-path="data-visualization.html"><a href="data-visualization.html#customization"><i class="fa fa-check"></i><b>7.8</b> Customization</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Reporting.html"><a href="Reporting.html"><i class="fa fa-check"></i><b>8</b> Producing Reports With knitr</a><ul>
+<li class="chapter" data-level="8.1" data-path="Reporting.html"><a href="Reporting.html#forcats"><i class="fa fa-check"></i><b>8.1</b> ForCats</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html"><i class="fa fa-check"></i><b>9</b> Producing Reports With knitr</a><ul>
+<li class="chapter" data-level="9.1" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#data-analysis-reports"><i class="fa fa-check"></i><b>9.1</b> Data analysis reports</a></li>
+<li class="chapter" data-level="9.2" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#literate-programming"><i class="fa fa-check"></i><b>9.2</b> Literate programming</a></li>
+<li class="chapter" data-level="9.3" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#creating-an-r-markdown-file"><i class="fa fa-check"></i><b>9.3</b> Creating an R Markdown file</a></li>
+<li class="chapter" data-level="9.4" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#basic-components-of-r-markdown"><i class="fa fa-check"></i><b>9.4</b> Basic components of R Markdown</a></li>
+<li class="chapter" data-level="9.5" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#markdown"><i class="fa fa-check"></i><b>9.5</b> Markdown</a></li>
+<li class="chapter" data-level="9.6" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#a-bit-more-markdown"><i class="fa fa-check"></i><b>9.6</b> A bit more Markdown</a></li>
+<li class="chapter" data-level="9.7" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#r-code-chunks"><i class="fa fa-check"></i><b>9.7</b> R code chunks</a></li>
+<li class="chapter" data-level="9.8" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#how-things-get-compiled"><i class="fa fa-check"></i><b>9.8</b> How things get compiled</a></li>
+<li class="chapter" data-level="9.9" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#chunk-options"><i class="fa fa-check"></i><b>9.9</b> Chunk options</a></li>
+<li class="chapter" data-level="9.10" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#inline-r-code"><i class="fa fa-check"></i><b>9.10</b> Inline R code</a></li>
+<li class="chapter" data-level="9.11" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#other-output-options"><i class="fa fa-check"></i><b>9.11</b> Other output options</a></li>
+<li class="chapter" data-level="9.12" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#resources"><i class="fa fa-check"></i><b>9.12</b> Resources</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">2020-01-15-brynmawr</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="seeking-help" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Seeking Help</h1>
+<p>teaching: 10<br />
+exercises: 10<br />
+adapted from: <a href="http://swcarpentry.github.io/r-novice-gapminder/03-seeking-help/index.html" class="uri">http://swcarpentry.github.io/r-novice-gapminder/03-seeking-help/index.html</a><br />
+questions:</p>
+<ul>
+<li>“How can I get help in R?”</li>
+</ul>
+<p>objectives:</p>
+<ul>
+<li>“To be able read R help files for functions and special operators.”<br />
+</li>
+<li>“To be able to use CRAN task views to identify packages to solve a problem.”<br />
+</li>
+<li>“To be able to seek help from your peers.”</li>
+</ul>
+<p>keypoints:</p>
+<ul>
+<li>“Use <code>help()</code> to get online help in R.”</li>
+</ul>
+<div id="reading-help-files" class="section level2">
+<h2><span class="header-section-number">4.1</span> Reading Help files</h2>
+<p>R, and every package, provide help files for functions. The general syntax to search for help on any function, “function_name”, from a specific function that is in a package loaded into your namespace (your interactive R session):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?function_name
+<span class="kw">help</span>(function_name)</code></pre></div>
+<p>This will load up a help page in RStudio (or as plain text in R by itself).</p>
+<p>Each help page is broken down into sections:</p>
+<ul>
+<li>Description: An extended description of what the function does.</li>
+<li>Usage: The arguments of the function and their default values.</li>
+<li>Arguments: An explanation of the data each argument is expecting.</li>
+<li>Details: Any important details to be aware of.</li>
+<li>Value: The data the function returns.</li>
+<li>See Also: Any related functions you might find useful.</li>
+<li>Examples: Some examples for how to use the function.</li>
+</ul>
+<p>Different functions might have different sections, but these are the main ones you should be aware of.</p>
+<blockquote>
+<h2 id="tip-running-examples"><span class="header-section-number">4.1</span> Tip: Running Examples</h2>
+<p>From within the function help page, you can highlight code in the Examples and hit <kbd>Ctrl</kbd>+<kbd>Return</kbd> to run it in RStudio console. This is gives you a quick way to get a feel for how a function works.</p>
+</blockquote>
+<blockquote>
+<h2 id="tip-reading-help-files"><span class="header-section-number">4.1</span> Tip: Reading help files</h2>
+<p>One of the most daunting aspects of R is the large number of functions available. It would be prohibitive, if not impossible to remember the correct usage for every function you use. Luckily, the help files mean you don’t have to! {: .callout}</p>
+</blockquote>
+</div>
+<div id="special-operators" class="section level2">
+<h2><span class="header-section-number">4.2</span> Special Operators</h2>
+<p>To seek help on special operators, use quotes:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?<span class="st">&quot;&lt;-&quot;</span></code></pre></div>
+</div>
+<div id="getting-help-on-packages" class="section level2">
+<h2><span class="header-section-number">4.3</span> Getting help on packages</h2>
+<p>Many packages come with “vignettes”: tutorials and extended example documentation. Without any arguments, <code>vignette()</code> will list all vignettes for all installed packages; <code>vignette(package=&quot;package-name&quot;)</code> will list all available vignettes for <code>package-name</code>, and <code>vignette(&quot;vignette-name&quot;)</code> will open the specified vignette.</p>
+<p>If a package doesn’t have any vignettes, you can usually find help by typing <code>help(&quot;package-name&quot;)</code>.</p>
+</div>
+<div id="when-you-kind-of-remember-the-function" class="section level2">
+<h2><span class="header-section-number">4.4</span> When you kind of remember the function</h2>
+<p>If you’re not sure what package a function is in, or how it’s specifically spelled you can do a fuzzy search:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">??function_name</code></pre></div>
+</div>
+<div id="when-you-have-no-idea-where-to-begin" class="section level2">
+<h2><span class="header-section-number">4.5</span> When you have no idea where to begin</h2>
+<p>If you don’t know what function or package you need to use <a href="http://cran.at.r-project.org/web/views">CRAN Task Views</a> is a specially maintained list of packages grouped into fields. This can be a good starting point.</p>
+</div>
+<div id="when-your-code-doesnt-work-seeking-help-from-your-peers" class="section level2">
+<h2><span class="header-section-number">4.6</span> When your code doesn’t work: seeking help from your peers</h2>
+<p>If you’re having trouble using a function, 9 times out of 10, the answers you are seeking have already been answered on <a href="http://stackoverflow.com/">Stack Overflow</a>. You can search using the <code>[r]</code> tag.</p>
+<p>If you can’t find the answer, there are a few useful functions to help you ask a question from your peers:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?dput</code></pre></div>
+<p>Will dump the data you’re working with into a format so that it can be copy and pasted by anyone else into their R session.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre></div>
+<pre><code>## R version 3.6.1 (2019-07-05)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 10 x64 (build 18362)
+## 
+## Matrix products: default
+## 
+## locale:
+## [1] LC_COLLATE=English_United States.1252 
+## [2] LC_CTYPE=English_United States.1252   
+## [3] LC_MONETARY=English_United States.1252
+## [4] LC_NUMERIC=C                          
+## [5] LC_TIME=English_United States.1252    
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## loaded via a namespace (and not attached):
+##  [1] compiler_3.6.1  magrittr_1.5    bookdown_0.16   tools_3.6.1    
+##  [5] htmltools_0.4.0 rstudioapi_0.10 yaml_2.2.0      Rcpp_1.0.3     
+##  [9] stringi_1.4.3   rmarkdown_2.0   knitr_1.26      stringr_1.4.0  
+## [13] xfun_0.11       digest_0.6.23   rlang_0.4.2     evaluate_0.14</code></pre>
+<p>Will print out your current version of R, as well as any packages you have loaded. This can be useful for others to help reproduce and debug your issue.</p>
+<blockquote>
+<h2 id="challenge-1-1"><span class="header-section-number">4.6</span> Challenge 1</h2>
+<p>Look at the help for the <code>c</code> function. What kind of vector do you expect you will create if you evaluate the following:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)
+<span class="kw">c</span>(<span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>)
+<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="st">&#39;f&#39;</span>)</code></pre></div>
+<blockquote>
+<h2 id="solution-to-challenge-1"><span class="header-section-number">4.6</span> Solution to Challenge 1</h2>
+<p>The <code>c()</code> function creates a vector, in which all elements are the same type. In the first case, the elements are numeric, in the second, they are characters, and in the third they are characters: the numeric values are “coerced” to be characters. {: .solution} {: .challenge}</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<h2 id="challenge-2-1"><span class="header-section-number">4.6</span> Challenge 2</h2>
+<p>Look at the help for the <code>paste</code> function. You’ll need to use this later. What is the difference between the <code>sep</code> and <code>collapse</code> arguments?</p>
+<blockquote>
+<h2 id="solution-to-challenge-2-1"><span class="header-section-number">4.6</span> Solution to Challenge 2</h2>
+<p>To look at the help for the <code>paste()</code> function, use:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(<span class="st">&quot;paste&quot;</span>)
+?paste</code></pre></div>
+<p>The difference between <code>sep</code> and <code>collapse</code> is a little tricky. The <code>paste</code> function accepts any number of arguments, each of which can be a vector of any length. The <code>sep</code> argument specifies the string used between concatenated terms — by default, a space. The result is a vector as long as the longest argument supplied to <code>paste</code>. In contrast, <code>collapse</code> specifies that after concatenation the elements are <em>collapsed</em> together using the given separator, the result being a single string. e.g.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;a c&quot; &quot;b c&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;a,c&quot; &quot;b,c&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;a c|b c&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;a,c|b,c&quot;</code></pre>
+<p>(For more information, scroll to the bottom of the <code>?paste</code> help page and look at the examples, or try <code>example('paste')</code>.) {: .solution} {: .challenge}</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<h2 id="challenge-3"><span class="header-section-number">4.6</span> Challenge 3</h2>
+<p>Use help to find a function (and its associated parameters) that you could use to load data from a tabular file in which columns are delimited with “” (tab) and the decimal point is a “.” (period). This check for decimal separator is important, especially if you are working with international colleagues, because different countries have different conventions for the decimal point (i.e. comma vs period). hint: use <code>??&quot;read table&quot;</code> to look up functions related to reading in tabular data. &gt; ## Solution to Challenge 3 &gt; &gt; The standard R function for reading tab-delimited files with a period &gt; decimal separator is read.delim(). You can also do this with &gt; <code>read.table(file, sep=&quot;\t&quot;)</code> (the period is the <em>default</em> decimal &gt; separator for <code>read.table()</code>, although you may have to change &gt; the <code>comment.char</code> argument as well if your data file contains &gt; hash (#) characters {: .solution} {: .challenge}</p>
+</blockquote>
+</div>
+<div id="other-ports-of-call" class="section level2">
+<h2><span class="header-section-number">4.7</span> Other ports of call</h2>
+<ul>
+<li><a href="http://www.statmethods.net/">Quick R</a></li>
+<li><a href="http://www.rstudio.com/resources/cheatsheets/">RStudio cheat sheets</a></li>
+<li><a href="http://www.cookbook-r.com/">Cookbook for R</a></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction-to-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="starting-with-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-seeking-help.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

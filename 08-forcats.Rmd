@@ -1,0 +1,18 @@
+# Producing Reports With knitr{#Reporting}
+
+teaching: 60    
+exercises: 15   
+adapted from:  
+questions:  
+
+- "How can I easily create new categorical variables?" 
+
+objectives:  
+
+- 
+
+keypoints:  
+
+- 
+
+## ForCats

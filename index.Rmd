@@ -1,0 +1,15 @@
+--- 
+title: "2020-01-15-brynmawr"
+author: "Kelsey Gonzalez, Amelia McNamara, The Carpentries"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "This is a review of the material covered in Bryn Mawr College's Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020."
+---
+
+# Preface {-}

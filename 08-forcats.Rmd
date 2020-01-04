@@ -1,4 +1,4 @@
-# Producing Reports With knitr{#Reporting}
+# Advanced variable creation with `forcats` {#forcats}
 
 teaching: 60    
 exercises: 15   

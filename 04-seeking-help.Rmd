@@ -1,4 +1,4 @@
-# Seeking Help  
+# Seeking Help  {#help}
   
 teaching: 10  
 exercises: 10  

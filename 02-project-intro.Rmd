@@ -1,4 +1,4 @@
-# Project Management With RStudio
+# Project Management With RStudio {#projectmanagement}
 
 teaching: 20  
 exercises: 10  
@@ -27,7 +27,7 @@ start life as random notes, some code, then a manuscript, and
 eventually everything is a bit mixed together.  
 
 Most people tend to organize their projects like this:
-![bad layout](../fig/bad_layout.png)
+![bad layout](./fig/bad_layout.png)
 
 There are many reasons why we should *ALWAYS* avoid this:
 

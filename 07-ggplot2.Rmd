@@ -1,4 +1,4 @@
-# Data Visualization
+# Data Visualization with `ggplot2` {#ggplot}
   
 teaching: 80    
 exercises: 35    

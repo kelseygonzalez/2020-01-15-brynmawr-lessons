@@ -1,4 +1,4 @@
-# Producing Reports With knitr
+# Producing Reports With `knitr` {#knitr}
 
 teaching: 60    
 exercises: 15  
@@ -51,7 +51,7 @@ This sort of idea has been called "literate programming".
 ## Creating an R Markdown file
 
 Within RStudio, click File &rarr; New File &rarr; R Markdown and you'll get a dialog box like this: 
-![](../fig/New_R_Markdown.png)
+![](./fig/New_R_Markdown.png)
 
 You can stick with the default (HTML output), but give it a title.
 

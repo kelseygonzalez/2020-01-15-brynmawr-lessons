@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2020-01-15-brynmawr</title>
+  <title>Chapter 4 Seeking Help | 2020-01-15-brynmawr</title>
   <meta name="description" content="This is a review of the material covered in Bryn Mawr College’s Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020." />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2020-01-15-brynmawr" />
+  <meta property="og:title" content="Chapter 4 Seeking Help | 2020-01-15-brynmawr" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2020-01-15-brynmawr" />
+  <meta name="twitter:title" content="Chapter 4 Seeking Help | 2020-01-15-brynmawr" />
   
   <meta name="twitter:description" content="This is a review of the material covered in Bryn Mawr College’s Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="intro.html"/>
+<link rel="prev" href="basicR.html"/>
+<link rel="next" href="dataframes.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -234,22 +234,154 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">2020-01-15-brynmawr</h1>
-<p class="author"><em>Kelsey Gonzalez, Amelia McNamara, The Carpentries</em></p>
-<p class="date"><em>2020-01-03</em></p>
+<div id="help" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Seeking Help</h1>
+<p>teaching: 10<br />
+exercises: 10<br />
+adapted from: <a href="http://swcarpentry.github.io/r-novice-gapminder/03-seeking-help/index.html" class="uri">http://swcarpentry.github.io/r-novice-gapminder/03-seeking-help/index.html</a><br />
+questions:</p>
+<ul>
+<li>“How can I get help in R?”</li>
+</ul>
+<p>objectives:</p>
+<ul>
+<li>“To be able read R help files for functions and special operators.”<br />
+</li>
+<li>“To be able to use CRAN task views to identify packages to solve a problem.”<br />
+</li>
+<li>“To be able to seek help from your peers.”</li>
+</ul>
+<p>keypoints:</p>
+<ul>
+<li>“Use <code>help()</code> to get online help in R.”</li>
+</ul>
+<div id="reading-help-files" class="section level2">
+<h2><span class="header-section-number">4.1</span> Reading Help files</h2>
+<p>R, and every package, provide help files for functions. The general syntax to search for help on any function, “function_name”, from a specific function that is in a package loaded into your namespace (your interactive R session):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?function_name
+<span class="kw">help</span>(function_name)</code></pre></div>
+<p>This will load up a help page in RStudio (or as plain text in R by itself).</p>
+<p>Each help page is broken down into sections:</p>
+<ul>
+<li>Description: An extended description of what the function does.</li>
+<li>Usage: The arguments of the function and their default values.</li>
+<li>Arguments: An explanation of the data each argument is expecting.</li>
+<li>Details: Any important details to be aware of.</li>
+<li>Value: The data the function returns.</li>
+<li>See Also: Any related functions you might find useful.</li>
+<li>Examples: Some examples for how to use the function.</li>
+</ul>
+<p>Different functions might have different sections, but these are the main ones you should be aware of.</p>
+<blockquote>
+<h2 id="tip-running-examples"><span class="header-section-number">4.1</span> Tip: Running Examples</h2>
+<p>From within the function help page, you can highlight code in the Examples and hit <kbd>Ctrl</kbd>+<kbd>Return</kbd> to run it in RStudio console. This is gives you a quick way to get a feel for how a function works.</p>
+</blockquote>
+<blockquote>
+<h2 id="tip-reading-help-files"><span class="header-section-number">4.1</span> Tip: Reading help files</h2>
+<p>One of the most daunting aspects of R is the large number of functions available. It would be prohibitive, if not impossible to remember the correct usage for every function you use. Luckily, the help files mean you don’t have to! {: .callout}</p>
+</blockquote>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
+<div id="special-operators" class="section level2">
+<h2><span class="header-section-number">4.2</span> Special Operators</h2>
+<p>To seek help on special operators, use quotes:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?<span class="st">&quot;&lt;-&quot;</span></code></pre></div>
+</div>
+<div id="getting-help-on-packages" class="section level2">
+<h2><span class="header-section-number">4.3</span> Getting help on packages</h2>
+<p>Many packages come with “vignettes”: tutorials and extended example documentation. Without any arguments, <code>vignette()</code> will list all vignettes for all installed packages; <code>vignette(package=&quot;package-name&quot;)</code> will list all available vignettes for <code>package-name</code>, and <code>vignette(&quot;vignette-name&quot;)</code> will open the specified vignette.</p>
+<p>If a package doesn’t have any vignettes, you can usually find help by typing <code>help(&quot;package-name&quot;)</code>.</p>
+</div>
+<div id="when-you-kind-of-remember-the-function" class="section level2">
+<h2><span class="header-section-number">4.4</span> When you kind of remember the function</h2>
+<p>If you’re not sure what package a function is in, or how it’s specifically spelled you can do a fuzzy search:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">??function_name</code></pre></div>
+</div>
+<div id="when-you-have-no-idea-where-to-begin" class="section level2">
+<h2><span class="header-section-number">4.5</span> When you have no idea where to begin</h2>
+<p>If you don’t know what function or package you need to use <a href="http://cran.at.r-project.org/web/views">CRAN Task Views</a> is a specially maintained list of packages grouped into fields. This can be a good starting point.</p>
+</div>
+<div id="when-your-code-doesnt-work-seeking-help-from-your-peers" class="section level2">
+<h2><span class="header-section-number">4.6</span> When your code doesn’t work: seeking help from your peers</h2>
+<p>If you’re having trouble using a function, 9 times out of 10, the answers you are seeking have already been answered on <a href="http://stackoverflow.com/">Stack Overflow</a>. You can search using the <code>[r]</code> tag.</p>
+<p>If you can’t find the answer, there are a few useful functions to help you ask a question from your peers:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?dput</code></pre></div>
+<p>Will dump the data you’re working with into a format so that it can be copy and pasted by anyone else into their R session.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre></div>
+<pre><code>## R version 3.6.1 (2019-07-05)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 10 x64 (build 18362)
+## 
+## Matrix products: default
+## 
+## locale:
+## [1] LC_COLLATE=English_United States.1252 
+## [2] LC_CTYPE=English_United States.1252   
+## [3] LC_MONETARY=English_United States.1252
+## [4] LC_NUMERIC=C                          
+## [5] LC_TIME=English_United States.1252    
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## loaded via a namespace (and not attached):
+##  [1] compiler_3.6.1  magrittr_1.5    bookdown_0.16   tools_3.6.1    
+##  [5] htmltools_0.4.0 rstudioapi_0.10 yaml_2.2.0      Rcpp_1.0.3     
+##  [9] stringi_1.4.3   rmarkdown_2.0   knitr_1.26      stringr_1.4.0  
+## [13] xfun_0.11       digest_0.6.23   rlang_0.4.2     evaluate_0.14</code></pre>
+<p>Will print out your current version of R, as well as any packages you have loaded. This can be useful for others to help reproduce and debug your issue.</p>
+<blockquote>
+<h2 id="challenge-1-1"><span class="header-section-number">4.6</span> Challenge 1</h2>
+<p>Look at the help for the <code>c</code> function. What kind of vector do you expect you will create if you evaluate the following:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)
+<span class="kw">c</span>(<span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>)
+<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="st">&#39;f&#39;</span>)</code></pre></div>
+<blockquote>
+<h2 id="solution-to-challenge-1"><span class="header-section-number">4.6</span> Solution to Challenge 1</h2>
+<p>The <code>c()</code> function creates a vector, in which all elements are the same type. In the first case, the elements are numeric, in the second, they are characters, and in the third they are characters: the numeric values are “coerced” to be characters. {: .solution} {: .challenge}</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<h2 id="challenge-2-1"><span class="header-section-number">4.6</span> Challenge 2</h2>
+<p>Look at the help for the <code>paste</code> function. You’ll need to use this later. What is the difference between the <code>sep</code> and <code>collapse</code> arguments?</p>
+<blockquote>
+<h2 id="solution-to-challenge-2-1"><span class="header-section-number">4.6</span> Solution to Challenge 2</h2>
+<p>To look at the help for the <code>paste()</code> function, use:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(<span class="st">&quot;paste&quot;</span>)
+?paste</code></pre></div>
+<p>The difference between <code>sep</code> and <code>collapse</code> is a little tricky. The <code>paste</code> function accepts any number of arguments, each of which can be a vector of any length. The <code>sep</code> argument specifies the string used between concatenated terms — by default, a space. The result is a vector as long as the longest argument supplied to <code>paste</code>. In contrast, <code>collapse</code> specifies that after concatenation the elements are <em>collapsed</em> together using the given separator, the result being a single string. e.g.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;a c&quot; &quot;b c&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;a,c&quot; &quot;b,c&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;a c|b c&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>), <span class="st">&quot;c&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">collapse =</span> <span class="st">&quot;|&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;a,c|b,c&quot;</code></pre>
+<p>(For more information, scroll to the bottom of the <code>?paste</code> help page and look at the examples, or try <code>example('paste')</code>.) {: .solution} {: .challenge}</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<h2 id="challenge-3"><span class="header-section-number">4.6</span> Challenge 3</h2>
+<p>Use help to find a function (and its associated parameters) that you could use to load data from a tabular file in which columns are delimited with “” (tab) and the decimal point is a “.” (period). This check for decimal separator is important, especially if you are working with international colleagues, because different countries have different conventions for the decimal point (i.e. comma vs period). hint: use <code>??&quot;read table&quot;</code> to look up functions related to reading in tabular data. &gt; ## Solution to Challenge 3 &gt; &gt; The standard R function for reading tab-delimited files with a period &gt; decimal separator is read.delim(). You can also do this with &gt; <code>read.table(file, sep=&quot;\t&quot;)</code> (the period is the <em>default</em> decimal &gt; separator for <code>read.table()</code>, although you may have to change &gt; the <code>comment.char</code> argument as well if your data file contains &gt; hash (#) characters {: .solution} {: .challenge}</p>
+</blockquote>
+</div>
+<div id="other-ports-of-call" class="section level2">
+<h2><span class="header-section-number">4.7</span> Other ports of call</h2>
+<ul>
+<li><a href="http://www.statmethods.net/">Quick R</a></li>
+<li><a href="http://www.rstudio.com/resources/cheatsheets/">RStudio cheat sheets</a></li>
+<li><a href="http://www.cookbook-r.com/">Cookbook for R</a></li>
+</ul>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="basicR.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dataframes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -280,7 +412,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-seeking-help.Rmd",
 "text": "Edit"
 },
 "history": {

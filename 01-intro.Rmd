@@ -1,7 +1,7 @@
-# Introduction  
+# Introduction  {#intro}
 
-teaching: 25
-exercises: 15
+teaching: 25  
+exercises: 15  
 adapted from: https://datacarpentry.org/r-socialsci/00-intro/index.html  
 
 questions:  
@@ -94,7 +94,7 @@ transparency, there is less chance for mistakes, and if you (or someone else) fi
 
 Because R is open source and is supported by a large community of developers and users, there is a very large selection of third-party add-on packages which are freely available to extend R's native capabilities.
 
-![RStudio Startup](../fig/r+rstudio-analogy.jpg)
+![RStudio Startup](./fig/r+rstudio-analogy.jpg)
 RStudio extends what R can do, and makes it easier to write R code and interact with R
 
 ## Knowing your way around RStudio
@@ -126,7 +126,7 @@ interface, which not only creates a working directory for you but also remembers
 
 ### The RStudio Interface  
 Let's take a quick tour of RStudio.
-![RStudio Startup](../fig/R_00_Rstudio_01.png)
+![RStudio Startup](./fig/R_00_Rstudio_01.png)
 RStudio is divided into four "panes". The placement of these panes and their content can be customized (see menu, Tools -> Global Options -> Pane Layout).  
 
 The Default Layout is:
@@ -149,7 +149,7 @@ can be especially helpful when you have multiple projects. In general, you might
 
 You may want additional directories or subdirectories depending on your project needs, but these should form the backbone of your working directory.
 
-![Example of a working directory structure](../fig/working-directory-structure.png)
+![Example of a working directory structure](./fig/working-directory-structure.png)
 
 ### The working directory
 
@@ -211,7 +211,7 @@ In addition to the core R installation, there are in excess of 10,000 additional
 
 Additional packages can be installed from the ‘packages’ tab. On the packages tab, click the ‘Install’ icon and start typing the name of the package you want in the text box. As you type, packages matching your starting characters will be displayed in a drop-down list so that you can select them.
 
-![Install Packages Window](../fig/R_00_Rstudio_03.png)
+![Install Packages Window](./fig/R_00_Rstudio_03.png)
 
 At the bottom of the Install Packages window is a check box to ‘Install’ dependencies. This is ticked by default, which is usually what you want. Packages can (and do) make use of functionality built into other packages, so for the functionality contained in the package you are installing to work properly, there may be other packages which have to be installed with them. The ‘Install dependencies’ option makes sure that this happens.
 

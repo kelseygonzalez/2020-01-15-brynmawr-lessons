@@ -1,4 +1,4 @@
-# Introduction to R  
+# Introduction to R  {#basicR}
   
 teaching: 50  
 exercises: 30  

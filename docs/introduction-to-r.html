@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Introduction to R | 2020-01-15-brynmawr</title>
+  <meta name="description" content="This is a review of the material covered in Bryn Mawr College’s Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020." />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Introduction to R | 2020-01-15-brynmawr" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a review of the material covered in Bryn Mawr College’s Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Introduction to R | 2020-01-15-brynmawr" />
+  
+  <meta name="twitter:description" content="This is a review of the material covered in Bryn Mawr College’s Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020." />
+  
+
+<meta name="author" content="Kelsey Gonzalez, Amelia McNamara, The Carpentries" />
+
+
+<meta name="date" content="2020-01-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="project-management-with-rstudio.html"/>
+<link rel="next" href="seeking-help.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#what-is-r-what-is-rstudio"><i class="fa fa-check"></i><b>1.1</b> What is R? What is RStudio?</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#why-learn-r"><i class="fa fa-check"></i><b>1.2</b> Why learn R?</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#r-does-not-involve-lots-of-pointing-and-clicking-and-thats-a-good-thing"><i class="fa fa-check"></i><b>1.2.1</b> R does not involve lots of pointing and clicking, and that’s a good thing</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#r-code-is-great-for-reproducibility"><i class="fa fa-check"></i><b>1.2.2</b> R code is great for reproducibility</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introduction.html"><a href="introduction.html#r-is-interdisciplinary-and-extensible"><i class="fa fa-check"></i><b>1.2.3</b> R is interdisciplinary and extensible</a></li>
+<li class="chapter" data-level="1.2.4" data-path="introduction.html"><a href="introduction.html#r-works-on-data-of-all-shapes-and-sizes"><i class="fa fa-check"></i><b>1.2.4</b> R works on data of all shapes and sizes</a></li>
+<li class="chapter" data-level="1.2.5" data-path="introduction.html"><a href="introduction.html#r-produces-high-quality-graphics"><i class="fa fa-check"></i><b>1.2.5</b> R produces high-quality graphics</a></li>
+<li class="chapter" data-level="1.2.6" data-path="introduction.html"><a href="introduction.html#r-has-a-large-and-welcoming-community"><i class="fa fa-check"></i><b>1.2.6</b> R has a large and welcoming community</a></li>
+<li class="chapter" data-level="1.2.7" data-path="introduction.html"><a href="introduction.html#not-only-is-r-free-but-it-is-also-open-source-and-cross-platform"><i class="fa fa-check"></i><b>1.2.7</b> Not only is R free, but it is also open-source and cross-platform</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#knowing-your-way-around-rstudio"><i class="fa fa-check"></i><b>1.3</b> Knowing your way around RStudio</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#getting-set-up"><i class="fa fa-check"></i><b>1.4</b> Getting set up</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introduction.html"><a href="introduction.html#create-a-new-project"><i class="fa fa-check"></i><b>1.4.1</b> Create a new project</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduction.html"><a href="introduction.html#the-rstudio-interface"><i class="fa fa-check"></i><b>1.4.2</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="1.4.3" data-path="introduction.html"><a href="introduction.html#organizing-your-working-directory"><i class="fa fa-check"></i><b>1.4.3</b> Organizing your working directory</a></li>
+<li class="chapter" data-level="1.4.4" data-path="introduction.html"><a href="introduction.html#the-working-directory"><i class="fa fa-check"></i><b>1.4.4</b> The working directory</a></li>
+<li class="chapter" data-level="1.4.5" data-path="introduction.html"><a href="introduction.html#downloading-the-data-and-getting-set-up"><i class="fa fa-check"></i><b>1.4.5</b> Downloading the data and getting set up</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="introduction.html"><a href="introduction.html#interacting-with-r"><i class="fa fa-check"></i><b>1.5</b> Interacting with R</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction.html"><a href="introduction.html#installing-additional-packages-using-the-packages-tab"><i class="fa fa-check"></i><b>1.6</b> Installing additional packages using the packages tab</a></li>
+<li class="chapter" data-level="1.7" data-path="introduction.html"><a href="introduction.html#installing-additional-packages-using-r-code"><i class="fa fa-check"></i><b>1.7</b> Installing additional packages using R code</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html"><i class="fa fa-check"></i><b>2</b> Project Management With RStudio</a><ul>
+<li class="chapter" data-level="2.1" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#introduction-1"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#a-possible-solution"><i class="fa fa-check"></i><b>2.2</b> A possible solution</a></li>
+<li class="chapter" data-level="2.3" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#best-practices-for-project-organization"><i class="fa fa-check"></i><b>2.3</b> Best practices for project organization</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#treat-data-as-read-only"><i class="fa fa-check"></i><b>2.3.1</b> Treat data as read only</a></li>
+<li class="chapter" data-level="2.3.2" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#data-cleaning"><i class="fa fa-check"></i><b>2.3.2</b> Data Cleaning</a></li>
+<li class="chapter" data-level="2.3.3" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#treat-generated-output-as-disposable"><i class="fa fa-check"></i><b>2.3.3</b> Treat generated output as disposable</a></li>
+<li class="chapter" data-level="2.3.4" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#separate-function-definition-and-application"><i class="fa fa-check"></i><b>2.3.4</b> Separate function definition and application</a></li>
+<li class="chapter" data-level="2.3.5" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#save-the-data-in-the-data-directory"><i class="fa fa-check"></i><b>2.3.5</b> Save the data in the data directory</a></li>
+<li class="chapter" data-level="2.3.6" data-path="project-management-with-rstudio.html"><a href="project-management-with-rstudio.html#version-control"><i class="fa fa-check"></i><b>2.3.6</b> Version Control</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i><b>3</b> Introduction to R</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#creating-objects-in-r"><i class="fa fa-check"></i><b>3.1</b> Creating objects in R</a></li>
+<li class="chapter" data-level="3.2" data-path="introduction-to-r.html"><a href="introduction-to-r.html#comments"><i class="fa fa-check"></i><b>3.2</b> Comments</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#functions-and-their-arguments"><i class="fa fa-check"></i><b>3.2.1</b> Functions and their arguments</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="introduction-to-r.html"><a href="introduction-to-r.html#vectors-and-data-types"><i class="fa fa-check"></i><b>3.3</b> Vectors and data types</a></li>
+<li class="chapter" data-level="3.4" data-path="introduction-to-r.html"><a href="introduction-to-r.html#subsetting-vectors"><i class="fa fa-check"></i><b>3.4</b> Subsetting vectors</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="introduction-to-r.html"><a href="introduction-to-r.html#conditional-subsetting"><i class="fa fa-check"></i><b>3.4.1</b> Conditional subsetting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="introduction-to-r.html"><a href="introduction-to-r.html#missing-data"><i class="fa fa-check"></i><b>3.5</b> Missing data</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="seeking-help.html"><a href="seeking-help.html"><i class="fa fa-check"></i><b>4</b> Seeking Help</a><ul>
+<li class="chapter" data-level="4.1" data-path="seeking-help.html"><a href="seeking-help.html#reading-help-files"><i class="fa fa-check"></i><b>4.1</b> Reading Help files</a></li>
+<li class="chapter" data-level="4.2" data-path="seeking-help.html"><a href="seeking-help.html#special-operators"><i class="fa fa-check"></i><b>4.2</b> Special Operators</a></li>
+<li class="chapter" data-level="4.3" data-path="seeking-help.html"><a href="seeking-help.html#getting-help-on-packages"><i class="fa fa-check"></i><b>4.3</b> Getting help on packages</a></li>
+<li class="chapter" data-level="4.4" data-path="seeking-help.html"><a href="seeking-help.html#when-you-kind-of-remember-the-function"><i class="fa fa-check"></i><b>4.4</b> When you kind of remember the function</a></li>
+<li class="chapter" data-level="4.5" data-path="seeking-help.html"><a href="seeking-help.html#when-you-have-no-idea-where-to-begin"><i class="fa fa-check"></i><b>4.5</b> When you have no idea where to begin</a></li>
+<li class="chapter" data-level="4.6" data-path="seeking-help.html"><a href="seeking-help.html#when-your-code-doesnt-work-seeking-help-from-your-peers"><i class="fa fa-check"></i><b>4.6</b> When your code doesn’t work: seeking help from your peers</a></li>
+<li class="chapter" data-level="4.7" data-path="seeking-help.html"><a href="seeking-help.html#other-ports-of-call"><i class="fa fa-check"></i><b>4.7</b> Other ports of call</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="starting-with-data.html"><a href="starting-with-data.html"><i class="fa fa-check"></i><b>5</b> Starting with Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="starting-with-data.html"><a href="starting-with-data.html#presentation-of-the-safi-data"><i class="fa fa-check"></i><b>5.1</b> Presentation of the SAFI Data</a></li>
+<li class="chapter" data-level="5.2" data-path="starting-with-data.html"><a href="starting-with-data.html#what-are-data-frames-and-tibbles"><i class="fa fa-check"></i><b>5.2</b> What are data frames and tibbles?</a></li>
+<li class="chapter" data-level="5.3" data-path="starting-with-data.html"><a href="starting-with-data.html#inspecting-data-frames"><i class="fa fa-check"></i><b>5.3</b> Inspecting data frames</a></li>
+<li class="chapter" data-level="5.4" data-path="starting-with-data.html"><a href="starting-with-data.html#indexing-and-subsetting-data-frames"><i class="fa fa-check"></i><b>5.4</b> Indexing and subsetting data frames</a></li>
+<li class="chapter" data-level="5.5" data-path="starting-with-data.html"><a href="starting-with-data.html#factors"><i class="fa fa-check"></i><b>5.5</b> Factors</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="starting-with-data.html"><a href="starting-with-data.html#converting-factors"><i class="fa fa-check"></i><b>5.5.1</b> Converting factors</a></li>
+<li class="chapter" data-level="5.5.2" data-path="starting-with-data.html"><a href="starting-with-data.html#renaming-factors"><i class="fa fa-check"></i><b>5.5.2</b> Renaming factors</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="starting-with-data.html"><a href="starting-with-data.html#formatting-dates"><i class="fa fa-check"></i><b>5.6</b> Formatting Dates</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-wrangling.html"><a href="data-wrangling.html#data-manipulation-using-dplyr-and-tidyr"><i class="fa fa-check"></i><b>6.1</b> Data Manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong></a></li>
+<li class="chapter" data-level="6.2" data-path="data-wrangling.html"><a href="data-wrangling.html#what-is-an-r-package"><i class="fa fa-check"></i><b>6.2</b> What is an R package?</a></li>
+<li class="chapter" data-level="6.3" data-path="data-wrangling.html"><a href="data-wrangling.html#learning-dplyr-and-tidyr"><i class="fa fa-check"></i><b>6.3</b> Learning <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong></a></li>
+<li class="chapter" data-level="6.4" data-path="data-wrangling.html"><a href="data-wrangling.html#selecting-columns-and-filtering-rows"><i class="fa fa-check"></i><b>6.4</b> Selecting columns and filtering rows</a></li>
+<li class="chapter" data-level="6.5" data-path="data-wrangling.html"><a href="data-wrangling.html#pipes"><i class="fa fa-check"></i><b>6.5</b> Pipes</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="data-wrangling.html"><a href="data-wrangling.html#mutate"><i class="fa fa-check"></i><b>6.5.1</b> Mutate</a></li>
+<li class="chapter" data-level="6.5.2" data-path="data-wrangling.html"><a href="data-wrangling.html#split-apply-combine-data-analysis-and-the-summarize-function"><i class="fa fa-check"></i><b>6.5.2</b> Split-apply-combine data analysis and the summarize() function</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="data-wrangling.html"><a href="data-wrangling.html#reshaping-with-gather-and-spread"><i class="fa fa-check"></i><b>6.6</b> Reshaping with gather and spread</a></li>
+<li class="chapter" data-level="6.7" data-path="data-wrangling.html"><a href="data-wrangling.html#gathering"><i class="fa fa-check"></i><b>6.7</b> Gathering</a></li>
+<li class="chapter" data-level="6.8" data-path="data-wrangling.html"><a href="data-wrangling.html#applying-spread-to-clean-our-data"><i class="fa fa-check"></i><b>6.8</b> Applying <code>spread()</code> to clean our data</a></li>
+<li class="chapter" data-level="6.9" data-path="data-wrangling.html"><a href="data-wrangling.html#exporting-data"><i class="fa fa-check"></i><b>6.9</b> Exporting data</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>7</b> Data Visualization</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-visualization.html"><a href="data-visualization.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>7.1</b> Plotting with <strong><code>ggplot2</code></strong></a></li>
+<li class="chapter" data-level="7.2" data-path="data-visualization.html"><a href="data-visualization.html#building-your-plots-iteratively"><i class="fa fa-check"></i><b>7.2</b> Building your plots iteratively</a></li>
+<li class="chapter" data-level="7.3" data-path="data-visualization.html"><a href="data-visualization.html#boxplot"><i class="fa fa-check"></i><b>7.3</b> Boxplot</a></li>
+<li class="chapter" data-level="7.4" data-path="data-visualization.html"><a href="data-visualization.html#barplots"><i class="fa fa-check"></i><b>7.4</b> Barplots</a></li>
+<li class="chapter" data-level="7.5" data-path="data-visualization.html"><a href="data-visualization.html#adding-labels-and-titles"><i class="fa fa-check"></i><b>7.5</b> Adding Labels and Titles</a></li>
+<li class="chapter" data-level="7.6" data-path="data-visualization.html"><a href="data-visualization.html#faceting"><i class="fa fa-check"></i><b>7.6</b> Faceting</a></li>
+<li class="chapter" data-level="7.7" data-path="data-visualization.html"><a href="data-visualization.html#ggplot2-themes"><i class="fa fa-check"></i><b>7.7</b> <strong><code>ggplot2</code></strong> themes</a></li>
+<li class="chapter" data-level="7.8" data-path="data-visualization.html"><a href="data-visualization.html#customization"><i class="fa fa-check"></i><b>7.8</b> Customization</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="Reporting.html"><a href="Reporting.html"><i class="fa fa-check"></i><b>8</b> Producing Reports With knitr</a><ul>
+<li class="chapter" data-level="8.1" data-path="Reporting.html"><a href="Reporting.html#forcats"><i class="fa fa-check"></i><b>8.1</b> ForCats</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html"><i class="fa fa-check"></i><b>9</b> Producing Reports With knitr</a><ul>
+<li class="chapter" data-level="9.1" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#data-analysis-reports"><i class="fa fa-check"></i><b>9.1</b> Data analysis reports</a></li>
+<li class="chapter" data-level="9.2" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#literate-programming"><i class="fa fa-check"></i><b>9.2</b> Literate programming</a></li>
+<li class="chapter" data-level="9.3" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#creating-an-r-markdown-file"><i class="fa fa-check"></i><b>9.3</b> Creating an R Markdown file</a></li>
+<li class="chapter" data-level="9.4" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#basic-components-of-r-markdown"><i class="fa fa-check"></i><b>9.4</b> Basic components of R Markdown</a></li>
+<li class="chapter" data-level="9.5" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#markdown"><i class="fa fa-check"></i><b>9.5</b> Markdown</a></li>
+<li class="chapter" data-level="9.6" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#a-bit-more-markdown"><i class="fa fa-check"></i><b>9.6</b> A bit more Markdown</a></li>
+<li class="chapter" data-level="9.7" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#r-code-chunks"><i class="fa fa-check"></i><b>9.7</b> R code chunks</a></li>
+<li class="chapter" data-level="9.8" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#how-things-get-compiled"><i class="fa fa-check"></i><b>9.8</b> How things get compiled</a></li>
+<li class="chapter" data-level="9.9" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#chunk-options"><i class="fa fa-check"></i><b>9.9</b> Chunk options</a></li>
+<li class="chapter" data-level="9.10" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#inline-r-code"><i class="fa fa-check"></i><b>9.10</b> Inline R code</a></li>
+<li class="chapter" data-level="9.11" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#other-output-options"><i class="fa fa-check"></i><b>9.11</b> Other output options</a></li>
+<li class="chapter" data-level="9.12" data-path="producing-reports-with-knitr.html"><a href="producing-reports-with-knitr.html#resources"><i class="fa fa-check"></i><b>9.12</b> Resources</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">2020-01-15-brynmawr</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction-to-r" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Introduction to R</h1>
+<p>teaching: 50<br />
+exercises: 30<br />
+adapted from: <a href="https://datacarpentry.org/r-socialsci/01-intro-to-r/index.html" class="uri">https://datacarpentry.org/r-socialsci/01-intro-to-r/index.html</a></p>
+<p>questions:</p>
+<ul>
+<li>What data types are available in R?<br />
+</li>
+<li>What is an object?<br />
+</li>
+<li>How can values be initially assigned to variables of different data types?<br />
+</li>
+<li>What arithmetic and logical operators can be used?<br />
+</li>
+<li>How can subsets be extracted from vectors and data frames?<br />
+</li>
+<li>How does R treat missing values?<br />
+</li>
+<li>How can we deal with missing values in R?</li>
+</ul>
+<p>objectives:</p>
+<ul>
+<li>Define the following terms as they relate to R: object, assign, call, function, arguments, options.<br />
+</li>
+<li>Assign values to objects in R.<br />
+</li>
+<li>Learn how to name objects.<br />
+</li>
+<li>Use comments to inform script.<br />
+</li>
+<li>Solve simple arithmetic operations in R.<br />
+</li>
+<li>Call functions and use arguments to change their default options.<br />
+</li>
+<li>Inspect the content of vectors and manipulate their content.<br />
+</li>
+<li>Subset and extract values from vectors.<br />
+</li>
+<li>Analyze vectors with missing data.</li>
+</ul>
+<p>keypoints:</p>
+<ul>
+<li>Access individual values by location using <code>[]</code>.<br />
+</li>
+<li>Access arbitrary sets of data using <code>[c(...)]</code>.<br />
+</li>
+<li>Use logical operations and logical vectors to access subsets of data.</li>
+</ul>
+<div id="creating-objects-in-r" class="section level2">
+<h2><span class="header-section-number">3.1</span> Creating objects in R</h2>
+<p>You can get output from R simply by typing math in the console:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">12</span> <span class="op">/</span><span class="st"> </span><span class="dv">7</span></code></pre></div>
+<pre><code>## [1] 1.714286</code></pre>
+<p>However, to do useful and interesting things, we need to assign <em>values</em> to <em>objects</em>. To create an object, we need to give it a name followed by the assignment operator <code>&lt;-</code>, and the value we want to give it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">area_hectares &lt;-<span class="st"> </span><span class="fl">1.0</span></code></pre></div>
+<p><code>&lt;-</code> is the assignment operator. It assigns values on the right to objects on the left. So, after executing <code>x &lt;- 3</code>, the value of <code>x</code> is <code>3</code>. The arrow can be read as 3 <strong>goes into</strong> <code>x</code>. For historical reasons, you can also use <code>=</code> for assignments, but not in every context. Because of the <a href="http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html">slight</a> <a href="http://r.789695.n4.nabble.com/Is-there-any-difference-between-and-tp878594p878598.html">differences</a> in syntax, it is good practice to always use <code>&lt;-</code> for assignments.</p>
+<p>In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd> at the same time as the <kbd>-</kbd> key) will write <code>&lt;-</code> in a single keystroke in a PC, while typing <kbd>Option</kbd> + <kbd>-</kbd> (push <kbd>Option</kbd> at the same time as the <kbd>-</kbd> key) does the same in a Mac.</p>
+<p>Objects can be given any name such as <code>x</code>, <code>current_temperature</code>, or <code>subject_id</code>. You want your object names to be explicit and not too long. They cannot start with a number (<code>2x</code> is not valid, but <code>x2</code> is). R is case sensitive (e.g., <code>age</code> is different from <code>Age</code>). There are some names that cannot be used because they are the names of fundamental functions in R (e.g., <code>if</code>, <code>else</code>, <code>for</code>, see <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html">here</a> for a complete list). In general, even if it’s allowed, it’s best to not use other function names (e.g., <code>c</code>, <code>T</code>, <code>mean</code>, <code>data</code>, <code>df</code>, <code>weights</code>). If in doubt, check the help to see if the name is already in use. It’s also best to avoid dots (<code>.</code>) within an object name as in <code>my.dataset</code>. There are many functions in R with dots in their names for historical reasons, but because dots have a special meaning in R (for methods) and other programming languages, it’s best to avoid them. It is also recommended to use nouns for object names, and verbs for function names. It’s important to be consistent in the styling of your code (where you put spaces, how you name objects, etc.). Using a consistent coding style makes your code clearer to read for your future self and your collaborators. In R, three popular style guides are <a href="https://google.github.io/styleguide/Rguide.xml">Google’s</a>, <a href="http://jef.works/R-style-guide/">Jean Fan’s</a> and the <a href="http://style.tidyverse.org/">tidyverse’s</a>. The tidyverse’s is very comprehensive and may seem overwhelming at first. You can install the <a href="https://github.com/jimhester/lintr"><strong><code>lintr</code></strong></a> package to automatically check for issues in the styling of your code.</p>
+<blockquote>
+<h2 id="objects-vs.variables"><span class="header-section-number">3.1</span> Objects vs. variables</h2>
+<p>What are known as <code>objects</code> in <code>R</code> are known as <code>variables</code> in many other programming languages. Depending on the context, <code>object</code> and <code>variable</code> can have drastically different meanings. However, in this lesson, the two words are used synonymously. For more information see: <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects" class="uri">https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects</a> {: .callout}</p>
+</blockquote>
+<p>When assigning a value to an object, R does not print anything. You can force R to print the value by using parentheses or by typing the object name:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">area_hectares &lt;-<span class="st"> </span><span class="fl">1.0</span>    <span class="co"># doesn&#39;t print anything</span>
+(area_hectares &lt;-<span class="st"> </span><span class="fl">1.0</span>)  <span class="co"># putting parenthesis around the call prints the value of `area_hectares`</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">area_hectares         <span class="co"># and so does typing the name of the object</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>Now that R has <code>area_hectares</code> in memory, we can do arithmetic with it. For instance, we may want to convert this area into acres (area in acres is 2.47 times the area in hectares):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">2.47</span> <span class="op">*</span><span class="st"> </span>area_hectares</code></pre></div>
+<pre><code>## [1] 2.47</code></pre>
+<p>We can also change an object’s value by assigning it a new one:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">area_hectares &lt;-<span class="st"> </span><span class="fl">2.5</span>
+<span class="fl">2.47</span> <span class="op">*</span><span class="st"> </span>area_hectares</code></pre></div>
+<pre><code>## [1] 6.175</code></pre>
+<p>This means that assigning a value to one object does not change the values of other objects For example, let’s store the plot’s area in acres in a new object, <code>area_acres</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">area_acres &lt;-<span class="st"> </span><span class="fl">2.47</span> <span class="op">*</span><span class="st"> </span>area_hectares</code></pre></div>
+<p>and then change <code>area_hectares</code> to 50.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">area_hectares &lt;-<span class="st"> </span><span class="dv">50</span></code></pre></div>
+<blockquote>
+<h2 id="exercise-1"><span class="header-section-number">3.1</span> Exercise</h2>
+<p>What do you think is the current content of the object <code>area_acres</code>? 123.5 or 6.175?</p>
+<blockquote>
+<h2 id="solution-1"><span class="header-section-number">3.1</span> Solution</h2>
+<p>The value of <code>area_acres</code> is still 6.175 because you have not re-run the line <code>area_acres &lt;- 2.47 * area_hectares</code> since changing the value of <code>area_hectares</code>. {: .solution} {: .challenge}</p>
+</blockquote>
+</blockquote>
+</div>
+<div id="comments" class="section level2">
+<h2><span class="header-section-number">3.2</span> Comments</h2>
+<p>All programming languages allow the programmer to include comments in their code. To do this in R we use the <code>#</code> character. Anything to the right of the <code>#</code> sign and up to the end of the line is treated as a comment and is ignored by R. You can start lines with comments or include them after any code on the line.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">area_hectares &lt;-<span class="st"> </span><span class="fl">1.0</span>            <span class="co"># land area in hectares</span>
+area_acres &lt;-<span class="st"> </span>area_hectares <span class="op">*</span><span class="st"> </span><span class="fl">2.47</span>  <span class="co"># convert to acres</span>
+area_acres              <span class="co"># print land area in acres.</span></code></pre></div>
+<pre><code>## [1] 2.47</code></pre>
+<p>RStudio makes it easy to comment or uncomment a paragraph: after selecting the lines you want to comment, press at the same time on your keyboard <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>. If you only want to comment out one line, you can put the cursor at any location of that line (i.e. no need to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>.</p>
+<blockquote>
+<h2 id="exercise-2"><span class="header-section-number">3.2</span> Exercise</h2>
+<p>Create two variables <code>length</code> and <code>width</code> and assign them values. It should be noted that R Studio might add “()” after width and if you leave the parentheses you will get unexpected results. This is why you might see other programmers abbreviate common words. Create a third variable <code>area</code> and give it a value based on the current values of <code>length</code> and <code>width</code>. Show that changing the values of either <code>length</code> and <code>width</code> does not affect the value of <code>area</code>.</p>
+<blockquote>
+<h2 id="solution-2"><span class="header-section-number">3.2</span> Solution</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">length &lt;-<span class="st"> </span><span class="fl">2.5</span>
+width &lt;-<span class="st"> </span><span class="fl">3.2</span>
+area &lt;-<span class="st"> </span>length <span class="op">*</span><span class="st"> </span>width
+area</code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># change the values of length and width</span>
+length &lt;-<span class="st"> </span><span class="fl">7.0</span>
+width &lt;-<span class="st"> </span><span class="fl">6.5</span>
+<span class="co"># the value of area isn&#39;t changed</span>
+area</code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>{: .solution} {: .challenge}</p>
+</blockquote>
+</blockquote>
+<div id="functions-and-their-arguments" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Functions and their arguments</h3>
+<p>Functions are “canned scripts” that automate more complicated sets of commands including operations assignments, etc. Many functions are predefined, or can be made available by importing R <em>packages</em> (more on that later). A function usually gets one or more inputs called <em>arguments</em>. Functions often (but not always) return a <em>value</em>. A typical example would be the function <code>sqrt()</code>. The input (the argument) must be a number, and the return value (in fact, the output) is the square root of that number. Executing a function (‘running it’) is called <em>calling</em> the function. An example of a function call is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b &lt;-<span class="st"> </span><span class="kw">sqrt</span>(a)</code></pre></div>
+<p>Here, the value of <code>a</code> is given to the <code>sqrt()</code> function, the <code>sqrt()</code> function calculates the square root, and returns the value which is then assigned to the object <code>b</code>. This function is very simple, because it takes just one argument.</p>
+<p>The return ‘value’ of a function need not be numerical (like that of <code>sqrt()</code>), and it also does not need to be a single item: it can be a set of things, or even a dataset. We’ll see that when we read data files into R.</p>
+<p>Arguments can be anything, not only numbers or filenames, but also other objects. Exactly what each argument means differs per function, and must be looked up in the documentation (see below). Some functions take arguments which may either be specified by the user, or, if left out, take on a <em>default</em> value: these are called <em>options</em>. Options are typically used to alter the way the function operates, such as whether it ignores ‘bad values’, or what symbol to use in a plot. However, if you want something specific, you can specify a value of your choice which will be used instead of the default.</p>
+<p>Let’s try a function that can take multiple arguments: <code>round()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="fl">3.14159</span>)</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>Here, we’ve called <code>round()</code> with just one argument, <code>3.14159</code>, and it has returned the value <code>3</code>. That’s because the default is to round to the nearest whole number. If we want more digits we can see how to do that by getting information about the <code>round</code> function. We can use <code>args(round)</code> or look at the help for this function using <code>?round</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">args</span>(round)</code></pre></div>
+<pre><code>## function (x, digits = 0) 
+## NULL</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?round</code></pre></div>
+<p>We see that if we want a different number of digits, we can type <code>digits=2</code> or however many we want.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="fl">3.14159</span>, <span class="dt">digits =</span> <span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 3.14</code></pre>
+<p>If you provide the arguments in the exact same order as they are defined you don’t have to name them:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="fl">3.14159</span>, <span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 3.14</code></pre>
+<p>And if you do name the arguments, you can switch their order:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">x =</span> <span class="fl">3.14159</span>)</code></pre></div>
+<pre><code>## [1] 3.14</code></pre>
+<p>It’s good practice to put the non-optional arguments (like the number you’re rounding) first in your function call, and to specify the names of all optional arguments. If you don’t, someone reading your code might have to look up the definition of a function with unfamiliar arguments to understand what you’re doing.</p>
+<blockquote>
+<h2 id="exercise-3"><span class="header-section-number">3.2.1</span> Exercise</h2>
+<p>Type in <code>?round</code> at the console and then look at the output in the Help pane. What other functions exist that are similar to <code>round</code>? How do you use the <code>digits</code> parameter in the round function? {: .challenge}</p>
+</blockquote>
+</div>
+</div>
+<div id="vectors-and-data-types" class="section level2">
+<h2><span class="header-section-number">3.3</span> Vectors and data types</h2>
+<p>A vector is the most common and basic data type in R, and is pretty much the workhorse of R. A vector is composed by a series of values, which can be either numbers or characters. We can assign a series of values to a vector using the <code>c()</code> function. For example we can create a vector of household members for the households we’ve interviewed and assign it to a new object <code>hh_members</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hh_members &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">6</span>)
+hh_members</code></pre></div>
+<pre><code>## [1]  3  7 10  6</code></pre>
+<p>A vector can also contain characters. For example, we can have a vector of the building material used to construct our interview respondents’ walls (<code>respondent_wall_type</code>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">respondent_wall_type &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;muddaub&quot;</span>, <span class="st">&quot;burntbricks&quot;</span>, <span class="st">&quot;sunbricks&quot;</span>)
+respondent_wall_type</code></pre></div>
+<pre><code>## [1] &quot;muddaub&quot;     &quot;burntbricks&quot; &quot;sunbricks&quot;</code></pre>
+<p>The quotes around “muddaub”, etc. are essential here. Without the quotes R will assume there are objects called <code>muddaub</code>, <code>burntbricks</code> and <code>sunbricks</code>. As these objects don’t exist in R’s memory, there will be an error message.</p>
+<p>There are many functions that allow you to inspect the content of a vector. <code>length()</code> tells you how many elements are in a particular vector:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(hh_members)</code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(respondent_wall_type)</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>An important feature of a vector, is that all of the elements are the same type of data. The function <code>class()</code> indicates the class (the type of element) of an object:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(hh_members)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(respondent_wall_type)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>The function <code>str()</code> provides an overview of the structure of an object and its elements. It is a useful function when working with large and complex objects:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(hh_members)</code></pre></div>
+<pre><code>##  num [1:4] 3 7 10 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(respondent_wall_type)</code></pre></div>
+<pre><code>##  chr [1:3] &quot;muddaub&quot; &quot;burntbricks&quot; &quot;sunbricks&quot;</code></pre>
+<p>You can use the <code>c()</code> function to add other elements to your vector:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">possessions &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;bicycle&quot;</span>, <span class="st">&quot;radio&quot;</span>, <span class="st">&quot;television&quot;</span>)
+possessions &lt;-<span class="st"> </span><span class="kw">c</span>(possessions, <span class="st">&quot;mobile_phone&quot;</span>) <span class="co"># add to the end of the vector</span>
+possessions &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;car&quot;</span>, possessions) <span class="co"># add to the beginning of the vector</span>
+possessions</code></pre></div>
+<pre><code>## [1] &quot;car&quot;          &quot;bicycle&quot;      &quot;radio&quot;        &quot;television&quot;   &quot;mobile_phone&quot;</code></pre>
+<p>In the first line, we take the original vector <code>possessions</code>, add the value <code>&quot;mobile_phone&quot;</code> to the end of it, and save the result back into <code>possessions</code>. Then we add the value <code>&quot;car&quot;</code> to the beginning, again saving the result back into <code>possessions</code>.</p>
+<p>We can do this over and over again to grow a vector, or assemble a dataset. As we program, this may be useful to add results that we are collecting or calculating.</p>
+<p>An <strong>atomic vector</strong> is the simplest R <strong>data type</strong> and is a linear vector of a single type. Above, we saw 2 of the 6 main <strong>atomic vector</strong> types that R uses: <code>&quot;character&quot;</code> and <code>&quot;numeric&quot;</code> (or <code>&quot;double&quot;</code>). These are the basic building blocks that all R objects are built from. The other 4 <strong>atomic vector</strong> types are:</p>
+<ul>
+<li><code>&quot;logical&quot;</code> for <code>TRUE</code> and <code>FALSE</code> (the boolean data type)</li>
+<li><code>&quot;integer&quot;</code> for integer numbers (e.g., <code>2L</code>, the <code>L</code> indicates to R that it’s an integer)</li>
+<li><code>&quot;complex&quot;</code> to represent complex numbers with real and imaginary parts (e.g., <code>1 + 4i</code>) and that’s all we’re going to say about them</li>
+<li><code>&quot;raw&quot;</code> for bitstreams that we won’t discuss further</li>
+</ul>
+<p>You can check the type of your vector using the <code>typeof()</code> function and inputting your vector as the argument.</p>
+<p>Vectors are one of the many <strong>data structures</strong> that R uses. Other important ones are lists (<code>list</code>), matrices (<code>matrix</code>), data frames (<code>data.frame</code>), factors (<code>factor</code>) and arrays (<code>array</code>).</p>
+<blockquote>
+<h2 id="exercise-4"><span class="header-section-number">3.3</span> Exercise</h2>
+<p>We’ve seen that atomic vectors can be of type character, numeric (or double), integer, and logical. But what happens if we try to mix these types in a single vector?</p>
+<blockquote>
+<h2 id="solution-3"><span class="header-section-number">3.3</span> Solution</h2>
+<p>R implicitly converts them to all be the same type. {: .solution}</p>
+</blockquote>
+<p>What will happen in each of these examples? (hint: use <code>class()</code> to check the data type of your objects):</p>
+<p><code>r  num_char &lt;- c(1, 2, 3, &quot;a&quot;)  num_logical &lt;- c(1, 2, 3, TRUE)  char_logical &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, TRUE)  tricky &lt;- c(1, 2, 3, &quot;4&quot;)</code></p>
+<p>Why do you think it happens?</p>
+<blockquote>
+<h2 id="solution-4"><span class="header-section-number">3.3</span> Solution</h2>
+<p>Vectors can be of only one data type. R tries to convert (coerce) the content of this vector to find a “common denominator” that doesn’t lose any information. {: .solution}</p>
+</blockquote>
+<p>How many values in <code>combined_logical</code> are <code>&quot;TRUE&quot;</code> (as a character) in the following example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">num_logical &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="ot">TRUE</span>)
+char_logical &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="ot">TRUE</span>)
+combined_logical &lt;-<span class="st"> </span><span class="kw">c</span>(num_logical, char_logical)</code></pre></div>
+<p> </p>
+<blockquote>
+<h2 id="solution-5"><span class="header-section-number">3.3</span> Solution</h2>
+<p>Only one. There is no memory of past data types, and the coercion happens the first time the vector is evaluated. Therefore, the <code>TRUE</code> in <code>num_logical</code> gets converted into a <code>1</code> before it gets converted into <code>&quot;1&quot;</code> in <code>combined_logical</code>. {: .solution}</p>
+</blockquote>
+<p>You’ve probably noticed that objects of different types get converted into a single, shared type within a vector. In R, we call converting objects from one class into another class <em>coercion</em>. These conversions happen according to a hierarchy, whereby some types get preferentially coerced into other types. Can you draw a diagram that represents the hierarchy of how these data types are coerced?</p>
+<p>{: .challenge}</p>
+</blockquote>
+</div>
+<div id="subsetting-vectors" class="section level2">
+<h2><span class="header-section-number">3.4</span> Subsetting vectors</h2>
+<p>If we want to extract one or several values from a vector, we must provide one or several indices in square brackets. For instance:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">respondent_wall_type &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;muddaub&quot;</span>, <span class="st">&quot;burntbricks&quot;</span>, <span class="st">&quot;sunbricks&quot;</span>)
+respondent_wall_type[<span class="dv">2</span>]</code></pre></div>
+<pre><code>## [1] &quot;burntbricks&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">respondent_wall_type[<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)]</code></pre></div>
+<pre><code>## [1] &quot;sunbricks&quot;   &quot;burntbricks&quot;</code></pre>
+<p>We can also repeat the indices to create an object with more elements than the original one:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">more_respondent_wall_type &lt;-<span class="st"> </span>respondent_wall_type[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>)]
+more_respondent_wall_type</code></pre></div>
+<pre><code>## [1] &quot;muddaub&quot;     &quot;burntbricks&quot; &quot;sunbricks&quot;   &quot;burntbricks&quot; &quot;muddaub&quot;     &quot;sunbricks&quot;</code></pre>
+<p>R indices start at 1. Programming languages like Fortran, MATLAB, Julia, and R start counting at 1, because that’s what human beings typically do. Languages in the C family (including C++, Java, Perl, and Python) count from 0 because that’s simpler for computers to do.</p>
+<div id="conditional-subsetting" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Conditional subsetting</h3>
+<p>Another common way of subsetting is by using a logical vector. <code>TRUE</code> will select the element with the same index, while <code>FALSE</code> will not:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hh_members &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">6</span>)
+hh_members[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>)]</code></pre></div>
+<pre><code>## [1]  3 10  6</code></pre>
+<p>Typically, these logical vectors are not typed by hand, but are the output of other functions or logical tests. For instance, if you wanted to select only the values above 5:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hh_members <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>    <span class="co"># will return logicals with TRUE for the indices that meet the condition</span></code></pre></div>
+<pre><code>## [1] FALSE  TRUE  TRUE  TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## so we can use this to select only the values above 5
+hh_members[hh_members <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>]</code></pre></div>
+<pre><code>## [1]  7 10  6</code></pre>
+<p>You can combine multiple tests using <code>&amp;</code> (both conditions are true, AND) or <code>|</code> (at least one of the conditions is true, OR):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hh_members[hh_members <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span> <span class="op">|</span><span class="st"> </span>hh_members <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>]</code></pre></div>
+<pre><code>## [1]  7 10  6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hh_members[hh_members <span class="op">&gt;=</span><span class="st"> </span><span class="dv">7</span> <span class="op">&amp;</span><span class="st"> </span>hh_members <span class="op">==</span><span class="st"> </span><span class="dv">3</span>]</code></pre></div>
+<pre><code>## numeric(0)</code></pre>
+<p>Here, <code>&lt;</code> stands for “less than”, <code>&gt;</code> for “greater than”, <code>&gt;=</code> for “greater than or equal to”, and <code>==</code> for “equal to”. The double equal sign <code>==</code> is a test for numerical equality between the left and right hand sides, and should not be confused with the single <code>=</code> sign, which performs variable assignment (similar to <code>&lt;-</code>).</p>
+<p>A common task is to search for certain strings in a vector. One could use the “or” operator <code>|</code> to test for equality to multiple values, but this can quickly become tedious. The function <code>%in%</code> allows you to test if any of the elements of a search vector are found:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">possessions &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;car&quot;</span>, <span class="st">&quot;bicycle&quot;</span>, <span class="st">&quot;radio&quot;</span>, <span class="st">&quot;television&quot;</span>, <span class="st">&quot;mobile_phone&quot;</span>)
+possessions[possessions <span class="op">==</span><span class="st"> &quot;car&quot;</span> <span class="op">|</span><span class="st"> </span>possessions <span class="op">==</span><span class="st"> &quot;bicycle&quot;</span>] <span class="co"># returns both car and bicycle</span></code></pre></div>
+<pre><code>## [1] &quot;car&quot;     &quot;bicycle&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">possessions <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;car&quot;</span>, <span class="st">&quot;bicycle&quot;</span>, <span class="st">&quot;motorcycle&quot;</span>, <span class="st">&quot;truck&quot;</span>, <span class="st">&quot;boat&quot;</span>)</code></pre></div>
+<pre><code>## [1]  TRUE  TRUE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">possessions[possessions <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;car&quot;</span>, <span class="st">&quot;bicycle&quot;</span>, <span class="st">&quot;motorcycle&quot;</span>, <span class="st">&quot;truck&quot;</span>, <span class="st">&quot;boat&quot;</span>)]</code></pre></div>
+<pre><code>## [1] &quot;car&quot;     &quot;bicycle&quot;</code></pre>
+</div>
+</div>
+<div id="missing-data" class="section level2">
+<h2><span class="header-section-number">3.5</span> Missing data</h2>
+<p>As R was designed to analyze datasets, it includes the concept of missing data (which is uncommon in other programming languages). Missing data are represented in vectors as <code>NA</code>.</p>
+<p>When doing operations on numbers, most functions will return <code>NA</code> if the data you are working with include missing values. This feature makes it harder to overlook the cases where you are dealing with missing data. You can add the argument <code>na.rm=TRUE</code> to calculate the result while ignoring the missing values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rooms &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">4</span>)
+<span class="kw">mean</span>(rooms)</code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(rooms)</code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(rooms, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(rooms, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>If your data include missing values, you may want to become familiar with the functions <code>is.na()</code>, <code>na.omit()</code>, and <code>complete.cases()</code>. See below for examples.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Extract those elements which are not missing values.
+rooms[<span class="op">!</span><span class="kw">is.na</span>(rooms)]</code></pre></div>
+<pre><code>## [1] 2 1 1 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Returns the object with incomplete cases removed. The returned object is an atomic vector of type `&quot;numeric&quot;` (or `&quot;double&quot;`).
+<span class="kw">na.omit</span>(rooms)</code></pre></div>
+<pre><code>## [1] 2 1 1 4
+## attr(,&quot;na.action&quot;)
+## [1] 4
+## attr(,&quot;class&quot;)
+## [1] &quot;omit&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Extract those elements which are complete cases. The returned object is an atomic vector of type `&quot;numeric&quot;` (or `&quot;double&quot;`).
+rooms[<span class="kw">complete.cases</span>(rooms)]</code></pre></div>
+<pre><code>## [1] 2 1 1 4</code></pre>
+<p>Recall that you can use the <code>typeof()</code> function to find the type of your atomic vector.</p>
+<blockquote>
+<h2 id="exercise-5"><span class="header-section-number">3.5</span> Exercise</h2>
+<ol style="list-style-type: decimal">
+<li><p>Using this vector of rooms, create a new vector with the NAs removed.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rooms &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">1</span>)</code></pre></div></li>
+<li><p>Use the function <code>median()</code> to calculate the median of the <code>rooms</code> vector.</p></li>
+<li><p>Use R to figure out how many households in the set use more than 2 rooms for sleeping.</p></li>
+</ol>
+<blockquote>
+<h2 id="solution-6"><span class="header-section-number">3.5</span> Solution</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rooms &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">1</span>)
+rooms_no_na &lt;-<span class="st"> </span>rooms[<span class="op">!</span><span class="kw">is.na</span>(rooms)]
+<span class="co"># or</span>
+rooms_no_na &lt;-<span class="st"> </span><span class="kw">na.omit</span>(rooms)
+<span class="co"># 2.</span>
+<span class="kw">median</span>(rooms, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 3.</span>
+rooms_above_<span class="dv">2</span> &lt;-<span class="st"> </span>rooms_no_na[rooms_no_na <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>]
+<span class="kw">length</span>(rooms_above_<span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>{: .solution} {: .challenge}</p>
+</blockquote>
+</blockquote>
+<p>Now that we have learned how to write scripts, and the basics of R’s data structures, we are ready to start working with the SAFI dataset we have been using in the other lessons, and learn about data frames.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="project-management-with-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="seeking-help.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-intro-to-r.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

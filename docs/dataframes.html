@@ -4,19 +4,19 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Starting with Data | 2020-01-15-brynmawr</title>
+  <title>Lesson 5 Starting with Data | 2020-01-15-brynmawr</title>
   <meta name="description" content="This is a review of the material covered in Bryn Mawr College’s Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020." />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Starting with Data | 2020-01-15-brynmawr" />
+  <meta property="og:title" content="Lesson 5 Starting with Data | 2020-01-15-brynmawr" />
   <meta property="og:type" content="book" />
   
   
   <meta property="og:description" content="This is a review of the material covered in Bryn Mawr College’s Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020." />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta name="github-repo" content="kelseygonzalez/2020-01-15-brynmawr-lessons/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Starting with Data | 2020-01-15-brynmawr" />
+  <meta name="twitter:title" content="Lesson 5 Starting with Data | 2020-01-15-brynmawr" />
   
   <meta name="twitter:description" content="This is a review of the material covered in Bryn Mawr College’s Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020." />
   
@@ -103,7 +103,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Data Carpentry: R for Social Scientists</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
@@ -235,7 +235,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="dataframes" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> Starting with Data</h1>
+<h1><span class="header-section-number">Lesson 5</span> Starting with Data</h1>
 <p>teaching: 50<br />
 exercises: 30<br />
 adapted from: <a href="https://datacarpentry.org/r-socialsci/02-starting-with-data/index.html" class="uri">https://datacarpentry.org/r-socialsci/02-starting-with-data/index.html</a></p>
@@ -611,7 +611,7 @@ memb_assoc</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## bar plot of the number of interview respondents who were
 ## members of irrigation association:
 <span class="kw">plot</span>(memb_assoc)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/factor-plot-default-order-1.png" width="672" /></p>
+<p><img src="2020-01-15-brynmawr_files/figure-html/factor-plot-default-order-1.png" width="672" /></p>
 <p>Looking at the plot compared to the output of the vector, we can see that n addition to “no”s and “yes”s, there are about some respondents for which the information about whether they were part of an irrigation association hasn’t been recorded, and encoded as missing data. They do not appear on the plot. Let’s encode them differently so they can counted and visualized in our plot.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Let&#39;s recreate the vector from the data frame column &quot;memb_assoc&quot;
 memb_assoc &lt;-<span class="st"> </span>interviews<span class="op">$</span>memb_assoc
@@ -652,7 +652,7 @@ memb_assoc</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## bar plot of the number of interview respondents who were
 ## members of irrigation association:
 <span class="kw">plot</span>(memb_assoc)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/factor-plot-reorder-1.png" width="672" /></p>
+<p><img src="2020-01-15-brynmawr_files/figure-html/factor-plot-reorder-1.png" width="672" /></p>
 <blockquote>
 <h2 id="exercise-7"><span class="header-section-number">5.5.2</span> Exercise</h2>
 <ul>
@@ -664,7 +664,7 @@ memb_assoc</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(memb_assoc) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Undetermined&quot;</span>, <span class="st">&quot;Yes&quot;</span>)
 memb_assoc &lt;-<span class="st"> </span><span class="kw">factor</span>(memb_assoc, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;Undetermined&quot;</span>))
 <span class="kw">plot</span>(memb_assoc)</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/factor-plot-exercise-1.png" width="672" /> {: .solution} {: .challenge}</p>
+<p><img src="2020-01-15-brynmawr_files/figure-html/factor-plot-exercise-1.png" width="672" /> {: .solution} {: .challenge}</p>
 </blockquote>
 </blockquote>
 </div>
@@ -755,7 +755,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["2020-01-15-brynmawr.pdf", "2020-01-15-brynmawr.epub"],
 "toc": {
 "collapse": "subsection"
 }

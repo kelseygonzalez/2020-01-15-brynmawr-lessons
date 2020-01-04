@@ -1,6 +1,6 @@
-book_filename: "bookdown-demo"
+book_filename: "2020-01-15-brynmawr"
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: "Lesson "
 delete_merged_file: true
 output_dir: "docs"

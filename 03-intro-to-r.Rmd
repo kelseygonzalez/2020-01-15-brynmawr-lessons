@@ -54,10 +54,14 @@ area_hectares <- 1.0
 `<-` is the assignment operator. It assigns values on the right to objects on
 the left. So, after executing `x <- 3`, the value of `x` is `3`. The arrow can
 be read as 3 **goes into** `x`.  For historical reasons, you can also use `=`
-for assignments, but not in every context. Because of the
+for assignments. There are
 [slight](http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html)
 [differences](http://r.789695.n4.nabble.com/Is-there-any-difference-between-and-tp878594p878598.html)
-in syntax, it is good practice to always use `<-` for assignments.
+depending on which syntax you use, and people have their own preferences. 
+Famous R programmer Yihui Xie [insists on =](https://yihui.org/en/2014/07/a-few-notes-on-user2014/), 
+but many code style guides [recommend <-](https://style.tidyverse.org/syntax.html#assignment). 
+Use whichever one feels more comfortable to you! 
+(Typically, we recommend being consistent and just using one throughout all your code.)
 
 In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd> at the
 same time as the <kbd>-</kbd> key) will write `<- ` in a single keystroke in a
@@ -172,20 +176,20 @@ to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
 
 > ## Exercise
 >
-> Create two variables `length` and `width` and assign them values. It should be noted that R Studio might add "()" after width and if you leave the parentheses you will get unexpected results. This is why you might see other programmers abbreviate common words.
-> Create a third variable `area` and give it a value based on the current values of `length` and `width`.
-> Show that changing the values of either `length` and `width` does not affect the value of `area`.
+> Create two variables `my_length` and `my_width` and assign them values. We will use these variable names rather than `length` and `width` because `length` is already function in R. If you use it as a variable name, RStudio might add "()" after length and if you leave the parentheses you will get unexpected results. This is why you might see other programmers abbreviate common words.
+> Create a third variable `area` and give it a value based on the current values of `my_length` and `my_width`.
+> Show that changing the values of either `my_length` and `my_width` does not affect the value of `area`.
 >
 > > ## Solution
 > >
 > > ```{r}
-> > length <- 2.5
-> > width <- 3.2
-> > area <- length * width
+> > my_length <- 2.5
+> > my_width <- 3.2
+> > area <- my_length * my_width
 > > area
 > > # change the values of length and width
-> > length <- 7.0
-> > width <- 6.5
+> > my_length <- 7.0
+> > my_width <- 6.5
 > > # the value of area isn't changed
 > > area
 > > ```
@@ -197,7 +201,7 @@ to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
 ### Functions and their arguments
 
 Functions are "canned scripts" that automate more complicated sets of commands
-including operations assignments, etc. Many functions are predefined, or can be
+including operations, assignments, etc. Many functions are predefined, or can be
 made available by importing R *packages* (more on that later). A function
 usually gets one or more inputs called *arguments*. Functions often (but not
 always) return a *value*. A typical example would be the function `sqrt()`. The
@@ -206,11 +210,13 @@ output) is the square root of that number. Executing a function ('running it')
 is called *calling* the function. An example of a function call is:
 
 ```{r, eval=FALSE, purl=FALSE}
-b <- sqrt(a)
+sqrt(area)
+b <- sqrt(area)
 ```
-Here, the value of `a` is given to the `sqrt()` function, the `sqrt()` function
-calculates the square root, and returns the value which is then assigned to
-the object `b`. This function is very simple, because it takes just one argument.
+Here, the value of `area` is given to the `sqrt()` function, the `sqrt()` function
+calculates the square root, and returns the value. If we want to use that value
+later, we can assign it to the object `b`. 
+This function is very simple, because it takes just one argument.
 
 The return 'value' of a function need not be numerical (like that of `sqrt()`),
 and it also does not need to be a single item: it can be a set of things, or
@@ -219,7 +225,7 @@ even a dataset. We'll see that when we read data files into R.
 Arguments can be anything, not only numbers or filenames, but also other
 objects. Exactly what each argument means differs per function, and must be
 looked up in the documentation (see below). Some functions take arguments which
-may either be specified by the user, or, if left out, take on a *default* value:
+may be specified by the user, or, if left out, take on a *default* value:
 these are called *options*. Options are typically used to alter the way the
 function operates, such as whether it ignores 'bad values', or what symbol to
 use in a plot.  However, if you want something specific, you can specify a value
@@ -247,7 +253,7 @@ args(round)
 ```
 
 We see that if we want a different number of digits, we can
-type `digits=2` or however many we want.
+type `digits = 2` or however many we want.
 
 ```{r, results='show', purl=FALSE}
 round(3.14159, digits = 2)
@@ -260,7 +266,10 @@ don't have to name them:
 round(3.14159, 2)
 ```
 
-And if you do name the arguments, you can switch their order:
+This is considered fairly risky practice, because it relies on you knowing 
+the exact order of the arguments. 
+
+If you do name the arguments, you can switch their order:
 
 ```{r, results='show', purl=FALSE}
 round(digits = 2, x = 3.14159)
@@ -285,8 +294,8 @@ doing.
 ### Vectors and data types
 ```
 
-A vector is the most common and basic data type in R, and is pretty much
-the workhorse of R. A vector is composed by a series of values, which can be
+A vector is a very common and basic data type in R.
+A vector is composed of a series of values, which can be
 either numbers or characters. We can assign a series of values to a vector using
 the `c()` function. For example we can create a vector of household
 members for the households we've interviewed and assign

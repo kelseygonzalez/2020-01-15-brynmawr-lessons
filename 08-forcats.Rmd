@@ -260,3 +260,74 @@ interviews <- interviews %>%
 > {: .solution}
 {: .challenge}
 
+
+## strings
+
+Much like `forcats` helps us deal with factor variables, there are packages to 
+help us deal with string variables. Some useful packages are the `tidyr` package
+(which we've already seen) the `stringr` package (installed with the tidyverse,
+but needs to be loaded separately) and the `tidytext` package. Let's say we're 
+interested in the items owned by the interviewees. Right now, all the items
+are stuck together into one not-very-useful variable,
+
+```{r}
+interviews %>%
+  select(items_owned)
+```
+
+We'd like to know which interviewees own a bicycle, for example. One way to do 
+this would be to use the `stringr` package to check if a particular string
+was contained in that variable,
+
+```{r}
+library(stringr)
+interviews <- interviews %>%
+  mutate(has_bicycle = str_detect(items_owned, "bicycle"))
+
+plot(factor(interviews$has_bicycle))
+```
+
+Much like the `forcats` package, the `stringr` package has many functions that 
+begin with `str_`, so you can type that much out and hit Tab to see other options.
+
+We could go through manually and repeat a similar set of lines of code for each 
+item (`solar_torch`, `cow_plough`, etc) but there is a programming principle that
+if you repeat yourself there is likely a more efficient way to do it.
+
+In this case, that more efficient solution is to use the `tidytext` package, which
+lets us "unnest" the data into individual words. When we start working with text
+in this way, it can get a little messy, so it is often smart to break off a little
+piece of your data to work with separately. Here we're taking just the `items_owned`
+variable and the `instanceID` (so we can join this back together with our original
+data later, if we so choose). 
+
+```{r}
+items <- interviews %>%
+  select(items_owned, instanceID)
+```
+
+```{r}
+library(tidytext)
+items <- items %>%
+  unnest_tokens(word, items_owned)
+```
+
+Now we have a variable called `word`, which is all the separate items. This is a 
+very long dataset, so we may want to `pivot_wider` to make it easier to see.
+
+```{r}
+items <- items %>%
+  mutate(contains = if_else(is.na(word), FALSE, TRUE))
+items <- items %>%
+  pivot_wider(names_from = word, values_from = contains, values_fill = list(contains = FALSE))
+```
+
+
+If we'd like, we can now use a join to stick this back to our main dataset,
+
+```{r}
+interviews <- interviews %>%
+  left_join(items)
+```
+
+Now we can see what each person owned. 

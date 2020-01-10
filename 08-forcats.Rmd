@@ -331,3 +331,52 @@ interviews <- interviews %>%
 ```
 
 Now we can see what each person owned. 
+
+## Formatting Dates
+
+One of the most common issues that new (and experienced!) R users have is
+converting date and time information into a variable that is appropriate and
+usable during analyses. As a reminder from earlier in this lesson, the best
+practice for dealing with date data is to ensure that each component of your
+date is stored as a separate variable. In our dataset, we have a
+column `interview_date` which contains information about the
+year, month, and day that the interview was conducted. Let's
+convert those dates into three separate columns.
+
+```{r, eval=FALSE, purl=FALSE}
+str(interviews)
+```
+We are going to use the package **`lubridate`** (which belongs to the **`tidyverse`**; learn more [here](https://www.tidyverse.org/)) to work with dates. **`lubridate`** gets installed as part as the **`tidyverse`** installation. When you load  the **`tidyverse`** (`library(tidyverse)`), the core packages (the packages used in most data analyses) get loaded. **`lubridate`** however does not belong to the core tidyverse, so you have to load it explicitly with `library(lubridate)`
+
+Start by loading the required package:
+
+```{r load-package, message=FALSE, purl=FALSE}
+library(lubridate)
+```
+
+The lubridate function `ymd()` takes a vector representing year, month, and day, and converts it to a
+`Date` vector. `Date` is a class of data recognized by R as being a date and can
+be manipulated as such. The argument that the function requires is flexible,
+but, as a best practice, is a character vector formatted as "YYYY-MM-DD".
+
+
+Let's extract our `interview_date` column and inspect the structure:
+
+```{r, purl=FALSE}
+dates <- interviews$interview_date
+str(dates)
+```
+
+When we imported the data in R, `read_csv()` recognized that this column contained date information. We can now use the `day()`, `month()` and  `year()` functions to extract this information from the date, and create new columns in our data frame to store it:
+
+
+```{r, purl=FALSE}
+interviews$day <- day(dates)
+interviews$month <- month(dates)
+interviews$year <- year(dates)
+interviews
+```
+
+Notice the three new columns at the end of our data frame.
+
+

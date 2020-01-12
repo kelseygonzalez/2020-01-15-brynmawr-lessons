@@ -1,16 +1,16 @@
 # Data Visualization with `ggplot2` {#ggplot}
-  
+
 teaching: 80    
 exercises: 35    
 adapted from: https://datacarpentry.org/r-socialsci/04-ggplot2/index.html  
-  
+
 questions:    
 
 * What are the components of a ggplot?    
 * How do I create scatterplots, boxplots, and barplots?    
 * How can I change the aesthetics (ex. colour, transparency) of my plot?    
 * How can I create multiple plots at once?    
-  
+
 objectives:    
 
  * Produce scatter plots, boxplots, and time series plots using ggplot.    
@@ -18,7 +18,7 @@ objectives:
  * Describe what faceting is and apply faceting in ggplot.    
  * Modify the aesthetics of an existing ggplot plot (including axis labels and color).    
  * Build complex and customized plots from data in a data frame.    
-   
+
 keypoints:      
 
  * `ggplot2` is a flexible and useful tool for creating plots in R.    
@@ -170,8 +170,7 @@ does not appear to be different by village.
 > > geom_jitter(aes(color = respondent_wall_type))
 > > ```
 > > This is not a good way to show this type of data because it is difficult to distinguish between villages.
-> {: .solution}
-{: .challenge}
+
 
 
 ## Boxplot
@@ -211,7 +210,6 @@ Notice how the boxplot layer is behind the jitter layer? What do you need to cha
 > >   geom_violin(alpha = 0) +
 > >   geom_jitter(alpha = 0.5, color = "tomato")
 > > ```
-> {: .solution}
 >
 > So far, we've looked at the distribution of room number within wall type. Try
 > making a new plot to explore the distribution of another variable within wall
@@ -226,7 +224,6 @@ Notice how the boxplot layer is behind the jitter layer? What do you need to cha
 > >   geom_boxplot(alpha = 0) +
 > >   geom_jitter(alpha = 0.5)
 > > ```
-> {: .solution}
 >
 > - Add color to the data points on your boxplot according to whether the
 >   respondent is a member of an irrigation association (`memb_assoc`).
@@ -237,8 +234,6 @@ Notice how the boxplot layer is behind the jitter layer? What do you need to cha
 > >   geom_boxplot(alpha = 0) +
 > >   geom_jitter(aes(alpha = 0.5, color = memb_assoc))
 > > ```
-> {: .solution}
-{: .challenge}
 
 ## Barplots
 
@@ -312,9 +307,6 @@ percentage of each house type in each village.
 > > ```
 > >
 > > Ruaca had the lowest proportion of members in an irrigation association.
-> {: .solution}
-{: .challenge}
-
 
 ## Adding Labels and Titles
 

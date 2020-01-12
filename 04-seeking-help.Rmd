@@ -1,20 +1,20 @@
 # Seeking Help  {#help}
-  
+
 teaching: 10  
 exercises: 10  
 adapted from: http://swcarpentry.github.io/r-novice-gapminder/03-seeking-help/index.html  
 questions:  
-  
+
 - "How can I get help in R?"  
-  
+
 objectives:  
-  
+
 - "To be able read R help files for functions and special operators."  
 - "To be able to use CRAN task views to identify packages to solve a problem."  
 - "To be able to seek help from your peers."  
-  
+
 keypoints:  
-  
+
 - "Use `help()` to get online help in R."  
 
 
@@ -45,18 +45,11 @@ Different functions might have different sections, but these are the main ones y
 
 > ## Tip: Running Examples
 >
-> From within the function help page, you can highlight code in the
-> Examples and hit <kbd>Ctrl</kbd>+<kbd>Return</kbd> to run it in
-> RStudio console. This is gives you a quick way to get a feel for
-> how a function works.
+> From within the function help page, you can highlight code in the Examples and hit <kbd>Ctrl</kbd>+<kbd>Return</kbd> to run it inRStudio console. This is gives you a quick way to get a feel for how a function works.
 
 > ## Tip: Reading help files
 >
-> One of the most daunting aspects of R is the large number of functions
-> available. It would be prohibitive, if not impossible to remember the
-> correct usage for every function you use. Luckily, the help files
-> mean you don't have to!
-{: .callout}
+> One of the most daunting aspects of R is the large number of functions available. It would be prohibitive, if not impossible to remember the correct usage for every function you use. Luckily, the help files mean you don't have to!
 
 ## Special Operators
 
@@ -131,8 +124,7 @@ your issue.
 > > same type. In the first case, the elements are numeric, in the
 > > second, they are characters, and in the third they are characters:
 > > the numeric values are "coerced" to be characters.
-> {: .solution}
-{: .challenge}
+
 
 > ## Challenge 2
 >
@@ -163,8 +155,7 @@ your issue.
 > > (For more information,
 > > scroll to the bottom of the `?paste` help page and look at the
 > > examples, or try `example('paste')`.)
-> {: .solution}
-{: .challenge}
+
 
 > ## Challenge 3
 > Use help to find a function (and its associated parameters) that you could
@@ -182,8 +173,7 @@ your issue.
 > > separator for `read.table()`, although you may have to change
 > > the `comment.char` argument as well if your data file contains
 > > hash (#) characters
-> {: .solution}
-{: .challenge}
+
 
 ## Other ports of call
 

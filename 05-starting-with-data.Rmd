@@ -133,7 +133,7 @@ functions. Let's try them out!
 
 * Size:
 * `dim(interviews)` - returns a vector with the number of rows in the first element,
-and the number of columns as the second element (the **dim**ensions of
+and the number of columns as the second element (the **dim** ensions of
 the object)
 * `nrow(interviews)` - returns the number of rows
 * `ncol(interviews)` - returns the number of columns
@@ -237,9 +237,3 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 > > ## 4.
 > > interviews_head <- interviews[-(7:n_rows), ]
 > > ```
-> {: .solution}
-{: .challenge}
-
-
-
-

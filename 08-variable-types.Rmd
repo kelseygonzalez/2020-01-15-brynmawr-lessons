@@ -5,15 +5,15 @@ exercises: 15
 adapted from:  
 questions:  
 
-- "How can I easily create new categorical variables?" 
+- "How can I easily create new categorical variables?"
 
 objectives:  
 
-- 
+-
 
 keypoints:  
 
-- 
+-
 
 ```{r, eval=TRUE,  message=FALSE, purl=FALSE}
 library(tidyverse)
@@ -38,7 +38,7 @@ numbers behind the scenes. Working with factors in base R can lead to errors tha
 are almost impossible for human analysts to catch, but there is a `tidyverse` package
 that makes it much easier to work with factors, and prevents many common mistakes.
 It is called `forcats` (an anagram of the word "factors" and also because it is a
-package **for** working with **cat**egorical variable**s**). 
+package **for** working with **cat**egorical variable**s**).
 
 Let's load the `forcats` package so we can use the functions it comes with
 
@@ -55,7 +55,7 @@ factor(c("earth", "cement", "cement", "earth"))
 ```
 
 R will assign `1` to the level `"cement"` and `2` to the level `"earth"`
-(because `c` comes before `e` in the alphabet, even though the first element in this vector is`"earth"`). 
+(because `c` comes before `e` in the alphabet, even though the first element in this vector is`"earth"`).
 
 In R's memory, factors are represented by integers (1, 2), but are more
 informative than integers because factors are self describing: `"cement"`,
@@ -64,12 +64,12 @@ wouldn't be able to tell just from the integer data. Factors, on the other hand,
 have this information built in. It is particularly helpful when there are many
 levels.
 
-However, the default ordering of levels in base R is less than ideal, 
-because it depends on the language you have set for your R session, and can 
-lead to un-reproducble code. 
+However, the default ordering of levels in base R is less than ideal,
+because it depends on the language you have set for your R session, and can
+lead to un-reproducble code.
 
-In the `forcats` package, there is a function that makes a factor but creates 
-the levels in the order they appear. 
+In the `forcats` package, there is a function that makes a factor but creates
+the levels in the order they appear.
 
 ```{r purl=TRUE}
 respondent_floor_type <- as_factor(c("earth", "cement", "cement", "earth"))
@@ -90,7 +90,7 @@ nlevels(respondent_floor_type)
 Sometimes, the order of the factors does not matter, other times you might want
 to specify the order because it is meaningful (e.g., "low", "medium", "high"),
 it improves your visualization, or it is required by a particular type of
-analysis. In `forcats`, one way to reorder our levels in the `respondent_floor_type` 
+analysis. In `forcats`, one way to reorder our levels in the `respondent_floor_type`
 vector would be:
 
 ```{r, results=TRUE, purl=FALSE}
@@ -106,7 +106,7 @@ respondent_floor_type <- as_factor(interviews$respondent_wall_type)
 levels(respondent_floor_type)
 ```
 
-Say we want `sunbricks` to come first in the factor order. We can use `fct_relevel` 
+Say we want `sunbricks` to come first in the factor order. We can use `fct_relevel`
 to move it up.
 
 ```{r, results=TRUE, purl=FALSE}
@@ -116,15 +116,15 @@ respondent_floor_type # after re-ordering
 ```
 
 The `fct_relevel` function allows you to move any number of levels to any location.
-If you re-specify the entire list of levels, it will re-order the whole list. 
-But, if you just specify one level (like we did here) that level gets moved to 
-the front of the list. 
+If you re-specify the entire list of levels, it will re-order the whole list.
+But, if you just specify one level (like we did here) that level gets moved to
+the front of the list.
 
-Most of the useful functions in `forcats` start with `fct_`, so you can try typing 
-that much in your Console or code chunk and hitting Tab to use the code completion 
-feature in RStudio to see what some of the other functions are called. 
+Most of the useful functions in `forcats` start with `fct_`, so you can try typing
+that much in your Console or code chunk and hitting Tab to use the code completion
+feature in RStudio to see what some of the other functions are called.
 
-Another way to re-order your factor levels is by frequency, so the most common 
+Another way to re-order your factor levels is by frequency, so the most common
 factor levels come first, and the less common come later. (This is often useful
 for plotting!)
 
@@ -136,9 +136,9 @@ levels(respondent_floor_type)
 
 ## renaming factor levels
 
-`forcats` makes easy to rename factor levels. 
-Let's say we made a mistake and need to recode "cement" to "brick". We'd use the 
-`fct_recode` function to do this. 
+`forcats` makes easy to rename factor levels.
+Let's say we made a mistake and need to recode "cement" to "brick". We'd use the
+`fct_recode` function to do this.
 
 ```{r, results=TRUE, purl=FALSE}
 levels(respondent_floor_type)
@@ -153,8 +153,8 @@ respondent_floor_type
 
 ### Converting factors
 
-If you are working in the tidyverse, your data will come in with very few factor 
-variables by default. So, the most common conversion you will need to do is from 
+If you are working in the tidyverse, your data will come in with very few factor
+variables by default. So, the most common conversion you will need to do is from
 a character vector to a factor, like we did before,
 
 ```{r}
@@ -162,9 +162,9 @@ as_factor(c("earth", "cement", "cement", "earth"))
 ```
 
 
-If you find yourself with many factors you need to convert to character vectors, 
-it's good to check your read-in code first, to see if you accidentally used 
-`read.csv` instead of `read_csv`. In the unlikely event you need to convert a 
+If you find yourself with many factors you need to convert to character vectors,
+it's good to check your read-in code first, to see if you accidentally used
+`read.csv` instead of `read_csv`. In the unlikely event you need to convert a
 factor to a character vector, you use `as.character(x)`.
 
 ```{r, purl=FALSE}
@@ -185,8 +185,8 @@ as.numeric(year_fct)                     # Wrong! And there is no warning...
 as.numeric(as.character(year_fct))       # The recommended way.
 ```
 
-Again, if you find yourself doing this, you may want to check your data read-in 
-code! 
+Again, if you find yourself doing this, you may want to check your data read-in
+code!
 
 ### Renaming factors
 
@@ -225,7 +225,7 @@ interviews$memb_assoc
 plot(interviews$memb_assoc)
 ```
 
-Again, if we wanted to reorder our factor here in order of 
+Again, if we wanted to reorder our factor here in order of
 
 ```{r}
 interviews <- interviews %>%
@@ -250,23 +250,22 @@ interviews <- interviews %>%
 > >
 > > ```{r factor-plot-exercise}
 > > interviews <- interviews %>%
-> >  mutate(memb_assoc = fct_recode(memb_assoc, No = "no", Yes = "yes", 
+> >  mutate(memb_assoc = fct_recode(memb_assoc, No = "no", Yes = "yes",
 > >                                 Undetermined = "undetermined"))
 > > plot(interviews$memb_assoc)
 > > interviews <- interviews %>%
   mutate(memb_assoc = fct_relevel(memb_assoc, "No", "Yes", "Undetermined"))
 > > plot(interviews$memb_assoc)
 > ```
-> {: .solution}
-{: .challenge}
+
 
 
 ## strings
 
-Much like `forcats` helps us deal with factor variables, there are packages to 
+Much like `forcats` helps us deal with factor variables, there are packages to
 help us deal with string variables. Some useful packages are the `tidyr` package
 (which we've already seen) the `stringr` package (installed with the tidyverse,
-but needs to be loaded separately) and the `tidytext` package. Let's say we're 
+but needs to be loaded separately) and the `tidytext` package. Let's say we're
 interested in the items owned by the interviewees. Right now, all the items
 are stuck together into one not-very-useful variable,
 
@@ -275,7 +274,7 @@ interviews %>%
   select(items_owned)
 ```
 
-We'd like to know which interviewees own a bicycle, for example. One way to do 
+We'd like to know which interviewees own a bicycle, for example. One way to do
 this would be to use the `stringr` package to check if a particular string
 was contained in that variable,
 
@@ -287,10 +286,10 @@ interviews <- interviews %>%
 plot(factor(interviews$has_bicycle))
 ```
 
-Much like the `forcats` package, the `stringr` package has many functions that 
+Much like the `forcats` package, the `stringr` package has many functions that
 begin with `str_`, so you can type that much out and hit Tab to see other options.
 
-We could go through manually and repeat a similar set of lines of code for each 
+We could go through manually and repeat a similar set of lines of code for each
 item (`solar_torch`, `cow_plough`, etc) but there is a programming principle that
 if you repeat yourself there is likely a more efficient way to do it.
 
@@ -299,7 +298,7 @@ lets us "unnest" the data into individual words. When we start working with text
 in this way, it can get a little messy, so it is often smart to break off a little
 piece of your data to work with separately. Here we're taking just the `items_owned`
 variable and the `instanceID` (so we can join this back together with our original
-data later, if we so choose). 
+data later, if we so choose).
 
 ```{r}
 items <- interviews %>%
@@ -312,7 +311,7 @@ items <- items %>%
   unnest_tokens(word, items_owned)
 ```
 
-Now we have a variable called `word`, which is all the separate items. This is a 
+Now we have a variable called `word`, which is all the separate items. This is a
 very long dataset, so we may want to `pivot_wider` to make it easier to see.
 
 ```{r}
@@ -330,7 +329,7 @@ interviews <- interviews %>%
   left_join(items)
 ```
 
-Now we can see what each person owned. 
+Now we can see what each person owned.
 
 ## Formatting Dates
 
@@ -378,5 +377,3 @@ interviews
 ```
 
 Notice the three new columns at the end of our data frame.
-
-

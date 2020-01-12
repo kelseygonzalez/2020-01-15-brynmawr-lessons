@@ -180,8 +180,6 @@ Note that the final data frame (`interviews_god`) is the leftmost part of this e
 > >     filter(memb_assoc == "yes") %>%
 > >     select(affect_conflicts, liv_count, no_meals)
 > > ```
-> {: .solution}
-{: .challenge}
 
 ### Mutate
 
@@ -235,8 +233,6 @@ The `!` symbol negates the result, so we're asking for every row where
 > >     filter(total_meals > 20) %>%
 > >     select(village, total_meals)
 > > ```
-> {: .solution}
-{: .challenge}
 
 ### Split-apply-combine data analysis and the summarize() function
 
@@ -349,7 +345,7 @@ interviews %>%
 > > interviews %>%
 > >    count(no_meals)
 > > ```
-> {: .solution}
+
 >
 > 2. Use `group_by()` and `summarize()` to find the mean, min, and max
 > number of household members for each village. Also add the number of
@@ -367,7 +363,6 @@ interviews %>%
 > >       n = n()
 > >   )
 > > ```
-> {: .solution}
 >
 > 3. What was the largest household interviewed in each month?
 >
@@ -383,8 +378,6 @@ interviews %>%
 > >     group_by(year, month) %>%
 > >     summarize(max_no_membrs = max(no_membrs))
 > > ```
-> {: .solution}
-{: .challenge}
 
 ## Reshaping with gather and spread
 
@@ -613,7 +606,7 @@ interviews_items_owned %>%
 > >   mutate(months_lack_food_logical  = TRUE) %>%
 > >   spread(key = months_lack_food, value = months_lack_food_logical, fill = FALSE)
 > > ```
-> {: .solution}
+
 >
 > 2. How many months (on average) were respondents without food if
 > they did belong to an irrigation association? What about if they didn't?
@@ -626,8 +619,7 @@ interviews_items_owned %>%
 > >   group_by(memb_assoc) %>%
 > >   summarize(mean_months = mean(number_months))
 > > ```
-> {: .solution}
-{: .challenge}
+
 
 ## Exporting data
 

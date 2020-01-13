@@ -13,3 +13,20 @@ description: "This is a review of the material covered in Bryn Mawr College's Da
 ---
 
 # Preface {-}
+
+## General Information
+Data Carpentry develops and teaches workshops on the fundamental data skills needed to conduct research. Its target audience is researchers who have little to no prior computational experience, and its lessons are domain specific, building on learners' existing knowledge to enable them to quickly apply skills learned to their own research. Participants will be encouraged to help one another and to apply what they have learned to their own research problems.
+
+For more information on what we teach and why, please see our paper ["Good Enough Practices for Scientific Computing"](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510).
+
+**Who**: The course is aimed at undergraduate students and other researchers. You don't need to have any previous knowledge of the tools that will be presented at the workshop.
+
+**Where**: Park Science Center Rm 243. Get directions with OpenStreetMap or Google Maps. Additionally, it is building #13 on this map.
+
+**When**: Jan 15-16, 2020. Add to your Google Calendar.
+
+**Requirements**: Participants must bring a laptop with a Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) that they have administrative privileges on. They should have a few specific software packages installed ([R and RStudio](https://datacarpentry.org/r-socialsci/setup.html)).
+
+Code of Conduct: Everyone who participates in Carpentries activities is required to conform to the Code of Conduct. This document also outlines how to report an incident if needed.
+
+Contact: Please email jholling@brynmawr.edu , amelia.mcnamara@stthomas.edu or kelseygonzalez@email.arizona.edu for more information.

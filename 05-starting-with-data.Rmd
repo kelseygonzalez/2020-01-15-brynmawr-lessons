@@ -9,19 +9,25 @@ questions:
 - What is a data.frame?    
 - How can I read a complete csv file into R?    
 - How can I get basic summary information about my dataset?    
-  
+- How can I change the way R treats strings in my dataset?    
+- Why would I want strings to be treated differently?    
+- How are dates represented in R and how can I change the format?    
 
 objectives:  
 
 - Describe what a data frame is.    
 - Load external data from a .csv file into a data frame.    
 - Summarize the contents of a data frame.    
-
+- Describe the difference between a factor and a string.    
+- Convert between strings and factors.    
+- Reorder and rename factors.    
+- Change how character strings are handled in a data frame.    
+- Examine and change date formats.    
 
 keypoints:  
 
-- Use read_csv to read tabular data in R.    
-
+- Use read.csv to read tabular data in R.    
+- Use factors to represent categorical data in R.    
 
 
 ## Presentation of the SAFI Data
@@ -150,3 +156,84 @@ objects besides data frames.
 
 
 
+## Indexing and subsetting data frames
+
+Our interviews data frame has rows and columns (it has 2 dimensions), if we want to
+extract some specific data from it, we need to specify the "coordinates" we
+want from it. Row numbers come first, followed by column numbers. However, note
+that different ways of specifying these coordinates lead to results with
+different classes.
+
+
+```{r, purl=FALSE}
+## first element in the first column of the data frame (as a vector)
+interviews[1, 1]
+## first element in the 6th column (as a vector)
+interviews[1, 6]
+## first column of the data frame (as a vector)
+interviews[[1]]
+## first column of the data frame (as a data.frame)
+interviews[1]
+## first three elements in the 7th column (as a vector)
+interviews[1:3, 7]
+## the 3rd row of the data frame (as a data.frame)
+interviews[3, ]
+## equivalent to head_interviews <- head(interviews)
+head_interviews <- interviews[1:6, ]
+```
+
+`:` is a special function that creates numeric vectors of integers in increasing
+or decreasing order, test `1:10` and `10:1` for instance.
+
+You can also exclude certain indices of a data frame using the "`-`" sign:
+
+```{r, purl=FALSE}
+interviews[, -1]          # The whole data frame, except the first column
+interviews[-c(7:131), ]   # Equivalent to head(interviews)
+```
+
+Data frames can be subset by calling indices (as shown previously), but also by calling their column names directly:
+
+```{r, eval = FALSE, purl=FALSE}
+interviews["village"]       # Result is a data frame
+interviews[, "village"]     # Result is a data frame
+interviews[["village"]]     # Result is a vector
+interviews$village          # Result is a vector
+```
+
+In RStudio, you can use the autocompletion feature to get the full and correct names of the columns.
+
+> ## Exercise
+>
+> 1. Create a data frame (`interviews_100`) containing only the data in
+>    row 100 of the `interviews` dataset.
+>
+> 2. Notice how `nrow()` gave you the number of rows in a data frame?
+>
+>      * Use that number to pull out just that last row in the data frame.
+>      * Compare that with what you see as the last row using `tail()` to make
+>        sure it's meeting expectations.
+>      * Pull out that last row using `nrow()` instead of the row number.
+>      * Create a new data frame (`interviews_last`) from that last row.
+>
+> 3. Use `nrow()` to extract the row that is in the middle of the data frame.
+>    Store the content of this row in an object named `interviews_middle`.
+>
+> 4. Combine `nrow()` with the `-` notation above to reproduce the behavior of
+>    `head(interviews)`, keeping just the first through 6th rows of the interviews
+>    dataset.
+>
+> > ## Solution
+> >
+> > ```{r}
+> > ## 1.
+> > interviews_100 <- interviews[100, ]
+> > ## 2.
+> > # Saving `n_rows` to improve readability and reduce duplication
+> > n_rows <- nrow(interviews)
+> > interviews_last <- interviews[n_rows, ]
+> > ## 3.
+> > interviews_middle <- interviews[(n_rows / 2), ]
+> > ## 4.
+> > interviews_head <- interviews[-(7:n_rows), ]
+> > ```

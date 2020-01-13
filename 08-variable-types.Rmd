@@ -6,14 +6,21 @@ adapted from:
 questions:  
 
 - "How can I easily create new categorical variables?"
+- How can I change the way R treats strings in my dataset?    
+- Why would I want strings to be treated differently?    
+- How are dates represented in R and how can I change the format?  
 
 objectives:  
 
--
+- Describe the difference between a factor and a string.    
+- Convert between strings and factors.    
+- Reorder and rename factors.    
+- Change how character strings are handled in a data frame.    
+- Examine and change date formats.    
 
 keypoints:  
 
--
+- Use factors to represent categorical data in R.    
 
 ```{r, eval=TRUE,  message=FALSE, purl=FALSE}
 library(tidyverse)

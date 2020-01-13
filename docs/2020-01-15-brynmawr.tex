@@ -119,7 +119,7 @@
 
 \title{2020-01-15-brynmawr}
 \author{Kelsey Gonzalez, Amelia McNamara, The Carpentries}
-\date{2020-01-03}
+\date{2020-01-13}
 
 \begin{document}
 \maketitle
@@ -136,7 +136,9 @@
 teaching: 25\\
 exercises: 15\\
 adapted from:
-\url{https://datacarpentry.org/r-socialsci/00-intro/index.html}
+\url{https://datacarpentry.org/r-socialsci/00-intro/index.html}\\
+\&
+\url{http://swcarpentry.github.io/r-novice-gapminder/02-project-intro/index.html}
 
 questions:
 
@@ -145,11 +147,7 @@ questions:
 \item
   How to find your way around RStudio?\\
 \item
-  How to interact with R?\\
-\item
-  How to manage your environment?\\
-\item
-  How to install packages?
+  How to interact with R?
 \end{itemize}
 
 objectives:
@@ -161,11 +159,9 @@ objectives:
 \item
   Install latest version of RStudio.\\
 \item
-  Navigate the RStudio GUI.\\
+  Navigate the RStudio GUI.
 \item
-  Install additional packages using the packages tab.\\
-\item
-  Install additional packages using R code.
+  Create self-contained projects in RStudio
 \end{itemize}
 
 keypoints:
@@ -173,9 +169,7 @@ keypoints:
 \begin{itemize}
 \tightlist
 \item
-  Use RStudio to write and run R programs.\\
-\item
-  Use \texttt{install.packages()} to install packages (libraries).
+  Use RStudio to write and run R programs.
 \end{itemize}
 
 \section{What is R? What is RStudio?}\label{what-is-r-what-is-rstudio}
@@ -310,6 +304,46 @@ easier and less error-prone.
 
 \section{Getting set up}\label{getting-set-up}
 
+The scientific process is naturally incremental, and many projects start
+life as random notes, some code, then a manuscript, and eventually
+everything is a bit mixed together.
+
+Most people tend to organize their projects like this:
+\includegraphics{./fig/bad_layout.png}
+
+There are many reasons why we should \emph{ALWAYS} avoid this:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  It is really hard to tell which version of your data is the original
+  and which is the modified;
+\item
+  It gets really messy because it mixes files with various extensions
+  together;
+\item
+  It probably takes you a lot of time to actually find things, and
+  relate the correct figures to the exact code that has been used to
+  generate it;
+\end{enumerate}
+
+A good project layout will ultimately make your life easier:
+
+\begin{itemize}
+\tightlist
+\item
+  It will help ensure the integrity of your data;
+\item
+  It makes it simpler to share your code with someone else (a lab-mate,
+  collaborator, or supervisor);
+\item
+  It allows you to easily upload your code with your manuscript
+  submission;
+\item
+  It makes it easier to pick the project back up after a break.
+\end{itemize}
+
 It is good practice to keep a set of related data, analyses, and text
 self-contained in a single folder called the \textbf{working directory}.
 All of the scripts within this folder can then use \emph{relative paths}
@@ -344,6 +378,10 @@ files to make it easier to resume work after a break.
   \textgreater{} New File \textgreater{} R script. Click the save icon
   on your toolbar and save your script as ``\texttt{script.R}''.
 \end{itemize}
+
+Now when we start R in this project directory, or open this project with
+RStudio, all of our work on this project will be entirely self-contained
+in this directory.
 
 \subsection{The RStudio Interface}\label{the-rstudio-interface}
 
@@ -422,38 +460,6 @@ Directory''. Alternatively, you can use
 directory. However, your scripts should not include this line, because
 it will fail on someone else's computer.
 
-\subsection{Downloading the data and getting set
-up}\label{downloading-the-data-and-getting-set-up}
-
-For this lesson we will use the following folders in our working
-directory: \textbf{\texttt{data/}}, \textbf{\texttt{data\_output/}} and
-\textbf{\texttt{fig\_output/}}. Let's write them all in lowercase to be
-consistent. We can create them using the RStudio interface by clicking
-on the ``New Folder'' button in the file pane (bottom right), or
-directly from R by typing at console:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{dir.create}\NormalTok{(}\StringTok{"data"}\NormalTok{)}
-\KeywordTok{dir.create}\NormalTok{(}\StringTok{"data_output"}\NormalTok{)}
-\KeywordTok{dir.create}\NormalTok{(}\StringTok{"fig_output"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-Go to the Figshare page for this curriculum and download the dataset
-called ``\texttt{SAFI\_clean.csv}''. The direct download link is:
-\url{https://ndownloader.figshare.com/files/11492171}. Place this
-downloaded file in the \texttt{data/} you just created. You can do this
-directly from R by copying and pasting this in your terminal (your
-instructor can place this chunk of code in the Etherpad):
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{download.file}\NormalTok{(}\StringTok{"https://ndownloader.figshare.com/files/11492171"}\NormalTok{,}
-              \StringTok{"data/SAFI_clean.csv"}\NormalTok{, }\DataTypeTok{mode =} \StringTok{"wb"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \section{Interacting with R}\label{interacting-with-r}
 
 The basis of programming is that we write down instructions for the
@@ -514,85 +520,7 @@ click inside the console window and press Esc; this will cancel the
 incomplete command and return you to the \texttt{\textgreater{}} prompt.
 You can then proofread the command(s) you entered and correct the error.
 
-\section{Installing additional packages using the packages
-tab}\label{installing-additional-packages-using-the-packages-tab}
-
-In addition to the core R installation, there are in excess of 10,000
-additional packages which can be used to extend the functionality of R.
-Many of these have been written by R users and have been made available
-in central repositories, like the one hosted at CRAN, for anyone to
-download and install into their own R environment. In the course of this
-lesson we will be making use of several of these packages, such as
-`ggplot2' and `dplyr'.
-
-Additional packages can be installed from the `packages' tab. On the
-packages tab, click the `Install' icon and start typing the name of the
-package you want in the text box. As you type, packages matching your
-starting characters will be displayed in a drop-down list so that you
-can select them.
-
-\begin{figure}
-\centering
-\includegraphics{./fig/R_00_Rstudio_03.png}
-\caption{Install Packages Window}
-\end{figure}
-
-At the bottom of the Install Packages window is a check box to `Install'
-dependencies. This is ticked by default, which is usually what you want.
-Packages can (and do) make use of functionality built into other
-packages, so for the functionality contained in the package you are
-installing to work properly, there may be other packages which have to
-be installed with them. The `Install dependencies' option makes sure
-that this happens.
-
-\begin{quote}
-\section{Exercise}\label{exercise}
-
-Use the install option from the packages tab to install the `tidyverse'
-package.
-
-\begin{quote}
-\section{Solution}\label{solution}
-
-From the packages tab, click `Install' from the toolbar and type
-`tidyverse' into the textbox, then click `install'. The `tidyverse'
-package is really a package of packages, including `ggplot2' and
-`dplyr', both of which require other packages to run correctly. All of
-these packages will be installed automatically. Depending on what
-packages have previously been installed in your R environment, the
-install of `tidyverse' could be very quick or could take several
-minutes. As the install proceeds, messages relating to its progress will
-be written to the console. You will be able to see all of the packages
-which are actually being installed. \{: .solution\} \{: .challenge\}
-\end{quote}
-\end{quote}
-
-Because the install process accesses the CRAN repository, you will need
-an Internet connection to install packages.
-
-It is also possible to install packages from other repositories, as well
-as Github or the local file system, but we won't be looking at these
-options in this lesson.
-
-\section{Installing additional packages using R
-code}\label{installing-additional-packages-using-r-code}
-
-If you were watching the console window when you started the install of
-`tidyverse', you may have noticed that the line
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-was written to the console before the start of the installation
-messages.
-
-You could also have installed the \textbf{\texttt{tidyverse}} packages
-by running this command directly at the R terminal.
-
-\chapter{Project Management With RStudio}\label{projectmanagement}
+\chapter{Getting Our Project Organized}\label{projectmanagement}
 
 teaching: 20\\
 exercises: 10\\
@@ -604,7 +532,11 @@ questions:
 \begin{itemize}
 \tightlist
 \item
-  How can I manage my projects in R?
+  How do I actually begin coding in R?
+\item
+  How to manage your environment?\\
+\item
+  How to install packages?
 \end{itemize}
 
 objectives:
@@ -612,7 +544,11 @@ objectives:
 \begin{itemize}
 \tightlist
 \item
-  Create self-contained projects in RStudio
+  Organize our new package directory
+\item
+  Install additional packages using \texttt{install.packages()} command
+\item
+  Create our first rmarkdown document
 \end{itemize}
 
 keypoints:
@@ -622,295 +558,143 @@ keypoints:
 \item
   Use RStudio to create and manage projects with consistent layout.\\
 \item
-  Treat raw data as read-only.\\
-\item
-  Treat generated output as disposable.\\
-\item
-  Separate function definition and application.
+  Use \texttt{install.packages()} to install packages (libraries).
 \end{itemize}
 
-\section{Introduction}\label{introduction}
+\subsection{Downloading the data and getting set
+up}\label{downloading-the-data-and-getting-set-up}
 
-The scientific process is naturally incremental, and many projects start
-life as random notes, some code, then a manuscript, and eventually
-everything is a bit mixed together.
-
-Most people tend to organize their projects like this:
-\includegraphics{./fig/bad_layout.png}
-
-There are many reasons why we should \emph{ALWAYS} avoid this:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  It is really hard to tell which version of your data is the original
-  and which is the modified;
-\item
-  It gets really messy because it mixes files with various extensions
-  together;
-\item
-  It probably takes you a lot of time to actually find things, and
-  relate the correct figures to the exact code that has been used to
-  generate it;
-\end{enumerate}
-
-A good project layout will ultimately make your life easier:
-
-\begin{itemize}
-\tightlist
-\item
-  It will help ensure the integrity of your data;
-\item
-  It makes it simpler to share your code with someone else (a lab-mate,
-  collaborator, or supervisor);
-\item
-  It allows you to easily upload your code with your manuscript
-  submission;
-\item
-  It makes it easier to pick the project back up after a break.
-\end{itemize}
-
-\section{A possible solution}\label{a-possible-solution}
-
-Fortunately, there are tools and packages which can help you manage your
-work effectively.
-
-One of the most powerful and useful aspects of RStudio is its project
-management functionality. We'll be using this today to create a
-self-contained, reproducible project.
-
-\begin{quote}
-\section{Challenge: Creating a self-contained
-project}\label{challenge-creating-a-self-contained-project}
-
-We're going to create a new project in RStudio:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Click the ``File'' menu button, then ``New Project''.
-\item
-  Click ``New Directory''.
-\item
-  Click ``New Project''.
-\item
-  Type in the name of the directory to store your project, e.g.
-  ``my\_project''.
-\item
-  If available, select the checkbox for ``Create a git repository.''
-\item
-  Click the ``Create Project'' button. \{: .challenge\}
-\end{enumerate}
-\end{quote}
-
-Now when we start R in this project directory, or open this project with
-RStudio, all of our work on this project will be entirely self-contained
-in this directory.
-
-\section{Best practices for project
-organization}\label{best-practices-for-project-organization}
-
-Although there is no ``best'' way to lay out a project, there are some
-general principles to adhere to that will make project management
-easier:
-
-\subsection{Treat data as read only}\label{treat-data-as-read-only}
-
-This is probably the most important goal of setting up a project. Data
-is typically time consuming and/or expensive to collect. Working with
-them interactively (e.g., in Excel) where they can be modified means you
-are never sure of where the data came from, or how it has been modified
-since collection. It is therefore a good idea to treat your data as
-``read-only''.
-
-\subsection{Data Cleaning}\label{data-cleaning}
-
-In many cases your data will be ``dirty'': it will need significant
-preprocessing to get into a format R (or any other programming language)
-will find useful. This task is sometimes called ``data munging''.
-Storing these scripts in a separate folder, and creating a second
-``read-only'' data folder to hold the ``cleaned'' data sets can prevent
-confusion between the two sets.
-
-\subsection{Treat generated output as
-disposable}\label{treat-generated-output-as-disposable}
-
-Anything generated by your scripts should be treated as disposable: it
-should all be able to be regenerated from your scripts.
-
-There are lots of different ways to manage this output. Having an output
-folder with different sub-directories for each separate analysis makes
-it easier later. Since many analyses are exploratory and don't end up
-being used in the final project, and some of the analyses get shared
-between projects.
-
-\begin{quote}
-\section{Tip: Good Enough Practices for Scientific
-Computing}\label{tip-good-enough-practices-for-scientific-computing}
-
-\href{https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/blob/gh-pages/good-enough-practices-for-scientific-computing.pdf}{Good
-Enough Practices for Scientific Computing} gives the following
-recommendations for project organization:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Put each project in its own directory, which is named after the
-  project.
-\item
-  Put text documents associated with the project in the \texttt{doc}
-  directory.
-\item
-  Put raw data and metadata in the \texttt{data} directory, and files
-  generated during cleanup and analysis in a \texttt{results} directory.
-\item
-  Put source for the project's scripts and programs in the \texttt{src}
-  directory, and programs brought in from elsewhere or compiled locally
-  in the \texttt{bin} directory.
-\item
-  Name all files to reflect their content or function.
-\end{enumerate}
-
-\{: .callout\}
-\end{quote}
-
-\subsection{Separate function definition and
-application}\label{separate-function-definition-and-application}
-
-One of the more effective ways to work with R is to start by writing the
-code you want to run directly in an .R script, and then running the
-selected lines (either using the keyboard shortcuts in RStudio or
-clicking the ``Run'' button) in the interactive R console.
-
-When your project is in its early stages, the initial .R script file
-usually contains many lines of directly executed code. As it matures,
-reusable chunks get pulled into their own functions. It's a good idea to
-separate these functions into two separate folders; one to store useful
-functions that you'll reuse across analyses and projects, and one to
-store the analysis scripts.
-
-\begin{quote}
-\section{Tip: avoiding duplication}\label{tip-avoiding-duplication}
-
-You may find yourself using data or analysis scripts across several
-projects. Typically you want to avoid duplication to save space and
-avoid having to make updates to code in multiple places.
-
-In this case, making ``symbolic links'', which are essentially shortcuts
-to files somewhere else on a filesystem, can let you use existing code
-without having to move or copy it. Plus, any changes made to that code
-will only have to be made once.
-
-On Linux and OS X you can use the \texttt{ln\ -s} command, and on
-Windows you can either create a shortcut or use the \texttt{mklink}
-command from the windows terminal. \{: .callout\}
-\end{quote}
-
-\subsection{Save the data in the data
-directory}\label{save-the-data-in-the-data-directory}
-
-Now we have a good directory structure we will now place/save the data
-file in the \texttt{data/} directory.
-
-\begin{quote}
-\section{Challenge 1}\label{challenge-1}
-
-Download the SAFI (Studying African Farmer-Led Irrigation) data from
-\href{https://figshare.com/articles/SAFI_Survey_Results/6262019}{here}.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Download the file (CTRL + S, right mouse click -\textgreater{} ``Save
-  as'', or File -\textgreater{} ``Save page as'')
-\item
-  Make sure it's saved under the name \texttt{SAFI\_clean.csv}
-\item
-  Save the file in the \texttt{data/} folder within your project.
-\end{enumerate}
-
-We will load and inspect these data later. \{: .challenge\}
-\end{quote}
-
-\begin{quote}
-\section{Challenge 2}\label{challenge-2}
-
-It is useful to get some general idea about the dataset, directly from
-the command line, before loading it into R. Understanding the dataset
-better will come in handy when making decisions on how to load it in R.
-Use the command-line shell to answer the following questions: 1. What is
-the size of the file? 2. How many rows of data does it contain? 3. What
-kinds of values are stored in this file?
-
-\begin{quote}
-\section{Solution to Challenge 2}\label{solution-to-challenge-2}
-
-By running these commands in the shell:
+For this lesson we will use the following folders in our working
+directory: \textbf{\texttt{data/}}, \textbf{\texttt{data\_output/}} and
+\textbf{\texttt{fig\_output/}}. Let's write them all in lowercase to be
+consistent. We can create them using the RStudio interface by clicking
+on the ``New Folder'' button in the file pane (bottom right), or
+directly from R by typing at console:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ls}\NormalTok{ -lh data/SAFI_clean.csv}
+\KeywordTok{dir.create}\NormalTok{(}\StringTok{"data"}\NormalTok{)}
+\KeywordTok{dir.create}\NormalTok{(}\StringTok{"data_output"}\NormalTok{)}
+\KeywordTok{dir.create}\NormalTok{(}\StringTok{"fig_output"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## -rw-r--r-- 1 ckgon ckgon 22K Jan  3 17:01 data/SAFI_clean.csv
-\end{verbatim}
+\section{Installing packages using the packages
+command}\label{installing-packages-using-the-packages-command}
 
-The file size is 80K.
+In addition to the core R installation, there are in excess of 10,000
+additional packages which can be used to extend the functionality of R.
+Many of these have been written by R users and have been made available
+in central repositories, like the one hosted at CRAN, for anyone to
+download and install into their own R environment. In the course of this
+lesson we will be making use of several of these packages, such as
+`ggplot2' and `dplyr'.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{wc}\NormalTok{ -l data/SAFI_clean.csv}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 131 data/SAFI_clean.csv
-\end{verbatim}
-
-There are 1705 lines. The data looks like:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{head}\NormalTok{ data/SAFI_clean.csv}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## key_ID,village,interview_date,no_membrs,years_liv,respondent_wall_type,rooms,memb_assoc,affect_conflicts,liv_count,items_owned,no_meals,months_lack_food,instanceID
-## 1,God,2016-11-17T00:00:00Z,3,4,muddaub,1,NULL,NULL,1,bicycle;television;solar_panel;table,2,Jan,uuid:ec241f2c-0609-46ed-b5e8-fe575f6cefef
-## 1,God,2016-11-17T00:00:00Z,7,9, muddaub,1,yes,once,3,cow_cart;bicycle;radio;cow_plough;solar_panel;solar_torch;table;mobile_phone,2,Jan;Sept;Oct;Nov;Dec,uuid:099de9c9-3e5e-427b-8452-26250e840d6e
-## 3,God,2016-11-17T00:00:00Z,10,15, burntbricks,1,NULL,NULL,1,solar_torch,2,Jan;Feb;Mar;Oct;Nov;Dec,uuid:193d7daf-9582-409b-bf09-027dd36f9007
-## 4,God,2016-11-17T00:00:00Z,7,6, burntbricks,1,NULL,NULL,2,bicycle;radio;cow_plough;solar_panel;mobile_phone,2,Sept;Oct;Nov;Dec,uuid:148d1105-778a-4755-aa71-281eadd4a973
-## 5,God,2016-11-17T00:00:00Z,7,40,burntbricks,1,NULL,NULL,4,motorcyle;radio;cow_plough;mobile_phone,2,Aug;Sept;Oct;Nov,uuid:2c867811-9696-4966-9866-f35c3e97d02d
-## 6,God,2016-11-17T00:00:00Z,3,3,muddaub,1,NULL,NULL,1,NULL,2,Aug;Sept;Oct,uuid:daa56c91-c8e3-44c3-a663-af6a49a2ca70
-## 7,God,2016-11-17T00:00:00Z,6,38,muddaub,1,no,never,1,motorcyle;cow_plough,3,Nov,uuid:ae20a58d-56f4-43d7-bafa-e7963d850844
-## 8,Chirodzo,2016-11-16T00:00:00Z,12,70,burntbricks,3,yes,never,2,motorcyle;bicycle;television;radio;cow_plough;solar_panel;solar_torch;table;fridge,2,Jan,uuid:d6cee930-7be1-4fd9-88c0-82a08f90fb5a
-## 9,Chirodzo,2016-11-16T00:00:00Z,8,6,burntbricks,1,no,never,3,television;solar_panel;solar_torch,3,Jan;Dec,uuid:846103d2-b1db-4055-b502-9cd510bb7b37
-\end{verbatim}
-
-\{: .solution\} \{: .challenge\}
-\end{quote}
-\end{quote}
+Additional packages can be installed from the command line or within a
+script.
 
 \begin{quote}
-\section{Tip: command line in R
-Studio}\label{tip-command-line-in-r-studio}
+\section{Exercise}\label{exercise}
 
-You can quickly open up a shell in RStudio using the \textbf{Tools
--\textgreater{} Shell\ldots{}} menu item. \{: .callout\}
+Use the console to install the tidyverse package. Find the console
+(bottom left pane) and type
+
+\begin{verbatim}
+install.packages("tidyverse")
+\end{verbatim}
+
+The `tidyverse' package is really a package of packages, including
+`ggplot2' and `dplyr', both of which require other packages to run
+correctly. All of these packages will be installed automatically.
+Depending on what packages have previously been installed in your R
+environment, the install of `tidyverse' could be very quick or could
+take several minutes. As the install proceeds, messages relating to its
+progress will be written to the console. You will be able to see all of
+the packages which are actually being installed.
 \end{quote}
 
-\subsection{Version Control}\label{version-control}
+Because the install process accesses the CRAN repository, you will need
+an Internet connection to install packages.
 
-It is important to use version control with projects. Go
-\href{https://swcarpentry.github.io/git-novice/14-supplemental-rstudio/}{here
-for a good lesson which describes using Git with RStudio}.
+It is also possible to install packages from other repositories, as well
+as Github or the local file system, but we won't be looking at these
+options in this lesson.
+
+We will also need a package called knitr. \textgreater{}
+\texttt{\textgreater{}\ install.packages("tidyverse")\ \textgreater{}}
+\textgreater{} As the install proceeds, messages relating to its
+progress will be written to the console. You will be able to see all of
+the packages which are actually being installed.
+
+\section{Creating an R Markdown file}\label{creating-an-r-markdown-file}
+
+Within RStudio, click File → New File → R Markdown and you'll get a
+dialog box like this: \includegraphics{./fig/New_R_Markdown.png}
+
+You can stick with the default (HTML output), but let's call it
+``intro-to-r''.
+
+\section{Basic components of R
+Markdown}\label{basic-components-of-r-markdown}
+
+The initial chunk of text (header) contains instructions for R to
+specify what kind of document will be created, and the options chosen.
+You can use the header to give your document a title, author, date, and
+tell it that you're going to want to produce html output (in other
+words, a web page).
+
+\begin{verbatim}
+---
+title: "Initial R Markdown document"
+author: "Karl Broman"
+date: "April 23, 2015"
+output: html_document
+---
+\end{verbatim}
+
+You can delete any of those fields if you don't want them included. The
+double-quotes aren't strictly \emph{necessary} in this case. They're
+mostly needed if you want to include a colon in the title.
+
+RStudio creates the document with some example text to get you started.
+Note below that there are chunks like
+
+These are chunks of R code that will be executed by \texttt{knitr} and
+replaced by their results. More on this later.
+
+A quick preview of markdown formatting you can use before we delve in
+deeper tomorrow:
+
+to add headers of various sizes, use:
+
+\begin{verbatim}
+# Title
+## Main section
+### Sub-section
+#### Sub-sub section
+\end{verbatim}
+
+You make things \textbf{bold} using two asterisks, like this:
+\texttt{**bold**}, and you make things \emph{italics} by using
+underscores, like this: \texttt{\_italics\_}.
+
+Go ahead and write this down for reference as we learn today.
+
+Next, we will download the dataset needed for these lessons. We won't be
+using this right away, but we want to be prepared for when we need it.
+I'll paste this into the etherpad, but we will be entering a command to
+download a dataset from the internet to a specific destination.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{download.file}\NormalTok{(}\StringTok{"https://ndownloader.figshare.com/files/11492171"}\NormalTok{,}
+              \StringTok{"data/SAFI_clean.csv"}\NormalTok{, }\DataTypeTok{mode =} \StringTok{"wb"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Notice that this is being downloaded into our data folder. We can access
+that destination from our current working directory by including the
+data/ in front of the file name.
 
 \chapter{Introduction to R}\label{basicR}
 
@@ -1016,12 +800,17 @@ the value we want to give it:
 the right to objects on the left. So, after executing
 \texttt{x\ \textless{}-\ 3}, the value of \texttt{x} is \texttt{3}. The
 arrow can be read as 3 \textbf{goes into} \texttt{x}. For historical
-reasons, you can also use \texttt{=} for assignments, but not in every
-context. Because of the
+reasons, you can also use \texttt{=} for assignments. There are
 \href{http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html}{slight}
 \href{http://r.789695.n4.nabble.com/Is-there-any-difference-between-and-tp878594p878598.html}{differences}
-in syntax, it is good practice to always use \texttt{\textless{}-} for
-assignments.
+depending on which syntax you use, and people have their own
+preferences. Famous R programmer Yihui Xie
+\href{https://yihui.org/en/2014/07/a-few-notes-on-user2014/}{insists on
+=}, but many code style guides
+\href{https://style.tidyverse.org/syntax.html\#assignment}{recommend
+\textless{}-}. Use whichever one feels more comfortable to you!
+(Typically, we recommend being consistent and just using one throughout
+all your code.)
 
 In RStudio, typing Alt + - (push Alt at the same time as the - key) will
 write \texttt{\textless{}-} in a single keystroke in a PC, while typing
@@ -1065,7 +854,6 @@ context, \texttt{object} and \texttt{variable} can have drastically
 different meanings. However, in this lesson, the two words are used
 synonymously. For more information see:
 \url{https://cran.r-project.org/doc/manuals/r-release/R-lang.html\#Objects}
-\{: .callout\}
 \end{quote}
 
 When assigning a value to an object, R does not print anything. You can
@@ -1142,17 +930,11 @@ and then change \texttt{area\_hectares} to 50.
 \section{Exercise}\label{exercise-1}
 
 What do you think is the current content of the object
-\texttt{area\_acres}? 123.5 or 6.175?
-
-\begin{quote}
-\section{Solution}\label{solution-1}
-
-The value of \texttt{area\_acres} is still 6.175 because you have not
-re-run the line
+\texttt{area\_acres}? 123.5 or 6.175? \textgreater{} \#\# Solution
+\textgreater{} \textgreater{} The value of \texttt{area\_acres} is still
+6.175 because you have not re-run the line
 \texttt{area\_acres\ \textless{}-\ 2.47\ *\ area\_hectares} since
-changing the value of \texttt{area\_hectares}. \{: .solution\} \{:
-.challenge\}
-\end{quote}
+changing the value of \texttt{area\_hectares}.
 \end{quote}
 
 \section{Comments}\label{comments}
@@ -1184,23 +966,26 @@ the whole line), then press Ctrl + Shift + C.
 \begin{quote}
 \section{Exercise}\label{exercise-2}
 
-Create two variables \texttt{length} and \texttt{width} and assign them
-values. It should be noted that R Studio might add ``()'' after width
-and if you leave the parentheses you will get unexpected results. This
-is why you might see other programmers abbreviate common words. Create a
-third variable \texttt{area} and give it a value based on the current
-values of \texttt{length} and \texttt{width}. Show that changing the
-values of either \texttt{length} and \texttt{width} does not affect the
-value of \texttt{area}.
+Create two variables \texttt{my\_length} and \texttt{my\_width} and
+assign them values. We will use these variable names rather than
+\texttt{length} and \texttt{width} because \texttt{length} is already
+function in R. If you use it as a variable name, RStudio might add
+``()'' after length and if you leave the parentheses you will get
+unexpected results. This is why you might see other programmers
+abbreviate common words. Create a third variable \texttt{area} and give
+it a value based on the current values of \texttt{my\_length} and
+\texttt{my\_width}. Show that changing the values of either
+\texttt{my\_length} and \texttt{my\_width} does not affect the value of
+\texttt{area}.
 
 \begin{quote}
-\section{Solution}\label{solution-2}
+\section{Solution}\label{solution}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{length <-}\StringTok{ }\FloatTok{2.5}
-\NormalTok{width <-}\StringTok{ }\FloatTok{3.2}
-\NormalTok{area <-}\StringTok{ }\NormalTok{length }\OperatorTok{*}\StringTok{ }\NormalTok{width}
+\NormalTok{my_length <-}\StringTok{ }\FloatTok{2.5}
+\NormalTok{my_width <-}\StringTok{ }\FloatTok{3.2}
+\NormalTok{area <-}\StringTok{ }\NormalTok{my_length }\OperatorTok{*}\StringTok{ }\NormalTok{my_width}
 \NormalTok{area}
 \end{Highlighting}
 \end{Shaded}
@@ -1212,8 +997,8 @@ value of \texttt{area}.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# change the values of length and width}
-\NormalTok{length <-}\StringTok{ }\FloatTok{7.0}
-\NormalTok{width <-}\StringTok{ }\FloatTok{6.5}
+\NormalTok{my_length <-}\StringTok{ }\FloatTok{7.0}
+\NormalTok{my_width <-}\StringTok{ }\FloatTok{6.5}
 \CommentTok{# the value of area isn't changed}
 \NormalTok{area}
 \end{Highlighting}
@@ -1222,8 +1007,6 @@ value of \texttt{area}.
 \begin{verbatim}
 ## [1] 8
 \end{verbatim}
-
-\{: .solution\} \{: .challenge\}
 \end{quote}
 \end{quote}
 
@@ -1231,7 +1014,7 @@ value of \texttt{area}.
 arguments}\label{functions-and-their-arguments}
 
 Functions are ``canned scripts'' that automate more complicated sets of
-commands including operations assignments, etc. Many functions are
+commands including operations, assignments, etc. Many functions are
 predefined, or can be made available by importing R \emph{packages}
 (more on that later). A function usually gets one or more inputs called
 \emph{arguments}. Functions often (but not always) return a
@@ -1243,14 +1026,16 @@ example of a function call is:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{b <-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(a)}
+\KeywordTok{sqrt}\NormalTok{(area)}
+\NormalTok{b <-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(area)}
 \end{Highlighting}
 \end{Shaded}
 
-Here, the value of \texttt{a} is given to the \texttt{sqrt()} function,
-the \texttt{sqrt()} function calculates the square root, and returns the
-value which is then assigned to the object \texttt{b}. This function is
-very simple, because it takes just one argument.
+Here, the value of \texttt{area} is given to the \texttt{sqrt()}
+function, the \texttt{sqrt()} function calculates the square root, and
+returns the value. If we want to use that value later, we can assign it
+to the object \texttt{b}. This function is very simple, because it takes
+just one argument.
 
 The return `value' of a function need not be numerical (like that of
 \texttt{sqrt()}), and it also does not need to be a single item: it can
@@ -1260,12 +1045,12 @@ files into R.
 Arguments can be anything, not only numbers or filenames, but also other
 objects. Exactly what each argument means differs per function, and must
 be looked up in the documentation (see below). Some functions take
-arguments which may either be specified by the user, or, if left out,
-take on a \emph{default} value: these are called \emph{options}. Options
-are typically used to alter the way the function operates, such as
-whether it ignores `bad values', or what symbol to use in a plot.
-However, if you want something specific, you can specify a value of your
-choice which will be used instead of the default.
+arguments which may be specified by the user, or, if left out, take on a
+\emph{default} value: these are called \emph{options}. Options are
+typically used to alter the way the function operates, such as whether
+it ignores `bad values', or what symbol to use in a plot. However, if
+you want something specific, you can specify a value of your choice
+which will be used instead of the default.
 
 Let's try a function that can take multiple arguments: \texttt{round()}.
 
@@ -1304,7 +1089,7 @@ help for this function using \texttt{?round}.
 \end{Shaded}
 
 We see that if we want a different number of digits, we can type
-\texttt{digits=2} or however many we want.
+\texttt{digits\ =\ 2} or however many we want.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1329,7 +1114,10 @@ you don't have to name them:
 ## [1] 3.14
 \end{verbatim}
 
-And if you do name the arguments, you can switch their order:
+This is considered fairly risky practice, because it relies on you
+knowing the exact order of the arguments.
+
+If you do name the arguments, you can switch their order:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1353,17 +1141,17 @@ to understand what you're doing.
 Type in \texttt{?round} at the console and then look at the output in
 the Help pane. What other functions exist that are similar to
 \texttt{round}? How do you use the \texttt{digits} parameter in the
-round function? \{: .challenge\}
+round function?
 \end{quote}
 
 \section{Vectors and data types}\label{vectors-and-data-types}
 
-A vector is the most common and basic data type in R, and is pretty much
-the workhorse of R. A vector is composed by a series of values, which
-can be either numbers or characters. We can assign a series of values to
-a vector using the \texttt{c()} function. For example we can create a
-vector of household members for the households we've interviewed and
-assign it to a new object \texttt{hh\_members}:
+A vector is a very common and basic data type in R. A vector is composed
+of a series of values, which can be either numbers or characters. We can
+assign a series of values to a vector using the \texttt{c()} function.
+For example we can create a vector of household members for the
+households we've interviewed and assign it to a new object
+\texttt{hh\_members}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1532,11 +1320,13 @@ double), integer, and logical. But what happens if we try to mix these
 types in a single vector?
 
 \begin{quote}
-\section{Solution}\label{solution-3}
+\section{Solution}\label{solution-1}
 
-R implicitly converts them to all be the same type. \{: .solution\}
+R implicitly converts them to all be the same type.
+\end{quote}
 \end{quote}
 
+\begin{quote}
 What will happen in each of these examples? (hint: use \texttt{class()}
 to check the data type of your objects):
 
@@ -1545,11 +1335,11 @@ to check the data type of your objects):
 Why do you think it happens?
 
 \begin{quote}
-\section{Solution}\label{solution-4}
+\section{Solution}\label{solution-2}
 
 Vectors can be of only one data type. R tries to convert (coerce) the
 content of this vector to find a ``common denominator'' that doesn't
-lose any information. \{: .solution\}
+lose any information.
 \end{quote}
 
 How many values in \texttt{combined\_logical} are \texttt{"TRUE"} (as a
@@ -1566,23 +1356,23 @@ character) in the following example:
 ~
 
 \begin{quote}
-\section{Solution}\label{solution-5}
+\section{Solution}\label{solution-3}
 
 Only one. There is no memory of past data types, and the coercion
 happens the first time the vector is evaluated. Therefore, the
 \texttt{TRUE} in \texttt{num\_logical} gets converted into a \texttt{1}
 before it gets converted into \texttt{"1"} in
-\texttt{combined\_logical}. \{: .solution\}
+\texttt{combined\_logical}.
+\end{quote}
 \end{quote}
 
+\begin{quote}
 You've probably noticed that objects of different types get converted
 into a single, shared type within a vector. In R, we call converting
 objects from one class into another class \emph{coercion}. These
 conversions happen according to a hierarchy, whereby some types get
 preferentially coerced into other types. Can you draw a diagram that
 represents the hierarchy of how these data types are coerced?
-
-\{: .challenge\}
 \end{quote}
 
 \section{Subsetting vectors}\label{subsetting-vectors}
@@ -1861,7 +1651,7 @@ of your atomic vector.
 \end{enumerate}
 
 \begin{quote}
-\section{Solution}\label{solution-6}
+\section{Solution}\label{solution-4}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1889,8 +1679,6 @@ of your atomic vector.
 \begin{verbatim}
 ## [1] 4
 \end{verbatim}
-
-\{: .solution\} \{: .challenge\}
 \end{quote}
 \end{quote}
 
@@ -1978,7 +1766,7 @@ main ones you should be aware of.
 \section{Tip: Running Examples}\label{tip-running-examples}
 
 From within the function help page, you can highlight code in the
-Examples and hit Ctrl+Return to run it in RStudio console. This is gives
+Examples and hit Ctrl+Return to run it inRStudio console. This is gives
 you a quick way to get a feel for how a function works.
 \end{quote}
 
@@ -1988,7 +1776,7 @@ you a quick way to get a feel for how a function works.
 One of the most daunting aspects of R is the large number of functions
 available. It would be prohibitive, if not impossible to remember the
 correct usage for every function you use. Luckily, the help files mean
-you don't have to! \{: .callout\}
+you don't have to!
 \end{quote}
 
 \section{Special Operators}\label{special-operators}
@@ -2077,25 +1865,26 @@ copy and pasted by anyone else into their R session.
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] lubridate_1.7.4 forcats_0.4.0   stringr_1.4.0   dplyr_0.8.3    
-##  [5] purrr_0.3.3     readr_1.3.1     tidyr_1.0.0     tibble_2.1.3   
-##  [9] ggplot2_3.2.1   tidyverse_1.3.0
+##  [1] tidytext_0.2.2  lubridate_1.7.4 forcats_0.4.0   stringr_1.4.0  
+##  [5] dplyr_0.8.3     purrr_0.3.3     readr_1.3.1     tidyr_1.0.0    
+##  [9] tibble_2.1.3    ggplot2_3.2.1   tidyverse_1.3.0
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tidyselect_0.2.5 xfun_0.11        haven_2.2.0      lattice_0.20-38 
-##  [5] colorspace_1.4-1 vctrs_0.2.0      generics_0.0.2   htmltools_0.4.0 
-##  [9] yaml_2.2.0       utf8_1.1.4       rlang_0.4.2      pillar_1.4.2    
-## [13] withr_2.1.2      glue_1.3.1       DBI_1.1.0        dbplyr_1.4.2    
-## [17] modelr_0.1.5     readxl_1.3.1     lifecycle_0.1.0  munsell_0.5.0   
-## [21] gtable_0.3.0     cellranger_1.1.0 rvest_0.3.5      evaluate_0.14   
-## [25] labeling_0.3     knitr_1.26       fansi_0.4.0      broom_0.5.3     
-## [29] Rcpp_1.0.3       backports_1.1.5  scales_1.1.0     jsonlite_1.6    
-## [33] farver_2.0.1     fs_1.3.1         hms_0.5.2        digest_0.6.23   
-## [37] stringi_1.4.3    bookdown_0.16    grid_3.6.1       cli_2.0.0       
-## [41] tools_3.6.1      magrittr_1.5     lazyeval_0.2.2   crayon_1.3.4    
-## [45] pkgconfig_2.0.3  zeallot_0.1.0    ellipsis_0.3.0   xml2_1.2.2      
-## [49] reprex_0.3.0     assertthat_0.2.1 rmarkdown_2.0    httr_1.4.1      
-## [53] rstudioapi_0.10  R6_2.4.1         nlme_3.1-143     compiler_3.6.1
+##  [1] tidyselect_0.2.5  xfun_0.11         haven_2.2.0       lattice_0.20-38  
+##  [5] colorspace_1.4-1  vctrs_0.2.0       generics_0.0.2    SnowballC_0.6.0  
+##  [9] htmltools_0.4.0   yaml_2.2.0        utf8_1.1.4        rlang_0.4.2      
+## [13] pillar_1.4.2      withr_2.1.2       glue_1.3.1        DBI_1.1.0        
+## [17] dbplyr_1.4.2      modelr_0.1.5      readxl_1.3.1      lifecycle_0.1.0  
+## [21] munsell_0.5.0     gtable_0.3.0      cellranger_1.1.0  rvest_0.3.5      
+## [25] evaluate_0.14     labeling_0.3      knitr_1.26        fansi_0.4.0      
+## [29] tokenizers_0.2.1  broom_0.5.3       Rcpp_1.0.3        backports_1.1.5  
+## [33] scales_1.1.0      jsonlite_1.6      farver_2.0.1      fs_1.3.1         
+## [37] hms_0.5.2         digest_0.6.23     stringi_1.4.3     bookdown_0.16    
+## [41] grid_3.6.1        cli_2.0.0         tools_3.6.1       magrittr_1.5     
+## [45] lazyeval_0.2.2    janeaustenr_0.1.5 crayon_1.3.4      pkgconfig_2.0.3  
+## [49] zeallot_0.1.0     Matrix_1.2-17     ellipsis_0.3.0    xml2_1.2.2       
+## [53] reprex_0.3.0      assertthat_0.2.1  rmarkdown_2.0     httr_1.4.1       
+## [57] rstudioapi_0.10   R6_2.4.1          nlme_3.1-143      compiler_3.6.1
 \end{verbatim}
 
 Will print out your current version of R, as well as any packages you
@@ -2103,7 +1892,7 @@ have loaded. This can be useful for others to help reproduce and debug
 your issue.
 
 \begin{quote}
-\section{Challenge 1}\label{challenge-1-1}
+\section{Challenge 1}\label{challenge-1}
 
 Look at the help for the \texttt{c} function. What kind of vector do you
 expect you will create if you evaluate the following:
@@ -2122,20 +1911,19 @@ expect you will create if you evaluate the following:
 The \texttt{c()} function creates a vector, in which all elements are
 the same type. In the first case, the elements are numeric, in the
 second, they are characters, and in the third they are characters: the
-numeric values are ``coerced'' to be characters. \{: .solution\} \{:
-.challenge\}
+numeric values are ``coerced'' to be characters.
 \end{quote}
 \end{quote}
 
 \begin{quote}
-\section{Challenge 2}\label{challenge-2-1}
+\section{Challenge 2}\label{challenge-2}
 
 Look at the help for the \texttt{paste} function. You'll need to use
 this later. What is the difference between the \texttt{sep} and
 \texttt{collapse} arguments?
 
 \begin{quote}
-\section{Solution to Challenge 2}\label{solution-to-challenge-2-1}
+\section{Solution to Challenge 2}\label{solution-to-challenge-2}
 
 To look at the help for the \texttt{paste()} function, use:
 
@@ -2197,8 +1985,7 @@ separator, the result being a single string. e.g.
 
 (For more information, scroll to the bottom of the \texttt{?paste} help
 page and look at the examples, or try
-\texttt{example(\textquotesingle{}paste\textquotesingle{})}.) \{:
-.solution\} \{: .challenge\}
+\texttt{example(\textquotesingle{}paste\textquotesingle{})}.)
 \end{quote}
 \end{quote}
 
@@ -2220,7 +2007,7 @@ read.delim(). You can also do this with \textgreater{}
 \emph{default} decimal \textgreater{} separator for
 \texttt{read.table()}, although you may have to change \textgreater{}
 the \texttt{comment.char} argument as well if your data file contains
-\textgreater{} hash (\#) characters \{: .solution\} \{: .challenge\}
+\textgreater{} hash (\#) characters
 \end{quote}
 
 \section{Other ports of call}\label{other-ports-of-call}
@@ -2525,7 +2312,7 @@ Let's try them out!
 \item
   \texttt{dim(interviews)} - returns a vector with the number of rows in
   the first element, and the number of columns as the second element
-  (the \textbf{dim}ensions of the object)
+  (the \textbf{dim} ensions of the object)
 \item
   \texttt{nrow(interviews)} - returns the number of rows
 \item
@@ -2777,7 +2564,7 @@ correct names of the columns.
 \end{enumerate}
 
 \begin{quote}
-\section{Solution}\label{solution-7}
+\section{Solution}\label{solution-5}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2793,427 +2580,8 @@ correct names of the columns.
 \NormalTok{interviews_head <-}\StringTok{ }\NormalTok{interviews[}\OperatorTok{-}\NormalTok{(}\DecValTok{7}\OperatorTok{:}\NormalTok{n_rows), ]}
 \end{Highlighting}
 \end{Shaded}
-
-\{: .solution\} \{: .challenge\}
 \end{quote}
 \end{quote}
-
-\section{Factors}\label{factors}
-
-R has a special data class, called factor, to deal with categorical data
-that you may encounter when creating plots or doing statistical
-analyses. Factors are very useful and actually contribute to making R
-particularly well suited to working with data. So we are going to spend
-a little time introducing them.
-
-Factors represent categorical data. They are stored as integers
-associated with labels and they can be ordered or unordered. While
-factors look (and often behave) like character vectors, they are
-actually treated as integer vectors by R. So you need to be very careful
-when treating them as strings.
-
-Once created, factors can only contain a pre-defined set of values,
-known as \emph{levels}. By default, R always sorts levels in
-alphabetical order. For instance, if you have a factor with 2 levels:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{respondent_floor_type <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"earth"}\NormalTok{, }\StringTok{"cement"}\NormalTok{, }\StringTok{"cement"}\NormalTok{, }\StringTok{"earth"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-R will assign \texttt{1} to the level \texttt{"cement"} and \texttt{2}
-to the level \texttt{"earth"} (because \texttt{c} comes before
-\texttt{e}, even though the first element in this vector is
-\texttt{"earth"}). You can see this by using the function
-\texttt{levels()} and you can find the number of levels using
-\texttt{nlevels()}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{levels}\NormalTok{(respondent_floor_type)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "cement" "earth"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{nlevels}\NormalTok{(respondent_floor_type)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 2
-\end{verbatim}
-
-Sometimes, the order of the factors does not matter, other times you
-might want to specify the order because it is meaningful (e.g., ``low'',
-``medium'', ``high''), it improves your visualization, or it is required
-by a particular type of analysis. Here, one way to reorder our levels in
-the \texttt{respondent\_floor\_type} vector would be:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{respondent_floor_type }\CommentTok{# current order}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] earth  cement cement earth 
-## Levels: cement earth
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{respondent_floor_type <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(respondent_floor_type, }\DataTypeTok{levels =} \KeywordTok{c}\NormalTok{(}\StringTok{"earth"}\NormalTok{, }\StringTok{"cement"}\NormalTok{))}
-\NormalTok{respondent_floor_type }\CommentTok{# after re-ordering}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] earth  cement cement earth 
-## Levels: earth cement
-\end{verbatim}
-
-In R's memory, these factors are represented by integers (1, 2), but are
-more informative than integers because factors are self describing:
-\texttt{"cement"}, \texttt{"earth"} is more descriptive than \texttt{1},
-and \texttt{2}. Which one is ``earth''? You wouldn't be able to tell
-just from the integer data. Factors, on the other hand, have this
-information built in. It is particularly helpful when there are many
-levels. It also makes renaming levels easier. Let's say we made a
-mistake and need to recode ``cement'' to ``brick''.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{levels}\NormalTok{(respondent_floor_type)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "earth"  "cement"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{levels}\NormalTok{(respondent_floor_type)[}\DecValTok{2}\NormalTok{] <-}\StringTok{ "brick"}
-\KeywordTok{levels}\NormalTok{(respondent_floor_type)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "earth" "brick"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{respondent_floor_type}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] earth brick brick earth
-## Levels: earth brick
-\end{verbatim}
-
-\subsection{Converting factors}\label{converting-factors}
-
-If you need to convert a factor to a character vector, you use
-\texttt{as.character(x)}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{as.character}\NormalTok{(respondent_floor_type)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "earth" "brick" "brick" "earth"
-\end{verbatim}
-
-Converting factors where the levels appear as numbers (such as
-concentration levels, or years) to a numeric vector is a little
-trickier. The \texttt{as.numeric()} function returns the index values of
-the factor, not its levels, so it will result in an entirely new (and
-unwanted in this case) set of numbers. One method to avoid this is to
-convert factors to characters, and then to numbers. Another method is to
-use the \texttt{levels()} function. Compare:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{year_fct <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1990}\NormalTok{, }\DecValTok{1983}\NormalTok{, }\DecValTok{1977}\NormalTok{, }\DecValTok{1998}\NormalTok{, }\DecValTok{1990}\NormalTok{))}
-\KeywordTok{as.numeric}\NormalTok{(year_fct)                     }\CommentTok{# Wrong! And there is no warning...}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 3 2 1 4 3
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{as.numeric}\NormalTok{(}\KeywordTok{as.character}\NormalTok{(year_fct))       }\CommentTok{# Works...}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 1990 1983 1977 1998 1990
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{as.numeric}\NormalTok{(}\KeywordTok{levels}\NormalTok{(year_fct))[year_fct]   }\CommentTok{# The recommended way.}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 1990 1983 1977 1998 1990
-\end{verbatim}
-
-Notice that in the recommended \texttt{levels()} approach, three
-important steps occur:
-
-\begin{itemize}
-\tightlist
-\item
-  We obtain all the factor levels using \texttt{levels(year\_fct)}
-\item
-  We convert these levels to numeric values using
-  \texttt{as.numeric(levels(year\_fct))}
-\item
-  We then access these numeric values using the underlying integers of
-  the vector \texttt{year\_fct} inside the square brackets
-\end{itemize}
-
-\subsection{Renaming factors}\label{renaming-factors}
-
-When your data is stored as a factor, you can use the \texttt{plot()}
-function to get a quick glance at the number of observations represented
-by each factor level. Let's extract the \texttt{memb\_assoc} column from
-our data frame, convert it into a factor, and use it to look at the
-number of interview respondents who were or were not members of an
-irrigation association:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{## create a vector from the data frame column "memb_assoc"}
-\NormalTok{memb_assoc <-}\StringTok{ }\NormalTok{interviews}\OperatorTok{$}\NormalTok{memb_assoc}
-\NormalTok{## convert it into a factor}
-\NormalTok{memb_assoc <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(memb_assoc)}
-\NormalTok{## let's see what it looks like}
-\NormalTok{memb_assoc}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##   [1] <NA> yes  <NA> <NA> <NA> <NA> no   yes  no   no   <NA> yes  no   <NA> yes 
-##  [16] <NA> <NA> <NA> <NA> <NA> no   <NA> <NA> no   no   no   <NA> no   yes  <NA>
-##  [31] <NA> yes  no   yes  yes  yes  <NA> yes  <NA> yes  <NA> no   no   <NA> no  
-##  [46] no   yes  <NA> <NA> yes  <NA> no   yes  no   <NA> yes  no   no   <NA> no  
-##  [61] yes  <NA> <NA> <NA> no   yes  no   no   no   no   yes  <NA> no   yes  <NA>
-##  [76] <NA> yes  no   no   yes  no   no   yes  no   yes  no   no   <NA> yes  yes 
-##  [91] yes  yes  yes  no   no   no   no   yes  no   no   yes  yes  no   <NA> no  
-## [106] no   <NA> no   no   <NA> no   <NA> <NA> no   no   no   no   yes  no   no  
-## [121] no   no   no   no   no   no   no   no   no   yes  <NA>
-## Levels: no yes
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{## bar plot of the number of interview respondents who were}
-\NormalTok{## members of irrigation association:}
-\KeywordTok{plot}\NormalTok{(memb_assoc)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{2020-01-15-brynmawr_files/figure-latex/factor-plot-default-order-1.pdf}
-
-Looking at the plot compared to the output of the vector, we can see
-that n addition to ``no''s and ``yes''s, there are about some
-respondents for which the information about whether they were part of an
-irrigation association hasn't been recorded, and encoded as missing
-data. They do not appear on the plot. Let's encode them differently so
-they can counted and visualized in our plot.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{## Let's recreate the vector from the data frame column "memb_assoc"}
-\NormalTok{memb_assoc <-}\StringTok{ }\NormalTok{interviews}\OperatorTok{$}\NormalTok{memb_assoc}
-\NormalTok{## replace the missing data with "undetermined"}
-\NormalTok{memb_assoc[}\KeywordTok{is.na}\NormalTok{(memb_assoc)] <-}\StringTok{ "undetermined"}
-\NormalTok{## convert it into a factor}
-\NormalTok{memb_assoc <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(memb_assoc)}
-\NormalTok{## let's see what it looks like}
-\NormalTok{memb_assoc}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##   [1] undetermined yes          undetermined undetermined undetermined
-##   [6] undetermined no           yes          no           no          
-##  [11] undetermined yes          no           undetermined yes         
-##  [16] undetermined undetermined undetermined undetermined undetermined
-##  [21] no           undetermined undetermined no           no          
-##  [26] no           undetermined no           yes          undetermined
-##  [31] undetermined yes          no           yes          yes         
-##  [36] yes          undetermined yes          undetermined yes         
-##  [41] undetermined no           no           undetermined no          
-##  [46] no           yes          undetermined undetermined yes         
-##  [51] undetermined no           yes          no           undetermined
-##  [56] yes          no           no           undetermined no          
-##  [61] yes          undetermined undetermined undetermined no          
-##  [66] yes          no           no           no           no          
-##  [71] yes          undetermined no           yes          undetermined
-##  [76] undetermined yes          no           no           yes         
-##  [81] no           no           yes          no           yes         
-##  [86] no           no           undetermined yes          yes         
-##  [91] yes          yes          yes          no           no          
-##  [96] no           no           yes          no           no          
-## [101] yes          yes          no           undetermined no          
-## [106] no           undetermined no           no           undetermined
-## [111] no           undetermined undetermined no           no          
-## [116] no           no           yes          no           no          
-## [121] no           no           no           no           no          
-## [126] no           no           no           no           yes         
-## [131] undetermined
-## Levels: no undetermined yes
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{## bar plot of the number of interview respondents who were}
-\NormalTok{## members of irrigation association:}
-\KeywordTok{plot}\NormalTok{(memb_assoc)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{2020-01-15-brynmawr_files/figure-latex/factor-plot-reorder-1.pdf}
-
-\begin{quote}
-\section{Exercise}\label{exercise-7}
-
-\begin{itemize}
-\item
-  Rename the levels of the factor to have the first letter in uppercase:
-  ``No'',``Undetermined'', and ``Yes''.
-\item
-  Now that we have renamed the factor level to ``Undetermined'', can you
-  recreate the barplot such that ``Undetermined'' is last (after
-  ``Yes'')?
-\end{itemize}
-
-\begin{quote}
-\section{Solution}\label{solution-8}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{levels}\NormalTok{(memb_assoc) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"No"}\NormalTok{, }\StringTok{"Undetermined"}\NormalTok{, }\StringTok{"Yes"}\NormalTok{)}
-\NormalTok{memb_assoc <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(memb_assoc, }\DataTypeTok{levels =} \KeywordTok{c}\NormalTok{(}\StringTok{"No"}\NormalTok{, }\StringTok{"Yes"}\NormalTok{, }\StringTok{"Undetermined"}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(memb_assoc)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{2020-01-15-brynmawr_files/figure-latex/factor-plot-exercise-1.pdf}
-\{: .solution\} \{: .challenge\}
-\end{quote}
-\end{quote}
-
-\section{Formatting Dates}\label{formatting-dates}
-
-One of the most common issues that new (and experienced!) R users have
-is converting date and time information into a variable that is
-appropriate and usable during analyses. As a reminder from earlier in
-this lesson, the best practice for dealing with date data is to ensure
-that each component of your date is stored as a separate variable. In
-our dataset, we have a column \texttt{interview\_date} which contains
-information about the year, month, and day that the interview was
-conducted. Let's convert those dates into three separate columns.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{str}\NormalTok{(interviews)}
-\end{Highlighting}
-\end{Shaded}
-
-We are going to use the package \textbf{\texttt{lubridate}} (which
-belongs to the \textbf{\texttt{tidyverse}}; learn more
-\href{https://www.tidyverse.org/}{here}) to work with dates.
-\textbf{\texttt{lubridate}} gets installed as part as the
-\textbf{\texttt{tidyverse}} installation. When you load the
-\textbf{\texttt{tidyverse}} (\texttt{library(tidyverse)}), the core
-packages (the packages used in most data analyses) get loaded.
-\textbf{\texttt{lubridate}} however does not belong to the core
-tidyverse, so you have to load it explicitly with
-\texttt{library(lubridate)}
-
-Start by loading the required package:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(lubridate)}
-\end{Highlighting}
-\end{Shaded}
-
-The lubridate function \texttt{ymd()} takes a vector representing year,
-month, and day, and converts it to a \texttt{Date} vector. \texttt{Date}
-is a class of data recognized by R as being a date and can be
-manipulated as such. The argument that the function requires is
-flexible, but, as a best practice, is a character vector formatted as
-``YYYY-MM-DD''.
-
-Let's extract our \texttt{interview\_date} column and inspect the
-structure:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dates <-}\StringTok{ }\NormalTok{interviews}\OperatorTok{$}\NormalTok{interview_date}
-\KeywordTok{str}\NormalTok{(dates)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  POSIXct[1:131], format: "2016-11-17" "2016-11-17" "2016-11-17" "2016-11-17" "2016-11-17" ...
-\end{verbatim}
-
-When we imported the data in R, \texttt{read\_csv()} recognized that
-this column contained date information. We can now use the
-\texttt{day()}, \texttt{month()} and \texttt{year()} functions to
-extract this information from the date, and create new columns in our
-data frame to store it:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{interviews}\OperatorTok{$}\NormalTok{day <-}\StringTok{ }\KeywordTok{day}\NormalTok{(dates)}
-\NormalTok{interviews}\OperatorTok{$}\NormalTok{month <-}\StringTok{ }\KeywordTok{month}\NormalTok{(dates)}
-\NormalTok{interviews}\OperatorTok{$}\NormalTok{year <-}\StringTok{ }\KeywordTok{year}\NormalTok{(dates)}
-\NormalTok{interviews}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 131 x 17
-##    key_ID village interview_date      no_membrs years_liv respondent_wall… rooms
-##     <dbl> <chr>   <dttm>                  <dbl>     <dbl> <chr>            <dbl>
-##  1      1 God     2016-11-17 00:00:00         3         4 muddaub              1
-##  2      1 God     2016-11-17 00:00:00         7         9 muddaub              1
-##  3      3 God     2016-11-17 00:00:00        10        15 burntbricks          1
-##  4      4 God     2016-11-17 00:00:00         7         6 burntbricks          1
-##  5      5 God     2016-11-17 00:00:00         7        40 burntbricks          1
-##  6      6 God     2016-11-17 00:00:00         3         3 muddaub              1
-##  7      7 God     2016-11-17 00:00:00         6        38 muddaub              1
-##  8      8 Chirod… 2016-11-16 00:00:00        12        70 burntbricks          3
-##  9      9 Chirod… 2016-11-16 00:00:00         8         6 burntbricks          1
-## 10     10 Chirod… 2016-12-16 00:00:00        12        23 burntbricks          5
-## # … with 121 more rows, and 10 more variables: memb_assoc <chr>,
-## #   affect_conflicts <chr>, liv_count <dbl>, items_owned <chr>, no_meals <dbl>,
-## #   months_lack_food <chr>, instanceID <chr>, day <int>, month <dbl>,
-## #   year <dbl>
-\end{verbatim}
-
-Notice the three new columns at the end of our data frame.
 
 \chapter{\texorpdfstring{Data Wrangling with
 \texttt{dplyr}}{Data Wrangling with dplyr}}\label{dplyr}
@@ -3557,7 +2925,7 @@ Note that the final data frame (\texttt{interviews\_god}) is the
 leftmost part of this expression.
 
 \begin{quote}
-\section{Exercise}\label{exercise-8}
+\section{Exercise}\label{exercise-7}
 
 Using pipes, subset the \texttt{interviews} data to include interviews
 where respondents were members of an irrigation association
@@ -3565,7 +2933,7 @@ where respondents were members of an irrigation association
 \texttt{affect\_conflicts}, \texttt{liv\_count}, and \texttt{no\_meals}.
 
 \begin{quote}
-\section{Solution}\label{solution-9}
+\section{Solution}\label{solution-6}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3591,8 +2959,6 @@ where respondents were members of an irrigation association
 ## 10 never                    3        3
 ## # … with 23 more rows
 \end{verbatim}
-
-\{: .solution\} \{: .challenge\}
 \end{quote}
 \end{quote}
 
@@ -3671,7 +3037,7 @@ The \texttt{!} symbol negates the result, so we're asking for every row
 where \texttt{memb\_assoc} \emph{is not} missing..
 
 \begin{quote}
-\section{Exercise}\label{exercise-9}
+\section{Exercise}\label{exercise-8}
 
 Create a new data frame from the \texttt{interviews} data that meets the
 following criteria: contains only the \texttt{village} column and a new
@@ -3685,7 +3051,7 @@ data frame.
 this data frame!
 
 \begin{quote}
-\section{Solution}\label{solution-10}
+\section{Solution}\label{solution-7}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3695,8 +3061,6 @@ this data frame!
 \StringTok{    }\KeywordTok{select}\NormalTok{(village, total_meals)}
 \end{Highlighting}
 \end{Shaded}
-
-\{: .solution\} \{: .challenge\}
 \end{quote}
 \end{quote}
 
@@ -3919,7 +3283,7 @@ get results in decreasing order:
 \end{verbatim}
 
 \begin{quote}
-\section{Exercise}\label{exercise-10}
+\section{Exercise}\label{exercise-9}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3931,7 +3295,7 @@ get results in decreasing order:
 \end{enumerate}
 
 \begin{quote}
-\section{Solution}\label{solution-11}
+\section{Solution}\label{solution-8}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3947,10 +3311,10 @@ get results in decreasing order:
 ## 1        2    52
 ## 2        3    79
 \end{verbatim}
-
-\{: .solution\}
+\end{quote}
 \end{quote}
 
+\begin{quote}
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{1}
@@ -3962,7 +3326,7 @@ get results in decreasing order:
 \end{enumerate}
 
 \begin{quote}
-\section{Solution}\label{solution-12}
+\section{Solution}\label{solution-9}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3985,8 +3349,6 @@ get results in decreasing order:
 ## 2 God                6.86             3            15    43
 ## 3 Ruaca              7.57             2            19    49
 \end{verbatim}
-
-\{: .solution\}
 \end{quote}
 
 \begin{enumerate}
@@ -3998,7 +3360,7 @@ get results in decreasing order:
 \end{enumerate}
 
 \begin{quote}
-\section{Solution}\label{solution-13}
+\section{Solution}\label{solution-10}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4024,8 +3386,6 @@ get results in decreasing order:
 ## 4  2017     5            15
 ## 5  2017     6            15
 \end{verbatim}
-
-\{: .solution\} \{: .challenge\}
 \end{quote}
 \end{quote}
 
@@ -4350,7 +3710,7 @@ respondents in each village:
 \end{verbatim}
 
 \begin{quote}
-\section{Exercise}\label{exercise-11}
+\section{Exercise}\label{exercise-10}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -4363,7 +3723,7 @@ respondents in each village:
 \end{enumerate}
 
 \begin{quote}
-\section{Solution}\label{solution-14}
+\section{Solution}\label{solution-11}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4373,10 +3733,10 @@ respondents in each village:
 \StringTok{  }\KeywordTok{spread}\NormalTok{(}\DataTypeTok{key =}\NormalTok{ months_lack_food, }\DataTypeTok{value =}\NormalTok{ months_lack_food_logical, }\DataTypeTok{fill =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-\{: .solution\}
+\end{quote}
 \end{quote}
 
+\begin{quote}
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{1}
@@ -4387,7 +3747,7 @@ respondents in each village:
 \end{enumerate}
 
 \begin{quote}
-\section{Solution}\label{solution-15}
+\section{Solution}\label{solution-12}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4406,8 +3766,6 @@ respondents in each village:
 ## 2 yes               2.64
 ## 3 <NA>              2.95
 \end{verbatim}
-
-\{: .solution\} \{: .challenge\}
 \end{quote}
 \end{quote}
 
@@ -4778,14 +4136,14 @@ and number of items owned (from the list provided). This trend does not
 appear to be different by village.
 
 \begin{quote}
-\section{Exercise}\label{exercise-12}
+\section{Exercise}\label{exercise-11}
 
 Use what you just learned to create a scatter plot of \texttt{rooms} by
 \texttt{village} with the \texttt{respondent\_wall\_type} showing in
 different colors. Is this a good way to show this type of data?
 
 \begin{quote}
-\section{Solution}\label{solution-16}
+\section{Solution}\label{solution-13}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4796,7 +4154,7 @@ different colors. Is this a good way to show this type of data?
 
 \includegraphics{2020-01-15-brynmawr_files/figure-latex/scatter-challenge-1.pdf}
 This is not a good way to show this type of data because it is difficult
-to distinguish between villages. \{: .solution\} \{: .challenge\}
+to distinguish between villages.
 \end{quote}
 \end{quote}
 
@@ -4835,7 +4193,7 @@ need to change in the code to put the boxplot in front of the points
 such that it's not hidden?
 
 \begin{quote}
-\section{Exercise}\label{exercise-13}
+\section{Exercise}\label{exercise-12}
 
 Boxplots are useful summaries, but hide the \emph{shape} of the
 distribution. For example, if the distribution is bimodal, we would not
@@ -4849,7 +4207,7 @@ where the shape (of the density of points) is drawn.
 \end{itemize}
 
 \begin{quote}
-\section{Solution}\label{solution-17}
+\section{Solution}\label{solution-14}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4860,7 +4218,6 @@ where the shape (of the density of points) is drawn.
 \end{Shaded}
 
 \includegraphics{2020-01-15-brynmawr_files/figure-latex/violin-plot-1.pdf}
-\{: .solution\}
 \end{quote}
 
 So far, we've looked at the distribution of room number within wall
@@ -4875,7 +4232,7 @@ variable within wall type.
 \end{itemize}
 
 \begin{quote}
-\section{Solution}\label{solution-18}
+\section{Solution}\label{solution-15}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4886,7 +4243,6 @@ variable within wall type.
 \end{Shaded}
 
 \includegraphics{2020-01-15-brynmawr_files/figure-latex/boxplot-exercise-1.pdf}
-\{: .solution\}
 \end{quote}
 
 \begin{itemize}
@@ -4898,7 +4254,7 @@ variable within wall type.
 \end{itemize}
 
 \begin{quote}
-\section{Solution}\label{solution-19}
+\section{Solution}\label{solution-16}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4909,7 +4265,6 @@ variable within wall type.
 \end{Shaded}
 
 \includegraphics{2020-01-15-brynmawr_files/figure-latex/boxplot-exercise-factor-1.pdf}
-\{: .solution\} \{: .challenge\}
 \end{quote}
 \end{quote}
 
@@ -4989,7 +4344,7 @@ percentage of each house type in each village.
 \includegraphics{2020-01-15-brynmawr_files/figure-latex/barplot-wall-type-1.pdf}
 
 \begin{quote}
-\section{Exercise}\label{exercise-14}
+\section{Exercise}\label{exercise-13}
 
 Create a bar plot showing the proportion of respondents in each village
 who are or are not part of an irrigation association
@@ -4998,7 +4353,7 @@ question in the calculations and plot. Which village had the lowest
 proportion of respondents in an irrigation association?
 
 \begin{quote}
-\section{Solution}\label{solution-20}
+\section{Solution}\label{solution-17}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5017,7 +4372,6 @@ proportion of respondents in an irrigation association?
 \includegraphics{2020-01-15-brynmawr_files/figure-latex/barplot-memb-assoc-1.pdf}
 
 Ruaca had the lowest proportion of members in an irrigation association.
-\{: .solution\} \{: .challenge\}
 \end{quote}
 \end{quote}
 
@@ -5153,7 +4507,7 @@ website} provides a list of packages that extend the capabilities of
 \textbf{\texttt{ggplot2}}, including additional themes.
 
 \begin{quote}
-\section{Exercise}\label{exercise-15}
+\section{Exercise}\label{exercise-14}
 
 Experiment with at least two different themes. Build the previous plot
 using each of those themes. Which do you like best? \{: .challenge\}
@@ -5258,7 +4612,7 @@ title:
 \includegraphics{2020-01-15-brynmawr_files/figure-latex/ggplot-custom-themes-1.pdf}
 
 \begin{quote}
-\section{Exercise}\label{exercise-16}
+\section{Exercise}\label{exercise-15}
 
 With all of this information in hand, please take another five minutes
 to either improve one of the plots generated in this exercise or create
@@ -5337,7 +4691,786 @@ keypoints:
 \item
 \end{itemize}
 
-\section{ForCats}\label{forcats}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\NormalTok{interviews <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/SAFI_clean.csv"}\NormalTok{, }\DataTypeTok{na =} \StringTok{"NULL"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Factors}\label{factors}
+
+R has a special data class, called factor, to deal with categorical data
+that you may encounter when creating plots or doing statistical
+analyses. Factors are very useful and actually contribute to making R
+particularly well suited to working with data. So we are going to spend
+a little time introducing them.
+
+Factors represent categorical data. They are stored as integers
+associated with labels and they can be ordered or unordered. While
+factors look (and often behave) like character vectors, they are
+actually treated as integer vectors by R. So you need to be very careful
+when treating them as strings.
+
+Factors are particularly useful when making plots or running statistical
+models. Unfortunately, they can also be very tricky to work with,
+because they are secretly numbers behind the scenes. Working with
+factors in base R can lead to errors that are almost impossible for
+human analysts to catch, but there is a \texttt{tidyverse} package that
+makes it much easier to work with factors, and prevents many common
+mistakes. It is called \texttt{forcats} (an anagram of the word
+``factors'' and also because it is a package \textbf{for} working with
+\textbf{cat}egorical variable\textbf{s}).
+
+Let's load the \texttt{forcats} package so we can use the functions it
+comes with
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(forcats)}
+\end{Highlighting}
+\end{Shaded}
+
+Once created, factors can only contain a pre-defined set of values,
+known as \emph{levels}. By default, base R always sorts levels in
+alphabetical order. For instance, if you have a factor with 2 levels:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{factor}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"earth"}\NormalTok{, }\StringTok{"cement"}\NormalTok{, }\StringTok{"cement"}\NormalTok{, }\StringTok{"earth"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] earth  cement cement earth 
+## Levels: cement earth
+\end{verbatim}
+
+R will assign \texttt{1} to the level \texttt{"cement"} and \texttt{2}
+to the level \texttt{"earth"} (because \texttt{c} comes before
+\texttt{e} in the alphabet, even though the first element in this vector
+is\texttt{"earth"}).
+
+In R's memory, factors are represented by integers (1, 2), but are more
+informative than integers because factors are self describing:
+\texttt{"cement"}, \texttt{"earth"} is more descriptive than \texttt{1},
+and \texttt{2}. Which one is ``earth''? You wouldn't be able to tell
+just from the integer data. Factors, on the other hand, have this
+information built in. It is particularly helpful when there are many
+levels.
+
+However, the default ordering of levels in base R is less than ideal,
+because it depends on the language you have set for your R session, and
+can lead to un-reproducble code.
+
+In the \texttt{forcats} package, there is a function that makes a factor
+but creates the levels in the order they appear.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{respondent_floor_type <-}\StringTok{ }\KeywordTok{as_factor}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"earth"}\NormalTok{, }\StringTok{"cement"}\NormalTok{, }\StringTok{"cement"}\NormalTok{, }\StringTok{"earth"}\NormalTok{))}
+\NormalTok{respondent_floor_type}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] earth  cement cement earth 
+## Levels: earth cement
+\end{verbatim}
+
+You can see the levels and their order by using the function
+\texttt{levels()} and you can find the number of levels using
+\texttt{nlevels()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{levels}\NormalTok{(respondent_floor_type)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "earth"  "cement"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{nlevels}\NormalTok{(respondent_floor_type)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\section{reordering factor levels}\label{reordering-factor-levels}
+
+Sometimes, the order of the factors does not matter, other times you
+might want to specify the order because it is meaningful (e.g., ``low'',
+``medium'', ``high''), it improves your visualization, or it is required
+by a particular type of analysis. In \texttt{forcats}, one way to
+reorder our levels in the \texttt{respondent\_floor\_type} vector would
+be:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{respondent_floor_type }\CommentTok{# current order}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] earth  cement cement earth 
+## Levels: earth cement
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{respondent_floor_type <-}\StringTok{ }\KeywordTok{fct_relevel}\NormalTok{(respondent_floor_type, }\StringTok{"cement"}\NormalTok{, }\StringTok{"earth"}\NormalTok{)}
+\NormalTok{respondent_floor_type }\CommentTok{# after re-ordering}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] earth  cement cement earth 
+## Levels: cement earth
+\end{verbatim}
+
+This is perhaps easier to see with a few more factor levels. Let's use
+our real data,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{respondent_floor_type <-}\StringTok{ }\KeywordTok{as_factor}\NormalTok{(interviews}\OperatorTok{$}\NormalTok{respondent_wall_type)}
+\KeywordTok{levels}\NormalTok{(respondent_floor_type)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "muddaub"     "burntbricks" "sunbricks"   "cement"
+\end{verbatim}
+
+Say we want \texttt{sunbricks} to come first in the factor order. We can
+use \texttt{fct\_relevel} to move it up.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{respondent_floor_type }\CommentTok{# current order}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] muddaub     muddaub     burntbricks burntbricks burntbricks muddaub    
+##   [7] muddaub     burntbricks burntbricks burntbricks sunbricks   burntbricks
+##  [13] burntbricks burntbricks sunbricks   muddaub     sunbricks   muddaub    
+##  [19] burntbricks burntbricks burntbricks muddaub     burntbricks burntbricks
+##  [25] burntbricks burntbricks burntbricks muddaub     burntbricks muddaub    
+##  [31] muddaub     muddaub     muddaub     burntbricks muddaub     sunbricks  
+##  [37] burntbricks muddaub     muddaub     burntbricks muddaub     sunbricks  
+##  [43] muddaub     muddaub     muddaub     burntbricks muddaub     muddaub    
+##  [49] burntbricks muddaub     muddaub     burntbricks burntbricks muddaub    
+##  [55] muddaub     burntbricks burntbricks burntbricks muddaub     burntbricks
+##  [61] muddaub     muddaub     muddaub     muddaub     burntbricks burntbricks
+##  [67] burntbricks burntbricks muddaub     burntbricks burntbricks burntbricks
+##  [73] burntbricks burntbricks burntbricks burntbricks burntbricks sunbricks  
+##  [79] muddaub     sunbricks   muddaub     muddaub     muddaub     burntbricks
+##  [85] burntbricks burntbricks burntbricks muddaub     burntbricks muddaub    
+##  [91] burntbricks burntbricks burntbricks sunbricks   burntbricks muddaub    
+##  [97] sunbricks   burntbricks burntbricks muddaub     sunbricks   sunbricks  
+## [103] sunbricks   sunbricks   sunbricks   burntbricks muddaub     burntbricks
+## [109] muddaub     sunbricks   burntbricks burntbricks muddaub     burntbricks
+## [115] burntbricks muddaub     sunbricks   burntbricks burntbricks muddaub    
+## [121] muddaub     burntbricks burntbricks sunbricks   burntbricks burntbricks
+## [127] burntbricks cement      muddaub     burntbricks burntbricks
+## Levels: muddaub burntbricks sunbricks cement
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{respondent_floor_type <-}\StringTok{ }\KeywordTok{fct_relevel}\NormalTok{(respondent_floor_type, }\StringTok{"sunbricks"}\NormalTok{)}
+\NormalTok{respondent_floor_type }\CommentTok{# after re-ordering}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] muddaub     muddaub     burntbricks burntbricks burntbricks muddaub    
+##   [7] muddaub     burntbricks burntbricks burntbricks sunbricks   burntbricks
+##  [13] burntbricks burntbricks sunbricks   muddaub     sunbricks   muddaub    
+##  [19] burntbricks burntbricks burntbricks muddaub     burntbricks burntbricks
+##  [25] burntbricks burntbricks burntbricks muddaub     burntbricks muddaub    
+##  [31] muddaub     muddaub     muddaub     burntbricks muddaub     sunbricks  
+##  [37] burntbricks muddaub     muddaub     burntbricks muddaub     sunbricks  
+##  [43] muddaub     muddaub     muddaub     burntbricks muddaub     muddaub    
+##  [49] burntbricks muddaub     muddaub     burntbricks burntbricks muddaub    
+##  [55] muddaub     burntbricks burntbricks burntbricks muddaub     burntbricks
+##  [61] muddaub     muddaub     muddaub     muddaub     burntbricks burntbricks
+##  [67] burntbricks burntbricks muddaub     burntbricks burntbricks burntbricks
+##  [73] burntbricks burntbricks burntbricks burntbricks burntbricks sunbricks  
+##  [79] muddaub     sunbricks   muddaub     muddaub     muddaub     burntbricks
+##  [85] burntbricks burntbricks burntbricks muddaub     burntbricks muddaub    
+##  [91] burntbricks burntbricks burntbricks sunbricks   burntbricks muddaub    
+##  [97] sunbricks   burntbricks burntbricks muddaub     sunbricks   sunbricks  
+## [103] sunbricks   sunbricks   sunbricks   burntbricks muddaub     burntbricks
+## [109] muddaub     sunbricks   burntbricks burntbricks muddaub     burntbricks
+## [115] burntbricks muddaub     sunbricks   burntbricks burntbricks muddaub    
+## [121] muddaub     burntbricks burntbricks sunbricks   burntbricks burntbricks
+## [127] burntbricks cement      muddaub     burntbricks burntbricks
+## Levels: sunbricks muddaub burntbricks cement
+\end{verbatim}
+
+The \texttt{fct\_relevel} function allows you to move any number of
+levels to any location. If you re-specify the entire list of levels, it
+will re-order the whole list. But, if you just specify one level (like
+we did here) that level gets moved to the front of the list.
+
+Most of the useful functions in \texttt{forcats} start with
+\texttt{fct\_}, so you can try typing that much in your Console or code
+chunk and hitting Tab to use the code completion feature in RStudio to
+see what some of the other functions are called.
+
+Another way to re-order your factor levels is by frequency, so the most
+common factor levels come first, and the less common come later. (This
+is often useful for plotting!)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{levels}\NormalTok{(respondent_floor_type)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "sunbricks"   "muddaub"     "burntbricks" "cement"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{respondent_floor_type <-}\StringTok{ }\KeywordTok{fct_infreq}\NormalTok{(respondent_floor_type, }\DataTypeTok{ordered =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{levels}\NormalTok{(respondent_floor_type)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "burntbricks" "muddaub"     "sunbricks"   "cement"
+\end{verbatim}
+
+\section{renaming factor levels}\label{renaming-factor-levels}
+
+\texttt{forcats} makes easy to rename factor levels. Let's say we made a
+mistake and need to recode ``cement'' to ``brick''. We'd use the
+\texttt{fct\_recode} function to do this.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{levels}\NormalTok{(respondent_floor_type)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "burntbricks" "muddaub"     "sunbricks"   "cement"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{respondent_floor_type <-}\StringTok{ }\KeywordTok{fct_recode}\NormalTok{(respondent_floor_type, }\DataTypeTok{brick =} \StringTok{"cement"}\NormalTok{)}
+
+\KeywordTok{levels}\NormalTok{(respondent_floor_type)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "burntbricks" "muddaub"     "sunbricks"   "brick"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{respondent_floor_type}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] muddaub     muddaub     burntbricks burntbricks burntbricks muddaub    
+##   [7] muddaub     burntbricks burntbricks burntbricks sunbricks   burntbricks
+##  [13] burntbricks burntbricks sunbricks   muddaub     sunbricks   muddaub    
+##  [19] burntbricks burntbricks burntbricks muddaub     burntbricks burntbricks
+##  [25] burntbricks burntbricks burntbricks muddaub     burntbricks muddaub    
+##  [31] muddaub     muddaub     muddaub     burntbricks muddaub     sunbricks  
+##  [37] burntbricks muddaub     muddaub     burntbricks muddaub     sunbricks  
+##  [43] muddaub     muddaub     muddaub     burntbricks muddaub     muddaub    
+##  [49] burntbricks muddaub     muddaub     burntbricks burntbricks muddaub    
+##  [55] muddaub     burntbricks burntbricks burntbricks muddaub     burntbricks
+##  [61] muddaub     muddaub     muddaub     muddaub     burntbricks burntbricks
+##  [67] burntbricks burntbricks muddaub     burntbricks burntbricks burntbricks
+##  [73] burntbricks burntbricks burntbricks burntbricks burntbricks sunbricks  
+##  [79] muddaub     sunbricks   muddaub     muddaub     muddaub     burntbricks
+##  [85] burntbricks burntbricks burntbricks muddaub     burntbricks muddaub    
+##  [91] burntbricks burntbricks burntbricks sunbricks   burntbricks muddaub    
+##  [97] sunbricks   burntbricks burntbricks muddaub     sunbricks   sunbricks  
+## [103] sunbricks   sunbricks   sunbricks   burntbricks muddaub     burntbricks
+## [109] muddaub     sunbricks   burntbricks burntbricks muddaub     burntbricks
+## [115] burntbricks muddaub     sunbricks   burntbricks burntbricks muddaub    
+## [121] muddaub     burntbricks burntbricks sunbricks   burntbricks burntbricks
+## [127] burntbricks brick       muddaub     burntbricks burntbricks
+## Levels: burntbricks < muddaub < sunbricks < brick
+\end{verbatim}
+
+\subsection{Converting factors}\label{converting-factors}
+
+If you are working in the tidyverse, your data will come in with very
+few factor variables by default. So, the most common conversion you will
+need to do is from a character vector to a factor, like we did before,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{as_factor}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"earth"}\NormalTok{, }\StringTok{"cement"}\NormalTok{, }\StringTok{"cement"}\NormalTok{, }\StringTok{"earth"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] earth  cement cement earth 
+## Levels: earth cement
+\end{verbatim}
+
+If you find yourself with many factors you need to convert to character
+vectors, it's good to check your read-in code first, to see if you
+accidentally used \texttt{read.csv} instead of \texttt{read\_csv}. In
+the unlikely event you need to convert a factor to a character vector,
+you use \texttt{as.character(x)}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{as.character}\NormalTok{(respondent_floor_type)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] "muddaub"     "muddaub"     "burntbricks" "burntbricks" "burntbricks"
+##   [6] "muddaub"     "muddaub"     "burntbricks" "burntbricks" "burntbricks"
+##  [11] "sunbricks"   "burntbricks" "burntbricks" "burntbricks" "sunbricks"  
+##  [16] "muddaub"     "sunbricks"   "muddaub"     "burntbricks" "burntbricks"
+##  [21] "burntbricks" "muddaub"     "burntbricks" "burntbricks" "burntbricks"
+##  [26] "burntbricks" "burntbricks" "muddaub"     "burntbricks" "muddaub"    
+##  [31] "muddaub"     "muddaub"     "muddaub"     "burntbricks" "muddaub"    
+##  [36] "sunbricks"   "burntbricks" "muddaub"     "muddaub"     "burntbricks"
+##  [41] "muddaub"     "sunbricks"   "muddaub"     "muddaub"     "muddaub"    
+##  [46] "burntbricks" "muddaub"     "muddaub"     "burntbricks" "muddaub"    
+##  [51] "muddaub"     "burntbricks" "burntbricks" "muddaub"     "muddaub"    
+##  [56] "burntbricks" "burntbricks" "burntbricks" "muddaub"     "burntbricks"
+##  [61] "muddaub"     "muddaub"     "muddaub"     "muddaub"     "burntbricks"
+##  [66] "burntbricks" "burntbricks" "burntbricks" "muddaub"     "burntbricks"
+##  [71] "burntbricks" "burntbricks" "burntbricks" "burntbricks" "burntbricks"
+##  [76] "burntbricks" "burntbricks" "sunbricks"   "muddaub"     "sunbricks"  
+##  [81] "muddaub"     "muddaub"     "muddaub"     "burntbricks" "burntbricks"
+##  [86] "burntbricks" "burntbricks" "muddaub"     "burntbricks" "muddaub"    
+##  [91] "burntbricks" "burntbricks" "burntbricks" "sunbricks"   "burntbricks"
+##  [96] "muddaub"     "sunbricks"   "burntbricks" "burntbricks" "muddaub"    
+## [101] "sunbricks"   "sunbricks"   "sunbricks"   "sunbricks"   "sunbricks"  
+## [106] "burntbricks" "muddaub"     "burntbricks" "muddaub"     "sunbricks"  
+## [111] "burntbricks" "burntbricks" "muddaub"     "burntbricks" "burntbricks"
+## [116] "muddaub"     "sunbricks"   "burntbricks" "burntbricks" "muddaub"    
+## [121] "muddaub"     "burntbricks" "burntbricks" "sunbricks"   "burntbricks"
+## [126] "burntbricks" "burntbricks" "brick"       "muddaub"     "burntbricks"
+## [131] "burntbricks"
+\end{verbatim}
+
+Converting factors where the levels appear as numbers (such as
+concentration levels, or years) to a numeric vector is a little
+trickier. This is where many mistakes with factor variables are made.
+The \texttt{as.numeric()} function returns the index values of the
+factor, not its levels, so it will result in an entirely new (and
+unwanted in this case) set of numbers. One method to avoid this is to
+convert factors to characters, and then to numbers. Compare:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{year_fct <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1990}\NormalTok{, }\DecValTok{1983}\NormalTok{, }\DecValTok{1977}\NormalTok{, }\DecValTok{1998}\NormalTok{, }\DecValTok{1990}\NormalTok{))}
+\KeywordTok{as.numeric}\NormalTok{(year_fct)                     }\CommentTok{# Wrong! And there is no warning...}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3 2 1 4 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{as.numeric}\NormalTok{(}\KeywordTok{as.character}\NormalTok{(year_fct))       }\CommentTok{# The recommended way.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1990 1983 1977 1998 1990
+\end{verbatim}
+
+Again, if you find yourself doing this, you may want to check your data
+read-in code!
+
+\subsection{Renaming factors}\label{renaming-factors}
+
+When your data is stored as a factor, you can use the \texttt{plot()}
+function to get a quick glance at the number of observations represented
+by each factor level. Let's convert the \texttt{memb\_assoc} column from
+our data frame into a factor, and use it to look at the number of
+interview respondents who were or were not members of an irrigation
+association:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## convert it into a factor}
+\NormalTok{interviews <-}\StringTok{ }\NormalTok{interviews }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{memb_assoc =} \KeywordTok{as_factor}\NormalTok{(memb_assoc))}
+\NormalTok{interviews}\OperatorTok{$}\NormalTok{memb_assoc}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] <NA> yes  <NA> <NA> <NA> <NA> no   yes  no   no   <NA> yes  no   <NA> yes 
+##  [16] <NA> <NA> <NA> <NA> <NA> no   <NA> <NA> no   no   no   <NA> no   yes  <NA>
+##  [31] <NA> yes  no   yes  yes  yes  <NA> yes  <NA> yes  <NA> no   no   <NA> no  
+##  [46] no   yes  <NA> <NA> yes  <NA> no   yes  no   <NA> yes  no   no   <NA> no  
+##  [61] yes  <NA> <NA> <NA> no   yes  no   no   no   no   yes  <NA> no   yes  <NA>
+##  [76] <NA> yes  no   no   yes  no   no   yes  no   yes  no   no   <NA> yes  yes 
+##  [91] yes  yes  yes  no   no   no   no   yes  no   no   yes  yes  no   <NA> no  
+## [106] no   <NA> no   no   <NA> no   <NA> <NA> no   no   no   no   yes  no   no  
+## [121] no   no   no   no   no   no   no   no   no   yes  <NA>
+## Levels: yes no
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## bar plot of the number of interview respondents who were}
+\NormalTok{## members of irrigation association:}
+\KeywordTok{plot}\NormalTok{(interviews}\OperatorTok{$}\NormalTok{memb_assoc)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{2020-01-15-brynmawr_files/figure-latex/factor-plot-default-order-1.pdf}
+
+Looking at the plot compared to the output of the vector, we can see
+that n addition to ``no''s and ``yes''s, there are about some
+respondents for which the information about whether they were part of an
+irrigation association hasn't been recorded, and encoded as missing
+data. They do not appear on the plot. Let's encode them differently so
+they can counted and visualized in our plot.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## replace the missing data with "undetermined"}
+\NormalTok{interviews <-}\StringTok{ }\NormalTok{interviews }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{memb_assoc =} \KeywordTok{fct_explicit_na}\NormalTok{(memb_assoc, }\DataTypeTok{na_level =} \StringTok{"undetermined"}\NormalTok{))}
+
+\NormalTok{interviews}\OperatorTok{$}\NormalTok{memb_assoc}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] undetermined yes          undetermined undetermined undetermined
+##   [6] undetermined no           yes          no           no          
+##  [11] undetermined yes          no           undetermined yes         
+##  [16] undetermined undetermined undetermined undetermined undetermined
+##  [21] no           undetermined undetermined no           no          
+##  [26] no           undetermined no           yes          undetermined
+##  [31] undetermined yes          no           yes          yes         
+##  [36] yes          undetermined yes          undetermined yes         
+##  [41] undetermined no           no           undetermined no          
+##  [46] no           yes          undetermined undetermined yes         
+##  [51] undetermined no           yes          no           undetermined
+##  [56] yes          no           no           undetermined no          
+##  [61] yes          undetermined undetermined undetermined no          
+##  [66] yes          no           no           no           no          
+##  [71] yes          undetermined no           yes          undetermined
+##  [76] undetermined yes          no           no           yes         
+##  [81] no           no           yes          no           yes         
+##  [86] no           no           undetermined yes          yes         
+##  [91] yes          yes          yes          no           no          
+##  [96] no           no           yes          no           no          
+## [101] yes          yes          no           undetermined no          
+## [106] no           undetermined no           no           undetermined
+## [111] no           undetermined undetermined no           no          
+## [116] no           no           yes          no           no          
+## [121] no           no           no           no           no          
+## [126] no           no           no           no           yes         
+## [131] undetermined
+## Levels: yes no undetermined
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## bar plot of the number of interview respondents who were}
+\NormalTok{## members of irrigation association:}
+\KeywordTok{plot}\NormalTok{(interviews}\OperatorTok{$}\NormalTok{memb_assoc)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{2020-01-15-brynmawr_files/figure-latex/factor-plot-reorder-1.pdf}
+
+Again, if we wanted to reorder our factor here in order of
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{interviews <-}\StringTok{ }\NormalTok{interviews }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{memb_assoc =} \KeywordTok{fct_infreq}\NormalTok{(memb_assoc, }\DataTypeTok{ordered =} \OtherTok{TRUE}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(interviews}\OperatorTok{$}\NormalTok{memb_assoc)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{2020-01-15-brynmawr_files/figure-latex/unnamed-chunk-103-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{interviews <-}\StringTok{ }\NormalTok{interviews }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{memb_assoc =} \KeywordTok{fct_relevel}\NormalTok{(memb_assoc, }\StringTok{"No"}\NormalTok{, }\StringTok{"Yes"}\NormalTok{, }\StringTok{"Undetermined"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Unknown levels in `f`: No, Yes, Undetermined
+\end{verbatim}
+
+\begin{quote}
+\section{Exercise}\label{exercise-16}
+
+\begin{itemize}
+\item
+  Rename the levels of the factor to have the first letter in uppercase:
+  ``No'',``Undetermined'', and ``Yes''.
+\item
+  Now that we have renamed the factor level to ``Undetermined'', can you
+  recreate the barplot such that ``Undetermined'' is last (after
+  ``Yes'')?
+\end{itemize}
+
+\begin{quote}
+\section{Solution}\label{solution-18}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{interviews <-}\StringTok{ }\NormalTok{interviews }\OperatorTok{%>%}
+\StringTok{ }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{memb_assoc =} \KeywordTok{fct_recode}\NormalTok{(memb_assoc, }\DataTypeTok{No =} \StringTok{"no"}\NormalTok{, }\DataTypeTok{Yes =} \StringTok{"yes"}\NormalTok{,}
+                                \DataTypeTok{Undetermined =} \StringTok{"undetermined"}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(interviews}\OperatorTok{$}\NormalTok{memb_assoc)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{2020-01-15-brynmawr_files/figure-latex/factor-plot-exercise-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{interviews <-}\StringTok{ }\NormalTok{interviews }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{memb_assoc =} \KeywordTok{fct_relevel}\NormalTok{(memb_assoc, }\StringTok{"No"}\NormalTok{, }\StringTok{"Yes"}\NormalTok{, }\StringTok{"Undetermined"}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(interviews}\OperatorTok{$}\NormalTok{memb_assoc)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{2020-01-15-brynmawr_files/figure-latex/factor-plot-exercise-2.pdf}
+\end{quote}
+\end{quote}
+
+\section{strings}\label{strings}
+
+Much like \texttt{forcats} helps us deal with factor variables, there
+are packages to help us deal with string variables. Some useful packages
+are the \texttt{tidyr} package (which we've already seen) the
+\texttt{stringr} package (installed with the tidyverse, but needs to be
+loaded separately) and the \texttt{tidytext} package. Let's say we're
+interested in the items owned by the interviewees. Right now, all the
+items are stuck together into one not-very-useful variable,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{interviews }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(items_owned)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 131 x 1
+##    items_owned                                                                  
+##    <chr>                                                                        
+##  1 bicycle;television;solar_panel;table                                         
+##  2 cow_cart;bicycle;radio;cow_plough;solar_panel;solar_torch;table;mobile_phone 
+##  3 solar_torch                                                                  
+##  4 bicycle;radio;cow_plough;solar_panel;mobile_phone                            
+##  5 motorcyle;radio;cow_plough;mobile_phone                                      
+##  6 <NA>                                                                         
+##  7 motorcyle;cow_plough                                                         
+##  8 motorcyle;bicycle;television;radio;cow_plough;solar_panel;solar_torch;table;…
+##  9 television;solar_panel;solar_torch                                           
+## 10 cow_cart;motorcyle;bicycle;television;radio;cow_plough;solar_panel;solar_tor…
+## # … with 121 more rows
+\end{verbatim}
+
+We'd like to know which interviewees own a bicycle, for example. One way
+to do this would be to use the \texttt{stringr} package to check if a
+particular string was contained in that variable,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(stringr)}
+\NormalTok{interviews <-}\StringTok{ }\NormalTok{interviews }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{has_bicycle =} \KeywordTok{str_detect}\NormalTok{(items_owned, }\StringTok{"bicycle"}\NormalTok{))}
+
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{factor}\NormalTok{(interviews}\OperatorTok{$}\NormalTok{has_bicycle))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{2020-01-15-brynmawr_files/figure-latex/unnamed-chunk-105-1.pdf}
+
+Much like the \texttt{forcats} package, the \texttt{stringr} package has
+many functions that begin with \texttt{str\_}, so you can type that much
+out and hit Tab to see other options.
+
+We could go through manually and repeat a similar set of lines of code
+for each item (\texttt{solar\_torch}, \texttt{cow\_plough}, etc) but
+there is a programming principle that if you repeat yourself there is
+likely a more efficient way to do it.
+
+In this case, that more efficient solution is to use the
+\texttt{tidytext} package, which lets us ``unnest'' the data into
+individual words. When we start working with text in this way, it can
+get a little messy, so it is often smart to break off a little piece of
+your data to work with separately. Here we're taking just the
+\texttt{items\_owned} variable and the \texttt{instanceID} (so we can
+join this back together with our original data later, if we so choose).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{items <-}\StringTok{ }\NormalTok{interviews }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(items_owned, instanceID)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tidytext)}
+\NormalTok{items <-}\StringTok{ }\NormalTok{items }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{unnest_tokens}\NormalTok{(word, items_owned)}
+\end{Highlighting}
+\end{Shaded}
+
+Now we have a variable called \texttt{word}, which is all the separate
+items. This is a very long dataset, so we may want to
+\texttt{pivot\_wider} to make it easier to see.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{items <-}\StringTok{ }\NormalTok{items }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{contains =} \KeywordTok{if_else}\NormalTok{(}\KeywordTok{is.na}\NormalTok{(word), }\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{))}
+\NormalTok{items <-}\StringTok{ }\NormalTok{items }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{pivot_wider}\NormalTok{(}\DataTypeTok{names_from =}\NormalTok{ word, }\DataTypeTok{values_from =}\NormalTok{ contains, }\DataTypeTok{values_fill =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{contains =} \OtherTok{FALSE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+If we'd like, we can now use a join to stick this back to our main
+dataset,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{interviews <-}\StringTok{ }\NormalTok{interviews }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{left_join}\NormalTok{(items)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Joining, by = "instanceID"
+\end{verbatim}
+
+Now we can see what each person owned.
+
+\section{Formatting Dates}\label{formatting-dates}
+
+One of the most common issues that new (and experienced!) R users have
+is converting date and time information into a variable that is
+appropriate and usable during analyses. As a reminder from earlier in
+this lesson, the best practice for dealing with date data is to ensure
+that each component of your date is stored as a separate variable. In
+our dataset, we have a column \texttt{interview\_date} which contains
+information about the year, month, and day that the interview was
+conducted. Let's convert those dates into three separate columns.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str}\NormalTok{(interviews)}
+\end{Highlighting}
+\end{Shaded}
+
+We are going to use the package \textbf{\texttt{lubridate}} (which
+belongs to the \textbf{\texttt{tidyverse}}; learn more
+\href{https://www.tidyverse.org/}{here}) to work with dates.
+\textbf{\texttt{lubridate}} gets installed as part as the
+\textbf{\texttt{tidyverse}} installation. When you load the
+\textbf{\texttt{tidyverse}} (\texttt{library(tidyverse)}), the core
+packages (the packages used in most data analyses) get loaded.
+\textbf{\texttt{lubridate}} however does not belong to the core
+tidyverse, so you have to load it explicitly with
+\texttt{library(lubridate)}
+
+Start by loading the required package:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(lubridate)}
+\end{Highlighting}
+\end{Shaded}
+
+The lubridate function \texttt{ymd()} takes a vector representing year,
+month, and day, and converts it to a \texttt{Date} vector. \texttt{Date}
+is a class of data recognized by R as being a date and can be
+manipulated as such. The argument that the function requires is
+flexible, but, as a best practice, is a character vector formatted as
+``YYYY-MM-DD''.
+
+Let's extract our \texttt{interview\_date} column and inspect the
+structure:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dates <-}\StringTok{ }\NormalTok{interviews}\OperatorTok{$}\NormalTok{interview_date}
+\KeywordTok{str}\NormalTok{(dates)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  POSIXct[1:131], format: "2016-11-17" "2016-11-17" "2016-11-17" "2016-11-17" "2016-11-17" ...
+\end{verbatim}
+
+When we imported the data in R, \texttt{read\_csv()} recognized that
+this column contained date information. We can now use the
+\texttt{day()}, \texttt{month()} and \texttt{year()} functions to
+extract this information from the date, and create new columns in our
+data frame to store it:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{interviews}\OperatorTok{$}\NormalTok{day <-}\StringTok{ }\KeywordTok{day}\NormalTok{(dates)}
+\NormalTok{interviews}\OperatorTok{$}\NormalTok{month <-}\StringTok{ }\KeywordTok{month}\NormalTok{(dates)}
+\NormalTok{interviews}\OperatorTok{$}\NormalTok{year <-}\StringTok{ }\KeywordTok{year}\NormalTok{(dates)}
+\NormalTok{interviews}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 131 x 36
+##    key_ID village interview_date      no_membrs years_liv respondent_wall… rooms
+##     <dbl> <chr>   <dttm>                  <dbl>     <dbl> <chr>            <dbl>
+##  1      1 God     2016-11-17 00:00:00         3         4 muddaub              1
+##  2      1 God     2016-11-17 00:00:00         7         9 muddaub              1
+##  3      3 God     2016-11-17 00:00:00        10        15 burntbricks          1
+##  4      4 God     2016-11-17 00:00:00         7         6 burntbricks          1
+##  5      5 God     2016-11-17 00:00:00         7        40 burntbricks          1
+##  6      6 God     2016-11-17 00:00:00         3         3 muddaub              1
+##  7      7 God     2016-11-17 00:00:00         6        38 muddaub              1
+##  8      8 Chirod… 2016-11-16 00:00:00        12        70 burntbricks          3
+##  9      9 Chirod… 2016-11-16 00:00:00         8         6 burntbricks          1
+## 10     10 Chirod… 2016-12-16 00:00:00        12        23 burntbricks          5
+## # … with 121 more rows, and 29 more variables: memb_assoc <ord>,
+## #   affect_conflicts <chr>, liv_count <dbl>, items_owned <chr>, no_meals <dbl>,
+## #   months_lack_food <chr>, instanceID <chr>, has_bicycle <lgl>, bicycle <lgl>,
+## #   television <lgl>, solar_panel <lgl>, table <lgl>, cow_cart <lgl>,
+## #   radio <lgl>, cow_plough <lgl>, solar_torch <lgl>, mobile_phone <lgl>,
+## #   motorcyle <lgl>, `NA` <lgl>, fridge <lgl>, electricity <lgl>,
+## #   sofa_set <lgl>, lorry <lgl>, sterio <lgl>, computer <lgl>, car <lgl>,
+## #   day <int>, month <dbl>, year <dbl>
+\end{verbatim}
+
+Notice the three new columns at the end of our data frame.
 
 \chapter{\texorpdfstring{Producing Reports With
 \texttt{knitr}}{Producing Reports With knitr}}\label{knitr}
@@ -5435,44 +5568,6 @@ from different programming languages, but we recommend that you use
 \href{https://www.markdownguide.org/}{Markdown} is a light-weight
 mark-up language for creating web pages.
 
-\section{Creating an R Markdown file}\label{creating-an-r-markdown-file}
-
-Within RStudio, click File → New File → R Markdown and you'll get a
-dialog box like this: \includegraphics{./fig/New_R_Markdown.png}
-
-You can stick with the default (HTML output), but give it a title.
-
-\section{Basic components of R
-Markdown}\label{basic-components-of-r-markdown}
-
-The initial chunk of text (header) contains instructions for R to
-specify what kind of document will be created, and the options chosen.
-You can use the header to give your document a title, author, date, and
-tell it that you're going to want to produce html output (in other
-words, a web page).
-
-\begin{verbatim}
----
-title: "Initial R Markdown document"
-author: "Karl Broman"
-date: "April 23, 2015"
-output: html_document
----
-\end{verbatim}
-
-You can delete any of those fields if you don't want them included. The
-double-quotes aren't strictly \emph{necessary} in this case. They're
-mostly needed if you want to include a colon in the title.
-
-RStudio creates the document with some example text to get you started.
-Note below that there are chunks like
-
-These are chunks of R code that will be executed by \texttt{knitr} and
-replaced by their results. More on this later. Also note the web address
-that's put between angle brackets (\texttt{\textless{}\ \textgreater{}})
-as well as the double-asterisks in \texttt{**Knit**}. This is
-\href{http://daringfireball.net/projects/markdown/syntax}{Markdown}.
-
 \section{Markdown}\label{markdown}
 
 Markdown is a system for writing web pages by marking up the text much
@@ -5555,7 +5650,7 @@ You \emph{compile} the R Markdown document to an html webpage by
 clicking the ``Knit'' button in the upper-left.
 
 \begin{quote}
-\section{Challenge 1}\label{challenge-1-2}
+\section{Challenge 1}\label{challenge-1-1}
 
 Create a new R Markdown document. Delete all of the R code chunks and
 write a bit of Markdown (some sections, some italicized text, and an
@@ -5566,10 +5661,9 @@ Challenge 1 \textgreater{} \textgreater{} In RStudio, select File
 \textgreater{} New file \textgreater{} R Markdown\ldots{} \textgreater{}
 \textgreater{} Delete the placeholder text and add the following:
 \textgreater{} \textgreater{}
-\texttt{\textgreater{}\ \#\ Introduction\ \textgreater{}\ \textgreater{}\ \#\#\ Background\ on\ Data\ \textgreater{}\ \textgreater{}\ This\ report\ uses\ the\ *gapminder*\ dataset,\ which\ has\ columns\ that\ include:\ \textgreater{}\ \textgreater{}\ *\ country\ \textgreater{}\ *\ continent\ \textgreater{}\ *\ year\ \textgreater{}\ *\ lifeExp\ \textgreater{}\ *\ pop\ \textgreater{}\ *\ gdpPercap\ \textgreater{}\ \textgreater{}\ \#\#\ Background\ on\ Methods\ \textgreater{}\ \textgreater{}}
+\texttt{\textgreater{}\ \#\ Introduction\ \textgreater{}\ \textgreater{}\ \#\#\ Background\ on\ Data\ \textgreater{}\ \textgreater{}\ This\ report\ uses\ the\ *SAFI*\ dataset,\ which\ has\ columns\ that\ include:\ \textgreater{}\ \textgreater{}\ *\ country\ \textgreater{}\ *\ continent\ \textgreater{}\ *\ year\ \textgreater{}\ *\ lifeExp\ \textgreater{}\ *\ pop\ \textgreater{}\ *\ gdpPercap\ \textgreater{}\ \textgreater{}\ \#\#\ Background\ on\ Methods\ \textgreater{}\ \textgreater{}}
 \textgreater{} \textgreater{} Then click the `Knit' button on the
-toolbar to generate an html document (webpage). \{: .solution\} \{:
-.challenge\}
+toolbar to generate an html document (webpage).
 \end{quote}
 
 \section{A bit more Markdown}\label{a-bit-more-markdown}
@@ -5612,7 +5706,7 @@ fix errors and, if any graphs are produced, the file names are based on
 the name of the code chunk that produced them.
 
 \begin{quote}
-\section{Challenge 2}\label{challenge-2-2}
+\section{Challenge 2}\label{challenge-2-1}
 
 Add code chunks to:
 
@@ -5627,9 +5721,7 @@ Add code chunks to:
 \end{itemize}
 
 \begin{quote}
-\section{Solution to Challenge 2}\label{solution-to-challenge-2-2}
-
-\{: .solution\} \{: .challenge\}
+\section{Solution to Challenge 2}\label{solution-to-challenge-2-1}
 \end{quote}
 \end{quote}
 
@@ -5690,8 +5782,6 @@ Use chunk options to control the size of a figure and to hide the code.
 
 \begin{quote}
 \section{Solution to Challenge 3}\label{solution-to-challenge-3}
-
-\{: .solution\} \{: .challenge\}
 \end{quote}
 \end{quote}
 
@@ -5731,8 +5821,6 @@ Try out a bit of in-line R code.
 
 Here's some inline code to determine that 2 + 2 =
 \texttt{\textasciigrave{}r\ 2+2\textasciigrave{}}.
-
-\{: .solution\} \{: .challenge\}
 \end{quote}
 \end{quote}
 
@@ -5754,8 +5842,7 @@ If required this is detailed in an error message.
 \item
   \href{https://miktex.org/2.9/setup}{TeX installers for Windows}.
 \item
-  \href{https://tug.org/mactex}{TeX installers for macOS}. \{:
-  .callout\}
+  \href{https://tug.org/mactex}{TeX installers for macOS}.
 \end{itemize}
 \end{quote}
 

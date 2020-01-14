@@ -57,7 +57,7 @@ It is also possible to install packages from other repositories, as well as Gith
 
 We will also need a package called knitr.
 > ```
-> install.packages("tidyverse")
+> install.packages("knitr")
 > ```
 > As the install proceeds, messages relating to its progress will be written to the console. You will be able to see all of the packages which are actually being installed.
 

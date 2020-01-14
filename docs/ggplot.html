@@ -328,7 +328,7 @@ interviews_plot <span class="op">+</span>
 <ul>
 <li>Anything you put in the <code>ggplot()</code> function can be seen by any geom layers that you add (i.e., these are universal plot settings). This includes the x- and y-axis mapping you set up in <code>aes()</code>.</li>
 <li>You can also specify mappings for a given geom independently of the mapping defined globally in the <code>ggplot()</code> function.</li>
-<li>The <code>+</code> sign used to add new layers must be placed at the end of the line containing the <em>previous</em> layer. If, instead, the <code>+</code> sign is added at the beginning of the line containing the new layer, <strong><code>ggplot2</code></strong> will not add the new layer and will return an error message. {: .callout}</li>
+<li>The <code>+</code> sign used to add new layers must be placed at the end of the line containing the <em>previous</em> layer. If, instead, the <code>+</code> sign is added at the beginning of the line containing the new layer, <strong><code>ggplot2</code></strong> will not add the new layer and will return an error message.</li>
 </ul>
 </blockquote>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## This is the correct syntax for adding layers
@@ -352,8 +352,7 @@ interviews_plot
 <p>That only helped a little bit with the overplotting problem. We can also introduce a little bit of randomness into the position of our points using the <code>geom_jitter()</code> function.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> interviews_plotting, <span class="kw">aes</span>(<span class="dt">x =</span> no_membrs, <span class="dt">y =</span> number_items)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>)</code></pre></div>
-<p><img src="2020-01-15-brynmawr_files/figure-html/adding-jitter-1.png" width="672" /></p>
-<p>We can also add colors for all the points:</p>
+<p><img src="2020-01-15-brynmawr_files/figure-html/adding-jitter-1.png" width="672" /> We can also add colors for all the points:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> interviews_plotting, <span class="kw">aes</span>(<span class="dt">x =</span> no_membrs, <span class="dt">y =</span> number_items)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>)</code></pre></div>
 <p><img src="2020-01-15-brynmawr_files/figure-html/adding-colors-1.png" width="672" /></p>
@@ -522,7 +521,7 @@ interviews_plot
 <p>The <a href="https://jrnold.github.io/ggthemes/reference/index.html">ggthemes</a> package provides a wide variety of options (including an Excel 2003 theme). The <a href="https://www.ggplot2-exts.org"><strong><code>ggplot2</code></strong> extensions website</a> provides a list of packages that extend the capabilities of <strong><code>ggplot2</code></strong>, including additional themes.</p>
 <blockquote>
 <h2 id="exercise-14"><span class="header-section-number">7.7</span> Exercise</h2>
-<p>Experiment with at least two different themes. Build the previous plot using each of those themes. Which do you like best? {: .challenge}</p>
+<p>Experiment with at least two different themes. Build the previous plot using each of those themes. Which do you like best?</p>
 </blockquote>
 </div>
 <div id="customization" class="section level2">
@@ -580,7 +579,7 @@ interviews_plot
 <p>With all of this information in hand, please take another five minutes to either improve one of the plots generated in this exercise or create a beautiful graph of your own. Use the RStudio <a href="https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf"><strong><code>ggplot2</code></strong> cheat sheet</a> for inspiration. Here are some ideas:</p>
 <ul>
 <li>See if you can make the bars white with black outline.</li>
-<li>Try using a different color palette (see <a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/" class="uri">http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/</a>). {: .challenge}</li>
+<li>Try using a different color palette (see <a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/" class="uri">http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/</a>).</li>
 </ul>
 </blockquote>
 <p>After creating your plot, you can save it to a file in your favorite format. The Export tab in the <strong>Plot</strong> pane in RStudio will save your plots at low resolution, which will not be accepted by many journals and will not scale well for posters.</p>

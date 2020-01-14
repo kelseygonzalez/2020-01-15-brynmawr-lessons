@@ -483,7 +483,7 @@ interviews<span class="op">$</span>memb_assoc</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">interviews &lt;-<span class="st"> </span>interviews <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">memb_assoc =</span> <span class="kw">fct_infreq</span>(memb_assoc, <span class="dt">ordered =</span> <span class="ot">TRUE</span>))
 <span class="kw">plot</span>(interviews<span class="op">$</span>memb_assoc)</code></pre></div>
-<p><img src="2020-01-15-brynmawr_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
+<p><img src="2020-01-15-brynmawr_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">interviews &lt;-<span class="st"> </span>interviews <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">memb_assoc =</span> <span class="kw">fct_relevel</span>(memb_assoc, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;Undetermined&quot;</span>))</code></pre></div>
 <pre><code>## Warning: Unknown levels in `f`: No, Yes, Undetermined</code></pre>
@@ -533,7 +533,7 @@ interviews &lt;-<span class="st"> </span>interviews <span class="op">%&gt;%</spa
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">has_bicycle =</span> <span class="kw">str_detect</span>(items_owned, <span class="st">&quot;bicycle&quot;</span>))
 
 <span class="kw">plot</span>(<span class="kw">factor</span>(interviews<span class="op">$</span>has_bicycle))</code></pre></div>
-<p><img src="2020-01-15-brynmawr_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
+<p><img src="2020-01-15-brynmawr_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
 <p>Much like the <code>forcats</code> package, the <code>stringr</code> package has many functions that begin with <code>str_</code>, so you can type that much out and hit Tab to see other options.</p>
 <p>We could go through manually and repeat a similar set of lines of code for each item (<code>solar_torch</code>, <code>cow_plough</code>, etc) but there is a programming principle that if you repeat yourself there is likely a more efficient way to do it.</p>
 <p>In this case, that more efficient solution is to use the <code>tidytext</code> package, which lets us “unnest” the data into individual words. When we start working with text in this way, it can get a little messy, so it is often smart to break off a little piece of your data to work with separately. Here we’re taking just the <code>items_owned</code> variable and the <code>instanceID</code> (so we can join this back together with our original data later, if we so choose).</p>

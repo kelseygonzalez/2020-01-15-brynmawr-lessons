@@ -663,7 +663,7 @@ as Github or the local file system, but we won't be looking at these
 options in this lesson.
 
 We will also need a package called knitr. \textgreater{}
-\texttt{\textgreater{}\ install.packages("tidyverse")\ \textgreater{}}
+\texttt{\textgreater{}\ install.packages("knitr")\ \textgreater{}}
 \textgreater{} As the install proceeds, messages relating to its
 progress will be written to the console. You will be able to see all of
 the packages which are actually being installed.
@@ -1936,120 +1936,21 @@ your issue.
 \begin{quote}
 \section{Challenge 1}\label{challenge-1}
 
-Look at the help for the \texttt{c} function. What kind of vector do you
-expect you will create if you evaluate the following:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
-\KeywordTok{c}\NormalTok{(}\StringTok{'d'}\NormalTok{, }\StringTok{'e'}\NormalTok{, }\StringTok{'f'}\NormalTok{)}
-\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\StringTok{'f'}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{quote}
-\section{Solution to Challenge 1}\label{solution-to-challenge-1}
-
-The \texttt{c()} function creates a vector, in which all elements are
-the same type. In the first case, the elements are numeric, in the
-second, they are characters, and in the third they are characters: the
-numeric values are ``coerced'' to be characters.
-\end{quote}
-\end{quote}
-
-\begin{quote}
-\section{Challenge 2}\label{challenge-2}
-
-Look at the help for the \texttt{paste} function. You'll need to use
-this later. What is the difference between the \texttt{sep} and
-\texttt{collapse} arguments?
-
-\begin{quote}
-\section{Solution to Challenge 2}\label{solution-to-challenge-2}
-
-To look at the help for the \texttt{paste()} function, use:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{help}\NormalTok{(}\StringTok{"paste"}\NormalTok{)}
-\NormalTok{?paste}
-\end{Highlighting}
-\end{Shaded}
-
-The difference between \texttt{sep} and \texttt{collapse} is a little
-tricky. The \texttt{paste} function accepts any number of arguments,
-each of which can be a vector of any length. The \texttt{sep} argument
-specifies the string used between concatenated terms --- by default, a
-space. The result is a vector as long as the longest argument supplied
-to \texttt{paste}. In contrast, \texttt{collapse} specifies that after
-concatenation the elements are \emph{collapsed} together using the given
-separator, the result being a single string. e.g.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{paste}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"a"}\NormalTok{,}\StringTok{"b"}\NormalTok{), }\StringTok{"c"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "a c" "b c"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{paste}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"a"}\NormalTok{,}\StringTok{"b"}\NormalTok{), }\StringTok{"c"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{","}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "a,c" "b,c"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{paste}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"a"}\NormalTok{,}\StringTok{"b"}\NormalTok{), }\StringTok{"c"}\NormalTok{, }\DataTypeTok{collapse =} \StringTok{"|"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "a c|b c"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{paste}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"a"}\NormalTok{,}\StringTok{"b"}\NormalTok{), }\StringTok{"c"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{","}\NormalTok{, }\DataTypeTok{collapse =} \StringTok{"|"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "a,c|b,c"
-\end{verbatim}
-
-(For more information, scroll to the bottom of the \texttt{?paste} help
-page and look at the examples, or try
-\texttt{example(\textquotesingle{}paste\textquotesingle{})}.)
-\end{quote}
-\end{quote}
-
-\begin{quote}
-\section{Challenge 3}\label{challenge-3}
-
 Use help to find a function (and its associated parameters) that you
 could use to load data from a tabular file in which columns are
 delimited with ``\t'' (tab) and the decimal point is a ``.'' (period).
 This check for decimal separator is important, especially if you are
 working with international colleagues, because different countries have
-different conventions for the decimal point (i.e.~comma vs period).
+different conventions for the decimal point (i.e.~comma vs period).\\
 hint: use \texttt{??"read\ table"} to look up functions related to
 reading in tabular data. \textgreater{} \#\# Solution to Challenge 3
 \textgreater{} \textgreater{} The standard R function for reading
-tab-delimited files with a period \textgreater{} decimal separator is
-read.delim(). You can also do this with \textgreater{}
+tab-delimited files with a period decimal separator is read.delim(). You
+can also do this with
 \texttt{read.table(file,\ sep="\textbackslash{}t")} (the period is the
-\emph{default} decimal \textgreater{} separator for
-\texttt{read.table()}, although you may have to change \textgreater{}
-the \texttt{comment.char} argument as well if your data file contains
-\textgreater{} hash (\#) characters
+\emph{default} decimal separator for \texttt{read.table()}, although you
+may have to change the \texttt{comment.char} argument as well if your
+data file contains hash (\#) characters
 \end{quote}
 
 \section{Other ports of call}\label{other-ports-of-call}
@@ -2752,8 +2653,8 @@ But there are also packages available for a wide range of tasks
 including building plots (\textbf{\texttt{ggplot2}}, which we'll see
 later), downloading data from the NCBI database, or performing
 statistical analysis on your data set. Many packages such as these are
-housed on, and downloadable from, the \textbf{C}omprehensive \textbf{R}
-\textbf{A}rchive \textbf{N}etwork (CRAN) using
+housed on, and downloadable from, the \textbf{C} omprehensive \textbf{R}
+\textbf{A} rchive \textbf{N} etwork (CRAN) using
 \texttt{install.packages}. This function makes the package accessible by
 your R installation with the command \texttt{library()}, as you did with
 \texttt{tidyverse} earlier.
@@ -3457,7 +3358,7 @@ table.
 
 In \texttt{interviews}, each row contains the values of variables
 associated with each record (the unit), values such as the number of
-household members or posessions associated with each record. What if
+household members or possessions associated with each record. What if
 instead of comparing records, we wanted to look at differences in
 households grouped by different types of housing construction materials?
 
@@ -3693,12 +3594,14 @@ or \texttt{FALSE}.
 \end{Shaded}
 
 View the \texttt{interviews\_items\_owned} data frame. It should have
-\texttt{r\ nrow(interviews)} rows (the same number of rows you had
-originally), but extra columns for each item.
+131 rows (the same number of rows you had originally), but extra columns
+for each item.
 
 You may notice that the last column in called
-\texttt{\textbackslash{}}`\texttt{.\ This\ is\ because\ the\ respondents\ did\ not\ own\ any\ of\ the\ items\ that\ was\ in\ the\ interviewer\textquotesingle{}s\ list.\ We\ can\ use\ the}rename()`
-function to change this name to something more meaningful:
+\texttt{\textbackslash{}}\texttt{\textbackslash{}}. This is because the
+respondents did not own any of the items that was in the interviewer's
+list. We can use the \texttt{rename()} function to change this name to
+something more meaningful:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4084,7 +3987,7 @@ code like this:
   of the line containing the \emph{previous} layer. If, instead, the
   \texttt{+} sign is added at the beginning of the line containing the
   new layer, \textbf{\texttt{ggplot2}} will not add the new layer and
-  will return an error message. \{: .callout\}
+  will return an error message.
 \end{itemize}
 \end{quote}
 
@@ -4141,7 +4044,6 @@ using the \texttt{geom\_jitter()} function.
 \end{Shaded}
 
 \includegraphics{2020-01-15-brynmawr_files/figure-latex/adding-jitter-1.pdf}
-
 We can also add colors for all the points:
 
 \begin{Shaded}
@@ -4552,7 +4454,7 @@ website} provides a list of packages that extend the capabilities of
 \section{Exercise}\label{exercise-14}
 
 Experiment with at least two different themes. Build the previous plot
-using each of those themes. Which do you like best? \{: .challenge\}
+using each of those themes. Which do you like best?
 \end{quote}
 
 \section{Customization}\label{customization}
@@ -4668,8 +4570,7 @@ cheat sheet} for inspiration. Here are some ideas:
   See if you can make the bars white with black outline.
 \item
   Try using a different color palette (see
-  \url{http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/}). \{:
-  .challenge\}
+  \url{http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/}).
 \end{itemize}
 \end{quote}
 
@@ -5253,7 +5154,7 @@ Again, if we wanted to reorder our factor here in order of
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{2020-01-15-brynmawr_files/figure-latex/unnamed-chunk-103-1.pdf}
+\includegraphics{2020-01-15-brynmawr_files/figure-latex/unnamed-chunk-100-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5353,7 +5254,7 @@ particular string was contained in that variable,
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{2020-01-15-brynmawr_files/figure-latex/unnamed-chunk-105-1.pdf}
+\includegraphics{2020-01-15-brynmawr_files/figure-latex/unnamed-chunk-102-1.pdf}
 
 Much like the \texttt{forcats} package, the \texttt{stringr} package has
 many functions that begin with \texttt{str\_}, so you can type that much
@@ -5748,7 +5649,7 @@ fix errors and, if any graphs are produced, the file names are based on
 the name of the code chunk that produced them.
 
 \begin{quote}
-\section{Challenge 2}\label{challenge-2-1}
+\section{Challenge 2}\label{challenge-2}
 
 Add code chunks to:
 
@@ -5763,7 +5664,7 @@ Add code chunks to:
 \end{itemize}
 
 \begin{quote}
-\section{Solution to Challenge 2}\label{solution-to-challenge-2-1}
+\section{Solution to Challenge 2}\label{solution-to-challenge-2}
 \end{quote}
 \end{quote}
 
@@ -5818,7 +5719,7 @@ file names, like \texttt{fig.path="Figs/cleaning-"} and
 \texttt{fig.path="Figs/analysis-"}.
 
 \begin{quote}
-\section{Challenge 3}\label{challenge-3-1}
+\section{Challenge 3}\label{challenge-3}
 
 Use chunk options to control the size of a figure and to hide the code.
 

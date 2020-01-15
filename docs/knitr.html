@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lesson 9 Producing Reports With knitr | 2020-01-15-brynmawr</title>
+  <title>Lesson 10 Producing Reports With knitr | 2020-01-15-brynmawr</title>
   <meta name="description" content="This is a review of the material covered in Bryn Mawr College’s Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020." />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lesson 9 Producing Reports With knitr | 2020-01-15-brynmawr" />
+  <meta property="og:title" content="Lesson 10 Producing Reports With knitr | 2020-01-15-brynmawr" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="kelseygonzalez/2020-01-15-brynmawr-lessons/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lesson 9 Producing Reports With knitr | 2020-01-15-brynmawr" />
+  <meta name="twitter:title" content="Lesson 10 Producing Reports With knitr | 2020-01-15-brynmawr" />
   
   <meta name="twitter:description" content="This is a review of the material covered in Bryn Mawr College’s Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Kelsey Gonzalez, Amelia McNamara, The Carpentries" />
 
 
-<meta name="date" content="2020-01-13" />
+<meta name="date" content="2020-01-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -141,10 +141,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2.1" data-path="basicR.html"><a href="basicR.html#functions-and-their-arguments"><i class="fa fa-check"></i><b>3.2.1</b> Functions and their arguments</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="basicR.html"><a href="basicR.html#vectors-and-data-types"><i class="fa fa-check"></i><b>3.3</b> Vectors and data types</a></li>
-<li class="chapter" data-level="3.4" data-path="basicR.html"><a href="basicR.html#subsetting-vectors"><i class="fa fa-check"></i><b>3.4</b> Subsetting vectors</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="basicR.html"><a href="basicR.html#conditional-subsetting"><i class="fa fa-check"></i><b>3.4.1</b> Conditional subsetting</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="basicR.html"><a href="basicR.html#missing-data"><i class="fa fa-check"></i><b>3.5</b> Missing data</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="help.html"><a href="help.html"><i class="fa fa-check"></i><b>4</b> Seeking Help</a><ul>
 <li class="chapter" data-level="4.1" data-path="help.html"><a href="help.html#reading-help-files"><i class="fa fa-check"></i><b>4.1</b> Reading Help files</a></li>
@@ -159,7 +155,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.1" data-path="dataframes.html"><a href="dataframes.html#presentation-of-the-safi-data"><i class="fa fa-check"></i><b>5.1</b> Presentation of the SAFI Data</a></li>
 <li class="chapter" data-level="5.2" data-path="dataframes.html"><a href="dataframes.html#what-are-data-frames-and-tibbles"><i class="fa fa-check"></i><b>5.2</b> What are data frames and tibbles?</a></li>
 <li class="chapter" data-level="5.3" data-path="dataframes.html"><a href="dataframes.html#inspecting-data-frames"><i class="fa fa-check"></i><b>5.3</b> Inspecting data frames</a></li>
-<li class="chapter" data-level="5.4" data-path="dataframes.html"><a href="dataframes.html#indexing-and-subsetting-data-frames"><i class="fa fa-check"></i><b>5.4</b> Indexing and subsetting data frames</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling with <code>dplyr</code></a><ul>
 <li class="chapter" data-level="6.1" data-path="dplyr.html"><a href="dplyr.html#data-manipulation-using-dplyr-and-tidyr"><i class="fa fa-check"></i><b>6.1</b> Data Manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong></a></li>
@@ -175,37 +170,46 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.8" data-path="dplyr.html"><a href="dplyr.html#applying-spread-to-clean-our-data"><i class="fa fa-check"></i><b>6.8</b> Applying <code>spread()</code> to clean our data</a></li>
 <li class="chapter" data-level="6.9" data-path="dplyr.html"><a href="dplyr.html#exporting-data"><i class="fa fa-check"></i><b>6.9</b> Exporting data</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>7</b> Data Visualization with <code>ggplot2</code></a><ul>
-<li class="chapter" data-level="7.1" data-path="ggplot.html"><a href="ggplot.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>7.1</b> Plotting with <strong><code>ggplot2</code></strong></a></li>
-<li class="chapter" data-level="7.2" data-path="ggplot.html"><a href="ggplot.html#building-your-plots-iteratively"><i class="fa fa-check"></i><b>7.2</b> Building your plots iteratively</a></li>
-<li class="chapter" data-level="7.3" data-path="ggplot.html"><a href="ggplot.html#boxplot"><i class="fa fa-check"></i><b>7.3</b> Boxplot</a></li>
-<li class="chapter" data-level="7.4" data-path="ggplot.html"><a href="ggplot.html#barplots"><i class="fa fa-check"></i><b>7.4</b> Barplots</a></li>
-<li class="chapter" data-level="7.5" data-path="ggplot.html"><a href="ggplot.html#adding-labels-and-titles"><i class="fa fa-check"></i><b>7.5</b> Adding Labels and Titles</a></li>
-<li class="chapter" data-level="7.6" data-path="ggplot.html"><a href="ggplot.html#faceting"><i class="fa fa-check"></i><b>7.6</b> Faceting</a></li>
-<li class="chapter" data-level="7.7" data-path="ggplot.html"><a href="ggplot.html#ggplot2-themes"><i class="fa fa-check"></i><b>7.7</b> <strong><code>ggplot2</code></strong> themes</a></li>
-<li class="chapter" data-level="7.8" data-path="ggplot.html"><a href="ggplot.html#customization"><i class="fa fa-check"></i><b>7.8</b> Customization</a></li>
+<li class="chapter" data-level="7" data-path="base-subsetting.html"><a href="base-subsetting.html"><i class="fa fa-check"></i><b>7</b> Base subsetting</a><ul>
+<li class="chapter" data-level="7.1" data-path="base-subsetting.html"><a href="base-subsetting.html#tidyverse-and-base-r"><i class="fa fa-check"></i><b>7.1</b> Tidyverse and base R</a></li>
+<li class="chapter" data-level="7.2" data-path="base-subsetting.html"><a href="base-subsetting.html#subsetting-vectors"><i class="fa fa-check"></i><b>7.2</b> Subsetting vectors</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="base-subsetting.html"><a href="base-subsetting.html#conditional-subsetting"><i class="fa fa-check"></i><b>7.2.1</b> Conditional subsetting</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="forcats.html"><a href="forcats.html"><i class="fa fa-check"></i><b>8</b> Advanced variable creation with <code>forcats</code></a><ul>
-<li class="chapter" data-level="8.1" data-path="forcats.html"><a href="forcats.html#factors"><i class="fa fa-check"></i><b>8.1</b> Factors</a></li>
-<li class="chapter" data-level="8.2" data-path="forcats.html"><a href="forcats.html#reordering-factor-levels"><i class="fa fa-check"></i><b>8.2</b> reordering factor levels</a></li>
-<li class="chapter" data-level="8.3" data-path="forcats.html"><a href="forcats.html#renaming-factor-levels"><i class="fa fa-check"></i><b>8.3</b> renaming factor levels</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="forcats.html"><a href="forcats.html#converting-factors"><i class="fa fa-check"></i><b>8.3.1</b> Converting factors</a></li>
-<li class="chapter" data-level="8.3.2" data-path="forcats.html"><a href="forcats.html#renaming-factors"><i class="fa fa-check"></i><b>8.3.2</b> Renaming factors</a></li>
+<li class="chapter" data-level="7.3" data-path="base-subsetting.html"><a href="base-subsetting.html#missing-data"><i class="fa fa-check"></i><b>7.3</b> Missing data</a></li>
+<li class="chapter" data-level="7.4" data-path="base-subsetting.html"><a href="base-subsetting.html#indexing-and-subsetting-data-frames"><i class="fa fa-check"></i><b>7.4</b> Indexing and subsetting data frames</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="forcats.html"><a href="forcats.html#strings"><i class="fa fa-check"></i><b>8.4</b> strings</a></li>
-<li class="chapter" data-level="8.5" data-path="forcats.html"><a href="forcats.html#formatting-dates"><i class="fa fa-check"></i><b>8.5</b> Formatting Dates</a></li>
+<li class="chapter" data-level="8" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>8</b> Data Visualization with <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="ggplot.html"><a href="ggplot.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>8.1</b> Plotting with <strong><code>ggplot2</code></strong></a></li>
+<li class="chapter" data-level="8.2" data-path="ggplot.html"><a href="ggplot.html#building-your-plots-iteratively"><i class="fa fa-check"></i><b>8.2</b> Building your plots iteratively</a></li>
+<li class="chapter" data-level="8.3" data-path="ggplot.html"><a href="ggplot.html#boxplot"><i class="fa fa-check"></i><b>8.3</b> Boxplot</a></li>
+<li class="chapter" data-level="8.4" data-path="ggplot.html"><a href="ggplot.html#barplots"><i class="fa fa-check"></i><b>8.4</b> Barplots</a></li>
+<li class="chapter" data-level="8.5" data-path="ggplot.html"><a href="ggplot.html#adding-labels-and-titles"><i class="fa fa-check"></i><b>8.5</b> Adding Labels and Titles</a></li>
+<li class="chapter" data-level="8.6" data-path="ggplot.html"><a href="ggplot.html#faceting"><i class="fa fa-check"></i><b>8.6</b> Faceting</a></li>
+<li class="chapter" data-level="8.7" data-path="ggplot.html"><a href="ggplot.html#ggplot2-themes"><i class="fa fa-check"></i><b>8.7</b> <strong><code>ggplot2</code></strong> themes</a></li>
+<li class="chapter" data-level="8.8" data-path="ggplot.html"><a href="ggplot.html#customization"><i class="fa fa-check"></i><b>8.8</b> Customization</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>9</b> Producing Reports With <code>knitr</code></a><ul>
-<li class="chapter" data-level="9.1" data-path="knitr.html"><a href="knitr.html#data-analysis-reports"><i class="fa fa-check"></i><b>9.1</b> Data analysis reports</a></li>
-<li class="chapter" data-level="9.2" data-path="knitr.html"><a href="knitr.html#literate-programming"><i class="fa fa-check"></i><b>9.2</b> Literate programming</a></li>
-<li class="chapter" data-level="9.3" data-path="knitr.html"><a href="knitr.html#markdown"><i class="fa fa-check"></i><b>9.3</b> Markdown</a></li>
-<li class="chapter" data-level="9.4" data-path="knitr.html"><a href="knitr.html#a-bit-more-markdown"><i class="fa fa-check"></i><b>9.4</b> A bit more Markdown</a></li>
-<li class="chapter" data-level="9.5" data-path="knitr.html"><a href="knitr.html#r-code-chunks"><i class="fa fa-check"></i><b>9.5</b> R code chunks</a></li>
-<li class="chapter" data-level="9.6" data-path="knitr.html"><a href="knitr.html#how-things-get-compiled"><i class="fa fa-check"></i><b>9.6</b> How things get compiled</a></li>
-<li class="chapter" data-level="9.7" data-path="knitr.html"><a href="knitr.html#chunk-options"><i class="fa fa-check"></i><b>9.7</b> Chunk options</a></li>
-<li class="chapter" data-level="9.8" data-path="knitr.html"><a href="knitr.html#inline-r-code"><i class="fa fa-check"></i><b>9.8</b> Inline R code</a></li>
-<li class="chapter" data-level="9.9" data-path="knitr.html"><a href="knitr.html#other-output-options"><i class="fa fa-check"></i><b>9.9</b> Other output options</a></li>
-<li class="chapter" data-level="9.10" data-path="knitr.html"><a href="knitr.html#resources"><i class="fa fa-check"></i><b>9.10</b> Resources</a></li>
+<li class="chapter" data-level="9" data-path="forcats.html"><a href="forcats.html"><i class="fa fa-check"></i><b>9</b> Advanced variable creation with <code>forcats</code></a><ul>
+<li class="chapter" data-level="9.1" data-path="forcats.html"><a href="forcats.html#factors"><i class="fa fa-check"></i><b>9.1</b> Factors</a></li>
+<li class="chapter" data-level="9.2" data-path="forcats.html"><a href="forcats.html#reordering-factor-levels"><i class="fa fa-check"></i><b>9.2</b> reordering factor levels</a></li>
+<li class="chapter" data-level="9.3" data-path="forcats.html"><a href="forcats.html#renaming-factor-levels"><i class="fa fa-check"></i><b>9.3</b> renaming factor levels</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="forcats.html"><a href="forcats.html#converting-factors"><i class="fa fa-check"></i><b>9.3.1</b> Converting factors</a></li>
+<li class="chapter" data-level="9.3.2" data-path="forcats.html"><a href="forcats.html#renaming-factors"><i class="fa fa-check"></i><b>9.3.2</b> Renaming factors</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="forcats.html"><a href="forcats.html#strings"><i class="fa fa-check"></i><b>9.4</b> strings</a></li>
+<li class="chapter" data-level="9.5" data-path="forcats.html"><a href="forcats.html#formatting-dates"><i class="fa fa-check"></i><b>9.5</b> Formatting Dates</a></li>
+<li class="chapter" data-level="9.6" data-path="forcats.html"><a href="forcats.html#other-variable-types"><i class="fa fa-check"></i><b>9.6</b> Other variable types</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>10</b> Producing Reports With <code>knitr</code></a><ul>
+<li class="chapter" data-level="10.1" data-path="knitr.html"><a href="knitr.html#data-analysis-reports"><i class="fa fa-check"></i><b>10.1</b> Data analysis reports</a></li>
+<li class="chapter" data-level="10.2" data-path="knitr.html"><a href="knitr.html#literate-programming"><i class="fa fa-check"></i><b>10.2</b> Literate programming</a></li>
+<li class="chapter" data-level="10.3" data-path="knitr.html"><a href="knitr.html#markdown"><i class="fa fa-check"></i><b>10.3</b> Markdown</a></li>
+<li class="chapter" data-level="10.4" data-path="knitr.html"><a href="knitr.html#a-bit-more-markdown"><i class="fa fa-check"></i><b>10.4</b> A bit more Markdown</a></li>
+<li class="chapter" data-level="10.5" data-path="knitr.html"><a href="knitr.html#r-code-chunks"><i class="fa fa-check"></i><b>10.5</b> R code chunks</a></li>
+<li class="chapter" data-level="10.6" data-path="knitr.html"><a href="knitr.html#how-things-get-compiled"><i class="fa fa-check"></i><b>10.6</b> How things get compiled</a></li>
+<li class="chapter" data-level="10.7" data-path="knitr.html"><a href="knitr.html#chunk-options"><i class="fa fa-check"></i><b>10.7</b> Chunk options</a></li>
+<li class="chapter" data-level="10.8" data-path="knitr.html"><a href="knitr.html#inline-r-code"><i class="fa fa-check"></i><b>10.8</b> Inline R code</a></li>
+<li class="chapter" data-level="10.9" data-path="knitr.html"><a href="knitr.html#other-output-options"><i class="fa fa-check"></i><b>10.9</b> Other output options</a></li>
+<li class="chapter" data-level="10.10" data-path="knitr.html"><a href="knitr.html#resources"><i class="fa fa-check"></i><b>10.10</b> Resources</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -228,7 +232,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="knitr" class="section level1">
-<h1><span class="header-section-number">Lesson 9</span> Producing Reports With <code>knitr</code></h1>
+<h1><span class="header-section-number">Lesson 10</span> Producing Reports With <code>knitr</code></h1>
 <p>teaching: 60<br />
 exercises: 15<br />
 adapted from: <a href="http://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html" class="uri">http://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/index.html</a><br />
@@ -257,21 +261,21 @@ questions:</p>
 <li>“Use <code>knitr</code> to convert these documents into PDF and other formats.”</li>
 </ul>
 <div id="data-analysis-reports" class="section level2">
-<h2><span class="header-section-number">9.1</span> Data analysis reports</h2>
+<h2><span class="header-section-number">10.1</span> Data analysis reports</h2>
 <p>Data analysts tend to write a lot of reports, describing their analyses and results, for their collaborators or to document their work for future reference.</p>
 <p>Many new users begin by first writing a single R script containing all of the work. Then simply share the analysis by emailing the script and various graphs as attachments. But this can be cumbersome, requiring a lengthy discussion to explain which attachment was which result.</p>
 <p>Writing formal reports with Word or <a href="http://www.latex-project.org/">LaTeX</a> can simplify this by incorporating both the analysis report and output graphs into a single document. But tweaking formatting to make figures look correct and fix obnoxious page breaks can be tedious and lead to a lengthly “whack a mole” game of fixing new mistakes resulting from a single formatting change.</p>
 <p>Creating a web page (as an html file) by using R Markdown makes things easier. The report can be one long stream, so tall figures that wouldn’t ordinary fit on one page can be kept full size and easier to read, since the reader can simply keep scrolling. Formatting is simple and easy to modify, allowing you to spend more time on your analyses instead of writing reports.</p>
 </div>
 <div id="literate-programming" class="section level2">
-<h2><span class="header-section-number">9.2</span> Literate programming</h2>
+<h2><span class="header-section-number">10.2</span> Literate programming</h2>
 <p>Ideally, such analysis reports are <em>reproducible</em> documents: If an error is discovered, or if some additional subjects are added to the data, you can just re-compile the report and get the new or corrected results (versus having to reconstruct figures, paste them into a Word document, and further hand-edit various detailed results).</p>
 <p>The key R package is <a href="http://yihui.name/knitr/"><code>knitr</code></a>. It allows you to create a document that is a mixture of text and chunks of code. When the document is processed by <code>knitr</code>, chunks of code will be executed, and graphs or other results inserted into the final document.</p>
 <p>This sort of idea has been called “literate programming”.</p>
 <p><code>knitr</code> allows you to mix basically any sort of text with code from different programming languages, but we recommend that you use <code>R Markdown</code>, which mixes Markdown with R. <a href="https://www.markdownguide.org/">Markdown</a> is a light-weight mark-up language for creating web pages.</p>
 </div>
 <div id="markdown" class="section level2">
-<h2><span class="header-section-number">9.3</span> Markdown</h2>
+<h2><span class="header-section-number">10.3</span> Markdown</h2>
 <p>Markdown is a system for writing web pages by marking up the text much as you would in an email rather than writing html code. The marked-up text gets <em>converted</em> to html, replacing the marks with the proper html code.</p>
 <p>For now, let’s delete all of the stuff that’s there and write a bit of markdown.</p>
 <p>You make things <strong>bold</strong> using two asterisks, like this: <code>**bold**</code>, and you make things <em>italics</em> by using underscores, like this: <code>_italics_</code>.</p>
@@ -307,13 +311,13 @@ questions:</p>
 #### Sub-sub section</code></pre>
 <p>You <em>compile</em> the R Markdown document to an html webpage by clicking the “Knit” button in the upper-left.</p>
 <blockquote>
-<h2 id="challenge-1-1"><span class="header-section-number">9.3</span> Challenge 1</h2>
+<h2 id="challenge-1-1"><span class="header-section-number">10.3</span> Challenge 1</h2>
 <p>Create a new R Markdown document. Delete all of the R code chunks and write a bit of Markdown (some sections, some italicized text, and an itemized list).</p>
 <p>Convert the document to a webpage. &gt; ## Solution to Challenge 1 &gt; &gt; In RStudio, select File &gt; New file &gt; R Markdown… &gt; &gt; Delete the placeholder text and add the following: &gt; &gt; <code>&gt; # Introduction &gt; &gt; ## Background on Data &gt; &gt; This report uses the *SAFI* dataset, which has columns that include: &gt; &gt; * country &gt; * continent &gt; * year &gt; * lifeExp &gt; * pop &gt; * gdpPercap &gt; &gt; ## Background on Methods &gt; &gt;</code> &gt; &gt; Then click the ‘Knit’ button on the toolbar to generate an html document (webpage).</p>
 </blockquote>
 </div>
 <div id="a-bit-more-markdown" class="section level2">
-<h2><span class="header-section-number">9.4</span> A bit more Markdown</h2>
+<h2><span class="header-section-number">10.4</span> A bit more Markdown</h2>
 <p>You can make a hyperlink like this: <code>[text to show](http://the-web-page.com)</code>.</p>
 <p>You can include an image file like this: <code>![caption](http://url/for/file)</code></p>
 <p>You can do subscripts (e.g., F<sub>2</sub>) with <code>F~2~</code> and superscripts (e.g., F<sup>2</sup>) with <code>F^2^</code>.</p>
@@ -322,7 +326,7 @@ questions:</p>
 <p>You can review Markdown syntax by navigating to the “Markdown Quick Reference” under the “Help” field in the toolbar at the top of RStudio.</p>
 </div>
 <div id="r-code-chunks" class="section level2">
-<h2><span class="header-section-number">9.5</span> R code chunks</h2>
+<h2><span class="header-section-number">10.5</span> R code chunks</h2>
 <p>The real power of Markdown comes from mixing markdown with chunks of code. This is R Markdown. When processed, the R code will be executed; if they produce figures, the figures will be inserted in the final document.</p>
 <p>The main code chunks look like this:</p>
 <pre>
@@ -332,7 +336,7 @@ gapminder <- read.csv("gapminder.csv")
 </pre>
 <p>That is, you place a chunk of R code between <code>```{r chunk_name}</code> and <code>```</code>. You should give each chunk a unique name, as they will help you to fix errors and, if any graphs are produced, the file names are based on the name of the code chunk that produced them.</p>
 <blockquote>
-<h2 id="challenge-2"><span class="header-section-number">9.5</span> Challenge 2</h2>
+<h2 id="challenge-2"><span class="header-section-number">10.5</span> Challenge 2</h2>
 <p>Add code chunks to:</p>
 <ul>
 <li>Load the ggplot2 package</li>
@@ -340,7 +344,7 @@ gapminder <- read.csv("gapminder.csv")
 <li>Create a plot</li>
 </ul>
 <blockquote>
-<h2 id="solution-to-challenge-2"><span class="header-section-number">9.5</span> Solution to Challenge 2</h2>
+<h2 id="solution-to-challenge-2"><span class="header-section-number">10.5</span> Solution to Challenge 2</h2>
 <pre>
 &#96;&#96;&#96;{r load-ggplot2}
 library("ggplot2")
@@ -360,13 +364,13 @@ plot(lifeExp ~ year, data = gapminder)
 </blockquote>
 </div>
 <div id="how-things-get-compiled" class="section level2">
-<h2><span class="header-section-number">9.6</span> How things get compiled</h2>
+<h2><span class="header-section-number">10.6</span> How things get compiled</h2>
 <p>When you press the “Knit” button, the R Markdown document is processed by <a href="http://yihui.name/knitr"><code>knitr</code></a> and a plain Markdown document is produced (as well as, potentially, a set of figure files): the R code is executed and replaced by both the input and the output; if figures are produced, links to those figures are included.</p>
 <p>The Markdown and figure documents are then processed by the tool <a href="http://pandoc.org/"><code>pandoc</code></a>, which converts the Markdown file into an html file, with the figures embedded.</p>
 <p><img src="2020-01-15-brynmawr_files/figure-html/rmd_to_html_fig-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
 </div>
 <div id="chunk-options" class="section level2">
-<h2><span class="header-section-number">9.7</span> Chunk options</h2>
+<h2><span class="header-section-number">10.7</span> Chunk options</h2>
 <p>There are a variety of options to affect how the code chunks are treated. Here are some examples:</p>
 <ul>
 <li>Use <code>echo=FALSE</code> to avoid having the code itself shown.</li>
@@ -391,10 +395,10 @@ knitr::opts_chunk$set(fig.path="Figs/", message=FALSE, warning=FALSE, echo=FALSE
 <p>The <code>fig.path</code> option defines where the figures will be saved. The <code>/</code> here is really important; without it, the figures would be saved in the standard place but just with names that begin with <code>Figs</code>.</p>
 <p>If you have multiple R Markdown files in a common directory, you might want to use <code>fig.path</code> to define separate prefixes for the figure file names, like <code>fig.path=&quot;Figs/cleaning-&quot;</code> and <code>fig.path=&quot;Figs/analysis-&quot;</code>.</p>
 <blockquote>
-<h2 id="challenge-3"><span class="header-section-number">9.7</span> Challenge 3</h2>
+<h2 id="challenge-3"><span class="header-section-number">10.7</span> Challenge 3</h2>
 <p>Use chunk options to control the size of a figure and to hide the code.</p>
 <blockquote>
-<h2 id="solution-to-challenge-3"><span class="header-section-number">9.7</span> Solution to Challenge 3</h2>
+<h2 id="solution-to-challenge-3"><span class="header-section-number">10.7</span> Solution to Challenge 3</h2>
 <pre>
 &#96;&#96;&#96;{r echo = FALSE, fig.width = 3}
 plot(faithful)
@@ -405,26 +409,26 @@ plot(faithful)
 <p>You can review all of the <code>R</code> chunk options by navigating to the “R Markdown Cheat Sheet” under the “Cheatsheets” section of the “Help” field in the toolbar at the top of RStudio.</p>
 </div>
 <div id="inline-r-code" class="section level2">
-<h2><span class="header-section-number">9.8</span> Inline R code</h2>
+<h2><span class="header-section-number">10.8</span> Inline R code</h2>
 <p>You can make <em>every</em> number in your report reproducible. Use <code>`r</code> and <code>`</code> for an in-line code chunk, like so: <code>`r round(some_value, 2)`</code>. The code will be executed and replaced with the <em>value</em> of the result.</p>
 <p>Don’t let these in-line chunks get split across lines.</p>
 <p>Perhaps precede the paragraph with a larger code chunk that does calculations and defines variables, with <code>include=FALSE</code> for that larger chunk (which is the same as <code>echo=FALSE</code> and <code>results=&quot;hide&quot;</code>).</p>
 <p>Rounding can produce differences in output in such situations. You may want <code>2.0</code>, but <code>round(2.03, 1)</code> will give just <code>2</code>.</p>
 <p>The <a href="https://github.com/kbroman/broman/blob/master/R/myround.R"><code>myround</code></a> function in the <a href="https://github.com/kbroman/broman">R/broman</a> package handles this.</p>
 <blockquote>
-<h2 id="challenge-4"><span class="header-section-number">9.8</span> Challenge 4</h2>
+<h2 id="challenge-4"><span class="header-section-number">10.8</span> Challenge 4</h2>
 <p>Try out a bit of in-line R code.</p>
 <blockquote>
-<h2 id="solution-to-challenge-4"><span class="header-section-number">9.8</span> Solution to Challenge 4</h2>
+<h2 id="solution-to-challenge-4"><span class="header-section-number">10.8</span> Solution to Challenge 4</h2>
 <p>Here’s some inline code to determine that 2 + 2 = <code>`r 2+2`</code>.</p>
 </blockquote>
 </blockquote>
 </div>
 <div id="other-output-options" class="section level2">
-<h2><span class="header-section-number">9.9</span> Other output options</h2>
+<h2><span class="header-section-number">10.9</span> Other output options</h2>
 <p>You can also convert R Markdown to a PDF or a Word document. Click the little triangle next to the “Knit” button to get a drop-down menu. Or you could put <code>pdf_document</code> or <code>word_document</code> in the initial header of the file.</p>
 <blockquote>
-<h2 id="tip-creating-pdf-documents"><span class="header-section-number">9.9</span> Tip: Creating PDF documents</h2>
+<h2 id="tip-creating-pdf-documents"><span class="header-section-number">10.9</span> Tip: Creating PDF documents</h2>
 <p>Creating .pdf documents may require installation of some extra software. If required this is detailed in an error message.</p>
 <ul>
 <li><a href="https://miktex.org/2.9/setup">TeX installers for Windows</a>.</li>
@@ -433,7 +437,7 @@ plot(faithful)
 </blockquote>
 </div>
 <div id="resources" class="section level2">
-<h2><span class="header-section-number">9.10</span> Resources</h2>
+<h2><span class="header-section-number">10.10</span> Resources</h2>
 <ul>
 <li><a href="http://kbroman.org/knitr_knutshell">Knitr in a knutshell tutorial</a></li>
 <li><a href="http://www.amazon.com/exec/obidos/ASIN/1482203537/7210-20">Dynamic Documents with R and knitr</a> (book)</li>
@@ -485,7 +489,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-knitr-markdown.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/10-knitr-markdown.Rmd",
 "text": "Edit"
 },
 "history": {

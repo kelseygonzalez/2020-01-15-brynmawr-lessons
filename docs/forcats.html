@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lesson 8 Advanced variable creation with forcats | 2020-01-15-brynmawr</title>
+  <title>Lesson 9 Advanced variable creation with forcats | 2020-01-15-brynmawr</title>
   <meta name="description" content="This is a review of the material covered in Bryn Mawr College’s Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020." />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lesson 8 Advanced variable creation with forcats | 2020-01-15-brynmawr" />
+  <meta property="og:title" content="Lesson 9 Advanced variable creation with forcats | 2020-01-15-brynmawr" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="kelseygonzalez/2020-01-15-brynmawr-lessons/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lesson 8 Advanced variable creation with forcats | 2020-01-15-brynmawr" />
+  <meta name="twitter:title" content="Lesson 9 Advanced variable creation with forcats | 2020-01-15-brynmawr" />
   
   <meta name="twitter:description" content="This is a review of the material covered in Bryn Mawr College’s Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Kelsey Gonzalez, Amelia McNamara, The Carpentries" />
 
 
-<meta name="date" content="2020-01-13" />
+<meta name="date" content="2020-01-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -141,10 +141,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2.1" data-path="basicR.html"><a href="basicR.html#functions-and-their-arguments"><i class="fa fa-check"></i><b>3.2.1</b> Functions and their arguments</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="basicR.html"><a href="basicR.html#vectors-and-data-types"><i class="fa fa-check"></i><b>3.3</b> Vectors and data types</a></li>
-<li class="chapter" data-level="3.4" data-path="basicR.html"><a href="basicR.html#subsetting-vectors"><i class="fa fa-check"></i><b>3.4</b> Subsetting vectors</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="basicR.html"><a href="basicR.html#conditional-subsetting"><i class="fa fa-check"></i><b>3.4.1</b> Conditional subsetting</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="basicR.html"><a href="basicR.html#missing-data"><i class="fa fa-check"></i><b>3.5</b> Missing data</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="help.html"><a href="help.html"><i class="fa fa-check"></i><b>4</b> Seeking Help</a><ul>
 <li class="chapter" data-level="4.1" data-path="help.html"><a href="help.html#reading-help-files"><i class="fa fa-check"></i><b>4.1</b> Reading Help files</a></li>
@@ -159,7 +155,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.1" data-path="dataframes.html"><a href="dataframes.html#presentation-of-the-safi-data"><i class="fa fa-check"></i><b>5.1</b> Presentation of the SAFI Data</a></li>
 <li class="chapter" data-level="5.2" data-path="dataframes.html"><a href="dataframes.html#what-are-data-frames-and-tibbles"><i class="fa fa-check"></i><b>5.2</b> What are data frames and tibbles?</a></li>
 <li class="chapter" data-level="5.3" data-path="dataframes.html"><a href="dataframes.html#inspecting-data-frames"><i class="fa fa-check"></i><b>5.3</b> Inspecting data frames</a></li>
-<li class="chapter" data-level="5.4" data-path="dataframes.html"><a href="dataframes.html#indexing-and-subsetting-data-frames"><i class="fa fa-check"></i><b>5.4</b> Indexing and subsetting data frames</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling with <code>dplyr</code></a><ul>
 <li class="chapter" data-level="6.1" data-path="dplyr.html"><a href="dplyr.html#data-manipulation-using-dplyr-and-tidyr"><i class="fa fa-check"></i><b>6.1</b> Data Manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong></a></li>
@@ -175,37 +170,46 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.8" data-path="dplyr.html"><a href="dplyr.html#applying-spread-to-clean-our-data"><i class="fa fa-check"></i><b>6.8</b> Applying <code>spread()</code> to clean our data</a></li>
 <li class="chapter" data-level="6.9" data-path="dplyr.html"><a href="dplyr.html#exporting-data"><i class="fa fa-check"></i><b>6.9</b> Exporting data</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>7</b> Data Visualization with <code>ggplot2</code></a><ul>
-<li class="chapter" data-level="7.1" data-path="ggplot.html"><a href="ggplot.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>7.1</b> Plotting with <strong><code>ggplot2</code></strong></a></li>
-<li class="chapter" data-level="7.2" data-path="ggplot.html"><a href="ggplot.html#building-your-plots-iteratively"><i class="fa fa-check"></i><b>7.2</b> Building your plots iteratively</a></li>
-<li class="chapter" data-level="7.3" data-path="ggplot.html"><a href="ggplot.html#boxplot"><i class="fa fa-check"></i><b>7.3</b> Boxplot</a></li>
-<li class="chapter" data-level="7.4" data-path="ggplot.html"><a href="ggplot.html#barplots"><i class="fa fa-check"></i><b>7.4</b> Barplots</a></li>
-<li class="chapter" data-level="7.5" data-path="ggplot.html"><a href="ggplot.html#adding-labels-and-titles"><i class="fa fa-check"></i><b>7.5</b> Adding Labels and Titles</a></li>
-<li class="chapter" data-level="7.6" data-path="ggplot.html"><a href="ggplot.html#faceting"><i class="fa fa-check"></i><b>7.6</b> Faceting</a></li>
-<li class="chapter" data-level="7.7" data-path="ggplot.html"><a href="ggplot.html#ggplot2-themes"><i class="fa fa-check"></i><b>7.7</b> <strong><code>ggplot2</code></strong> themes</a></li>
-<li class="chapter" data-level="7.8" data-path="ggplot.html"><a href="ggplot.html#customization"><i class="fa fa-check"></i><b>7.8</b> Customization</a></li>
+<li class="chapter" data-level="7" data-path="base-subsetting.html"><a href="base-subsetting.html"><i class="fa fa-check"></i><b>7</b> Base subsetting</a><ul>
+<li class="chapter" data-level="7.1" data-path="base-subsetting.html"><a href="base-subsetting.html#tidyverse-and-base-r"><i class="fa fa-check"></i><b>7.1</b> Tidyverse and base R</a></li>
+<li class="chapter" data-level="7.2" data-path="base-subsetting.html"><a href="base-subsetting.html#subsetting-vectors"><i class="fa fa-check"></i><b>7.2</b> Subsetting vectors</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="base-subsetting.html"><a href="base-subsetting.html#conditional-subsetting"><i class="fa fa-check"></i><b>7.2.1</b> Conditional subsetting</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="forcats.html"><a href="forcats.html"><i class="fa fa-check"></i><b>8</b> Advanced variable creation with <code>forcats</code></a><ul>
-<li class="chapter" data-level="8.1" data-path="forcats.html"><a href="forcats.html#factors"><i class="fa fa-check"></i><b>8.1</b> Factors</a></li>
-<li class="chapter" data-level="8.2" data-path="forcats.html"><a href="forcats.html#reordering-factor-levels"><i class="fa fa-check"></i><b>8.2</b> reordering factor levels</a></li>
-<li class="chapter" data-level="8.3" data-path="forcats.html"><a href="forcats.html#renaming-factor-levels"><i class="fa fa-check"></i><b>8.3</b> renaming factor levels</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="forcats.html"><a href="forcats.html#converting-factors"><i class="fa fa-check"></i><b>8.3.1</b> Converting factors</a></li>
-<li class="chapter" data-level="8.3.2" data-path="forcats.html"><a href="forcats.html#renaming-factors"><i class="fa fa-check"></i><b>8.3.2</b> Renaming factors</a></li>
+<li class="chapter" data-level="7.3" data-path="base-subsetting.html"><a href="base-subsetting.html#missing-data"><i class="fa fa-check"></i><b>7.3</b> Missing data</a></li>
+<li class="chapter" data-level="7.4" data-path="base-subsetting.html"><a href="base-subsetting.html#indexing-and-subsetting-data-frames"><i class="fa fa-check"></i><b>7.4</b> Indexing and subsetting data frames</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="forcats.html"><a href="forcats.html#strings"><i class="fa fa-check"></i><b>8.4</b> strings</a></li>
-<li class="chapter" data-level="8.5" data-path="forcats.html"><a href="forcats.html#formatting-dates"><i class="fa fa-check"></i><b>8.5</b> Formatting Dates</a></li>
+<li class="chapter" data-level="8" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>8</b> Data Visualization with <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="ggplot.html"><a href="ggplot.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>8.1</b> Plotting with <strong><code>ggplot2</code></strong></a></li>
+<li class="chapter" data-level="8.2" data-path="ggplot.html"><a href="ggplot.html#building-your-plots-iteratively"><i class="fa fa-check"></i><b>8.2</b> Building your plots iteratively</a></li>
+<li class="chapter" data-level="8.3" data-path="ggplot.html"><a href="ggplot.html#boxplot"><i class="fa fa-check"></i><b>8.3</b> Boxplot</a></li>
+<li class="chapter" data-level="8.4" data-path="ggplot.html"><a href="ggplot.html#barplots"><i class="fa fa-check"></i><b>8.4</b> Barplots</a></li>
+<li class="chapter" data-level="8.5" data-path="ggplot.html"><a href="ggplot.html#adding-labels-and-titles"><i class="fa fa-check"></i><b>8.5</b> Adding Labels and Titles</a></li>
+<li class="chapter" data-level="8.6" data-path="ggplot.html"><a href="ggplot.html#faceting"><i class="fa fa-check"></i><b>8.6</b> Faceting</a></li>
+<li class="chapter" data-level="8.7" data-path="ggplot.html"><a href="ggplot.html#ggplot2-themes"><i class="fa fa-check"></i><b>8.7</b> <strong><code>ggplot2</code></strong> themes</a></li>
+<li class="chapter" data-level="8.8" data-path="ggplot.html"><a href="ggplot.html#customization"><i class="fa fa-check"></i><b>8.8</b> Customization</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>9</b> Producing Reports With <code>knitr</code></a><ul>
-<li class="chapter" data-level="9.1" data-path="knitr.html"><a href="knitr.html#data-analysis-reports"><i class="fa fa-check"></i><b>9.1</b> Data analysis reports</a></li>
-<li class="chapter" data-level="9.2" data-path="knitr.html"><a href="knitr.html#literate-programming"><i class="fa fa-check"></i><b>9.2</b> Literate programming</a></li>
-<li class="chapter" data-level="9.3" data-path="knitr.html"><a href="knitr.html#markdown"><i class="fa fa-check"></i><b>9.3</b> Markdown</a></li>
-<li class="chapter" data-level="9.4" data-path="knitr.html"><a href="knitr.html#a-bit-more-markdown"><i class="fa fa-check"></i><b>9.4</b> A bit more Markdown</a></li>
-<li class="chapter" data-level="9.5" data-path="knitr.html"><a href="knitr.html#r-code-chunks"><i class="fa fa-check"></i><b>9.5</b> R code chunks</a></li>
-<li class="chapter" data-level="9.6" data-path="knitr.html"><a href="knitr.html#how-things-get-compiled"><i class="fa fa-check"></i><b>9.6</b> How things get compiled</a></li>
-<li class="chapter" data-level="9.7" data-path="knitr.html"><a href="knitr.html#chunk-options"><i class="fa fa-check"></i><b>9.7</b> Chunk options</a></li>
-<li class="chapter" data-level="9.8" data-path="knitr.html"><a href="knitr.html#inline-r-code"><i class="fa fa-check"></i><b>9.8</b> Inline R code</a></li>
-<li class="chapter" data-level="9.9" data-path="knitr.html"><a href="knitr.html#other-output-options"><i class="fa fa-check"></i><b>9.9</b> Other output options</a></li>
-<li class="chapter" data-level="9.10" data-path="knitr.html"><a href="knitr.html#resources"><i class="fa fa-check"></i><b>9.10</b> Resources</a></li>
+<li class="chapter" data-level="9" data-path="forcats.html"><a href="forcats.html"><i class="fa fa-check"></i><b>9</b> Advanced variable creation with <code>forcats</code></a><ul>
+<li class="chapter" data-level="9.1" data-path="forcats.html"><a href="forcats.html#factors"><i class="fa fa-check"></i><b>9.1</b> Factors</a></li>
+<li class="chapter" data-level="9.2" data-path="forcats.html"><a href="forcats.html#reordering-factor-levels"><i class="fa fa-check"></i><b>9.2</b> reordering factor levels</a></li>
+<li class="chapter" data-level="9.3" data-path="forcats.html"><a href="forcats.html#renaming-factor-levels"><i class="fa fa-check"></i><b>9.3</b> renaming factor levels</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="forcats.html"><a href="forcats.html#converting-factors"><i class="fa fa-check"></i><b>9.3.1</b> Converting factors</a></li>
+<li class="chapter" data-level="9.3.2" data-path="forcats.html"><a href="forcats.html#renaming-factors"><i class="fa fa-check"></i><b>9.3.2</b> Renaming factors</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="forcats.html"><a href="forcats.html#strings"><i class="fa fa-check"></i><b>9.4</b> strings</a></li>
+<li class="chapter" data-level="9.5" data-path="forcats.html"><a href="forcats.html#formatting-dates"><i class="fa fa-check"></i><b>9.5</b> Formatting Dates</a></li>
+<li class="chapter" data-level="9.6" data-path="forcats.html"><a href="forcats.html#other-variable-types"><i class="fa fa-check"></i><b>9.6</b> Other variable types</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>10</b> Producing Reports With <code>knitr</code></a><ul>
+<li class="chapter" data-level="10.1" data-path="knitr.html"><a href="knitr.html#data-analysis-reports"><i class="fa fa-check"></i><b>10.1</b> Data analysis reports</a></li>
+<li class="chapter" data-level="10.2" data-path="knitr.html"><a href="knitr.html#literate-programming"><i class="fa fa-check"></i><b>10.2</b> Literate programming</a></li>
+<li class="chapter" data-level="10.3" data-path="knitr.html"><a href="knitr.html#markdown"><i class="fa fa-check"></i><b>10.3</b> Markdown</a></li>
+<li class="chapter" data-level="10.4" data-path="knitr.html"><a href="knitr.html#a-bit-more-markdown"><i class="fa fa-check"></i><b>10.4</b> A bit more Markdown</a></li>
+<li class="chapter" data-level="10.5" data-path="knitr.html"><a href="knitr.html#r-code-chunks"><i class="fa fa-check"></i><b>10.5</b> R code chunks</a></li>
+<li class="chapter" data-level="10.6" data-path="knitr.html"><a href="knitr.html#how-things-get-compiled"><i class="fa fa-check"></i><b>10.6</b> How things get compiled</a></li>
+<li class="chapter" data-level="10.7" data-path="knitr.html"><a href="knitr.html#chunk-options"><i class="fa fa-check"></i><b>10.7</b> Chunk options</a></li>
+<li class="chapter" data-level="10.8" data-path="knitr.html"><a href="knitr.html#inline-r-code"><i class="fa fa-check"></i><b>10.8</b> Inline R code</a></li>
+<li class="chapter" data-level="10.9" data-path="knitr.html"><a href="knitr.html#other-output-options"><i class="fa fa-check"></i><b>10.9</b> Other output options</a></li>
+<li class="chapter" data-level="10.10" data-path="knitr.html"><a href="knitr.html#resources"><i class="fa fa-check"></i><b>10.10</b> Resources</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -228,26 +232,39 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="forcats" class="section level1">
-<h1><span class="header-section-number">Lesson 8</span> Advanced variable creation with <code>forcats</code></h1>
+<h1><span class="header-section-number">Lesson 9</span> Advanced variable creation with <code>forcats</code></h1>
 <p>teaching: 60<br />
 exercises: 15<br />
 adapted from:<br />
 questions:</p>
 <ul>
-<li>“How can I easily create new categorical variables?”</li>
+<li>How can I easily create new categorical variables?</li>
+<li>How can I change the way R treats strings in my dataset?<br />
+</li>
+<li>Why would I want strings to be treated differently?<br />
+</li>
+<li>How are dates represented in R and how can I change the format?</li>
 </ul>
 <p>objectives:</p>
 <ul>
-<li></li>
+<li>Describe the difference between a factor and a string.<br />
+</li>
+<li>Convert between strings and factors.<br />
+</li>
+<li>Reorder and rename factors.<br />
+</li>
+<li>Change how character strings are handled in a data frame.<br />
+</li>
+<li>Examine and change date formats.</li>
 </ul>
 <p>keypoints:</p>
 <ul>
-<li></li>
+<li>Use factors to represent categorical data in R.</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 interviews &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/SAFI_clean.csv&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;NULL&quot;</span>)</code></pre></div>
 <div id="factors" class="section level2">
-<h2><span class="header-section-number">8.1</span> Factors</h2>
+<h2><span class="header-section-number">9.1</span> Factors</h2>
 <p>R has a special data class, called factor, to deal with categorical data that you may encounter when creating plots or doing statistical analyses. Factors are very useful and actually contribute to making R particularly well suited to working with data. So we are going to spend a little time introducing them.</p>
 <p>Factors represent categorical data. They are stored as integers associated with labels and they can be ordered or unordered. While factors look (and often behave) like character vectors, they are actually treated as integer vectors by R. So you need to be very careful when treating them as strings.</p>
 <p>Factors are particularly useful when making plots or running statistical models. Unfortunately, they can also be very tricky to work with, because they are secretly numbers behind the scenes. Working with factors in base R can lead to errors that are almost impossible for human analysts to catch, but there is a <code>tidyverse</code> package that makes it much easier to work with factors, and prevents many common mistakes. It is called <code>forcats</code> (an anagram of the word “factors” and also because it is a package <strong>for</strong> working with <strong>cat</strong>egorical variable<strong>s</strong>).</p>
@@ -272,7 +289,7 @@ respondent_floor_type</code></pre></div>
 <pre><code>## [1] 2</code></pre>
 </div>
 <div id="reordering-factor-levels" class="section level2">
-<h2><span class="header-section-number">8.2</span> reordering factor levels</h2>
+<h2><span class="header-section-number">9.2</span> reordering factor levels</h2>
 <p>Sometimes, the order of the factors does not matter, other times you might want to specify the order because it is meaningful (e.g., “low”, “medium”, “high”), it improves your visualization, or it is required by a particular type of analysis. In <code>forcats</code>, one way to reorder our levels in the <code>respondent_floor_type</code> vector would be:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">respondent_floor_type <span class="co"># current order</span></code></pre></div>
 <pre><code>## [1] earth  cement cement earth 
@@ -345,12 +362,11 @@ respondent_floor_type <span class="co"># after re-ordering</span></code></pre></
 <pre><code>## [1] &quot;burntbricks&quot; &quot;muddaub&quot;     &quot;sunbricks&quot;   &quot;cement&quot;</code></pre>
 </div>
 <div id="renaming-factor-levels" class="section level2">
-<h2><span class="header-section-number">8.3</span> renaming factor levels</h2>
+<h2><span class="header-section-number">9.3</span> renaming factor levels</h2>
 <p><code>forcats</code> makes easy to rename factor levels. Let’s say we made a mistake and need to recode “cement” to “brick”. We’d use the <code>fct_recode</code> function to do this.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(respondent_floor_type)</code></pre></div>
 <pre><code>## [1] &quot;burntbricks&quot; &quot;muddaub&quot;     &quot;sunbricks&quot;   &quot;cement&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">respondent_floor_type &lt;-<span class="st"> </span><span class="kw">fct_recode</span>(respondent_floor_type, <span class="dt">brick =</span> <span class="st">&quot;cement&quot;</span>)
-
 <span class="kw">levels</span>(respondent_floor_type)</code></pre></div>
 <pre><code>## [1] &quot;burntbricks&quot; &quot;muddaub&quot;     &quot;sunbricks&quot;   &quot;brick&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">respondent_floor_type</code></pre></div>
@@ -378,7 +394,7 @@ respondent_floor_type <span class="co"># after re-ordering</span></code></pre></
 ## [127] burntbricks brick       muddaub     burntbricks burntbricks
 ## Levels: burntbricks &lt; muddaub &lt; sunbricks &lt; brick</code></pre>
 <div id="converting-factors" class="section level3">
-<h3><span class="header-section-number">8.3.1</span> Converting factors</h3>
+<h3><span class="header-section-number">9.3.1</span> Converting factors</h3>
 <p>If you are working in the tidyverse, your data will come in with very few factor variables by default. So, the most common conversion you will need to do is from a character vector to a factor, like we did before,</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as_factor</span>(<span class="kw">c</span>(<span class="st">&quot;earth&quot;</span>, <span class="st">&quot;cement&quot;</span>, <span class="st">&quot;cement&quot;</span>, <span class="st">&quot;earth&quot;</span>))</code></pre></div>
 <pre><code>## [1] earth  cement cement earth 
@@ -421,7 +437,7 @@ respondent_floor_type <span class="co"># after re-ordering</span></code></pre></
 <p>Again, if you find yourself doing this, you may want to check your data read-in code!</p>
 </div>
 <div id="renaming-factors" class="section level3">
-<h3><span class="header-section-number">8.3.2</span> Renaming factors</h3>
+<h3><span class="header-section-number">9.3.2</span> Renaming factors</h3>
 <p>When your data is stored as a factor, you can use the <code>plot()</code> function to get a quick glance at the number of observations represented by each factor level. Let’s convert the <code>memb_assoc</code> column from our data frame into a factor, and use it to look at the number of interview respondents who were or were not members of an irrigation association:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## convert it into a factor
 interviews &lt;-<span class="st"> </span>interviews <span class="op">%&gt;%</span>
@@ -441,11 +457,12 @@ interviews<span class="op">$</span>memb_assoc</code></pre></div>
 ## members of irrigation association:
 <span class="kw">plot</span>(interviews<span class="op">$</span>memb_assoc)</code></pre></div>
 <p><img src="2020-01-15-brynmawr_files/figure-html/factor-plot-default-order-1.png" width="672" /></p>
-<p>Looking at the plot compared to the output of the vector, we can see that n addition to “no”s and “yes”s, there are about some respondents for which the information about whether they were part of an irrigation association hasn’t been recorded, and encoded as missing data. They do not appear on the plot. Let’s encode them differently so they can counted and visualized in our plot.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(interviews) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(memb_assoc))</code></pre></div>
+<p><img src="2020-01-15-brynmawr_files/figure-html/factor-plot-default-order-2.png" width="672" /></p>
+<p>Looking at the base plot compared to the output of the vector, we can see that n addition to “no”s and “yes”s, there are about some respondents for which the information about whether they were part of an irrigation association hasn’t been recorded, and encoded as missing data. They do not appear on the plot. In the <code>ggplot</code>, we <strong>do</strong> see those missing values, which is one of the benefits of the <code>ggplot2</code> package. However, if we want to use base plotting, we can encode our missing values differently so they can be counted and visualized in our plot.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## replace the missing data with &quot;undetermined&quot;
 interviews &lt;-<span class="st"> </span>interviews <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">memb_assoc =</span> <span class="kw">fct_explicit_na</span>(memb_assoc, <span class="dt">na_level =</span> <span class="st">&quot;undetermined&quot;</span>))
-
 interviews<span class="op">$</span>memb_assoc</code></pre></div>
 <pre><code>##   [1] undetermined yes          undetermined undetermined undetermined
 ##   [6] undetermined no           yes          no           no          
@@ -479,22 +496,21 @@ interviews<span class="op">$</span>memb_assoc</code></pre></div>
 ## members of irrigation association:
 <span class="kw">plot</span>(interviews<span class="op">$</span>memb_assoc)</code></pre></div>
 <p><img src="2020-01-15-brynmawr_files/figure-html/factor-plot-reorder-1.png" width="672" /></p>
-<p>Again, if we wanted to reorder our factor here in order of</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(interviews) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(memb_assoc))</code></pre></div>
+<p><img src="2020-01-15-brynmawr_files/figure-html/factor-plot-reorder-2.png" width="672" /></p>
+<p>Again, if we wanted to reorder our factor here in order of the count of the category,</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">interviews &lt;-<span class="st"> </span>interviews <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">memb_assoc =</span> <span class="kw">fct_infreq</span>(memb_assoc, <span class="dt">ordered =</span> <span class="ot">TRUE</span>))
-<span class="kw">plot</span>(interviews<span class="op">$</span>memb_assoc)</code></pre></div>
+<span class="kw">ggplot</span>(interviews) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(memb_assoc))</code></pre></div>
 <p><img src="2020-01-15-brynmawr_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">interviews &lt;-<span class="st"> </span>interviews <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">memb_assoc =</span> <span class="kw">fct_relevel</span>(memb_assoc, <span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;Undetermined&quot;</span>))</code></pre></div>
-<pre><code>## Warning: Unknown levels in `f`: No, Yes, Undetermined</code></pre>
 <blockquote>
-<h2 id="exercise-16"><span class="header-section-number">8.3.2</span> Exercise</h2>
+<h2 id="exercise-16"><span class="header-section-number">9.3.2</span> Exercise</h2>
 <ul>
 <li><p>Rename the levels of the factor to have the first letter in uppercase: “No”,“Undetermined”, and “Yes”.</p></li>
 <li><p>Now that we have renamed the factor level to “Undetermined”, can you recreate the barplot such that “Undetermined” is last (after “Yes”)?</p></li>
 </ul>
 <blockquote>
-<h2 id="solution-18"><span class="header-section-number">8.3.2</span> Solution</h2>
+<h2 id="solution-18"><span class="header-section-number">9.3.2</span> Solution</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">interviews &lt;-<span class="st"> </span>interviews <span class="op">%&gt;%</span>
 <span class="st"> </span><span class="kw">mutate</span>(<span class="dt">memb_assoc =</span> <span class="kw">fct_recode</span>(memb_assoc, <span class="dt">No =</span> <span class="st">&quot;no&quot;</span>, <span class="dt">Yes =</span> <span class="st">&quot;yes&quot;</span>,
                                 <span class="dt">Undetermined =</span> <span class="st">&quot;undetermined&quot;</span>))
@@ -509,7 +525,7 @@ interviews<span class="op">$</span>memb_assoc</code></pre></div>
 </div>
 </div>
 <div id="strings" class="section level2">
-<h2><span class="header-section-number">8.4</span> strings</h2>
+<h2><span class="header-section-number">9.4</span> strings</h2>
 <p>Much like <code>forcats</code> helps us deal with factor variables, there are packages to help us deal with string variables. Some useful packages are the <code>tidyr</code> package (which we’ve already seen) the <code>stringr</code> package (installed with the tidyverse, but needs to be loaded separately) and the <code>tidytext</code> package. Let’s say we’re interested in the items owned by the interviewees. Right now, all the items are stuck together into one not-very-useful variable,</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">interviews <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">select</span>(items_owned)</code></pre></div>
@@ -531,32 +547,28 @@ interviews<span class="op">$</span>memb_assoc</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stringr)
 interviews &lt;-<span class="st"> </span>interviews <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">has_bicycle =</span> <span class="kw">str_detect</span>(items_owned, <span class="st">&quot;bicycle&quot;</span>))
-
-<span class="kw">plot</span>(<span class="kw">factor</span>(interviews<span class="op">$</span>has_bicycle))</code></pre></div>
+<span class="kw">ggplot</span>(interviews) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(has_bicycle))</code></pre></div>
 <p><img src="2020-01-15-brynmawr_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
 <p>Much like the <code>forcats</code> package, the <code>stringr</code> package has many functions that begin with <code>str_</code>, so you can type that much out and hit Tab to see other options.</p>
-<p>We could go through manually and repeat a similar set of lines of code for each item (<code>solar_torch</code>, <code>cow_plough</code>, etc) but there is a programming principle that if you repeat yourself there is likely a more efficient way to do it.</p>
-<p>In this case, that more efficient solution is to use the <code>tidytext</code> package, which lets us “unnest” the data into individual words. When we start working with text in this way, it can get a little messy, so it is often smart to break off a little piece of your data to work with separately. Here we’re taking just the <code>items_owned</code> variable and the <code>instanceID</code> (so we can join this back together with our original data later, if we so choose).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">items &lt;-<span class="st"> </span>interviews <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(items_owned, instanceID)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidytext)</code></pre></div>
-<pre><code>## Warning: package &#39;tidytext&#39; was built under R version 3.6.2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">items &lt;-<span class="st"> </span>items <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">unnest_tokens</span>(word, items_owned)</code></pre></div>
-<p>Now we have a variable called <code>word</code>, which is all the separate items. This is a very long dataset, so we may want to <code>pivot_wider</code> to make it easier to see.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">items &lt;-<span class="st"> </span>items <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">contains =</span> <span class="kw">if_else</span>(<span class="kw">is.na</span>(word), <span class="ot">FALSE</span>, <span class="ot">TRUE</span>))
-items &lt;-<span class="st"> </span>items <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> word, <span class="dt">values_from =</span> contains, <span class="dt">values_fill =</span> <span class="kw">list</span>(<span class="dt">contains =</span> <span class="ot">FALSE</span>))</code></pre></div>
-<p>If we’d like, we can now use a join to stick this back to our main dataset,</p>
+<p>For example, we could use <code>str_replace</code> to replace a particular string with something else. If we want, we can replace the string <code>Jan</code> with the string <code>January</code> to have the full name of the month in <code>months_lack_food</code>,</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">interviews &lt;-<span class="st"> </span>interviews <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">left_join</span>(items)</code></pre></div>
-<pre><code>## Joining, by = &quot;instanceID&quot;</code></pre>
-<p>Now we can see what each person owned.</p>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">months_lack_food =</span> <span class="kw">str_replace_all</span>(months_lack_food, <span class="st">&quot;Jan&quot;</span>, <span class="st">&quot;January&quot;</span>))</code></pre></div>
+<blockquote>
+<h2 id="exercise-17"><span class="header-section-number">9.4</span> Exercise</h2>
+<ol style="list-style-type: decimal">
+<li>Create a new variable, <code>brick</code>, which says whether a respondent’s wall type includes the word brick.</li>
+</ol>
+<blockquote>
+<h2 id="solution-19"><span class="header-section-number">9.4</span> Solution</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## 1.
+interviews &lt;-<span class="st"> </span>interviews <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">brick =</span> <span class="kw">str_detect</span>(respondent_wall_type, <span class="st">&quot;brick&quot;</span>))</code></pre></div>
+</blockquote>
+</blockquote>
 </div>
 <div id="formatting-dates" class="section level2">
-<h2><span class="header-section-number">8.5</span> Formatting Dates</h2>
-<p>One of the most common issues that new (and experienced!) R users have is converting date and time information into a variable that is appropriate and usable during analyses. As a reminder from earlier in this lesson, the best practice for dealing with date data is to ensure that each component of your date is stored as a separate variable. In our dataset, we have a column <code>interview_date</code> which contains information about the year, month, and day that the interview was conducted. Let’s convert those dates into three separate columns.</p>
+<h2><span class="header-section-number">9.5</span> Formatting Dates</h2>
+<p>A common issue that new (and experienced!) R users have is converting date and time information into a variable that is appropriate and usable during analyses. As a reminder from earlier, the best practice for dealing with date data is to ensure that each component of your date is stored as a separate variable. In our dataset, we have a column <code>interview_date</code> which contains information about the year, month, and day that the interview was conducted. Let’s convert those dates into three separate columns.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(interviews)</code></pre></div>
 <p>We are going to use the package <strong><code>lubridate</code></strong> (which belongs to the <strong><code>tidyverse</code></strong>; learn more <a href="https://www.tidyverse.org/">here</a>) to work with dates. <strong><code>lubridate</code></strong> gets installed as part as the <strong><code>tidyverse</code></strong> installation. When you load the <strong><code>tidyverse</code></strong> (<code>library(tidyverse)</code>), the core packages (the packages used in most data analyses) get loaded. <strong><code>lubridate</code></strong> however does not belong to the core tidyverse, so you have to load it explicitly with <code>library(lubridate)</code></p>
 <p>Start by loading the required package:</p>
@@ -567,32 +579,37 @@ items &lt;-<span class="st"> </span>items <span class="op">%&gt;%</span>
 <span class="kw">str</span>(dates)</code></pre></div>
 <pre><code>##  POSIXct[1:131], format: &quot;2016-11-17&quot; &quot;2016-11-17&quot; &quot;2016-11-17&quot; &quot;2016-11-17&quot; &quot;2016-11-17&quot; ...</code></pre>
 <p>When we imported the data in R, <code>read_csv()</code> recognized that this column contained date information. We can now use the <code>day()</code>, <code>month()</code> and <code>year()</code> functions to extract this information from the date, and create new columns in our data frame to store it:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">interviews<span class="op">$</span>day &lt;-<span class="st"> </span><span class="kw">day</span>(dates)
-interviews<span class="op">$</span>month &lt;-<span class="st"> </span><span class="kw">month</span>(dates)
-interviews<span class="op">$</span>year &lt;-<span class="st"> </span><span class="kw">year</span>(dates)
-interviews</code></pre></div>
-<pre><code>## # A tibble: 131 x 36
-##    key_ID village interview_date      no_membrs years_liv respondent_wall… rooms
-##     &lt;dbl&gt; &lt;chr&gt;   &lt;dttm&gt;                  &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt;
-##  1      1 God     2016-11-17 00:00:00         3         4 muddaub              1
-##  2      1 God     2016-11-17 00:00:00         7         9 muddaub              1
-##  3      3 God     2016-11-17 00:00:00        10        15 burntbricks          1
-##  4      4 God     2016-11-17 00:00:00         7         6 burntbricks          1
-##  5      5 God     2016-11-17 00:00:00         7        40 burntbricks          1
-##  6      6 God     2016-11-17 00:00:00         3         3 muddaub              1
-##  7      7 God     2016-11-17 00:00:00         6        38 muddaub              1
-##  8      8 Chirod… 2016-11-16 00:00:00        12        70 burntbricks          3
-##  9      9 Chirod… 2016-11-16 00:00:00         8         6 burntbricks          1
-## 10     10 Chirod… 2016-12-16 00:00:00        12        23 burntbricks          5
-## # … with 121 more rows, and 29 more variables: memb_assoc &lt;ord&gt;,
-## #   affect_conflicts &lt;chr&gt;, liv_count &lt;dbl&gt;, items_owned &lt;chr&gt;, no_meals &lt;dbl&gt;,
-## #   months_lack_food &lt;chr&gt;, instanceID &lt;chr&gt;, has_bicycle &lt;lgl&gt;, bicycle &lt;lgl&gt;,
-## #   television &lt;lgl&gt;, solar_panel &lt;lgl&gt;, table &lt;lgl&gt;, cow_cart &lt;lgl&gt;,
-## #   radio &lt;lgl&gt;, cow_plough &lt;lgl&gt;, solar_torch &lt;lgl&gt;, mobile_phone &lt;lgl&gt;,
-## #   motorcyle &lt;lgl&gt;, `NA` &lt;lgl&gt;, fridge &lt;lgl&gt;, electricity &lt;lgl&gt;,
-## #   sofa_set &lt;lgl&gt;, lorry &lt;lgl&gt;, sterio &lt;lgl&gt;, computer &lt;lgl&gt;, car &lt;lgl&gt;,
-## #   day &lt;int&gt;, month &lt;dbl&gt;, year &lt;dbl&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">interviews &lt;-<span class="st"> </span>interviews <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">day =</span> <span class="kw">day</span>(dates),
+         <span class="dt">month =</span> <span class="kw">month</span>(dates),
+         <span class="kw">year</span>(dates))
+<span class="kw">str</span>(interviews)</code></pre></div>
+<pre><code>## Classes &#39;spec_tbl_df&#39;, &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;: 131 obs. of  19 variables:
+##  $ key_ID              : num  1 1 3 4 5 6 7 8 9 10 ...
+##  $ village             : chr  &quot;God&quot; &quot;God&quot; &quot;God&quot; &quot;God&quot; ...
+##  $ interview_date      : POSIXct, format: &quot;2016-11-17&quot; &quot;2016-11-17&quot; ...
+##  $ no_membrs           : num  3 7 10 7 7 3 6 12 8 12 ...
+##  $ years_liv           : num  4 9 15 6 40 3 38 70 6 23 ...
+##  $ respondent_wall_type: chr  &quot;muddaub&quot; &quot;muddaub&quot; &quot;burntbricks&quot; &quot;burntbricks&quot; ...
+##  $ rooms               : num  1 1 1 1 1 1 1 3 1 5 ...
+##  $ memb_assoc          : Ord.factor w/ 3 levels &quot;No&quot;&lt;&quot;Yes&quot;&lt;&quot;Undetermined&quot;: 3 2 3 3 3 3 1 2 1 1 ...
+##  $ affect_conflicts    : chr  NA &quot;once&quot; NA NA ...
+##  $ liv_count           : num  1 3 1 2 4 1 1 2 3 2 ...
+##  $ items_owned         : chr  &quot;bicycle;television;solar_panel;table&quot; &quot;cow_cart;bicycle;radio;cow_plough;solar_panel;solar_torch;table;mobile_phone&quot; &quot;solar_torch&quot; &quot;bicycle;radio;cow_plough;solar_panel;mobile_phone&quot; ...
+##  $ no_meals            : num  2 2 2 2 2 2 3 2 3 3 ...
+##  $ months_lack_food    : chr  &quot;January&quot; &quot;January;Sept;Oct;Nov;Dec&quot; &quot;January;Feb;Mar;Oct;Nov;Dec&quot; &quot;Sept;Oct;Nov;Dec&quot; ...
+##  $ instanceID          : chr  &quot;uuid:ec241f2c-0609-46ed-b5e8-fe575f6cefef&quot; &quot;uuid:099de9c9-3e5e-427b-8452-26250e840d6e&quot; &quot;uuid:193d7daf-9582-409b-bf09-027dd36f9007&quot; &quot;uuid:148d1105-778a-4755-aa71-281eadd4a973&quot; ...
+##  $ has_bicycle         : logi  TRUE TRUE FALSE TRUE FALSE NA ...
+##  $ brick               : logi  FALSE FALSE TRUE TRUE TRUE FALSE ...
+##  $ day                 : int  17 17 17 17 17 17 17 16 16 16 ...
+##  $ month               : num  11 11 11 11 11 11 11 11 11 12 ...
+##  $ year(dates)         : num  2016 2016 2016 2016 2016 ...</code></pre>
 <p>Notice the three new columns at the end of our data frame.</p>
+</div>
+<div id="other-variable-types" class="section level2">
+<h2><span class="header-section-number">9.6</span> Other variable types</h2>
+<p>If we had a variable with time data in it, we could use the <code>hms</code> package (also part of the tidyverse) to work with that type of data.</p>
+<p>There are many other special data types in R, including spatial data (used for making maps), time series data, statistical model objects, and many more. If you have a particular type of data you would like to work with, let us know and we can point you in the right direction for resources!</p>
 
 </div>
 </div>
@@ -633,7 +650,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-variable-types.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-variable-types.Rmd",
 "text": "Edit"
 },
 "history": {

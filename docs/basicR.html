@@ -24,7 +24,7 @@
 <meta name="author" content="Kelsey Gonzalez, Amelia McNamara, The Carpentries" />
 
 
-<meta name="date" content="2020-01-13" />
+<meta name="date" content="2020-01-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -141,10 +141,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2.1" data-path="basicR.html"><a href="basicR.html#functions-and-their-arguments"><i class="fa fa-check"></i><b>3.2.1</b> Functions and their arguments</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="basicR.html"><a href="basicR.html#vectors-and-data-types"><i class="fa fa-check"></i><b>3.3</b> Vectors and data types</a></li>
-<li class="chapter" data-level="3.4" data-path="basicR.html"><a href="basicR.html#subsetting-vectors"><i class="fa fa-check"></i><b>3.4</b> Subsetting vectors</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="basicR.html"><a href="basicR.html#conditional-subsetting"><i class="fa fa-check"></i><b>3.4.1</b> Conditional subsetting</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="basicR.html"><a href="basicR.html#missing-data"><i class="fa fa-check"></i><b>3.5</b> Missing data</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="help.html"><a href="help.html"><i class="fa fa-check"></i><b>4</b> Seeking Help</a><ul>
 <li class="chapter" data-level="4.1" data-path="help.html"><a href="help.html#reading-help-files"><i class="fa fa-check"></i><b>4.1</b> Reading Help files</a></li>
@@ -159,7 +155,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.1" data-path="dataframes.html"><a href="dataframes.html#presentation-of-the-safi-data"><i class="fa fa-check"></i><b>5.1</b> Presentation of the SAFI Data</a></li>
 <li class="chapter" data-level="5.2" data-path="dataframes.html"><a href="dataframes.html#what-are-data-frames-and-tibbles"><i class="fa fa-check"></i><b>5.2</b> What are data frames and tibbles?</a></li>
 <li class="chapter" data-level="5.3" data-path="dataframes.html"><a href="dataframes.html#inspecting-data-frames"><i class="fa fa-check"></i><b>5.3</b> Inspecting data frames</a></li>
-<li class="chapter" data-level="5.4" data-path="dataframes.html"><a href="dataframes.html#indexing-and-subsetting-data-frames"><i class="fa fa-check"></i><b>5.4</b> Indexing and subsetting data frames</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling with <code>dplyr</code></a><ul>
 <li class="chapter" data-level="6.1" data-path="dplyr.html"><a href="dplyr.html#data-manipulation-using-dplyr-and-tidyr"><i class="fa fa-check"></i><b>6.1</b> Data Manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong></a></li>
@@ -175,37 +170,46 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.8" data-path="dplyr.html"><a href="dplyr.html#applying-spread-to-clean-our-data"><i class="fa fa-check"></i><b>6.8</b> Applying <code>spread()</code> to clean our data</a></li>
 <li class="chapter" data-level="6.9" data-path="dplyr.html"><a href="dplyr.html#exporting-data"><i class="fa fa-check"></i><b>6.9</b> Exporting data</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>7</b> Data Visualization with <code>ggplot2</code></a><ul>
-<li class="chapter" data-level="7.1" data-path="ggplot.html"><a href="ggplot.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>7.1</b> Plotting with <strong><code>ggplot2</code></strong></a></li>
-<li class="chapter" data-level="7.2" data-path="ggplot.html"><a href="ggplot.html#building-your-plots-iteratively"><i class="fa fa-check"></i><b>7.2</b> Building your plots iteratively</a></li>
-<li class="chapter" data-level="7.3" data-path="ggplot.html"><a href="ggplot.html#boxplot"><i class="fa fa-check"></i><b>7.3</b> Boxplot</a></li>
-<li class="chapter" data-level="7.4" data-path="ggplot.html"><a href="ggplot.html#barplots"><i class="fa fa-check"></i><b>7.4</b> Barplots</a></li>
-<li class="chapter" data-level="7.5" data-path="ggplot.html"><a href="ggplot.html#adding-labels-and-titles"><i class="fa fa-check"></i><b>7.5</b> Adding Labels and Titles</a></li>
-<li class="chapter" data-level="7.6" data-path="ggplot.html"><a href="ggplot.html#faceting"><i class="fa fa-check"></i><b>7.6</b> Faceting</a></li>
-<li class="chapter" data-level="7.7" data-path="ggplot.html"><a href="ggplot.html#ggplot2-themes"><i class="fa fa-check"></i><b>7.7</b> <strong><code>ggplot2</code></strong> themes</a></li>
-<li class="chapter" data-level="7.8" data-path="ggplot.html"><a href="ggplot.html#customization"><i class="fa fa-check"></i><b>7.8</b> Customization</a></li>
+<li class="chapter" data-level="7" data-path="base-subsetting.html"><a href="base-subsetting.html"><i class="fa fa-check"></i><b>7</b> Base subsetting</a><ul>
+<li class="chapter" data-level="7.1" data-path="base-subsetting.html"><a href="base-subsetting.html#tidyverse-and-base-r"><i class="fa fa-check"></i><b>7.1</b> Tidyverse and base R</a></li>
+<li class="chapter" data-level="7.2" data-path="base-subsetting.html"><a href="base-subsetting.html#subsetting-vectors"><i class="fa fa-check"></i><b>7.2</b> Subsetting vectors</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="base-subsetting.html"><a href="base-subsetting.html#conditional-subsetting"><i class="fa fa-check"></i><b>7.2.1</b> Conditional subsetting</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="forcats.html"><a href="forcats.html"><i class="fa fa-check"></i><b>8</b> Advanced variable creation with <code>forcats</code></a><ul>
-<li class="chapter" data-level="8.1" data-path="forcats.html"><a href="forcats.html#factors"><i class="fa fa-check"></i><b>8.1</b> Factors</a></li>
-<li class="chapter" data-level="8.2" data-path="forcats.html"><a href="forcats.html#reordering-factor-levels"><i class="fa fa-check"></i><b>8.2</b> reordering factor levels</a></li>
-<li class="chapter" data-level="8.3" data-path="forcats.html"><a href="forcats.html#renaming-factor-levels"><i class="fa fa-check"></i><b>8.3</b> renaming factor levels</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="forcats.html"><a href="forcats.html#converting-factors"><i class="fa fa-check"></i><b>8.3.1</b> Converting factors</a></li>
-<li class="chapter" data-level="8.3.2" data-path="forcats.html"><a href="forcats.html#renaming-factors"><i class="fa fa-check"></i><b>8.3.2</b> Renaming factors</a></li>
+<li class="chapter" data-level="7.3" data-path="base-subsetting.html"><a href="base-subsetting.html#missing-data"><i class="fa fa-check"></i><b>7.3</b> Missing data</a></li>
+<li class="chapter" data-level="7.4" data-path="base-subsetting.html"><a href="base-subsetting.html#indexing-and-subsetting-data-frames"><i class="fa fa-check"></i><b>7.4</b> Indexing and subsetting data frames</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="forcats.html"><a href="forcats.html#strings"><i class="fa fa-check"></i><b>8.4</b> strings</a></li>
-<li class="chapter" data-level="8.5" data-path="forcats.html"><a href="forcats.html#formatting-dates"><i class="fa fa-check"></i><b>8.5</b> Formatting Dates</a></li>
+<li class="chapter" data-level="8" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>8</b> Data Visualization with <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="ggplot.html"><a href="ggplot.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>8.1</b> Plotting with <strong><code>ggplot2</code></strong></a></li>
+<li class="chapter" data-level="8.2" data-path="ggplot.html"><a href="ggplot.html#building-your-plots-iteratively"><i class="fa fa-check"></i><b>8.2</b> Building your plots iteratively</a></li>
+<li class="chapter" data-level="8.3" data-path="ggplot.html"><a href="ggplot.html#boxplot"><i class="fa fa-check"></i><b>8.3</b> Boxplot</a></li>
+<li class="chapter" data-level="8.4" data-path="ggplot.html"><a href="ggplot.html#barplots"><i class="fa fa-check"></i><b>8.4</b> Barplots</a></li>
+<li class="chapter" data-level="8.5" data-path="ggplot.html"><a href="ggplot.html#adding-labels-and-titles"><i class="fa fa-check"></i><b>8.5</b> Adding Labels and Titles</a></li>
+<li class="chapter" data-level="8.6" data-path="ggplot.html"><a href="ggplot.html#faceting"><i class="fa fa-check"></i><b>8.6</b> Faceting</a></li>
+<li class="chapter" data-level="8.7" data-path="ggplot.html"><a href="ggplot.html#ggplot2-themes"><i class="fa fa-check"></i><b>8.7</b> <strong><code>ggplot2</code></strong> themes</a></li>
+<li class="chapter" data-level="8.8" data-path="ggplot.html"><a href="ggplot.html#customization"><i class="fa fa-check"></i><b>8.8</b> Customization</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>9</b> Producing Reports With <code>knitr</code></a><ul>
-<li class="chapter" data-level="9.1" data-path="knitr.html"><a href="knitr.html#data-analysis-reports"><i class="fa fa-check"></i><b>9.1</b> Data analysis reports</a></li>
-<li class="chapter" data-level="9.2" data-path="knitr.html"><a href="knitr.html#literate-programming"><i class="fa fa-check"></i><b>9.2</b> Literate programming</a></li>
-<li class="chapter" data-level="9.3" data-path="knitr.html"><a href="knitr.html#markdown"><i class="fa fa-check"></i><b>9.3</b> Markdown</a></li>
-<li class="chapter" data-level="9.4" data-path="knitr.html"><a href="knitr.html#a-bit-more-markdown"><i class="fa fa-check"></i><b>9.4</b> A bit more Markdown</a></li>
-<li class="chapter" data-level="9.5" data-path="knitr.html"><a href="knitr.html#r-code-chunks"><i class="fa fa-check"></i><b>9.5</b> R code chunks</a></li>
-<li class="chapter" data-level="9.6" data-path="knitr.html"><a href="knitr.html#how-things-get-compiled"><i class="fa fa-check"></i><b>9.6</b> How things get compiled</a></li>
-<li class="chapter" data-level="9.7" data-path="knitr.html"><a href="knitr.html#chunk-options"><i class="fa fa-check"></i><b>9.7</b> Chunk options</a></li>
-<li class="chapter" data-level="9.8" data-path="knitr.html"><a href="knitr.html#inline-r-code"><i class="fa fa-check"></i><b>9.8</b> Inline R code</a></li>
-<li class="chapter" data-level="9.9" data-path="knitr.html"><a href="knitr.html#other-output-options"><i class="fa fa-check"></i><b>9.9</b> Other output options</a></li>
-<li class="chapter" data-level="9.10" data-path="knitr.html"><a href="knitr.html#resources"><i class="fa fa-check"></i><b>9.10</b> Resources</a></li>
+<li class="chapter" data-level="9" data-path="forcats.html"><a href="forcats.html"><i class="fa fa-check"></i><b>9</b> Advanced variable creation with <code>forcats</code></a><ul>
+<li class="chapter" data-level="9.1" data-path="forcats.html"><a href="forcats.html#factors"><i class="fa fa-check"></i><b>9.1</b> Factors</a></li>
+<li class="chapter" data-level="9.2" data-path="forcats.html"><a href="forcats.html#reordering-factor-levels"><i class="fa fa-check"></i><b>9.2</b> reordering factor levels</a></li>
+<li class="chapter" data-level="9.3" data-path="forcats.html"><a href="forcats.html#renaming-factor-levels"><i class="fa fa-check"></i><b>9.3</b> renaming factor levels</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="forcats.html"><a href="forcats.html#converting-factors"><i class="fa fa-check"></i><b>9.3.1</b> Converting factors</a></li>
+<li class="chapter" data-level="9.3.2" data-path="forcats.html"><a href="forcats.html#renaming-factors"><i class="fa fa-check"></i><b>9.3.2</b> Renaming factors</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="forcats.html"><a href="forcats.html#strings"><i class="fa fa-check"></i><b>9.4</b> strings</a></li>
+<li class="chapter" data-level="9.5" data-path="forcats.html"><a href="forcats.html#formatting-dates"><i class="fa fa-check"></i><b>9.5</b> Formatting Dates</a></li>
+<li class="chapter" data-level="9.6" data-path="forcats.html"><a href="forcats.html#other-variable-types"><i class="fa fa-check"></i><b>9.6</b> Other variable types</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>10</b> Producing Reports With <code>knitr</code></a><ul>
+<li class="chapter" data-level="10.1" data-path="knitr.html"><a href="knitr.html#data-analysis-reports"><i class="fa fa-check"></i><b>10.1</b> Data analysis reports</a></li>
+<li class="chapter" data-level="10.2" data-path="knitr.html"><a href="knitr.html#literate-programming"><i class="fa fa-check"></i><b>10.2</b> Literate programming</a></li>
+<li class="chapter" data-level="10.3" data-path="knitr.html"><a href="knitr.html#markdown"><i class="fa fa-check"></i><b>10.3</b> Markdown</a></li>
+<li class="chapter" data-level="10.4" data-path="knitr.html"><a href="knitr.html#a-bit-more-markdown"><i class="fa fa-check"></i><b>10.4</b> A bit more Markdown</a></li>
+<li class="chapter" data-level="10.5" data-path="knitr.html"><a href="knitr.html#r-code-chunks"><i class="fa fa-check"></i><b>10.5</b> R code chunks</a></li>
+<li class="chapter" data-level="10.6" data-path="knitr.html"><a href="knitr.html#how-things-get-compiled"><i class="fa fa-check"></i><b>10.6</b> How things get compiled</a></li>
+<li class="chapter" data-level="10.7" data-path="knitr.html"><a href="knitr.html#chunk-options"><i class="fa fa-check"></i><b>10.7</b> Chunk options</a></li>
+<li class="chapter" data-level="10.8" data-path="knitr.html"><a href="knitr.html#inline-r-code"><i class="fa fa-check"></i><b>10.8</b> Inline R code</a></li>
+<li class="chapter" data-level="10.9" data-path="knitr.html"><a href="knitr.html#other-output-options"><i class="fa fa-check"></i><b>10.9</b> Other output options</a></li>
+<li class="chapter" data-level="10.10" data-path="knitr.html"><a href="knitr.html#resources"><i class="fa fa-check"></i><b>10.10</b> Resources</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -240,13 +244,7 @@ adapted from: <a href="https://datacarpentry.org/r-socialsci/01-intro-to-r/index
 </li>
 <li>How can values be initially assigned to variables of different data types?<br />
 </li>
-<li>What arithmetic and logical operators can be used?<br />
-</li>
-<li>How can subsets be extracted from vectors and data frames?<br />
-</li>
-<li>How does R treat missing values?<br />
-</li>
-<li>How can we deal with missing values in R?</li>
+<li>What arithmetic and logical operators can be used?</li>
 </ul>
 <p>objectives:</p>
 <ul>
@@ -262,19 +260,7 @@ adapted from: <a href="https://datacarpentry.org/r-socialsci/01-intro-to-r/index
 </li>
 <li>Call functions and use arguments to change their default options.<br />
 </li>
-<li>Inspect the content of vectors and manipulate their content.<br />
-</li>
-<li>Subset and extract values from vectors.<br />
-</li>
-<li>Analyze vectors with missing data.</li>
-</ul>
-<p>keypoints:</p>
-<ul>
-<li>Access individual values by location using <code>[]</code>.<br />
-</li>
-<li>Access arbitrary sets of data using <code>[c(...)]</code>.<br />
-</li>
-<li>Use logical operations and logical vectors to access subsets of data.</li>
+<li>Inspect the content of vectors and manipulate their content.</li>
 </ul>
 <div id="creating-objects-in-r" class="section level2">
 <h2><span class="header-section-number">3.1</span> Creating objects in R</h2>
@@ -445,101 +431,6 @@ combined_logical &lt;-<span class="st"> </span><span class="kw">c</span>(num_log
 <blockquote>
 <p>You’ve probably noticed that objects of different types get converted into a single, shared type within a vector. In R, we call converting objects from one class into another class <em>coercion</em>. These conversions happen according to a hierarchy, whereby some types get preferentially coerced into other types. Can you draw a diagram that represents the hierarchy of how these data types are coerced?</p>
 </blockquote>
-</div>
-<div id="subsetting-vectors" class="section level2">
-<h2><span class="header-section-number">3.4</span> Subsetting vectors</h2>
-<p>If we want to extract one or several values from a vector, we must provide one or several indices in square brackets. For instance:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">respondent_wall_type &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;muddaub&quot;</span>, <span class="st">&quot;burntbricks&quot;</span>, <span class="st">&quot;sunbricks&quot;</span>)
-respondent_wall_type[<span class="dv">2</span>]</code></pre></div>
-<pre><code>## [1] &quot;burntbricks&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">respondent_wall_type[<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)]</code></pre></div>
-<pre><code>## [1] &quot;sunbricks&quot;   &quot;burntbricks&quot;</code></pre>
-<p>We can also repeat the indices to create an object with more elements than the original one:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">more_respondent_wall_type &lt;-<span class="st"> </span>respondent_wall_type[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>)]
-more_respondent_wall_type</code></pre></div>
-<pre><code>## [1] &quot;muddaub&quot;     &quot;burntbricks&quot; &quot;sunbricks&quot;   &quot;burntbricks&quot; &quot;muddaub&quot;    
-## [6] &quot;sunbricks&quot;</code></pre>
-<p>R indices start at 1. Programming languages like Fortran, MATLAB, Julia, and R start counting at 1, because that’s what human beings typically do. Languages in the C family (including C++, Java, Perl, and Python) count from 0 because that’s simpler for computers to do.</p>
-<div id="conditional-subsetting" class="section level3">
-<h3><span class="header-section-number">3.4.1</span> Conditional subsetting</h3>
-<p>Another common way of subsetting is by using a logical vector. <code>TRUE</code> will select the element with the same index, while <code>FALSE</code> will not:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hh_members &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">6</span>)
-hh_members[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>)]</code></pre></div>
-<pre><code>## [1]  3 10  6</code></pre>
-<p>Typically, these logical vectors are not typed by hand, but are the output of other functions or logical tests. For instance, if you wanted to select only the values above 5:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hh_members <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>    <span class="co"># will return logicals with TRUE for the indices that meet the condition</span></code></pre></div>
-<pre><code>## [1] FALSE  TRUE  TRUE  TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## so we can use this to select only the values above 5
-hh_members[hh_members <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>]</code></pre></div>
-<pre><code>## [1]  7 10  6</code></pre>
-<p>You can combine multiple tests using <code>&amp;</code> (both conditions are true, AND) or <code>|</code> (at least one of the conditions is true, OR):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hh_members[hh_members <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span> <span class="op">|</span><span class="st"> </span>hh_members <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>]</code></pre></div>
-<pre><code>## [1]  7 10  6</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hh_members[hh_members <span class="op">&gt;=</span><span class="st"> </span><span class="dv">7</span> <span class="op">&amp;</span><span class="st"> </span>hh_members <span class="op">==</span><span class="st"> </span><span class="dv">3</span>]</code></pre></div>
-<pre><code>## numeric(0)</code></pre>
-<p>Here, <code>&lt;</code> stands for “less than”, <code>&gt;</code> for “greater than”, <code>&gt;=</code> for “greater than or equal to”, and <code>==</code> for “equal to”. The double equal sign <code>==</code> is a test for numerical equality between the left and right hand sides, and should not be confused with the single <code>=</code> sign, which performs variable assignment (similar to <code>&lt;-</code>).</p>
-<p>A common task is to search for certain strings in a vector. One could use the “or” operator <code>|</code> to test for equality to multiple values, but this can quickly become tedious. The function <code>%in%</code> allows you to test if any of the elements of a search vector are found:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">possessions &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;car&quot;</span>, <span class="st">&quot;bicycle&quot;</span>, <span class="st">&quot;radio&quot;</span>, <span class="st">&quot;television&quot;</span>, <span class="st">&quot;mobile_phone&quot;</span>)
-possessions[possessions <span class="op">==</span><span class="st"> &quot;car&quot;</span> <span class="op">|</span><span class="st"> </span>possessions <span class="op">==</span><span class="st"> &quot;bicycle&quot;</span>] <span class="co"># returns both car and bicycle</span></code></pre></div>
-<pre><code>## [1] &quot;car&quot;     &quot;bicycle&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">possessions <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;car&quot;</span>, <span class="st">&quot;bicycle&quot;</span>, <span class="st">&quot;motorcycle&quot;</span>, <span class="st">&quot;truck&quot;</span>, <span class="st">&quot;boat&quot;</span>)</code></pre></div>
-<pre><code>## [1]  TRUE  TRUE FALSE FALSE FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">possessions[possessions <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;car&quot;</span>, <span class="st">&quot;bicycle&quot;</span>, <span class="st">&quot;motorcycle&quot;</span>, <span class="st">&quot;truck&quot;</span>, <span class="st">&quot;boat&quot;</span>)]</code></pre></div>
-<pre><code>## [1] &quot;car&quot;     &quot;bicycle&quot;</code></pre>
-</div>
-</div>
-<div id="missing-data" class="section level2">
-<h2><span class="header-section-number">3.5</span> Missing data</h2>
-<p>As R was designed to analyze datasets, it includes the concept of missing data (which is uncommon in other programming languages). Missing data are represented in vectors as <code>NA</code>.</p>
-<p>When doing operations on numbers, most functions will return <code>NA</code> if the data you are working with include missing values. This feature makes it harder to overlook the cases where you are dealing with missing data. You can add the argument <code>na.rm=TRUE</code> to calculate the result while ignoring the missing values.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rooms &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">4</span>)
-<span class="kw">mean</span>(rooms)</code></pre></div>
-<pre><code>## [1] NA</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(rooms)</code></pre></div>
-<pre><code>## [1] NA</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(rooms, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## [1] 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">max</span>(rooms, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## [1] 4</code></pre>
-<p>If your data include missing values, you may want to become familiar with the functions <code>is.na()</code>, <code>na.omit()</code>, and <code>complete.cases()</code>. See below for examples.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Extract those elements which are not missing values.
-rooms[<span class="op">!</span><span class="kw">is.na</span>(rooms)]</code></pre></div>
-<pre><code>## [1] 2 1 1 4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Returns the object with incomplete cases removed. The returned object is an atomic vector of type `&quot;numeric&quot;` (or `&quot;double&quot;`).
-<span class="kw">na.omit</span>(rooms)</code></pre></div>
-<pre><code>## [1] 2 1 1 4
-## attr(,&quot;na.action&quot;)
-## [1] 4
-## attr(,&quot;class&quot;)
-## [1] &quot;omit&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Extract those elements which are complete cases. The returned object is an atomic vector of type `&quot;numeric&quot;` (or `&quot;double&quot;`).
-rooms[<span class="kw">complete.cases</span>(rooms)]</code></pre></div>
-<pre><code>## [1] 2 1 1 4</code></pre>
-<p>Recall that you can use the <code>typeof()</code> function to find the type of your atomic vector.</p>
-<blockquote>
-<h2 id="exercise-5"><span class="header-section-number">3.5</span> Exercise</h2>
-<ol style="list-style-type: decimal">
-<li><p>Using this vector of rooms, create a new vector with the NAs removed.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rooms &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">1</span>)</code></pre></div></li>
-<li><p>Use the function <code>median()</code> to calculate the median of the <code>rooms</code> vector.</p></li>
-<li><p>Use R to figure out how many households in the set use more than 2 rooms for sleeping.</p></li>
-</ol>
-<blockquote>
-<h2 id="solution-4"><span class="header-section-number">3.5</span> Solution</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rooms &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">1</span>)
-rooms_no_na &lt;-<span class="st"> </span>rooms[<span class="op">!</span><span class="kw">is.na</span>(rooms)]
-<span class="co"># or</span>
-rooms_no_na &lt;-<span class="st"> </span><span class="kw">na.omit</span>(rooms)
-<span class="co"># 2.</span>
-<span class="kw">median</span>(rooms, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 3.</span>
-rooms_above_<span class="dv">2</span> &lt;-<span class="st"> </span>rooms_no_na[rooms_no_na <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span>]
-<span class="kw">length</span>(rooms_above_<span class="dv">2</span>)</code></pre></div>
-<pre><code>## [1] 4</code></pre>
-</blockquote>
-</blockquote>
-<p>Now that we have learned how to write scripts, and the basics of R’s data structures, we are ready to start working with the SAFI dataset we have been using in the other lessons, and learn about data frames.</p>
 
 </div>
 </div>

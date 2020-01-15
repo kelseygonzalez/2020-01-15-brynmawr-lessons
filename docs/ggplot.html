@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lesson 7 Data Visualization with ggplot2 | 2020-01-15-brynmawr</title>
+  <title>Lesson 8 Data Visualization with ggplot2 | 2020-01-15-brynmawr</title>
   <meta name="description" content="This is a review of the material covered in Bryn Mawr College’s Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020." />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lesson 7 Data Visualization with ggplot2 | 2020-01-15-brynmawr" />
+  <meta property="og:title" content="Lesson 8 Data Visualization with ggplot2 | 2020-01-15-brynmawr" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="kelseygonzalez/2020-01-15-brynmawr-lessons/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lesson 7 Data Visualization with ggplot2 | 2020-01-15-brynmawr" />
+  <meta name="twitter:title" content="Lesson 8 Data Visualization with ggplot2 | 2020-01-15-brynmawr" />
   
   <meta name="twitter:description" content="This is a review of the material covered in Bryn Mawr College’s Data Carpentry: R for the Social Sciences Workshop, held 01/15-16/2020." />
   
@@ -24,14 +24,14 @@
 <meta name="author" content="Kelsey Gonzalez, Amelia McNamara, The Carpentries" />
 
 
-<meta name="date" content="2020-01-13" />
+<meta name="date" content="2020-01-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="dplyr.html"/>
+<link rel="prev" href="base-subsetting.html"/>
 <link rel="next" href="forcats.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -141,10 +141,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2.1" data-path="basicR.html"><a href="basicR.html#functions-and-their-arguments"><i class="fa fa-check"></i><b>3.2.1</b> Functions and their arguments</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="basicR.html"><a href="basicR.html#vectors-and-data-types"><i class="fa fa-check"></i><b>3.3</b> Vectors and data types</a></li>
-<li class="chapter" data-level="3.4" data-path="basicR.html"><a href="basicR.html#subsetting-vectors"><i class="fa fa-check"></i><b>3.4</b> Subsetting vectors</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="basicR.html"><a href="basicR.html#conditional-subsetting"><i class="fa fa-check"></i><b>3.4.1</b> Conditional subsetting</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="basicR.html"><a href="basicR.html#missing-data"><i class="fa fa-check"></i><b>3.5</b> Missing data</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="help.html"><a href="help.html"><i class="fa fa-check"></i><b>4</b> Seeking Help</a><ul>
 <li class="chapter" data-level="4.1" data-path="help.html"><a href="help.html#reading-help-files"><i class="fa fa-check"></i><b>4.1</b> Reading Help files</a></li>
@@ -159,7 +155,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.1" data-path="dataframes.html"><a href="dataframes.html#presentation-of-the-safi-data"><i class="fa fa-check"></i><b>5.1</b> Presentation of the SAFI Data</a></li>
 <li class="chapter" data-level="5.2" data-path="dataframes.html"><a href="dataframes.html#what-are-data-frames-and-tibbles"><i class="fa fa-check"></i><b>5.2</b> What are data frames and tibbles?</a></li>
 <li class="chapter" data-level="5.3" data-path="dataframes.html"><a href="dataframes.html#inspecting-data-frames"><i class="fa fa-check"></i><b>5.3</b> Inspecting data frames</a></li>
-<li class="chapter" data-level="5.4" data-path="dataframes.html"><a href="dataframes.html#indexing-and-subsetting-data-frames"><i class="fa fa-check"></i><b>5.4</b> Indexing and subsetting data frames</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling with <code>dplyr</code></a><ul>
 <li class="chapter" data-level="6.1" data-path="dplyr.html"><a href="dplyr.html#data-manipulation-using-dplyr-and-tidyr"><i class="fa fa-check"></i><b>6.1</b> Data Manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong></a></li>
@@ -175,37 +170,46 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.8" data-path="dplyr.html"><a href="dplyr.html#applying-spread-to-clean-our-data"><i class="fa fa-check"></i><b>6.8</b> Applying <code>spread()</code> to clean our data</a></li>
 <li class="chapter" data-level="6.9" data-path="dplyr.html"><a href="dplyr.html#exporting-data"><i class="fa fa-check"></i><b>6.9</b> Exporting data</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>7</b> Data Visualization with <code>ggplot2</code></a><ul>
-<li class="chapter" data-level="7.1" data-path="ggplot.html"><a href="ggplot.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>7.1</b> Plotting with <strong><code>ggplot2</code></strong></a></li>
-<li class="chapter" data-level="7.2" data-path="ggplot.html"><a href="ggplot.html#building-your-plots-iteratively"><i class="fa fa-check"></i><b>7.2</b> Building your plots iteratively</a></li>
-<li class="chapter" data-level="7.3" data-path="ggplot.html"><a href="ggplot.html#boxplot"><i class="fa fa-check"></i><b>7.3</b> Boxplot</a></li>
-<li class="chapter" data-level="7.4" data-path="ggplot.html"><a href="ggplot.html#barplots"><i class="fa fa-check"></i><b>7.4</b> Barplots</a></li>
-<li class="chapter" data-level="7.5" data-path="ggplot.html"><a href="ggplot.html#adding-labels-and-titles"><i class="fa fa-check"></i><b>7.5</b> Adding Labels and Titles</a></li>
-<li class="chapter" data-level="7.6" data-path="ggplot.html"><a href="ggplot.html#faceting"><i class="fa fa-check"></i><b>7.6</b> Faceting</a></li>
-<li class="chapter" data-level="7.7" data-path="ggplot.html"><a href="ggplot.html#ggplot2-themes"><i class="fa fa-check"></i><b>7.7</b> <strong><code>ggplot2</code></strong> themes</a></li>
-<li class="chapter" data-level="7.8" data-path="ggplot.html"><a href="ggplot.html#customization"><i class="fa fa-check"></i><b>7.8</b> Customization</a></li>
+<li class="chapter" data-level="7" data-path="base-subsetting.html"><a href="base-subsetting.html"><i class="fa fa-check"></i><b>7</b> Base subsetting</a><ul>
+<li class="chapter" data-level="7.1" data-path="base-subsetting.html"><a href="base-subsetting.html#tidyverse-and-base-r"><i class="fa fa-check"></i><b>7.1</b> Tidyverse and base R</a></li>
+<li class="chapter" data-level="7.2" data-path="base-subsetting.html"><a href="base-subsetting.html#subsetting-vectors"><i class="fa fa-check"></i><b>7.2</b> Subsetting vectors</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="base-subsetting.html"><a href="base-subsetting.html#conditional-subsetting"><i class="fa fa-check"></i><b>7.2.1</b> Conditional subsetting</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="forcats.html"><a href="forcats.html"><i class="fa fa-check"></i><b>8</b> Advanced variable creation with <code>forcats</code></a><ul>
-<li class="chapter" data-level="8.1" data-path="forcats.html"><a href="forcats.html#factors"><i class="fa fa-check"></i><b>8.1</b> Factors</a></li>
-<li class="chapter" data-level="8.2" data-path="forcats.html"><a href="forcats.html#reordering-factor-levels"><i class="fa fa-check"></i><b>8.2</b> reordering factor levels</a></li>
-<li class="chapter" data-level="8.3" data-path="forcats.html"><a href="forcats.html#renaming-factor-levels"><i class="fa fa-check"></i><b>8.3</b> renaming factor levels</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="forcats.html"><a href="forcats.html#converting-factors"><i class="fa fa-check"></i><b>8.3.1</b> Converting factors</a></li>
-<li class="chapter" data-level="8.3.2" data-path="forcats.html"><a href="forcats.html#renaming-factors"><i class="fa fa-check"></i><b>8.3.2</b> Renaming factors</a></li>
+<li class="chapter" data-level="7.3" data-path="base-subsetting.html"><a href="base-subsetting.html#missing-data"><i class="fa fa-check"></i><b>7.3</b> Missing data</a></li>
+<li class="chapter" data-level="7.4" data-path="base-subsetting.html"><a href="base-subsetting.html#indexing-and-subsetting-data-frames"><i class="fa fa-check"></i><b>7.4</b> Indexing and subsetting data frames</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="forcats.html"><a href="forcats.html#strings"><i class="fa fa-check"></i><b>8.4</b> strings</a></li>
-<li class="chapter" data-level="8.5" data-path="forcats.html"><a href="forcats.html#formatting-dates"><i class="fa fa-check"></i><b>8.5</b> Formatting Dates</a></li>
+<li class="chapter" data-level="8" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>8</b> Data Visualization with <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="ggplot.html"><a href="ggplot.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>8.1</b> Plotting with <strong><code>ggplot2</code></strong></a></li>
+<li class="chapter" data-level="8.2" data-path="ggplot.html"><a href="ggplot.html#building-your-plots-iteratively"><i class="fa fa-check"></i><b>8.2</b> Building your plots iteratively</a></li>
+<li class="chapter" data-level="8.3" data-path="ggplot.html"><a href="ggplot.html#boxplot"><i class="fa fa-check"></i><b>8.3</b> Boxplot</a></li>
+<li class="chapter" data-level="8.4" data-path="ggplot.html"><a href="ggplot.html#barplots"><i class="fa fa-check"></i><b>8.4</b> Barplots</a></li>
+<li class="chapter" data-level="8.5" data-path="ggplot.html"><a href="ggplot.html#adding-labels-and-titles"><i class="fa fa-check"></i><b>8.5</b> Adding Labels and Titles</a></li>
+<li class="chapter" data-level="8.6" data-path="ggplot.html"><a href="ggplot.html#faceting"><i class="fa fa-check"></i><b>8.6</b> Faceting</a></li>
+<li class="chapter" data-level="8.7" data-path="ggplot.html"><a href="ggplot.html#ggplot2-themes"><i class="fa fa-check"></i><b>8.7</b> <strong><code>ggplot2</code></strong> themes</a></li>
+<li class="chapter" data-level="8.8" data-path="ggplot.html"><a href="ggplot.html#customization"><i class="fa fa-check"></i><b>8.8</b> Customization</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>9</b> Producing Reports With <code>knitr</code></a><ul>
-<li class="chapter" data-level="9.1" data-path="knitr.html"><a href="knitr.html#data-analysis-reports"><i class="fa fa-check"></i><b>9.1</b> Data analysis reports</a></li>
-<li class="chapter" data-level="9.2" data-path="knitr.html"><a href="knitr.html#literate-programming"><i class="fa fa-check"></i><b>9.2</b> Literate programming</a></li>
-<li class="chapter" data-level="9.3" data-path="knitr.html"><a href="knitr.html#markdown"><i class="fa fa-check"></i><b>9.3</b> Markdown</a></li>
-<li class="chapter" data-level="9.4" data-path="knitr.html"><a href="knitr.html#a-bit-more-markdown"><i class="fa fa-check"></i><b>9.4</b> A bit more Markdown</a></li>
-<li class="chapter" data-level="9.5" data-path="knitr.html"><a href="knitr.html#r-code-chunks"><i class="fa fa-check"></i><b>9.5</b> R code chunks</a></li>
-<li class="chapter" data-level="9.6" data-path="knitr.html"><a href="knitr.html#how-things-get-compiled"><i class="fa fa-check"></i><b>9.6</b> How things get compiled</a></li>
-<li class="chapter" data-level="9.7" data-path="knitr.html"><a href="knitr.html#chunk-options"><i class="fa fa-check"></i><b>9.7</b> Chunk options</a></li>
-<li class="chapter" data-level="9.8" data-path="knitr.html"><a href="knitr.html#inline-r-code"><i class="fa fa-check"></i><b>9.8</b> Inline R code</a></li>
-<li class="chapter" data-level="9.9" data-path="knitr.html"><a href="knitr.html#other-output-options"><i class="fa fa-check"></i><b>9.9</b> Other output options</a></li>
-<li class="chapter" data-level="9.10" data-path="knitr.html"><a href="knitr.html#resources"><i class="fa fa-check"></i><b>9.10</b> Resources</a></li>
+<li class="chapter" data-level="9" data-path="forcats.html"><a href="forcats.html"><i class="fa fa-check"></i><b>9</b> Advanced variable creation with <code>forcats</code></a><ul>
+<li class="chapter" data-level="9.1" data-path="forcats.html"><a href="forcats.html#factors"><i class="fa fa-check"></i><b>9.1</b> Factors</a></li>
+<li class="chapter" data-level="9.2" data-path="forcats.html"><a href="forcats.html#reordering-factor-levels"><i class="fa fa-check"></i><b>9.2</b> reordering factor levels</a></li>
+<li class="chapter" data-level="9.3" data-path="forcats.html"><a href="forcats.html#renaming-factor-levels"><i class="fa fa-check"></i><b>9.3</b> renaming factor levels</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="forcats.html"><a href="forcats.html#converting-factors"><i class="fa fa-check"></i><b>9.3.1</b> Converting factors</a></li>
+<li class="chapter" data-level="9.3.2" data-path="forcats.html"><a href="forcats.html#renaming-factors"><i class="fa fa-check"></i><b>9.3.2</b> Renaming factors</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="forcats.html"><a href="forcats.html#strings"><i class="fa fa-check"></i><b>9.4</b> strings</a></li>
+<li class="chapter" data-level="9.5" data-path="forcats.html"><a href="forcats.html#formatting-dates"><i class="fa fa-check"></i><b>9.5</b> Formatting Dates</a></li>
+<li class="chapter" data-level="9.6" data-path="forcats.html"><a href="forcats.html#other-variable-types"><i class="fa fa-check"></i><b>9.6</b> Other variable types</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>10</b> Producing Reports With <code>knitr</code></a><ul>
+<li class="chapter" data-level="10.1" data-path="knitr.html"><a href="knitr.html#data-analysis-reports"><i class="fa fa-check"></i><b>10.1</b> Data analysis reports</a></li>
+<li class="chapter" data-level="10.2" data-path="knitr.html"><a href="knitr.html#literate-programming"><i class="fa fa-check"></i><b>10.2</b> Literate programming</a></li>
+<li class="chapter" data-level="10.3" data-path="knitr.html"><a href="knitr.html#markdown"><i class="fa fa-check"></i><b>10.3</b> Markdown</a></li>
+<li class="chapter" data-level="10.4" data-path="knitr.html"><a href="knitr.html#a-bit-more-markdown"><i class="fa fa-check"></i><b>10.4</b> A bit more Markdown</a></li>
+<li class="chapter" data-level="10.5" data-path="knitr.html"><a href="knitr.html#r-code-chunks"><i class="fa fa-check"></i><b>10.5</b> R code chunks</a></li>
+<li class="chapter" data-level="10.6" data-path="knitr.html"><a href="knitr.html#how-things-get-compiled"><i class="fa fa-check"></i><b>10.6</b> How things get compiled</a></li>
+<li class="chapter" data-level="10.7" data-path="knitr.html"><a href="knitr.html#chunk-options"><i class="fa fa-check"></i><b>10.7</b> Chunk options</a></li>
+<li class="chapter" data-level="10.8" data-path="knitr.html"><a href="knitr.html#inline-r-code"><i class="fa fa-check"></i><b>10.8</b> Inline R code</a></li>
+<li class="chapter" data-level="10.9" data-path="knitr.html"><a href="knitr.html#other-output-options"><i class="fa fa-check"></i><b>10.9</b> Other output options</a></li>
+<li class="chapter" data-level="10.10" data-path="knitr.html"><a href="knitr.html#resources"><i class="fa fa-check"></i><b>10.10</b> Resources</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -228,7 +232,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="ggplot" class="section level1">
-<h1><span class="header-section-number">Lesson 7</span> Data Visualization with <code>ggplot2</code></h1>
+<h1><span class="header-section-number">Lesson 8</span> Data Visualization with <code>ggplot2</code></h1>
 <p>teaching: 80<br />
 exercises: 35<br />
 adapted from: <a href="https://datacarpentry.org/r-socialsci/04-ggplot2/index.html" class="uri">https://datacarpentry.org/r-socialsci/04-ggplot2/index.html</a></p>
@@ -292,7 +296,7 @@ adapted from: <a href="https://datacarpentry.org/r-socialsci/04-ggplot2/index.ht
 ## )</code></pre>
 <pre><code>## See spec(...) for full column specifications.</code></pre>
 <div id="plotting-with-ggplot2" class="section level2">
-<h2><span class="header-section-number">7.1</span> Plotting with <strong><code>ggplot2</code></strong></h2>
+<h2><span class="header-section-number">8.1</span> Plotting with <strong><code>ggplot2</code></strong></h2>
 <p><strong><code>ggplot2</code></strong> is a plotting package that makes it simple to create complex plots from data stored in a data frame. It provides a programmatic interface for specifying what variables to plot, how they are displayed, and general visual properties. Therefore, we only need minimal changes if the underlying data change or if we decide to change from a bar plot to a scatterplot. This helps in creating publication quality plots with minimal amounts of adjustments and tweaking.</p>
 <p><strong><code>ggplot2</code></strong> functions like data in the ‘long’ format, i.e., a column for every dimension, and a row for every observation. Well-structured data will save you lots of time when making figures with <strong><code>ggplot2</code></strong></p>
 <p>ggplot graphics are built step by step by adding new elements. Adding layers in this fashion allows for extensive flexibility and customization of plots.</p>
@@ -324,7 +328,7 @@ interviews_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<sp
 interviews_plot <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_point</span>()</code></pre></div>
 <blockquote>
-<h2 id="notes"><span class="header-section-number">7.1</span> Notes</h2>
+<h2 id="notes"><span class="header-section-number">8.1</span> Notes</h2>
 <ul>
 <li>Anything you put in the <code>ggplot()</code> function can be seen by any geom layers that you add (i.e., these are universal plot settings). This includes the x- and y-axis mapping you set up in <code>aes()</code>.</li>
 <li>You can also specify mappings for a given geom independently of the mapping defined globally in the <code>ggplot()</code> function.</li>
@@ -340,7 +344,7 @@ interviews_plot
 <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
 </div>
 <div id="building-your-plots-iteratively" class="section level2">
-<h2><span class="header-section-number">7.2</span> Building your plots iteratively</h2>
+<h2><span class="header-section-number">8.2</span> Building your plots iteratively</h2>
 <p>Building plots with <strong><code>ggplot2</code></strong> is typically an iterative process. We start by defining the dataset we’ll use, lay out the axes, and choose a geom:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> interviews_plotting, <span class="kw">aes</span>(<span class="dt">x =</span> no_membrs, <span class="dt">y =</span> number_items)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_point</span>()</code></pre></div>
@@ -362,10 +366,10 @@ interviews_plot
 <p><img src="2020-01-15-brynmawr_files/figure-html/color-by-species-1.png" width="672" /></p>
 <p>There appears to be a positive trend between number of household members and number of items owned (from the list provided). This trend does not appear to be different by village.</p>
 <blockquote>
-<h2 id="exercise-11"><span class="header-section-number">7.2</span> Exercise</h2>
+<h2 id="exercise-11"><span class="header-section-number">8.2</span> Exercise</h2>
 <p>Use what you just learned to create a scatter plot of <code>rooms</code> by <code>village</code> with the <code>respondent_wall_type</code> showing in different colors. Is this a good way to show this type of data?</p>
 <blockquote>
-<h2 id="solution-13"><span class="header-section-number">7.2</span> Solution</h2>
+<h2 id="solution-13"><span class="header-section-number">8.2</span> Solution</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> interviews_plotting, <span class="kw">aes</span>(<span class="dt">x =</span> village, <span class="dt">y =</span> rooms)) <span class="op">+</span>
 <span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">color =</span> respondent_wall_type))</code></pre></div>
 <p><img src="2020-01-15-brynmawr_files/figure-html/scatter-challenge-1.png" width="672" /> This is not a good way to show this type of data because it is difficult to distinguish between villages.</p>
@@ -373,7 +377,7 @@ interviews_plot
 </blockquote>
 </div>
 <div id="boxplot" class="section level2">
-<h2><span class="header-section-number">7.3</span> Boxplot</h2>
+<h2><span class="header-section-number">8.3</span> Boxplot</h2>
 <p>We can use boxplots to visualize the distribution of rooms for each wall type:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> interviews_plotting, <span class="kw">aes</span>(<span class="dt">x =</span> respondent_wall_type, <span class="dt">y =</span> rooms)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_boxplot</span>()</code></pre></div>
@@ -386,13 +390,13 @@ interviews_plot
 <p>We can see that muddaub houses and sunbrick houses tend to be smaller than burntbrick houses.</p>
 <p>Notice how the boxplot layer is behind the jitter layer? What do you need to change in the code to put the boxplot in front of the points such that it’s not hidden?</p>
 <blockquote>
-<h2 id="exercise-12"><span class="header-section-number">7.3</span> Exercise</h2>
+<h2 id="exercise-12"><span class="header-section-number">8.3</span> Exercise</h2>
 <p>Boxplots are useful summaries, but hide the <em>shape</em> of the distribution. For example, if the distribution is bimodal, we would not see it in a boxplot. An alternative to the boxplot is the violin plot, where the shape (of the density of points) is drawn.</p>
 <ul>
 <li>Replace the box plot with a violin plot; see <code>geom_violin()</code>.</li>
 </ul>
 <blockquote>
-<h2 id="solution-14"><span class="header-section-number">7.3</span> Solution</h2>
+<h2 id="solution-14"><span class="header-section-number">8.3</span> Solution</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> interviews_plotting, <span class="kw">aes</span>(<span class="dt">x =</span> respondent_wall_type, <span class="dt">y =</span> rooms)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">alpha =</span> <span class="dv">0</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>)</code></pre></div>
@@ -403,7 +407,7 @@ interviews_plot
 <li>Create a boxplot for <code>liv_count</code> for each wall type. Overlay the boxplot layer on a jitter layer to show actual measurements.</li>
 </ul>
 <blockquote>
-<h2 id="solution-15"><span class="header-section-number">7.3</span> Solution</h2>
+<h2 id="solution-15"><span class="header-section-number">8.3</span> Solution</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> interviews_plotting, <span class="kw">aes</span>(<span class="dt">x =</span> respondent_wall_type, <span class="dt">y =</span> liv_count)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha =</span> <span class="dv">0</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>)</code></pre></div>
@@ -413,7 +417,7 @@ interviews_plot
 <li>Add color to the data points on your boxplot according to whether the respondent is a member of an irrigation association (<code>memb_assoc</code>).</li>
 </ul>
 <blockquote>
-<h2 id="solution-16"><span class="header-section-number">7.3</span> Solution</h2>
+<h2 id="solution-16"><span class="header-section-number">8.3</span> Solution</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> interviews_plotting, <span class="kw">aes</span>(<span class="dt">x =</span> respondent_wall_type, <span class="dt">y =</span> liv_count)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha =</span> <span class="dv">0</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">color =</span> memb_assoc))</code></pre></div>
@@ -422,7 +426,7 @@ interviews_plot
 </blockquote>
 </div>
 <div id="barplots" class="section level2">
-<h2><span class="header-section-number">7.4</span> Barplots</h2>
+<h2><span class="header-section-number">8.4</span> Barplots</h2>
 <p>Barplots are also useful for visualizing categorical data. By default, <code>geom_bar</code> accepts a variable for x, and plots the number of instances each value of x (in this case, wall type) appears in the dataset.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> interviews_plotting, <span class="kw">aes</span>(<span class="dt">x =</span> respondent_wall_type)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_bar</span>()</code></pre></div>
@@ -447,10 +451,10 @@ interviews_plot
 <span class="st">     </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</code></pre></div>
 <p><img src="2020-01-15-brynmawr_files/figure-html/barplot-wall-type-1.png" width="672" /></p>
 <blockquote>
-<h2 id="exercise-13"><span class="header-section-number">7.4</span> Exercise</h2>
+<h2 id="exercise-13"><span class="header-section-number">8.4</span> Exercise</h2>
 <p>Create a bar plot showing the proportion of respondents in each village who are or are not part of an irrigation association (<code>memb_assoc</code>). Include only respondents who answered that question in the calculations and plot. Which village had the lowest proportion of respondents in an irrigation association?</p>
 <blockquote>
-<h2 id="solution-17"><span class="header-section-number">7.4</span> Solution</h2>
+<h2 id="solution-17"><span class="header-section-number">8.4</span> Solution</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">percent_memb_assoc &lt;-<span class="st"> </span>interviews_plotting <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(memb_assoc)) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">count</span>(village, memb_assoc) <span class="op">%&gt;%</span>
@@ -466,7 +470,7 @@ interviews_plot
 </blockquote>
 </div>
 <div id="adding-labels-and-titles" class="section level2">
-<h2><span class="header-section-number">7.5</span> Adding Labels and Titles</h2>
+<h2><span class="header-section-number">8.5</span> Adding Labels and Titles</h2>
 <p>By default, the axes labels on a plot are determined by the name of the variable being plotted. However, <strong><code>ggplot2</code></strong> offers lots of customization options, like specifying the axes labels, and adding a title to the plot with relatively few lines of code. We will add more informative x and y axis labels to our plot of proportion of house type by village and also add a title.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(percent_wall_type, <span class="kw">aes</span>(<span class="dt">x =</span> village, <span class="dt">y =</span> percent, <span class="dt">fill =</span> respondent_wall_type)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
@@ -476,7 +480,7 @@ interviews_plot
 <p><img src="2020-01-15-brynmawr_files/figure-html/barplot-wall-types-labeled-1.png" width="672" /></p>
 </div>
 <div id="faceting" class="section level2">
-<h2><span class="header-section-number">7.6</span> Faceting</h2>
+<h2><span class="header-section-number">8.6</span> Faceting</h2>
 <p>Rather than creating a single plot with side-by-side bars for each village, we may want to create multiple plot, where each plot shows the data for a single village. This would be especially useful if we had a large number of villages that we had sampled, as a large number of side-by-side bars will become more difficult to read.</p>
 <p><strong><code>ggplot2</code></strong> has a special technique called <em>faceting</em> that allows the user to split one plot into multiple plots based on a factor included in the dataset. We will use it to split our barplot of housing type proportion by village so that each village has it’s own panel in a multi-panel plot:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(percent_wall_type, <span class="kw">aes</span>(<span class="dt">x =</span> respondent_wall_type, <span class="dt">y =</span> percent)) <span class="op">+</span>
@@ -516,16 +520,16 @@ interviews_plot
 <p><img src="2020-01-15-brynmawr_files/figure-html/percent-items-barplot-1.png" width="672" /></p>
 </div>
 <div id="ggplot2-themes" class="section level2">
-<h2><span class="header-section-number">7.7</span> <strong><code>ggplot2</code></strong> themes</h2>
+<h2><span class="header-section-number">8.7</span> <strong><code>ggplot2</code></strong> themes</h2>
 <p>In addition to <code>theme_bw()</code>, which changes the plot background to white, <strong><code>ggplot2</code></strong> comes with several other themes which can be useful to quickly change the look of your visualization. The complete list of themes is available at <a href="http://docs.ggplot2.org/current/ggtheme.html" class="uri">http://docs.ggplot2.org/current/ggtheme.html</a>. <code>theme_minimal()</code> and <code>theme_light()</code> are popular, and <code>theme_void()</code> can be useful as a starting point to create a new hand-crafted theme.</p>
 <p>The <a href="https://jrnold.github.io/ggthemes/reference/index.html">ggthemes</a> package provides a wide variety of options (including an Excel 2003 theme). The <a href="https://www.ggplot2-exts.org"><strong><code>ggplot2</code></strong> extensions website</a> provides a list of packages that extend the capabilities of <strong><code>ggplot2</code></strong>, including additional themes.</p>
 <blockquote>
-<h2 id="exercise-14"><span class="header-section-number">7.7</span> Exercise</h2>
+<h2 id="exercise-14"><span class="header-section-number">8.7</span> Exercise</h2>
 <p>Experiment with at least two different themes. Build the previous plot using each of those themes. Which do you like best?</p>
 </blockquote>
 </div>
 <div id="customization" class="section level2">
-<h2><span class="header-section-number">7.8</span> Customization</h2>
+<h2><span class="header-section-number">8.8</span> Customization</h2>
 <p>Take a look at the <a href="https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf"><strong><code>ggplot2</code></strong> cheat sheet</a>, and think of ways you could improve the plot.</p>
 <p>Now, let’s change names of axes to something more informative than ‘village’ and ‘percent’ and add a title to the figure:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(percent_items, <span class="kw">aes</span>(<span class="dt">x =</span> village, <span class="dt">y =</span> percent)) <span class="op">+</span>
@@ -575,7 +579,7 @@ interviews_plot
 <span class="st">    </span>grey_theme</code></pre></div>
 <p><img src="2020-01-15-brynmawr_files/figure-html/ggplot-custom-themes-1.png" width="672" /></p>
 <blockquote>
-<h2 id="exercise-15"><span class="header-section-number">7.8</span> Exercise</h2>
+<h2 id="exercise-15"><span class="header-section-number">8.8</span> Exercise</h2>
 <p>With all of this information in hand, please take another five minutes to either improve one of the plots generated in this exercise or create a beautiful graph of your own. Use the RStudio <a href="https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf"><strong><code>ggplot2</code></strong> cheat sheet</a> for inspiration. Here are some ideas:</p>
 <ul>
 <li>See if you can make the bars white with black outline.</li>
@@ -607,7 +611,7 @@ interviews_plot
           </div>
         </div>
       </div>
-<a href="dplyr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="base-subsetting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="forcats.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -639,7 +643,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/07-ggplot2.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-ggplot2.Rmd",
 "text": "Edit"
 },
 "history": {

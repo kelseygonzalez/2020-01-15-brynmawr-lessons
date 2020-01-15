@@ -119,7 +119,7 @@
 
 \title{2020-01-15-brynmawr}
 \author{Kelsey Gonzalez, Amelia McNamara, The Carpentries}
-\date{2020-01-13}
+\date{2020-01-14}
 
 \begin{document}
 \maketitle
@@ -757,13 +757,7 @@ questions:
   How can values be initially assigned to variables of different data
   types?\\
 \item
-  What arithmetic and logical operators can be used?\\
-\item
-  How can subsets be extracted from vectors and data frames?\\
-\item
-  How does R treat missing values?\\
-\item
-  How can we deal with missing values in R?
+  What arithmetic and logical operators can be used?
 \end{itemize}
 
 objectives:
@@ -784,23 +778,7 @@ objectives:
 \item
   Call functions and use arguments to change their default options.\\
 \item
-  Inspect the content of vectors and manipulate their content.\\
-\item
-  Subset and extract values from vectors.\\
-\item
-  Analyze vectors with missing data.
-\end{itemize}
-
-keypoints:
-
-\begin{itemize}
-\tightlist
-\item
-  Access individual values by location using \texttt{{[}{]}}.\\
-\item
-  Access arbitrary sets of data using \texttt{{[}c(...){]}}.\\
-\item
-  Use logical operations and logical vectors to access subsets of data.
+  Inspect the content of vectors and manipulate their content.
 \end{itemize}
 
 \section{Creating objects in R}\label{creating-objects-in-r}
@@ -1417,317 +1395,6 @@ preferentially coerced into other types. Can you draw a diagram that
 represents the hierarchy of how these data types are coerced?
 \end{quote}
 
-\section{Subsetting vectors}\label{subsetting-vectors}
-
-If we want to extract one or several values from a vector, we must
-provide one or several indices in square brackets. For instance:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{respondent_wall_type <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"muddaub"}\NormalTok{, }\StringTok{"burntbricks"}\NormalTok{, }\StringTok{"sunbricks"}\NormalTok{)}
-\NormalTok{respondent_wall_type[}\DecValTok{2}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "burntbricks"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{respondent_wall_type[}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{)]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "sunbricks"   "burntbricks"
-\end{verbatim}
-
-We can also repeat the indices to create an object with more elements
-than the original one:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{more_respondent_wall_type <-}\StringTok{ }\NormalTok{respondent_wall_type[}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)]}
-\NormalTok{more_respondent_wall_type}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "muddaub"     "burntbricks" "sunbricks"   "burntbricks" "muddaub"    
-## [6] "sunbricks"
-\end{verbatim}
-
-R indices start at 1. Programming languages like Fortran, MATLAB, Julia,
-and R start counting at 1, because that's what human beings typically
-do. Languages in the C family (including C++, Java, Perl, and Python)
-count from 0 because that's simpler for computers to do.
-
-\subsection{Conditional subsetting}\label{conditional-subsetting}
-
-Another common way of subsetting is by using a logical vector.
-\texttt{TRUE} will select the element with the same index, while
-\texttt{FALSE} will not:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{hh_members <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{6}\NormalTok{)}
-\NormalTok{hh_members[}\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{)]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1]  3 10  6
-\end{verbatim}
-
-Typically, these logical vectors are not typed by hand, but are the
-output of other functions or logical tests. For instance, if you wanted
-to select only the values above 5:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{hh_members }\OperatorTok{>}\StringTok{ }\DecValTok{5}    \CommentTok{# will return logicals with TRUE for the indices that meet the condition}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] FALSE  TRUE  TRUE  TRUE
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{## so we can use this to select only the values above 5}
-\NormalTok{hh_members[hh_members }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1]  7 10  6
-\end{verbatim}
-
-You can combine multiple tests using \texttt{\&} (both conditions are
-true, AND) or \texttt{\textbar{}} (at least one of the conditions is
-true, OR):
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{hh_members[hh_members }\OperatorTok{<}\StringTok{ }\DecValTok{3} \OperatorTok{|}\StringTok{ }\NormalTok{hh_members }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1]  7 10  6
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{hh_members[hh_members }\OperatorTok{>=}\StringTok{ }\DecValTok{7} \OperatorTok{&}\StringTok{ }\NormalTok{hh_members }\OperatorTok{==}\StringTok{ }\DecValTok{3}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## numeric(0)
-\end{verbatim}
-
-Here, \texttt{\textless{}} stands for ``less than'',
-\texttt{\textgreater{}} for ``greater than'', \texttt{\textgreater{}=}
-for ``greater than or equal to'', and \texttt{==} for ``equal to''. The
-double equal sign \texttt{==} is a test for numerical equality between
-the left and right hand sides, and should not be confused with the
-single \texttt{=} sign, which performs variable assignment (similar to
-\texttt{\textless{}-}).
-
-A common task is to search for certain strings in a vector. One could
-use the ``or'' operator \texttt{\textbar{}} to test for equality to
-multiple values, but this can quickly become tedious. The function
-\texttt{\%in\%} allows you to test if any of the elements of a search
-vector are found:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{possessions <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"car"}\NormalTok{, }\StringTok{"bicycle"}\NormalTok{, }\StringTok{"radio"}\NormalTok{, }\StringTok{"television"}\NormalTok{, }\StringTok{"mobile_phone"}\NormalTok{)}
-\NormalTok{possessions[possessions }\OperatorTok{==}\StringTok{ "car"} \OperatorTok{|}\StringTok{ }\NormalTok{possessions }\OperatorTok{==}\StringTok{ "bicycle"}\NormalTok{] }\CommentTok{# returns both car and bicycle}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "car"     "bicycle"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{possessions }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"car"}\NormalTok{, }\StringTok{"bicycle"}\NormalTok{, }\StringTok{"motorcycle"}\NormalTok{, }\StringTok{"truck"}\NormalTok{, }\StringTok{"boat"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1]  TRUE  TRUE FALSE FALSE FALSE
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{possessions[possessions }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"car"}\NormalTok{, }\StringTok{"bicycle"}\NormalTok{, }\StringTok{"motorcycle"}\NormalTok{, }\StringTok{"truck"}\NormalTok{, }\StringTok{"boat"}\NormalTok{)]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "car"     "bicycle"
-\end{verbatim}
-
-\section{Missing data}\label{missing-data}
-
-As R was designed to analyze datasets, it includes the concept of
-missing data (which is uncommon in other programming languages). Missing
-data are represented in vectors as \texttt{NA}.
-
-When doing operations on numbers, most functions will return \texttt{NA}
-if the data you are working with include missing values. This feature
-makes it harder to overlook the cases where you are dealing with missing
-data. You can add the argument \texttt{na.rm=TRUE} to calculate the
-result while ignoring the missing values.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{rooms <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{4}\NormalTok{)}
-\KeywordTok{mean}\NormalTok{(rooms)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] NA
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{max}\NormalTok{(rooms)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] NA
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{mean}\NormalTok{(rooms, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 2
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{max}\NormalTok{(rooms, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 4
-\end{verbatim}
-
-If your data include missing values, you may want to become familiar
-with the functions \texttt{is.na()}, \texttt{na.omit()}, and
-\texttt{complete.cases()}. See below for examples.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{## Extract those elements which are not missing values.}
-\NormalTok{rooms[}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(rooms)]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 2 1 1 4
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{## Returns the object with incomplete cases removed. The returned object is an atomic vector of type `"numeric"` (or `"double"`).}
-\KeywordTok{na.omit}\NormalTok{(rooms)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 2 1 1 4
-## attr(,"na.action")
-## [1] 4
-## attr(,"class")
-## [1] "omit"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{## Extract those elements which are complete cases. The returned object is an atomic vector of type `"numeric"` (or `"double"`).}
-\NormalTok{rooms[}\KeywordTok{complete.cases}\NormalTok{(rooms)]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 2 1 1 4
-\end{verbatim}
-
-Recall that you can use the \texttt{typeof()} function to find the type
-of your atomic vector.
-
-\begin{quote}
-\section{Exercise}\label{exercise-5}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Using this vector of rooms, create a new vector with the NAs removed.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{rooms <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-\item
-  Use the function \texttt{median()} to calculate the median of the
-  \texttt{rooms} vector.
-\item
-  Use R to figure out how many households in the set use more than 2
-  rooms for sleeping.
-\end{enumerate}
-
-\begin{quote}
-\section{Solution}\label{solution-4}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{rooms <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{1}\NormalTok{)}
-\NormalTok{rooms_no_na <-}\StringTok{ }\NormalTok{rooms[}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(rooms)]}
-\CommentTok{# or}
-\NormalTok{rooms_no_na <-}\StringTok{ }\KeywordTok{na.omit}\NormalTok{(rooms)}
-\CommentTok{# 2.}
-\KeywordTok{median}\NormalTok{(rooms, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 1
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# 3.}
-\NormalTok{rooms_above_}\DecValTok{2}\NormalTok{ <-}\StringTok{ }\NormalTok{rooms_no_na[rooms_no_na }\OperatorTok{>}\StringTok{ }\DecValTok{2}\NormalTok{]}
-\KeywordTok{length}\NormalTok{(rooms_above_}\DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 4
-\end{verbatim}
-\end{quote}
-\end{quote}
-
-Now that we have learned how to write scripts, and the basics of R's
-data structures, we are ready to start working with the SAFI dataset we
-have been using in the other lessons, and learn about data frames.
-
 \chapter{Seeking Help}\label{help}
 
 teaching: 10\\
@@ -1907,26 +1574,25 @@ copy and pasted by anyone else into their R session.
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] tidytext_0.2.2  lubridate_1.7.4 forcats_0.4.0   stringr_1.4.0  
-##  [5] dplyr_0.8.3     purrr_0.3.3     readr_1.3.1     tidyr_1.0.0    
-##  [9] tibble_2.1.3    ggplot2_3.2.1   tidyverse_1.3.0
+##  [1] lubridate_1.7.4 forcats_0.4.0   stringr_1.4.0   dplyr_0.8.3    
+##  [5] purrr_0.3.3     readr_1.3.1     tidyr_1.0.0     tibble_2.1.3   
+##  [9] ggplot2_3.2.1   tidyverse_1.3.0
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tidyselect_0.2.5  xfun_0.11         haven_2.2.0       lattice_0.20-38  
-##  [5] colorspace_1.4-1  vctrs_0.2.0       generics_0.0.2    SnowballC_0.6.0  
-##  [9] htmltools_0.4.0   yaml_2.2.0        utf8_1.1.4        rlang_0.4.2      
-## [13] pillar_1.4.2      withr_2.1.2       glue_1.3.1        DBI_1.1.0        
-## [17] dbplyr_1.4.2      modelr_0.1.5      readxl_1.3.1      lifecycle_0.1.0  
-## [21] munsell_0.5.0     gtable_0.3.0      cellranger_1.1.0  rvest_0.3.5      
-## [25] evaluate_0.14     labeling_0.3      knitr_1.26        fansi_0.4.0      
-## [29] tokenizers_0.2.1  broom_0.5.3       Rcpp_1.0.3        backports_1.1.5  
-## [33] scales_1.1.0      jsonlite_1.6      farver_2.0.1      fs_1.3.1         
-## [37] hms_0.5.2         digest_0.6.23     stringi_1.4.3     bookdown_0.16    
-## [41] grid_3.6.1        cli_2.0.0         tools_3.6.1       magrittr_1.5     
-## [45] lazyeval_0.2.2    janeaustenr_0.1.5 crayon_1.3.4      pkgconfig_2.0.3  
-## [49] zeallot_0.1.0     Matrix_1.2-17     ellipsis_0.3.0    xml2_1.2.2       
-## [53] reprex_0.3.0      assertthat_0.2.1  rmarkdown_2.0     httr_1.4.1       
-## [57] rstudioapi_0.10   R6_2.4.1          nlme_3.1-143      compiler_3.6.1
+##  [1] tidyselect_0.2.5 xfun_0.11        haven_2.2.0      lattice_0.20-38 
+##  [5] colorspace_1.4-1 vctrs_0.2.0      generics_0.0.2   htmltools_0.4.0 
+##  [9] yaml_2.2.0       utf8_1.1.4       rlang_0.4.2      pillar_1.4.2    
+## [13] withr_2.1.2      glue_1.3.1       DBI_1.1.0        dbplyr_1.4.2    
+## [17] modelr_0.1.5     readxl_1.3.1     lifecycle_0.1.0  munsell_0.5.0   
+## [21] gtable_0.3.0     cellranger_1.1.0 rvest_0.3.5      evaluate_0.14   
+## [25] labeling_0.3     knitr_1.26       fansi_0.4.0      broom_0.5.3     
+## [29] Rcpp_1.0.3       backports_1.1.5  scales_1.1.0     jsonlite_1.6    
+## [33] farver_2.0.1     fs_1.3.1         hms_0.5.2        digest_0.6.23   
+## [37] stringi_1.4.3    bookdown_0.16    grid_3.6.1       cli_2.0.0       
+## [41] tools_3.6.1      magrittr_1.5     lazyeval_0.2.2   crayon_1.3.4    
+## [45] pkgconfig_2.0.3  zeallot_0.1.0    ellipsis_0.3.0   xml2_1.2.2      
+## [49] reprex_0.3.0     assertthat_0.2.1 rmarkdown_2.0    httr_1.4.1      
+## [53] rstudioapi_0.10  R6_2.4.1         nlme_3.1-143     compiler_3.6.1
 \end{verbatim}
 
 Will print out your current version of R, as well as any packages you
@@ -1982,13 +1648,7 @@ questions:
 \item
   How can I read a complete csv file into R?\\
 \item
-  How can I get basic summary information about my dataset?\\
-\item
-  How can I change the way R treats strings in my dataset?\\
-\item
-  Why would I want strings to be treated differently?\\
-\item
-  How are dates represented in R and how can I change the format?
+  How can I get basic summary information about my dataset?
 \end{itemize}
 
 objectives:
@@ -2000,17 +1660,7 @@ objectives:
 \item
   Load external data from a .csv file into a data frame.\\
 \item
-  Summarize the contents of a data frame.\\
-\item
-  Describe the difference between a factor and a string.\\
-\item
-  Convert between strings and factors.\\
-\item
-  Reorder and rename factors.\\
-\item
-  Change how character strings are handled in a data frame.\\
-\item
-  Examine and change date formats.
+  Summarize the contents of a data frame.
 \end{itemize}
 
 keypoints:
@@ -2018,9 +1668,7 @@ keypoints:
 \begin{itemize}
 \tightlist
 \item
-  Use read.csv to read tabular data in R.\\
-\item
-  Use factors to represent categorical data in R.
+  Use read\_csv to read tabular data in R.
 \end{itemize}
 
 \section{Presentation of the SAFI
@@ -2282,249 +1930,6 @@ Let's try them out!
 
 Note: most of these functions are ``generic'', they can be used on other
 types of objects besides data frames.
-
-\section{Indexing and subsetting data
-frames}\label{indexing-and-subsetting-data-frames}
-
-Our interviews data frame has rows and columns (it has 2 dimensions), if
-we want to extract some specific data from it, we need to specify the
-``coordinates'' we want from it. Row numbers come first, followed by
-column numbers. However, note that different ways of specifying these
-coordinates lead to results with different classes.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{## first element in the first column of the data frame (as a vector)}
-\NormalTok{interviews[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 1 x 1
-##   key_ID
-##    <dbl>
-## 1      1
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{## first element in the 6th column (as a vector)}
-\NormalTok{interviews[}\DecValTok{1}\NormalTok{, }\DecValTok{6}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 1 x 1
-##   respondent_wall_type
-##   <chr>               
-## 1 muddaub
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{## first column of the data frame (as a vector)}
-\NormalTok{interviews[[}\DecValTok{1}\NormalTok{]]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##   [1]   1   1   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
-##  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
-##  [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  21  54
-##  [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71 127
-##  [73] 133 152 153 155 178 177 180 181 182 186 187 195 196 197 198 201 202  72
-##  [91]  73  76  83  85  89 101 103 102  78  80 104 105 106 109 110 113 118 125
-## [109] 119 115 108 116 117 144 143 150 159 160 165 166 167 174 175 189 191 192
-## [127] 126 193 194 199 200
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{## first column of the data frame (as a data.frame)}
-\NormalTok{interviews[}\DecValTok{1}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 131 x 1
-##    key_ID
-##     <dbl>
-##  1      1
-##  2      1
-##  3      3
-##  4      4
-##  5      5
-##  6      6
-##  7      7
-##  8      8
-##  9      9
-## 10     10
-## # … with 121 more rows
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{## first three elements in the 7th column (as a vector)}
-\NormalTok{interviews[}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{, }\DecValTok{7}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 3 x 1
-##   rooms
-##   <dbl>
-## 1     1
-## 2     1
-## 3     1
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{## the 3rd row of the data frame (as a data.frame)}
-\NormalTok{interviews[}\DecValTok{3}\NormalTok{, ]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 1 x 14
-##   key_ID village interview_date      no_membrs years_liv respondent_wall… rooms
-##    <dbl> <chr>   <dttm>                  <dbl>     <dbl> <chr>            <dbl>
-## 1      3 God     2016-11-17 00:00:00        10        15 burntbricks          1
-## # … with 7 more variables: memb_assoc <chr>, affect_conflicts <chr>,
-## #   liv_count <dbl>, items_owned <chr>, no_meals <dbl>, months_lack_food <chr>,
-## #   instanceID <chr>
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{## equivalent to head_interviews <- head(interviews)}
-\NormalTok{head_interviews <-}\StringTok{ }\NormalTok{interviews[}\DecValTok{1}\OperatorTok{:}\DecValTok{6}\NormalTok{, ]}
-\end{Highlighting}
-\end{Shaded}
-
-\texttt{:} is a special function that creates numeric vectors of
-integers in increasing or decreasing order, test \texttt{1:10} and
-\texttt{10:1} for instance.
-
-You can also exclude certain indices of a data frame using the
-``\texttt{-}'' sign:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{interviews[, }\OperatorTok{-}\DecValTok{1}\NormalTok{]          }\CommentTok{# The whole data frame, except the first column}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 131 x 13
-##    village interview_date      no_membrs years_liv respondent_wall… rooms
-##    <chr>   <dttm>                  <dbl>     <dbl> <chr>            <dbl>
-##  1 God     2016-11-17 00:00:00         3         4 muddaub              1
-##  2 God     2016-11-17 00:00:00         7         9 muddaub              1
-##  3 God     2016-11-17 00:00:00        10        15 burntbricks          1
-##  4 God     2016-11-17 00:00:00         7         6 burntbricks          1
-##  5 God     2016-11-17 00:00:00         7        40 burntbricks          1
-##  6 God     2016-11-17 00:00:00         3         3 muddaub              1
-##  7 God     2016-11-17 00:00:00         6        38 muddaub              1
-##  8 Chirod… 2016-11-16 00:00:00        12        70 burntbricks          3
-##  9 Chirod… 2016-11-16 00:00:00         8         6 burntbricks          1
-## 10 Chirod… 2016-12-16 00:00:00        12        23 burntbricks          5
-## # … with 121 more rows, and 7 more variables: memb_assoc <chr>,
-## #   affect_conflicts <chr>, liv_count <dbl>, items_owned <chr>, no_meals <dbl>,
-## #   months_lack_food <chr>, instanceID <chr>
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{interviews[}\OperatorTok{-}\KeywordTok{c}\NormalTok{(}\DecValTok{7}\OperatorTok{:}\DecValTok{131}\NormalTok{), ]   }\CommentTok{# Equivalent to head(interviews)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 6 x 14
-##   key_ID village interview_date      no_membrs years_liv respondent_wall… rooms
-##    <dbl> <chr>   <dttm>                  <dbl>     <dbl> <chr>            <dbl>
-## 1      1 God     2016-11-17 00:00:00         3         4 muddaub              1
-## 2      1 God     2016-11-17 00:00:00         7         9 muddaub              1
-## 3      3 God     2016-11-17 00:00:00        10        15 burntbricks          1
-## 4      4 God     2016-11-17 00:00:00         7         6 burntbricks          1
-## 5      5 God     2016-11-17 00:00:00         7        40 burntbricks          1
-## 6      6 God     2016-11-17 00:00:00         3         3 muddaub              1
-## # … with 7 more variables: memb_assoc <chr>, affect_conflicts <chr>,
-## #   liv_count <dbl>, items_owned <chr>, no_meals <dbl>, months_lack_food <chr>,
-## #   instanceID <chr>
-\end{verbatim}
-
-Data frames can be subset by calling indices (as shown previously), but
-also by calling their column names directly:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{interviews[}\StringTok{"village"}\NormalTok{]       }\CommentTok{# Result is a data frame}
-\NormalTok{interviews[, }\StringTok{"village"}\NormalTok{]     }\CommentTok{# Result is a data frame}
-\NormalTok{interviews[[}\StringTok{"village"}\NormalTok{]]     }\CommentTok{# Result is a vector}
-\NormalTok{interviews}\OperatorTok{$}\NormalTok{village          }\CommentTok{# Result is a vector}
-\end{Highlighting}
-\end{Shaded}
-
-In RStudio, you can use the autocompletion feature to get the full and
-correct names of the columns.
-
-\begin{quote}
-\section{Exercise}\label{exercise-6}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Create a data frame (\texttt{interviews\_100}) containing only the
-  data in row 100 of the \texttt{interviews} dataset.
-\item
-  Notice how \texttt{nrow()} gave you the number of rows in a data
-  frame?
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Use that number to pull out just that last row in the data frame.
-  \item
-    Compare that with what you see as the last row using \texttt{tail()}
-    to make sure it's meeting expectations.
-  \item
-    Pull out that last row using \texttt{nrow()} instead of the row
-    number.
-  \item
-    Create a new data frame (\texttt{interviews\_last}) from that last
-    row.
-  \end{itemize}
-\item
-  Use \texttt{nrow()} to extract the row that is in the middle of the
-  data frame. Store the content of this row in an object named
-  \texttt{interviews\_middle}.
-\item
-  Combine \texttt{nrow()} with the \texttt{-} notation above to
-  reproduce the behavior of \texttt{head(interviews)}, keeping just the
-  first through 6th rows of the interviews dataset.
-\end{enumerate}
-
-\begin{quote}
-\section{Solution}\label{solution-5}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{## 1.}
-\NormalTok{interviews_}\DecValTok{100}\NormalTok{ <-}\StringTok{ }\NormalTok{interviews[}\DecValTok{100}\NormalTok{, ]}
-\NormalTok{## 2.}
-\CommentTok{# Saving `n_rows` to improve readability and reduce duplication}
-\NormalTok{n_rows <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(interviews)}
-\NormalTok{interviews_last <-}\StringTok{ }\NormalTok{interviews[n_rows, ]}
-\NormalTok{## 3.}
-\NormalTok{interviews_middle <-}\StringTok{ }\NormalTok{interviews[(n_rows }\OperatorTok{/}\StringTok{ }\DecValTok{2}\NormalTok{), ]}
-\NormalTok{## 4.}
-\NormalTok{interviews_head <-}\StringTok{ }\NormalTok{interviews[}\OperatorTok{-}\NormalTok{(}\DecValTok{7}\OperatorTok{:}\NormalTok{n_rows), ]}
-\end{Highlighting}
-\end{Shaded}
-\end{quote}
-\end{quote}
 
 \chapter{\texorpdfstring{Data Wrangling with
 \texttt{dplyr}}{Data Wrangling with dplyr}}\label{dplyr}
@@ -2868,7 +2273,7 @@ Note that the final data frame (\texttt{interviews\_god}) is the
 leftmost part of this expression.
 
 \begin{quote}
-\section{Exercise}\label{exercise-7}
+\section{Exercise}\label{exercise-5}
 
 Using pipes, subset the \texttt{interviews} data to include interviews
 where respondents were members of an irrigation association
@@ -2876,7 +2281,7 @@ where respondents were members of an irrigation association
 \texttt{affect\_conflicts}, \texttt{liv\_count}, and \texttt{no\_meals}.
 
 \begin{quote}
-\section{Solution}\label{solution-6}
+\section{Solution}\label{solution-4}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2980,7 +2385,7 @@ The \texttt{!} symbol negates the result, so we're asking for every row
 where \texttt{memb\_assoc} \emph{is not} missing..
 
 \begin{quote}
-\section{Exercise}\label{exercise-8}
+\section{Exercise}\label{exercise-6}
 
 Create a new data frame from the \texttt{interviews} data that meets the
 following criteria: contains only the \texttt{village} column and a new
@@ -2994,7 +2399,7 @@ data frame.
 this data frame!
 
 \begin{quote}
-\section{Solution}\label{solution-7}
+\section{Solution}\label{solution-5}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3226,7 +2631,7 @@ get results in decreasing order:
 \end{verbatim}
 
 \begin{quote}
-\section{Exercise}\label{exercise-9}
+\section{Exercise}\label{exercise-7}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3238,7 +2643,7 @@ get results in decreasing order:
 \end{enumerate}
 
 \begin{quote}
-\section{Solution}\label{solution-8}
+\section{Solution}\label{solution-6}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3269,7 +2674,7 @@ get results in decreasing order:
 \end{enumerate}
 
 \begin{quote}
-\section{Solution}\label{solution-9}
+\section{Solution}\label{solution-7}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3303,7 +2708,7 @@ get results in decreasing order:
 \end{enumerate}
 
 \begin{quote}
-\section{Solution}\label{solution-10}
+\section{Solution}\label{solution-8}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3655,7 +3060,7 @@ respondents in each village:
 \end{verbatim}
 
 \begin{quote}
-\section{Exercise}\label{exercise-10}
+\section{Exercise}\label{exercise-8}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3668,7 +3073,7 @@ respondents in each village:
 \end{enumerate}
 
 \begin{quote}
-\section{Solution}\label{solution-11}
+\section{Solution}\label{solution-9}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3692,7 +3097,7 @@ respondents in each village:
 \end{enumerate}
 
 \begin{quote}
-\section{Solution}\label{solution-12}
+\section{Solution}\label{solution-10}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3766,6 +3171,621 @@ Now we can save this data frame to our \texttt{data\_output} directory.
 \KeywordTok{write_csv}\NormalTok{(interviews_plotting, }\DataTypeTok{path =} \StringTok{"data_output/interviews_plotting.csv"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\chapter{Base subsetting}\label{base-subsetting}
+
+teaching: 50 exercises: 30 adapted from:
+\url{https://datacarpentry.org/r-socialsci/01-intro-to-r/index.html}
+
+questions:
+
+\begin{itemize}
+\tightlist
+\item
+  How can subsets be extracted from vectors and data frames?
+\item
+  How does R treat missing values?
+\item
+  How can we deal with missing values in R?
+\end{itemize}
+
+objectives:
+
+\begin{itemize}
+\tightlist
+\item
+  Subset and extract values from vectors.
+\item
+  Analyze vectors with missing data.
+\end{itemize}
+
+keypoints:
+
+\begin{itemize}
+\tightlist
+\item
+  Access individual values by location using \texttt{{[}{]}}.
+\item
+  Access arbitrary sets of data using \texttt{{[}c(...){]}}.
+\item
+  Use logical operations and logical vectors to access subsets of data.
+\end{itemize}
+
+\section{Tidyverse and base R}\label{tidyverse-and-base-r}
+
+As a programming language, R provides a lot of flexibility. Where other
+programming languages (e.g., Python) require a very particular syntax,
+and there is usually just one right way to do something, R developers
+can use whatever syntax they would like. This has led to a proliferation
+of R syntaxes, or many ways to ``say'' the same thing. A
+\href{https://github.com/rstudio/cheatsheets/raw/master/syntax.pdf}{cheatsheet}
+shows how to do the same tasks many ways in R.
+
+As you develop as an R user and programmer, you will learn to mix and
+match these approaches in your work. Usually, there is one way that is
+easier (at least for a particular person) and one that is more
+challenging. So far, we have focused on Tidyverse approaches, but we
+also want you to see the more general base R approach to some tasks.
+
+In particular, we want to come back to subsetting vectors and data
+frames. When we discussed \texttt{dplyr}, we used the \texttt{filter}
+command to retrieve certain rows from a dataframe, and the
+\texttt{select} command to retrieve certain columns. We are going to
+move to a slightly more matrix-oriented approach, using the square
+brackets \texttt{{[}\ ,\ {]}}.
+
+\section{Subsetting vectors}\label{subsetting-vectors}
+
+If we want to extract one or several values from a vector, we must
+provide one or several indices in square brackets. For instance:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{respondent_wall_type <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"muddaub"}\NormalTok{, }\StringTok{"burntbricks"}\NormalTok{, }\StringTok{"sunbricks"}\NormalTok{)}
+\NormalTok{respondent_wall_type[}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "burntbricks"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{respondent_wall_type[}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "sunbricks"   "burntbricks"
+\end{verbatim}
+
+We can also repeat the indices to create an object with more elements
+than the original one:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{more_respondent_wall_type <-}\StringTok{ }\NormalTok{respondent_wall_type[}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{)]}
+\NormalTok{more_respondent_wall_type}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "muddaub"     "burntbricks" "sunbricks"   "burntbricks" "muddaub"    
+## [6] "sunbricks"
+\end{verbatim}
+
+R indices start at 1. Programming languages like Fortran, MATLAB, Julia,
+and R start counting at 1, because that's what human beings typically
+do. Languages in the C family (including C++, Java, Perl, and Python)
+count from 0 because that's simpler for computers to do.
+
+\subsection{Conditional subsetting}\label{conditional-subsetting}
+
+Another common way of subsetting is by using a logical vector.
+\texttt{TRUE} will select the element with the same index, while
+\texttt{FALSE} will not:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hh_members <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{6}\NormalTok{)}
+\NormalTok{hh_members[}\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  3 10  6
+\end{verbatim}
+
+Typically, these logical vectors are not typed by hand, but are the
+output of other functions or logical tests. For instance, if you wanted
+to select only the values above 5:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hh_members }\OperatorTok{>}\StringTok{ }\DecValTok{5}    \CommentTok{# will return logicals with TRUE for the indices that meet the condition}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE  TRUE  TRUE  TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## so we can use this to select only the values above 5}
+\NormalTok{hh_members[hh_members }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  7 10  6
+\end{verbatim}
+
+You can combine multiple tests using \texttt{\&} (both conditions are
+true, AND) or \texttt{\textbar{}} (at least one of the conditions is
+true, OR):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hh_members[hh_members }\OperatorTok{<}\StringTok{ }\DecValTok{3} \OperatorTok{|}\StringTok{ }\NormalTok{hh_members }\OperatorTok{>}\StringTok{ }\DecValTok{5}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  7 10  6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hh_members[hh_members }\OperatorTok{>=}\StringTok{ }\DecValTok{7} \OperatorTok{&}\StringTok{ }\NormalTok{hh_members }\OperatorTok{==}\StringTok{ }\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## numeric(0)
+\end{verbatim}
+
+Here, \texttt{\textless{}} stands for ``less than'',
+\texttt{\textgreater{}} for ``greater than'', \texttt{\textgreater{}=}
+for ``greater than or equal to'', and \texttt{==} for ``equal to''. The
+double equal sign \texttt{==} is a test for numerical equality between
+the left and right hand sides, and should not be confused with the
+single \texttt{=} sign, which performs variable assignment (similar to
+\texttt{\textless{}-}).
+
+A common task is to search for certain strings in a vector. One could
+use the ``or'' operator \texttt{\textbar{}} to test for equality to
+multiple values, but this can quickly become tedious. The function
+\texttt{\%in\%} allows you to test if any of the elements of a search
+vector are found:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{possessions <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"car"}\NormalTok{, }\StringTok{"bicycle"}\NormalTok{, }\StringTok{"radio"}\NormalTok{, }\StringTok{"television"}\NormalTok{, }\StringTok{"mobile_phone"}\NormalTok{)}
+\NormalTok{possessions[possessions }\OperatorTok{==}\StringTok{ "car"} \OperatorTok{|}\StringTok{ }\NormalTok{possessions }\OperatorTok{==}\StringTok{ "bicycle"}\NormalTok{] }\CommentTok{# returns both car and bicycle}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "car"     "bicycle"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{possessions }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"car"}\NormalTok{, }\StringTok{"bicycle"}\NormalTok{, }\StringTok{"motorcycle"}\NormalTok{, }\StringTok{"truck"}\NormalTok{, }\StringTok{"boat"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  TRUE  TRUE FALSE FALSE FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{possessions[possessions }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"car"}\NormalTok{, }\StringTok{"bicycle"}\NormalTok{, }\StringTok{"motorcycle"}\NormalTok{, }\StringTok{"truck"}\NormalTok{, }\StringTok{"boat"}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "car"     "bicycle"
+\end{verbatim}
+
+\section{Missing data}\label{missing-data}
+
+As R was designed to analyze datasets, it includes the concept of
+missing data (which is uncommon in other programming languages). Missing
+data are represented in vectors as \texttt{NA}.
+
+When doing operations on numbers, most functions will return \texttt{NA}
+if the data you are working with include missing values. This feature
+makes it harder to overlook the cases where you are dealing with missing
+data. You can add the argument \texttt{na.rm=TRUE} to calculate the
+result while ignoring the missing values.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rooms <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+\KeywordTok{mean}\NormalTok{(rooms)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{max}\NormalTok{(rooms)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{(rooms, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{max}\NormalTok{(rooms, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4
+\end{verbatim}
+
+If your data include missing values, you may want to become familiar
+with the functions \texttt{is.na()}, \texttt{na.omit()}, and
+\texttt{complete.cases()}. See below for examples.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## Extract those elements which are not missing values.}
+\NormalTok{rooms[}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(rooms)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2 1 1 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## Returns the object with incomplete cases removed. The returned object is an atomic vector of type `"numeric"` (or `"double"`).}
+\KeywordTok{na.omit}\NormalTok{(rooms)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2 1 1 4
+## attr(,"na.action")
+## [1] 4
+## attr(,"class")
+## [1] "omit"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## Extract those elements which are complete cases. The returned object is an atomic vector of type `"numeric"` (or `"double"`).}
+\NormalTok{rooms[}\KeywordTok{complete.cases}\NormalTok{(rooms)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2 1 1 4
+\end{verbatim}
+
+Recall that you can use the \texttt{typeof()} function to find the type
+of your atomic vector.
+
+\begin{quote}
+\section{Exercise}\label{exercise-9}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Using this vector of rooms, create a new vector with the NAs removed.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rooms <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+\item
+  Use the function \texttt{median()} to calculate the median of the
+  \texttt{rooms} vector.
+\item
+  Use R to figure out how many households in the set use more than 2
+  rooms for sleeping.
+\end{enumerate}
+
+\begin{quote}
+\section{Solution}\label{solution-11}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rooms <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{rooms_no_na <-}\StringTok{ }\NormalTok{rooms[}\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(rooms)]}
+\CommentTok{# or}
+\NormalTok{rooms_no_na <-}\StringTok{ }\KeywordTok{na.omit}\NormalTok{(rooms)}
+\CommentTok{# 2.}
+\KeywordTok{median}\NormalTok{(rooms, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 3.}
+\NormalTok{rooms_above_}\DecValTok{2}\NormalTok{ <-}\StringTok{ }\NormalTok{rooms_no_na[rooms_no_na }\OperatorTok{>}\StringTok{ }\DecValTok{2}\NormalTok{]}
+\KeywordTok{length}\NormalTok{(rooms_above_}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4
+\end{verbatim}
+\end{quote}
+\end{quote}
+
+\section{Indexing and subsetting data
+frames}\label{indexing-and-subsetting-data-frames}
+
+We have seen how to use square brackets to index vectors. We can extend
+the same concept to dataframes.
+
+Consider our interviews data frame. It has rows and columns, so it has 2
+dimensions. If we want to extract some specific data from it, we need to
+specify the ``coordinates'' we want from it. Row numbers come first,
+followed by column numbers. However, note that different ways of
+specifying these coordinates lead to results with different classes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## first element in the first column of the data frame (as a vector)}
+\NormalTok{interviews[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##   key_ID
+##    <dbl>
+## 1      1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## first element in the 6th column (as a vector)}
+\NormalTok{interviews[}\DecValTok{1}\NormalTok{, }\DecValTok{6}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##   respondent_wall_type
+##   <chr>               
+## 1 muddaub
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## first column of the data frame (as a vector)}
+\NormalTok{interviews[[}\DecValTok{1}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1]   1   1   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+##  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
+##  [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  21  54
+##  [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71 127
+##  [73] 133 152 153 155 178 177 180 181 182 186 187 195 196 197 198 201 202  72
+##  [91]  73  76  83  85  89 101 103 102  78  80 104 105 106 109 110 113 118 125
+## [109] 119 115 108 116 117 144 143 150 159 160 165 166 167 174 175 189 191 192
+## [127] 126 193 194 199 200
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## first column of the data frame (as a data.frame)}
+\NormalTok{interviews[}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 131 x 1
+##    key_ID
+##     <dbl>
+##  1      1
+##  2      1
+##  3      3
+##  4      4
+##  5      5
+##  6      6
+##  7      7
+##  8      8
+##  9      9
+## 10     10
+## # … with 121 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## first three elements in the 7th column (as a vector)}
+\NormalTok{interviews[}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{, }\DecValTok{7}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 1
+##   rooms
+##   <dbl>
+## 1     1
+## 2     1
+## 3     1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## the 3rd row of the data frame (as a data.frame)}
+\NormalTok{interviews[}\DecValTok{3}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 14
+##   key_ID village interview_date      no_membrs years_liv respondent_wall… rooms
+##    <dbl> <chr>   <dttm>                  <dbl>     <dbl> <chr>            <dbl>
+## 1      3 God     2016-11-17 00:00:00        10        15 burntbricks          1
+## # … with 7 more variables: memb_assoc <chr>, affect_conflicts <chr>,
+## #   liv_count <dbl>, items_owned <chr>, no_meals <dbl>, months_lack_food <chr>,
+## #   instanceID <chr>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## equivalent to head_interviews <- head(interviews)}
+\NormalTok{head_interviews <-}\StringTok{ }\NormalTok{interviews[}\DecValTok{1}\OperatorTok{:}\DecValTok{6}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{:} is a special function that creates numeric vectors of
+integers in increasing or decreasing order, test \texttt{1:10} and
+\texttt{10:1} for instance.
+
+You can also exclude certain indices of a data frame using the
+``\texttt{-}'' sign:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{interviews[, }\OperatorTok{-}\DecValTok{1}\NormalTok{]          }\CommentTok{# The whole data frame, except the first column}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 131 x 13
+##    village interview_date      no_membrs years_liv respondent_wall… rooms
+##    <chr>   <dttm>                  <dbl>     <dbl> <chr>            <dbl>
+##  1 God     2016-11-17 00:00:00         3         4 muddaub              1
+##  2 God     2016-11-17 00:00:00         7         9 muddaub              1
+##  3 God     2016-11-17 00:00:00        10        15 burntbricks          1
+##  4 God     2016-11-17 00:00:00         7         6 burntbricks          1
+##  5 God     2016-11-17 00:00:00         7        40 burntbricks          1
+##  6 God     2016-11-17 00:00:00         3         3 muddaub              1
+##  7 God     2016-11-17 00:00:00         6        38 muddaub              1
+##  8 Chirod… 2016-11-16 00:00:00        12        70 burntbricks          3
+##  9 Chirod… 2016-11-16 00:00:00         8         6 burntbricks          1
+## 10 Chirod… 2016-12-16 00:00:00        12        23 burntbricks          5
+## # … with 121 more rows, and 7 more variables: memb_assoc <chr>,
+## #   affect_conflicts <chr>, liv_count <dbl>, items_owned <chr>, no_meals <dbl>,
+## #   months_lack_food <chr>, instanceID <chr>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{interviews[}\OperatorTok{-}\KeywordTok{c}\NormalTok{(}\DecValTok{7}\OperatorTok{:}\DecValTok{131}\NormalTok{), ]   }\CommentTok{# Equivalent to head(interviews)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 14
+##   key_ID village interview_date      no_membrs years_liv respondent_wall… rooms
+##    <dbl> <chr>   <dttm>                  <dbl>     <dbl> <chr>            <dbl>
+## 1      1 God     2016-11-17 00:00:00         3         4 muddaub              1
+## 2      1 God     2016-11-17 00:00:00         7         9 muddaub              1
+## 3      3 God     2016-11-17 00:00:00        10        15 burntbricks          1
+## 4      4 God     2016-11-17 00:00:00         7         6 burntbricks          1
+## 5      5 God     2016-11-17 00:00:00         7        40 burntbricks          1
+## 6      6 God     2016-11-17 00:00:00         3         3 muddaub              1
+## # … with 7 more variables: memb_assoc <chr>, affect_conflicts <chr>,
+## #   liv_count <dbl>, items_owned <chr>, no_meals <dbl>, months_lack_food <chr>,
+## #   instanceID <chr>
+\end{verbatim}
+
+Data frames can be subset by calling indices (as shown previously), but
+also by calling their column names directly:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{interviews[}\StringTok{"village"}\NormalTok{]       }\CommentTok{# Result is a data frame}
+\NormalTok{interviews[, }\StringTok{"village"}\NormalTok{]     }\CommentTok{# Result is a data frame}
+\NormalTok{interviews[[}\StringTok{"village"}\NormalTok{]]     }\CommentTok{# Result is a vector}
+\NormalTok{interviews}\OperatorTok{$}\NormalTok{village          }\CommentTok{# Result is a vector}
+\end{Highlighting}
+\end{Shaded}
+
+In RStudio, you can use the autocompletion feature to get the full and
+correct names of the columns.
+
+\begin{quote}
+\section{Exercise}\label{exercise-10}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Create a data frame (\texttt{interviews\_100}) containing only the
+  data in row 100 of the \texttt{interviews} dataset.
+\item
+  Notice how \texttt{nrow()} gave you the number of rows in a data
+  frame?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Use that number to pull out just that last row in the data frame.
+  \item
+    Compare that with what you see as the last row using \texttt{tail()}
+    to make sure it's meeting expectations.
+  \item
+    Pull out that last row using \texttt{nrow()} instead of the row
+    number.
+  \item
+    Create a new data frame (\texttt{interviews\_last}) from that last
+    row.
+  \end{itemize}
+\item
+  Use \texttt{nrow()} to extract the row that is in the middle of the
+  data frame. Store the content of this row in an object named
+  \texttt{interviews\_middle}.
+\item
+  Combine \texttt{nrow()} with the \texttt{-} notation above to
+  reproduce the behavior of \texttt{head(interviews)}, keeping just the
+  first through 6th rows of the interviews dataset.
+\end{enumerate}
+
+\begin{quote}
+\section{Solution}\label{solution-12}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## 1.}
+\NormalTok{interviews_}\DecValTok{100}\NormalTok{ <-}\StringTok{ }\NormalTok{interviews[}\DecValTok{100}\NormalTok{, ]}
+\NormalTok{## 2.}
+\CommentTok{# Saving `n_rows` to improve readability and reduce duplication}
+\NormalTok{n_rows <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(interviews)}
+\NormalTok{interviews_last <-}\StringTok{ }\NormalTok{interviews[n_rows, ]}
+\NormalTok{## 3.}
+\NormalTok{interviews_middle <-}\StringTok{ }\NormalTok{interviews[(n_rows }\OperatorTok{/}\StringTok{ }\DecValTok{2}\NormalTok{), ]}
+\NormalTok{## 4.}
+\NormalTok{interviews_head <-}\StringTok{ }\NormalTok{interviews[}\OperatorTok{-}\NormalTok{(}\DecValTok{7}\OperatorTok{:}\NormalTok{n_rows), ]}
+\end{Highlighting}
+\end{Shaded}
+\end{quote}
+\end{quote}
 
 \chapter{\texorpdfstring{Data Visualization with
 \texttt{ggplot2}}{Data Visualization with ggplot2}}\label{ggplot}
@@ -4619,19 +4639,37 @@ questions:
 \begin{itemize}
 \tightlist
 \item
-  ``How can I easily create new categorical variables?''
+  How can I easily create new categorical variables?
+\item
+  How can I change the way R treats strings in my dataset?\\
+\item
+  Why would I want strings to be treated differently?\\
+\item
+  How are dates represented in R and how can I change the format?
 \end{itemize}
 
 objectives:
 
 \begin{itemize}
+\tightlist
 \item
+  Describe the difference between a factor and a string.\\
+\item
+  Convert between strings and factors.\\
+\item
+  Reorder and rename factors.\\
+\item
+  Change how character strings are handled in a data frame.\\
+\item
+  Examine and change date formats.
 \end{itemize}
 
 keypoints:
 
 \begin{itemize}
+\tightlist
 \item
+  Use factors to represent categorical data in R.
 \end{itemize}
 
 \begin{Shaded}
@@ -4913,7 +4951,6 @@ mistake and need to recode ``cement'' to ``brick''. We'd use the
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{respondent_floor_type <-}\StringTok{ }\KeywordTok{fct_recode}\NormalTok{(respondent_floor_type, }\DataTypeTok{brick =} \StringTok{"cement"}\NormalTok{)}
-
 \KeywordTok{levels}\NormalTok{(respondent_floor_type)}
 \end{Highlighting}
 \end{Shaded}
@@ -5086,19 +5123,29 @@ association:
 
 \includegraphics{2020-01-15-brynmawr_files/figure-latex/factor-plot-default-order-1.pdf}
 
-Looking at the plot compared to the output of the vector, we can see
-that n addition to ``no''s and ``yes''s, there are about some
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(interviews) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(memb_assoc))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{2020-01-15-brynmawr_files/figure-latex/factor-plot-default-order-2.pdf}
+
+Looking at the base plot compared to the output of the vector, we can
+see that n addition to ``no''s and ``yes''s, there are about some
 respondents for which the information about whether they were part of an
 irrigation association hasn't been recorded, and encoded as missing
-data. They do not appear on the plot. Let's encode them differently so
-they can counted and visualized in our plot.
+data. They do not appear on the plot. In the \texttt{ggplot}, we
+\textbf{do} see those missing values, which is one of the benefits of
+the \texttt{ggplot2} package. However, if we want to use base plotting,
+we can encode our missing values differently so they can be counted and
+visualized in our plot.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{## replace the missing data with "undetermined"}
 \NormalTok{interviews <-}\StringTok{ }\NormalTok{interviews }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{memb_assoc =} \KeywordTok{fct_explicit_na}\NormalTok{(memb_assoc, }\DataTypeTok{na_level =} \StringTok{"undetermined"}\NormalTok{))}
-
 \NormalTok{interviews}\OperatorTok{$}\NormalTok{memb_assoc}
 \end{Highlighting}
 \end{Shaded}
@@ -5144,28 +5191,26 @@ they can counted and visualized in our plot.
 
 \includegraphics{2020-01-15-brynmawr_files/figure-latex/factor-plot-reorder-1.pdf}
 
-Again, if we wanted to reorder our factor here in order of
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(interviews) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(memb_assoc))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{2020-01-15-brynmawr_files/figure-latex/factor-plot-reorder-2.pdf}
+
+Again, if we wanted to reorder our factor here in order of the count of
+the category,
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{interviews <-}\StringTok{ }\NormalTok{interviews }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{memb_assoc =} \KeywordTok{fct_infreq}\NormalTok{(memb_assoc, }\DataTypeTok{ordered =} \OtherTok{TRUE}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(interviews}\OperatorTok{$}\NormalTok{memb_assoc)}
+\KeywordTok{ggplot}\NormalTok{(interviews) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(memb_assoc))}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics{2020-01-15-brynmawr_files/figure-latex/unnamed-chunk-100-1.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{interviews <-}\StringTok{ }\NormalTok{interviews }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{memb_assoc =} \KeywordTok{fct_relevel}\NormalTok{(memb_assoc, }\StringTok{"No"}\NormalTok{, }\StringTok{"Yes"}\NormalTok{, }\StringTok{"Undetermined"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning: Unknown levels in `f`: No, Yes, Undetermined
-\end{verbatim}
 
 \begin{quote}
 \section{Exercise}\label{exercise-16}
@@ -5249,8 +5294,7 @@ particular string was contained in that variable,
 \KeywordTok{library}\NormalTok{(stringr)}
 \NormalTok{interviews <-}\StringTok{ }\NormalTok{interviews }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{has_bicycle =} \KeywordTok{str_detect}\NormalTok{(items_owned, }\StringTok{"bicycle"}\NormalTok{))}
-
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{factor}\NormalTok{(interviews}\OperatorTok{$}\NormalTok{has_bicycle))}
+\KeywordTok{ggplot}\NormalTok{(interviews) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(has_bicycle))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5260,73 +5304,52 @@ Much like the \texttt{forcats} package, the \texttt{stringr} package has
 many functions that begin with \texttt{str\_}, so you can type that much
 out and hit Tab to see other options.
 
-We could go through manually and repeat a similar set of lines of code
-for each item (\texttt{solar\_torch}, \texttt{cow\_plough}, etc) but
-there is a programming principle that if you repeat yourself there is
-likely a more efficient way to do it.
-
-In this case, that more efficient solution is to use the
-\texttt{tidytext} package, which lets us ``unnest'' the data into
-individual words. When we start working with text in this way, it can
-get a little messy, so it is often smart to break off a little piece of
-your data to work with separately. Here we're taking just the
-\texttt{items\_owned} variable and the \texttt{instanceID} (so we can
-join this back together with our original data later, if we so choose).
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{items <-}\StringTok{ }\NormalTok{interviews }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{select}\NormalTok{(items_owned, instanceID)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(tidytext)}
-\NormalTok{items <-}\StringTok{ }\NormalTok{items }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{unnest_tokens}\NormalTok{(word, items_owned)}
-\end{Highlighting}
-\end{Shaded}
-
-Now we have a variable called \texttt{word}, which is all the separate
-items. This is a very long dataset, so we may want to
-\texttt{pivot\_wider} to make it easier to see.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{items <-}\StringTok{ }\NormalTok{items }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{contains =} \KeywordTok{if_else}\NormalTok{(}\KeywordTok{is.na}\NormalTok{(word), }\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{))}
-\NormalTok{items <-}\StringTok{ }\NormalTok{items }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{pivot_wider}\NormalTok{(}\DataTypeTok{names_from =}\NormalTok{ word, }\DataTypeTok{values_from =}\NormalTok{ contains, }\DataTypeTok{values_fill =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{contains =} \OtherTok{FALSE}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-If we'd like, we can now use a join to stick this back to our main
-dataset,
+For example, we could use \texttt{str\_replace} to replace a particular
+string with something else. If we want, we can replace the string
+\texttt{Jan} with the string \texttt{January} to have the full name of
+the month in \texttt{months\_lack\_food},
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{interviews <-}\StringTok{ }\NormalTok{interviews }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{left_join}\NormalTok{(items)}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{months_lack_food =} \KeywordTok{str_replace_all}\NormalTok{(months_lack_food, }\StringTok{"Jan"}\NormalTok{, }\StringTok{"January"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## Joining, by = "instanceID"
-\end{verbatim}
+\begin{quote}
+\section{Exercise}\label{exercise-17}
 
-Now we can see what each person owned.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a new variable, \texttt{brick}, which says whether a
+  respondent's wall type includes the word brick.
+\end{enumerate}
+
+\begin{quote}
+\section{Solution}\label{solution-19}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## 1.}
+\NormalTok{interviews <-}\StringTok{ }\NormalTok{interviews }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{brick =} \KeywordTok{str_detect}\NormalTok{(respondent_wall_type, }\StringTok{"brick"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+\end{quote}
+\end{quote}
 
 \section{Formatting Dates}\label{formatting-dates}
 
-One of the most common issues that new (and experienced!) R users have
-is converting date and time information into a variable that is
-appropriate and usable during analyses. As a reminder from earlier in
-this lesson, the best practice for dealing with date data is to ensure
-that each component of your date is stored as a separate variable. In
-our dataset, we have a column \texttt{interview\_date} which contains
-information about the year, month, and day that the interview was
-conducted. Let's convert those dates into three separate columns.
+A common issue that new (and experienced!) R users have is converting
+date and time information into a variable that is appropriate and usable
+during analyses. As a reminder from earlier, the best practice for
+dealing with date data is to ensure that each component of your date is
+stored as a separate variable. In our dataset, we have a column
+\texttt{interview\_date} which contains information about the year,
+month, and day that the interview was conducted. Let's convert those
+dates into three separate columns.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5382,38 +5405,49 @@ data frame to store it:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{interviews}\OperatorTok{$}\NormalTok{day <-}\StringTok{ }\KeywordTok{day}\NormalTok{(dates)}
-\NormalTok{interviews}\OperatorTok{$}\NormalTok{month <-}\StringTok{ }\KeywordTok{month}\NormalTok{(dates)}
-\NormalTok{interviews}\OperatorTok{$}\NormalTok{year <-}\StringTok{ }\KeywordTok{year}\NormalTok{(dates)}
-\NormalTok{interviews}
+\NormalTok{interviews <-}\StringTok{ }\NormalTok{interviews }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{day =} \KeywordTok{day}\NormalTok{(dates),}
+         \DataTypeTok{month =} \KeywordTok{month}\NormalTok{(dates),}
+         \KeywordTok{year}\NormalTok{(dates))}
+\KeywordTok{str}\NormalTok{(interviews)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 131 x 36
-##    key_ID village interview_date      no_membrs years_liv respondent_wall… rooms
-##     <dbl> <chr>   <dttm>                  <dbl>     <dbl> <chr>            <dbl>
-##  1      1 God     2016-11-17 00:00:00         3         4 muddaub              1
-##  2      1 God     2016-11-17 00:00:00         7         9 muddaub              1
-##  3      3 God     2016-11-17 00:00:00        10        15 burntbricks          1
-##  4      4 God     2016-11-17 00:00:00         7         6 burntbricks          1
-##  5      5 God     2016-11-17 00:00:00         7        40 burntbricks          1
-##  6      6 God     2016-11-17 00:00:00         3         3 muddaub              1
-##  7      7 God     2016-11-17 00:00:00         6        38 muddaub              1
-##  8      8 Chirod… 2016-11-16 00:00:00        12        70 burntbricks          3
-##  9      9 Chirod… 2016-11-16 00:00:00         8         6 burntbricks          1
-## 10     10 Chirod… 2016-12-16 00:00:00        12        23 burntbricks          5
-## # … with 121 more rows, and 29 more variables: memb_assoc <ord>,
-## #   affect_conflicts <chr>, liv_count <dbl>, items_owned <chr>, no_meals <dbl>,
-## #   months_lack_food <chr>, instanceID <chr>, has_bicycle <lgl>, bicycle <lgl>,
-## #   television <lgl>, solar_panel <lgl>, table <lgl>, cow_cart <lgl>,
-## #   radio <lgl>, cow_plough <lgl>, solar_torch <lgl>, mobile_phone <lgl>,
-## #   motorcyle <lgl>, `NA` <lgl>, fridge <lgl>, electricity <lgl>,
-## #   sofa_set <lgl>, lorry <lgl>, sterio <lgl>, computer <lgl>, car <lgl>,
-## #   day <int>, month <dbl>, year <dbl>
+## Classes 'spec_tbl_df', 'tbl_df', 'tbl' and 'data.frame': 131 obs. of  19 variables:
+##  $ key_ID              : num  1 1 3 4 5 6 7 8 9 10 ...
+##  $ village             : chr  "God" "God" "God" "God" ...
+##  $ interview_date      : POSIXct, format: "2016-11-17" "2016-11-17" ...
+##  $ no_membrs           : num  3 7 10 7 7 3 6 12 8 12 ...
+##  $ years_liv           : num  4 9 15 6 40 3 38 70 6 23 ...
+##  $ respondent_wall_type: chr  "muddaub" "muddaub" "burntbricks" "burntbricks" ...
+##  $ rooms               : num  1 1 1 1 1 1 1 3 1 5 ...
+##  $ memb_assoc          : Ord.factor w/ 3 levels "No"<"Yes"<"Undetermined": 3 2 3 3 3 3 1 2 1 1 ...
+##  $ affect_conflicts    : chr  NA "once" NA NA ...
+##  $ liv_count           : num  1 3 1 2 4 1 1 2 3 2 ...
+##  $ items_owned         : chr  "bicycle;television;solar_panel;table" "cow_cart;bicycle;radio;cow_plough;solar_panel;solar_torch;table;mobile_phone" "solar_torch" "bicycle;radio;cow_plough;solar_panel;mobile_phone" ...
+##  $ no_meals            : num  2 2 2 2 2 2 3 2 3 3 ...
+##  $ months_lack_food    : chr  "January" "January;Sept;Oct;Nov;Dec" "January;Feb;Mar;Oct;Nov;Dec" "Sept;Oct;Nov;Dec" ...
+##  $ instanceID          : chr  "uuid:ec241f2c-0609-46ed-b5e8-fe575f6cefef" "uuid:099de9c9-3e5e-427b-8452-26250e840d6e" "uuid:193d7daf-9582-409b-bf09-027dd36f9007" "uuid:148d1105-778a-4755-aa71-281eadd4a973" ...
+##  $ has_bicycle         : logi  TRUE TRUE FALSE TRUE FALSE NA ...
+##  $ brick               : logi  FALSE FALSE TRUE TRUE TRUE FALSE ...
+##  $ day                 : int  17 17 17 17 17 17 17 16 16 16 ...
+##  $ month               : num  11 11 11 11 11 11 11 11 11 12 ...
+##  $ year(dates)         : num  2016 2016 2016 2016 2016 ...
 \end{verbatim}
 
 Notice the three new columns at the end of our data frame.
+
+\section{Other variable types}\label{other-variable-types}
+
+If we had a variable with time data in it, we could use the \texttt{hms}
+package (also part of the tidyverse) to work with that type of data.
+
+There are many other special data types in R, including spatial data
+(used for making maps), time series data, statistical model objects, and
+many more. If you have a particular type of data you would like to work
+with, let us know and we can point you in the right direction for
+resources!
 
 \chapter{\texorpdfstring{Producing Reports With
 \texttt{knitr}}{Producing Reports With knitr}}\label{knitr}

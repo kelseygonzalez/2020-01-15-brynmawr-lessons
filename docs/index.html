@@ -24,7 +24,7 @@
 <meta name="author" content="Kelsey Gonzalez, Amelia McNamara, The Carpentries" />
 
 
-<meta name="date" content="2020-01-13" />
+<meta name="date" content="2020-01-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -141,10 +141,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2.1" data-path="basicR.html"><a href="basicR.html#functions-and-their-arguments"><i class="fa fa-check"></i><b>3.2.1</b> Functions and their arguments</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="basicR.html"><a href="basicR.html#vectors-and-data-types"><i class="fa fa-check"></i><b>3.3</b> Vectors and data types</a></li>
-<li class="chapter" data-level="3.4" data-path="basicR.html"><a href="basicR.html#subsetting-vectors"><i class="fa fa-check"></i><b>3.4</b> Subsetting vectors</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="basicR.html"><a href="basicR.html#conditional-subsetting"><i class="fa fa-check"></i><b>3.4.1</b> Conditional subsetting</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="basicR.html"><a href="basicR.html#missing-data"><i class="fa fa-check"></i><b>3.5</b> Missing data</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="help.html"><a href="help.html"><i class="fa fa-check"></i><b>4</b> Seeking Help</a><ul>
 <li class="chapter" data-level="4.1" data-path="help.html"><a href="help.html#reading-help-files"><i class="fa fa-check"></i><b>4.1</b> Reading Help files</a></li>
@@ -159,7 +155,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.1" data-path="dataframes.html"><a href="dataframes.html#presentation-of-the-safi-data"><i class="fa fa-check"></i><b>5.1</b> Presentation of the SAFI Data</a></li>
 <li class="chapter" data-level="5.2" data-path="dataframes.html"><a href="dataframes.html#what-are-data-frames-and-tibbles"><i class="fa fa-check"></i><b>5.2</b> What are data frames and tibbles?</a></li>
 <li class="chapter" data-level="5.3" data-path="dataframes.html"><a href="dataframes.html#inspecting-data-frames"><i class="fa fa-check"></i><b>5.3</b> Inspecting data frames</a></li>
-<li class="chapter" data-level="5.4" data-path="dataframes.html"><a href="dataframes.html#indexing-and-subsetting-data-frames"><i class="fa fa-check"></i><b>5.4</b> Indexing and subsetting data frames</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling with <code>dplyr</code></a><ul>
 <li class="chapter" data-level="6.1" data-path="dplyr.html"><a href="dplyr.html#data-manipulation-using-dplyr-and-tidyr"><i class="fa fa-check"></i><b>6.1</b> Data Manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong></a></li>
@@ -175,37 +170,46 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.8" data-path="dplyr.html"><a href="dplyr.html#applying-spread-to-clean-our-data"><i class="fa fa-check"></i><b>6.8</b> Applying <code>spread()</code> to clean our data</a></li>
 <li class="chapter" data-level="6.9" data-path="dplyr.html"><a href="dplyr.html#exporting-data"><i class="fa fa-check"></i><b>6.9</b> Exporting data</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>7</b> Data Visualization with <code>ggplot2</code></a><ul>
-<li class="chapter" data-level="7.1" data-path="ggplot.html"><a href="ggplot.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>7.1</b> Plotting with <strong><code>ggplot2</code></strong></a></li>
-<li class="chapter" data-level="7.2" data-path="ggplot.html"><a href="ggplot.html#building-your-plots-iteratively"><i class="fa fa-check"></i><b>7.2</b> Building your plots iteratively</a></li>
-<li class="chapter" data-level="7.3" data-path="ggplot.html"><a href="ggplot.html#boxplot"><i class="fa fa-check"></i><b>7.3</b> Boxplot</a></li>
-<li class="chapter" data-level="7.4" data-path="ggplot.html"><a href="ggplot.html#barplots"><i class="fa fa-check"></i><b>7.4</b> Barplots</a></li>
-<li class="chapter" data-level="7.5" data-path="ggplot.html"><a href="ggplot.html#adding-labels-and-titles"><i class="fa fa-check"></i><b>7.5</b> Adding Labels and Titles</a></li>
-<li class="chapter" data-level="7.6" data-path="ggplot.html"><a href="ggplot.html#faceting"><i class="fa fa-check"></i><b>7.6</b> Faceting</a></li>
-<li class="chapter" data-level="7.7" data-path="ggplot.html"><a href="ggplot.html#ggplot2-themes"><i class="fa fa-check"></i><b>7.7</b> <strong><code>ggplot2</code></strong> themes</a></li>
-<li class="chapter" data-level="7.8" data-path="ggplot.html"><a href="ggplot.html#customization"><i class="fa fa-check"></i><b>7.8</b> Customization</a></li>
+<li class="chapter" data-level="7" data-path="base-subsetting.html"><a href="base-subsetting.html"><i class="fa fa-check"></i><b>7</b> Base subsetting</a><ul>
+<li class="chapter" data-level="7.1" data-path="base-subsetting.html"><a href="base-subsetting.html#tidyverse-and-base-r"><i class="fa fa-check"></i><b>7.1</b> Tidyverse and base R</a></li>
+<li class="chapter" data-level="7.2" data-path="base-subsetting.html"><a href="base-subsetting.html#subsetting-vectors"><i class="fa fa-check"></i><b>7.2</b> Subsetting vectors</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="base-subsetting.html"><a href="base-subsetting.html#conditional-subsetting"><i class="fa fa-check"></i><b>7.2.1</b> Conditional subsetting</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="forcats.html"><a href="forcats.html"><i class="fa fa-check"></i><b>8</b> Advanced variable creation with <code>forcats</code></a><ul>
-<li class="chapter" data-level="8.1" data-path="forcats.html"><a href="forcats.html#factors"><i class="fa fa-check"></i><b>8.1</b> Factors</a></li>
-<li class="chapter" data-level="8.2" data-path="forcats.html"><a href="forcats.html#reordering-factor-levels"><i class="fa fa-check"></i><b>8.2</b> reordering factor levels</a></li>
-<li class="chapter" data-level="8.3" data-path="forcats.html"><a href="forcats.html#renaming-factor-levels"><i class="fa fa-check"></i><b>8.3</b> renaming factor levels</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="forcats.html"><a href="forcats.html#converting-factors"><i class="fa fa-check"></i><b>8.3.1</b> Converting factors</a></li>
-<li class="chapter" data-level="8.3.2" data-path="forcats.html"><a href="forcats.html#renaming-factors"><i class="fa fa-check"></i><b>8.3.2</b> Renaming factors</a></li>
+<li class="chapter" data-level="7.3" data-path="base-subsetting.html"><a href="base-subsetting.html#missing-data"><i class="fa fa-check"></i><b>7.3</b> Missing data</a></li>
+<li class="chapter" data-level="7.4" data-path="base-subsetting.html"><a href="base-subsetting.html#indexing-and-subsetting-data-frames"><i class="fa fa-check"></i><b>7.4</b> Indexing and subsetting data frames</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="forcats.html"><a href="forcats.html#strings"><i class="fa fa-check"></i><b>8.4</b> strings</a></li>
-<li class="chapter" data-level="8.5" data-path="forcats.html"><a href="forcats.html#formatting-dates"><i class="fa fa-check"></i><b>8.5</b> Formatting Dates</a></li>
+<li class="chapter" data-level="8" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>8</b> Data Visualization with <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="ggplot.html"><a href="ggplot.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>8.1</b> Plotting with <strong><code>ggplot2</code></strong></a></li>
+<li class="chapter" data-level="8.2" data-path="ggplot.html"><a href="ggplot.html#building-your-plots-iteratively"><i class="fa fa-check"></i><b>8.2</b> Building your plots iteratively</a></li>
+<li class="chapter" data-level="8.3" data-path="ggplot.html"><a href="ggplot.html#boxplot"><i class="fa fa-check"></i><b>8.3</b> Boxplot</a></li>
+<li class="chapter" data-level="8.4" data-path="ggplot.html"><a href="ggplot.html#barplots"><i class="fa fa-check"></i><b>8.4</b> Barplots</a></li>
+<li class="chapter" data-level="8.5" data-path="ggplot.html"><a href="ggplot.html#adding-labels-and-titles"><i class="fa fa-check"></i><b>8.5</b> Adding Labels and Titles</a></li>
+<li class="chapter" data-level="8.6" data-path="ggplot.html"><a href="ggplot.html#faceting"><i class="fa fa-check"></i><b>8.6</b> Faceting</a></li>
+<li class="chapter" data-level="8.7" data-path="ggplot.html"><a href="ggplot.html#ggplot2-themes"><i class="fa fa-check"></i><b>8.7</b> <strong><code>ggplot2</code></strong> themes</a></li>
+<li class="chapter" data-level="8.8" data-path="ggplot.html"><a href="ggplot.html#customization"><i class="fa fa-check"></i><b>8.8</b> Customization</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>9</b> Producing Reports With <code>knitr</code></a><ul>
-<li class="chapter" data-level="9.1" data-path="knitr.html"><a href="knitr.html#data-analysis-reports"><i class="fa fa-check"></i><b>9.1</b> Data analysis reports</a></li>
-<li class="chapter" data-level="9.2" data-path="knitr.html"><a href="knitr.html#literate-programming"><i class="fa fa-check"></i><b>9.2</b> Literate programming</a></li>
-<li class="chapter" data-level="9.3" data-path="knitr.html"><a href="knitr.html#markdown"><i class="fa fa-check"></i><b>9.3</b> Markdown</a></li>
-<li class="chapter" data-level="9.4" data-path="knitr.html"><a href="knitr.html#a-bit-more-markdown"><i class="fa fa-check"></i><b>9.4</b> A bit more Markdown</a></li>
-<li class="chapter" data-level="9.5" data-path="knitr.html"><a href="knitr.html#r-code-chunks"><i class="fa fa-check"></i><b>9.5</b> R code chunks</a></li>
-<li class="chapter" data-level="9.6" data-path="knitr.html"><a href="knitr.html#how-things-get-compiled"><i class="fa fa-check"></i><b>9.6</b> How things get compiled</a></li>
-<li class="chapter" data-level="9.7" data-path="knitr.html"><a href="knitr.html#chunk-options"><i class="fa fa-check"></i><b>9.7</b> Chunk options</a></li>
-<li class="chapter" data-level="9.8" data-path="knitr.html"><a href="knitr.html#inline-r-code"><i class="fa fa-check"></i><b>9.8</b> Inline R code</a></li>
-<li class="chapter" data-level="9.9" data-path="knitr.html"><a href="knitr.html#other-output-options"><i class="fa fa-check"></i><b>9.9</b> Other output options</a></li>
-<li class="chapter" data-level="9.10" data-path="knitr.html"><a href="knitr.html#resources"><i class="fa fa-check"></i><b>9.10</b> Resources</a></li>
+<li class="chapter" data-level="9" data-path="forcats.html"><a href="forcats.html"><i class="fa fa-check"></i><b>9</b> Advanced variable creation with <code>forcats</code></a><ul>
+<li class="chapter" data-level="9.1" data-path="forcats.html"><a href="forcats.html#factors"><i class="fa fa-check"></i><b>9.1</b> Factors</a></li>
+<li class="chapter" data-level="9.2" data-path="forcats.html"><a href="forcats.html#reordering-factor-levels"><i class="fa fa-check"></i><b>9.2</b> reordering factor levels</a></li>
+<li class="chapter" data-level="9.3" data-path="forcats.html"><a href="forcats.html#renaming-factor-levels"><i class="fa fa-check"></i><b>9.3</b> renaming factor levels</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="forcats.html"><a href="forcats.html#converting-factors"><i class="fa fa-check"></i><b>9.3.1</b> Converting factors</a></li>
+<li class="chapter" data-level="9.3.2" data-path="forcats.html"><a href="forcats.html#renaming-factors"><i class="fa fa-check"></i><b>9.3.2</b> Renaming factors</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="forcats.html"><a href="forcats.html#strings"><i class="fa fa-check"></i><b>9.4</b> strings</a></li>
+<li class="chapter" data-level="9.5" data-path="forcats.html"><a href="forcats.html#formatting-dates"><i class="fa fa-check"></i><b>9.5</b> Formatting Dates</a></li>
+<li class="chapter" data-level="9.6" data-path="forcats.html"><a href="forcats.html#other-variable-types"><i class="fa fa-check"></i><b>9.6</b> Other variable types</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="knitr.html"><a href="knitr.html"><i class="fa fa-check"></i><b>10</b> Producing Reports With <code>knitr</code></a><ul>
+<li class="chapter" data-level="10.1" data-path="knitr.html"><a href="knitr.html#data-analysis-reports"><i class="fa fa-check"></i><b>10.1</b> Data analysis reports</a></li>
+<li class="chapter" data-level="10.2" data-path="knitr.html"><a href="knitr.html#literate-programming"><i class="fa fa-check"></i><b>10.2</b> Literate programming</a></li>
+<li class="chapter" data-level="10.3" data-path="knitr.html"><a href="knitr.html#markdown"><i class="fa fa-check"></i><b>10.3</b> Markdown</a></li>
+<li class="chapter" data-level="10.4" data-path="knitr.html"><a href="knitr.html#a-bit-more-markdown"><i class="fa fa-check"></i><b>10.4</b> A bit more Markdown</a></li>
+<li class="chapter" data-level="10.5" data-path="knitr.html"><a href="knitr.html#r-code-chunks"><i class="fa fa-check"></i><b>10.5</b> R code chunks</a></li>
+<li class="chapter" data-level="10.6" data-path="knitr.html"><a href="knitr.html#how-things-get-compiled"><i class="fa fa-check"></i><b>10.6</b> How things get compiled</a></li>
+<li class="chapter" data-level="10.7" data-path="knitr.html"><a href="knitr.html#chunk-options"><i class="fa fa-check"></i><b>10.7</b> Chunk options</a></li>
+<li class="chapter" data-level="10.8" data-path="knitr.html"><a href="knitr.html#inline-r-code"><i class="fa fa-check"></i><b>10.8</b> Inline R code</a></li>
+<li class="chapter" data-level="10.9" data-path="knitr.html"><a href="knitr.html#other-output-options"><i class="fa fa-check"></i><b>10.9</b> Other output options</a></li>
+<li class="chapter" data-level="10.10" data-path="knitr.html"><a href="knitr.html#resources"><i class="fa fa-check"></i><b>10.10</b> Resources</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -230,7 +234,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">2020-01-15-brynmawr</h1>
 <p class="author"><em>Kelsey Gonzalez, Amelia McNamara, The Carpentries</em></p>
-<p class="date"><em>2020-01-13</em></p>
+<p class="date"><em>2020-01-14</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
